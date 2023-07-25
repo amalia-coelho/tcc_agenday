@@ -1,4 +1,6 @@
-# tcc_agenday
+# Agenday 
+_trabalho de conclusão de curso_
+
 O Agenday é uma plataforma web inovadora desenvolvida como projeto de TCC de informática na Etec de Itanhaém. O objetivo principal do Agenday é aprimorar a comunicação dentro da instituição, oferecendo aos alunos, professores e funcionários uma maneira intuitiva e centralizada de visualizar e acompanhar eventos importantes, excursões, projetos de pesquisa e informações acadêmicas cruciais.
 
 ## Funcionalidades Principais
