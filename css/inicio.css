@@ -86,8 +86,37 @@ nav a:hover::after{
 }
 
 .inicial-element{
-    height: 100vh;
+    height: 75%;
     position: absolute;
-    right: 0px;
-    bottom: 0;
+    bottom: 40px;
+    right: 130px;
+    animation: flutuar 3s infinite;
+    transition: 1s;
+}
+
+@keyframes flutuar {
+    0% { transform: translateY(0);}
+    50% { transform: translateY(-20px);}
+    100% { transform: translateY(0);}
+}
+
+.content .btnn:hover{
+    scale: 1.04;
+    background-color: #fbfbff;
+    color: #6D26F8;
+    box-shadow: 3px 8px 22px #2525257b;
+    border: 1px solid #6D26F8;
+
+}
+
+.content .btnn{
+    display: inline-block;
+    background-color: #6D26F8;
+    border-radius: 20px;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #fbfbff;
+    box-shadow: 3px 8px 22px #6D26F8;
+    transition: .5s;
 }
