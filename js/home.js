@@ -1,11 +1,11 @@
 ScrollReveal({
     reset: true,
     distance: '60px', 
-    duration: 2500,
-    delay: 400
+    duration: 1500
   });
 
  
-  ScrollReveal().reveal('.content .h1', { delay: 500, origin: 'left' });
-  ScrollReveal().reveal('.content .success', { delay: 500, origin: 'right' });
-  ScrollReveal().reveal('.content p', { delay: 1000, origin: 'left' });
+  ScrollReveal().reveal('.content .titulo', { delay: 500, origin: 'left' });
+  ScrollReveal().reveal('.content p', { delay: 700, origin: 'left' });
+  ScrollReveal().reveal('.revealimg, .btnn', { delay: 900, origin: 'left' });
+  ScrollReveal().reveal('.home .inicial-element', { delay: 500, origin: 'right' });

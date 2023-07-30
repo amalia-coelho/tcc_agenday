@@ -2,7 +2,7 @@
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s, transform 0.5s;
-  }
+}
 
 .entrar {
     margin-top: 1rem;
@@ -15,4 +15,145 @@
     padding-right: 5%;
     position: relative;
     font-family: 'Poppins', sans-serif;
+}
+
+.login-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.login-content h1 {
+    font-size: 60px;
+    font-weight: bold;
+    color: #000;
+    line-height: 1;
+    transition: .5s ease-in-out;
+    font-family: var(--quatro);
+
+}
+
+.login-content span {
+    font-size: 30px;
+
+}
+
+.login-content p {
+    font-size: 20px;
+    width: 20rem;
+    position: relative;
+}
+
+/* .login-content {
+    margin-left: 10%;
+    margin-top: 10%;
+} */
+
+.login-content .btnn {
+    display: inline-block;
+    background-color: var(--roxo);
+    border-radius: 20px;
+    padding: 10px 40px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #fbfbff;
+    box-shadow: 3px 8px 22px var(--roxo);
+    transition: .5s;
+}
+
+.login-content .btnn:hover {
+    scale: 1.04;
+    background-color: #fbfbff;
+    color: var(--roxo);
+    box-shadow: 3px 8px 22px #2525257b;
+    border: 1px solid var(--roxo);
+
+}
+
+
+.login-element {
+    width: 35rem;
+    transition: 1s;
+    margin-left: 5rem;
+}
+
+.titulo {
+    margin-bottom: 3rem
+}
+
+.titulo .log-success {
+    color: var(--roxo);
+    transition: .5s ease-in-out;
+}
+
+.login-element:hover {
+    scale: 1.05;
+    cursor: pointer;
+}
+
+/* inputs */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    margin-bottom: 1rem;
+    font-size: 20px;
+}
+
+.form-control {
+    border-radius: 0 !important;
+    BORDER: none !important;
+    border-bottom: 2px solid #252525 !important;
+}
+
+.form-control:focus {
+    box-shadow: none !important;
+    border-color: var(--roxo) !important;
+    /* Adicione a cor desejada para a borda ao remover o foco */
+    outline: none !important;
+    /* Remova também o contorno do teclado para melhorar a acessibilidade */
+}
+
+
+.input-group {
+    position: relative;
+}
+
+#togglePassword {
+    border: none;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.login-container i {
+    color: var(--roxo);
+}
+
+small a {
+    color: var(--roxo);
+    text-decoration: none;
+}
+
+.form-group.custom-spacing {
+    margin-bottom: 20px;
+    margin-top: 2rem;
+}
+
+.revealbtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.revealbtn .create{
+    color: var(--roxo);
+    text-decoration: none;
+    margin-top: 2rem;
 }

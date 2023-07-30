@@ -7,7 +7,7 @@
     padding-left: 5%;
     padding-right: 5%;
     position: relative;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--pop);
 
 }   
 
@@ -32,7 +32,7 @@ nav ul li{
     display: inline-block;
     list-style: none;
     margin: 0 20px;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--pop);
 }
 
 nav ul li a{
