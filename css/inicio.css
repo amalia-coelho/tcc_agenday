@@ -61,8 +61,10 @@ nav a:hover::after{
     font-weight: bold;
     margin-top: 24px;
     margin-bottom: 15px;
-    color: #252525;
+    color: #000;
     line-height: .7;
+    transition: .5s ease-in-out;
+
 }
 
 .content span{
@@ -72,12 +74,26 @@ nav a:hover::after{
 
 .success{
     color: #6D26F8;
+    transition: .5s ease-in-out;
 }
+
+h1:hover .success{
+    color: #000; 
+    font-weight: bold;
+}
+
+h1:hover {
+    color: #6D26F8; 
+    font-weight: bold;
+}
+
+
 .content p{
     font-size: 20px;
     width: 20rem;
     position: relative;
 }
+
 
 
 .content{
@@ -92,6 +108,9 @@ nav a:hover::after{
     right: 130px;
     animation: flutuar 3s infinite;
     transition: 1s;
+}
+.inicial-element:hover{
+    scale: .95;
 }
 
 @keyframes flutuar {
