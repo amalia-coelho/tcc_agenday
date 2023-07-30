@@ -27,6 +27,7 @@
 </head>
 
 <body>
+  <!-- INICIO DA HOME!! -->
   <section class="home">
     <div class="navbar">
       <img class="logo" src="img/logo-projeto.png" alt="Logo">
@@ -54,6 +55,7 @@
 
     <img src="img/elemento-inicial.png" alt="Figura Inicial" class="inicial-element">
   </section>
+  <!-- FIM DA HOME!! -->
 
   <!-- PARTE DO LOGIN!! -->
 
@@ -68,12 +70,12 @@
         <!-- fim do titulo -->
         <!-- começa os input -->
 
-        <div class="form-group">
+        <div class="form-group name">
           <label for="username">Nome de usuário</label>
           <input type="text" id="username" class="form-control" placeholder="Digite seu nome de usuário">
         </div>
 
-        <div class="form-group custom-spacing">
+        <div class="form-group custom-spacing pass">
           <label for="password">Senha</label>
           <div class="input-group">
             <input type="password" id="password" class="form-control" placeholder="Digite sua senha">
@@ -86,7 +88,7 @@
 
         <!-- fim dos input -->
         <div class="revealbtn">
-          <a class="btnn" href="#">ENTRAR</a>
+          <a class="ent" href="#">ENTRAR</a>
           <a class="create" href="#">Não tem uma conta? Criar</a>
         </div>
 
@@ -96,6 +98,7 @@
       </div>
     </div>
   </section>
+  <!-- FIM DO LOGIN!! -->
 
   <!-- js -->
   <script src="js/home.js"></script>
@@ -119,6 +122,66 @@
         eyeIcon.classList.remove('bi-eye');
         eyeIcon.classList.add('bi-eye-slash');
       }
+    });
+  </script>
+  <script>
+    ScrollReveal({
+      reset: true,
+      distance: '60px',
+      duration: 1500,
+      delay: 400
+    });
+
+    ScrollReveal().reveal('nav', {
+      delay: 500,
+      origin: 'top'
+    });
+    ScrollReveal().reveal('.logo', {
+      delay: 500,
+      origin: 'bottom'
+    });
+    ScrollReveal().reveal('.content .titulo', {
+      delay: 500,
+      origin: 'left'
+    });
+    ScrollReveal().reveal('.content p', {
+      delay: 700,
+      origin: 'left'
+    });
+    ScrollReveal().reveal('.revealimg, .btnn', {
+      delay: 900,
+      origin: 'left'
+    });
+    ScrollReveal().reveal('.home .inicial-element', {
+      delay: 500,
+      origin: 'right'
+    });
+
+
+
+    ScrollReveal().reveal('.login-content .titulo', {
+      delay: 300,
+      origin: 'right'
+    });
+    ScrollReveal().reveal('.name', {
+      delay: 700,
+      origin: 'left'
+    });
+    ScrollReveal().reveal('.pass', {
+      delay: 900,
+      origin: 'right'
+    });
+    ScrollReveal().reveal('.revealbtn .ent', {
+      delay: 500,
+      origin: 'left'
+    });
+    ScrollReveal().reveal('.revealbtn .create', {
+      delay: 900,
+      origin: 'bottom'
+    });
+    ScrollReveal().reveal('.login-element', {
+      delay: 500,
+      origin: 'top'
     });
   </script>
 </body>

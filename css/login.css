@@ -51,7 +51,7 @@
     margin-top: 10%;
 } */
 
-.login-content .btnn {
+.login-content .ent {
     display: inline-block;
     background-color: var(--roxo);
     border-radius: 20px;
@@ -63,7 +63,7 @@
     transition: .5s;
 }
 
-.login-content .btnn:hover {
+.login-content .ent:hover {
     scale: 1.04;
     background-color: #fbfbff;
     color: var(--roxo);
