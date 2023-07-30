@@ -1,7 +1,7 @@
 .home{
     height: 100vh;
     width: 100%;
-    background-image: url('../img/fundo.png');
+    background-image: url('../img/fundo-.png');
     background-size: cover;
     background-position: center;
     padding-left: 5%;
@@ -44,7 +44,7 @@ nav ul li a{
 
 nav a::after{
     content: "";
-    background-color: #6D26F8;
+    background-color: var(--roxo);
     width: 0%;
     height: 0.178rem;
     position: absolute;
@@ -73,7 +73,7 @@ nav a:hover::after{
 }
 
 .success{
-    color: #6D26F8;
+    color: var(--roxo);
     transition: .5s ease-in-out;
 }
 
@@ -83,7 +83,7 @@ h1:hover .success{
 }
 
 h1:hover {
-    color: #6D26F8; 
+    color: var(--roxo); 
     font-weight: bold;
 }
 
@@ -93,8 +93,6 @@ h1:hover {
     width: 20rem;
     position: relative;
 }
-
-
 
 .content{
     margin-left: 10%;
@@ -111,6 +109,7 @@ h1:hover {
 }
 .inicial-element:hover{
     scale: .95;
+    cursor: pointer;
 }
 
 @keyframes flutuar {
@@ -122,20 +121,20 @@ h1:hover {
 .content .btnn:hover{
     scale: 1.04;
     background-color: #fbfbff;
-    color: #6D26F8;
+    color: var(--roxo);
     box-shadow: 3px 8px 22px #2525257b;
-    border: 1px solid #6D26F8;
+    border: 1px solid var(--roxo);
 
 }
 
 .content .btnn{
     display: inline-block;
-    background-color: #6D26F8;
+    background-color: var(--roxo);
     border-radius: 20px;
     padding: 10px 20px;
     text-decoration: none;
     font-weight: bold;
     color: #fbfbff;
-    box-shadow: 3px 8px 22px #6D26F8;
+    box-shadow: 3px 8px 22px var(--roxo);
     transition: .5s;
 }
