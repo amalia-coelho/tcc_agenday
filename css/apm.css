@@ -1,0 +1,108 @@
+body{
+    background-color: var(--branco);
+}
+
+.apm-container {
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fbfbff;
+}
+.apm{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: center;
+    padding-top: 3rem;
+}
+
+.apm-title h1{
+    font-family: var(--quatro);
+    font-size: 80px;
+    font-weight: 400;
+}
+.apm-title p{
+    font-family: var(--merri);
+    font-size: 20px;
+}
+
+.apm-card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 6rem;
+
+}
+
+.apm-group{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+}
+
+.apm-card{
+    background-color: var(--roxo);
+    border-radius: 10px;
+    display: flex;
+    width: auto;
+    align-items: center;
+    flex-direction: column;
+    color: var(--branco);
+    margin-bottom: 2rem;
+    margin-left: 3rem;
+    box-shadow: 1px 8px 20px 0px #000;
+    transition: 0.1s ease-in-out;
+}
+
+.apm-card:hover{
+    transform: scale(1.05);
+}
+
+.card-text{
+    text-align:start;
+    padding: 5%;
+}
+
+.apm-group .card-img{
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 20px;
+    transition: 0.3s ease-in-out;
+}
+
+
+
+.apm-group .card-img, .card-info{
+    width: 280px;
+}
+
+.apm-card .card-title{
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.card-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: var(--pop);
+}
+
+.price .btn{
+    color: #000;
+    margin-right: 10px;
+    background-color: var(--branco) !important;
+}
+.price .btn:hover{
+    color: #000 !important;
+}

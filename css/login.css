@@ -22,11 +22,11 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
 .login-content h1 {
-    font-size: 60px;
+    font-size: 80px;
     font-weight: bold;
     color: #000;
     line-height: 1;
@@ -74,7 +74,7 @@
 
 
 .login-element {
-    width: 35rem;
+    width: 40rem;
     transition: 1s;
     margin-left: 5rem;
 }

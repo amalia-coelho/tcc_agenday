@@ -5,6 +5,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: var(--roxo);
 }
 
 /* Variáveis */
@@ -18,3 +20,17 @@
     --pop: "Poppins", sans-serif;
     --merri: "Merriweather", sans-serif;
 }
+
+  /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: var(--cinza);
+}
+
+*::-webkit-scrollbar-thumb {
+      border-radius: 20px;
+    background-color: var(--roxo);
+  }
