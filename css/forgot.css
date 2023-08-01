@@ -5,7 +5,6 @@
 }
 
 .entrar {
-    margin-top: 1rem;
     height: 100vh;
     width: 100%;
     background-image: url('../img/login.png');
@@ -23,6 +22,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: row-reverse;
 }
 
 .login-content h1 {
@@ -76,7 +76,7 @@
 .login-element {
     width: 40rem;
     transition: 1s;
-    margin-left: 5rem;
+    margin-right: 5rem;
 }
 
 .titulo {
@@ -137,6 +137,7 @@
 small a {
     color: var(--roxo);
     text-decoration: none;
+    font-size: 1.1em;
 }
 
 .form-group.custom-spacing {
