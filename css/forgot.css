@@ -79,9 +79,6 @@
     margin-right: 5rem;
 }
 
-.titulo {
-    margin-bottom: 3rem
-}
 
 .titulo .log-success {
     color: var(--roxo);
@@ -140,9 +137,12 @@ small a {
     font-size: 1.1em;
 }
 
-.form-group.custom-spacing {
-    margin-bottom: 20px;
-    margin-top: 2rem;
+.titulo{
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-top: 4rem;
 }
 
 .revealbtn {
