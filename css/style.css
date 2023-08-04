@@ -34,3 +34,11 @@
       border-radius: 20px;
     background-color: var(--roxo);
   }
+
+  ::-webkit-scrollbar{
+    scroll-padding-top: 90px;
+  }
+
+  body{
+    width: 100%;
+  }

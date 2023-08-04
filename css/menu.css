@@ -1,46 +1,50 @@
+nav.menu-lateral {
+    width: 84px;
+    height: 100vh;
+    background-color: var(--cinza);
+    padding: 40px 0 40px;
+    box-shadow: 5px 0 0 var(--roxo);
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: .3s;
+}
 
-nav.menu-lateral{
-width: 84px;
-height: 100vh;
-background-color: var(--cinza);
-padding: 40px 0 40px;
-box-shadow: 5px 0 0 var(--roxo);
-position: fixed;
-top: 0;
-left: 0;
-overflow: hidden;
-transition: .3s;
+nav.menu-lateral.expandir {
+    width: 280px;
 }
-nav.menu-lateral.expandir{
-width: 280px;
-}
-.btn-expandir{
+
+.btn-expandir {
     width: 100%;
     padding-left: 30px;
 }
-.btn-expandir > i{
+
+.btn-expandir>i {
     color: var(--branco);
-    font-size:24px;
+    font-size: 24px;
     cursor: pointer;
 }
-ul{
+
+ul {
     height: 100%;
-    list-style-type:none;
+    list-style-type: none;
 }
-ul li.item-menu{
+
+ul li.item-menu {
     width: 100%;
     transition: .2s;
     position: relative;
 }
 
 
-ul li.ativo{
+ul li.ativo {
     position: relative;
     width: 100%;
 }
 
 
-ul li.ativo::before{
+ul li.ativo::before {
     content: '';
     width: 100%;
     position: absolute;
@@ -51,7 +55,7 @@ ul li.ativo::before{
 }
 
 
-ul li.item-menu::after{
+ul li.item-menu::after {
     content: '';
     width: 0%;
     position: absolute;
@@ -61,10 +65,10 @@ ul li.item-menu::after{
     left: 0;
 }
 
- ul li.item-menu:hover::after{
+ul li.item-menu:hover::after {
     width: 100%;
 
-} 
+}
 
 /* ul li.item-menu:hover{
     background-color: none;
@@ -73,27 +77,29 @@ ul li.item-menu::after{
 
 } */
 
-ul li.item-menu a{    
+ul li.item-menu a {
     font-family: var(--pop);
     color: var(--branco);
-    text-decoration:none;
+    text-decoration: none;
     font-size: 20px;
     padding: 20px 4%;
 
-    display: flex;    line-height: 40px;
+    display: flex;
+    line-height: 40px;
 }
-ul li.item-menu a .txt-link{
+
+ul li.item-menu a .txt-link {
     margin-left: 70px;
     transition: .5s;
     opacity: 0;
 }
 
-nav.menu-lateral.expandir .txt-link{
-    margin-left:40px;
+nav.menu-lateral.expandir .txt-link {
+    margin-left: 40px;
     opacity: 1;
 }
 
-ul li.item-menu a .icon > i{
+ul li.item-menu a .icon>i {
     font-size: 30px;
     margin: -5px;
 }

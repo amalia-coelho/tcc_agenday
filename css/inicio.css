@@ -1,4 +1,4 @@
-.home{
+.home {
     height: 100vh;
     width: 100%;
     background-image: url('../img/fundo-.png');
@@ -9,9 +9,9 @@
     position: relative;
     font-family: var(--pop);
 
-}   
+}
 
-.navbar{
+.navbar {
     width: 100%;
     height: 15vh;
     margin: auto;
@@ -19,16 +19,16 @@
     align-items: center;
 }
 
-.logo{
+.logo {
     width: 160px;
     cursor: pointer;
 }
 
-nav{
+nav {
     flex: 1;
 }
 
-nav ul li{
+nav ul li {
     display: inline-block;
     list-style: none;
     margin: 0 20px;
@@ -36,14 +36,14 @@ nav ul li{
     font-size: 20px;
 }
 
-nav ul li a{
+nav ul li a {
     text-decoration: none;
     color: #000;
     text-transform: uppercase;
     position: relative;
 }
 
-nav a::after{
+nav a::after {
     content: "";
     background-color: var(--roxo);
     width: 0%;
@@ -53,11 +53,12 @@ nav a::after{
     left: 0;
     transition: 0.5s ease-in-out;
 }
-nav a:hover::after{
+
+nav a:hover::after {
     width: 70%;
 }
 
-.content h1{
+.content h1 {
     font-size: 80px;
     font-weight: bold;
     margin-top: 24px;
@@ -68,39 +69,39 @@ nav a:hover::after{
 
 }
 
-.content span{
+.content span {
     font-size: 40px;
 
 }
 
-.success{
+.success {
     color: var(--roxo);
     transition: .5s ease-in-out;
 }
 
-h1:hover .success{
-    color: #000; 
+h1:hover .success {
+    color: #000;
     font-weight: bold;
 }
 
 h1:hover {
-    color: var(--roxo); 
+    color: var(--roxo);
     font-weight: bold;
 }
 
 
-.content p{
+.content p {
     font-size: 20px;
     width: 20rem;
     position: relative;
 }
 
-.content{
+.content {
     margin-left: 10%;
     margin-top: 10%;
 }
 
-.inicial-element{
+.inicial-element {
     height: 75%;
     position: absolute;
     bottom: 40px;
@@ -108,18 +109,27 @@ h1:hover {
     animation: flutuar 3s infinite;
     transition: 1s;
 }
-.inicial-element:hover{
+
+.inicial-element:hover {
     scale: .95;
     cursor: pointer;
 }
 
 @keyframes flutuar {
-    0% { transform: translateY(0);}
-    50% { transform: translateY(-20px);}
-    100% { transform: translateY(0);}
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
-.content .btnn:hover{
+.content .btnn:hover {
     scale: 1.04;
     background-color: #fbfbff;
     color: var(--roxo);
@@ -128,7 +138,7 @@ h1:hover {
 
 }
 
-.content .btnn{
+.content .btnn {
     display: inline-block;
     background-color: var(--roxo);
     border-radius: 20px;
@@ -139,4 +149,133 @@ h1:hover {
     color: #fbfbff;
     box-shadow: 3px 8px 22px var(--roxo);
     transition: .5s;
+}
+
+
+
+@media screen and (max-width: 480px) {
+    section {
+        padding: 0;
+    }
+
+    .entrar {
+        margin-top: 40rem;
+    }
+    .navbar nav ul {
+        padding-left: 35px;
+    }
+
+    .home {
+        background-image: url('../img/fundo-.png');
+        background-position: left;
+        overflow: hidden;
+        height: 100vh;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    nav ul li a {
+        font-size: 12px;
+    }
+
+    nav ul li {
+        margin: 5px;
+    }
+
+    .content p {
+        font-size: 15px;
+    }
+
+    .inicial-element {
+        position: relative;
+        bottom: -20px;
+        left: 0;
+        height: 35%;
+    }
+
+    .home-img {
+        height: 35%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .content h1 {
+        font-size: 50px;
+        line-height: 1;
+    }
+
+    .content span {
+        font-size: 30px;
+
+    }
+
+    .login-element {
+        width: 15rem;
+        transition: 1s;
+        margin-left: 5rem;
+    }
+
+
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .navbar nav ul {
+        padding-left: 0px;
+    }
+
+    .inicial-element {
+        height: 55%;
+        bottom: 120px;
+        right: 70px;
+    }
+
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1199px) {
+
+    nav ul li a {
+        font-size: 15px;
+    }
+
+    .navbar nav ul {
+        padding-left: 0px;
+    }
+
+    .inicial-element {
+        height: 60%;
+        bottom: 120px;
+        right: 70px;
+    }
+
+    .content h1 {
+        font-size: 50px;
+        line-height: 1;
+    }
+
+    .content span {
+        font-size: 30px;
+
+    }
+
+
+
+
+}
+
+@media screen and (min-width: 1200px) {
+
+    nav ul li a {
+        font-size: 15px;
+    }
+
+    .inicial-element {
+        height: 65%;
+        bottom: 120px;
+        right: 70px;
+    }
+
 }

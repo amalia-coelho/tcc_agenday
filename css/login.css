@@ -15,6 +15,7 @@
     padding-right: 5%;
     position: relative;
     font-family: 'Poppins', sans-serif;
+    
 }
 
 .login-container {
@@ -26,7 +27,7 @@
 }
 
 .login-content h1 {
-    font-size: 80px;
+    font-size: 70px;
     font-weight: bold;
     color: #000;
     line-height: 1;
@@ -87,18 +88,6 @@
     color: var(--roxo);
     transition: .5s ease-in-out;
 }
-
-
-h1:hover .log-success{
-    color: #000; 
-    font-weight: bold;
-}
-
-h1:hover {
-    color: var(--roxo); 
-    font-weight: bold;
-}
-
 
 .login-element:hover {
     scale: 1.05;
@@ -169,3 +158,47 @@ small a {
     text-decoration: none;
     margin-top: 2rem;
 }
+
+/* RESPONSIVIDADE */
+
+@media screen and (max-width: 480px){
+    .entrar{
+        overflow-x: hidden;
+    }
+    .login-element{
+        width: 0rem;
+    }
+    .login-container{
+        display: block;
+    }
+    .login-content .titulo{
+        text-align:start;
+    }
+    .login-content .titulo .resp{
+        font-size: 70px;
+    }
+
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px){
+ 
+    
+}
+
+@media screen and (min-width: 769px) and (max-width: 1199px){
+
+
+
+
+
+    
+}
+
+@media screen and (min-width: 1200px){
+
+
+    
+}
+
+
+
