@@ -88,6 +88,18 @@
     transition: .5s ease-in-out;
 }
 
+
+h1:hover .log-success{
+    color: #000; 
+    font-weight: bold;
+}
+
+h1:hover {
+    color: var(--roxo); 
+    font-weight: bold;
+}
+
+
 .login-element:hover {
     scale: 1.05;
     cursor: pointer;

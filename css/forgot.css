@@ -7,7 +7,7 @@
 .entrar {
     height: 100vh;
     width: 100%;
-    background-image: url('../img/login.png');
+    background-image: url('../img/forgot.png');
     background-size: cover;
     background-position: center;
     padding-left: 5%;
@@ -34,6 +34,23 @@
     font-family: var(--quatro);
 
 }
+
+.fog-success {
+    color: var(--roxo);
+    transition: .5s ease-in-out;
+}
+
+h1:hover .fog-success {
+    color: #000;
+    font-weight: bold;
+}
+
+h1:hover {
+    color: var(--roxo);
+    font-weight: bold;
+}
+
+
 
 .login-content span {
     font-size: 30px;
@@ -134,18 +151,21 @@
 small a {
     color: var(--roxo);
     text-decoration: none;
-    font-size: 1.1em;
+    font-size: 1.2em;
 }
 
-.titulo{
-    margin-bottom: 2rem;
+.titulo h1 {
+    margin-bottom: 3rem;
 }
 
 .form-group {
-    margin-top: 4rem;
+    margin-top: 3rem;
+    width: 80%;
 }
 
 .revealbtn {
+    width: 70%;
+    margin-top: 4rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -153,7 +173,7 @@ small a {
 
 }
 
-.revealbtn .create{
+.revealbtn .create {
     color: var(--roxo);
     text-decoration: none;
     margin-top: 2rem;
