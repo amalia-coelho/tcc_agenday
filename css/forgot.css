@@ -180,23 +180,27 @@ small a {
     margin-top: 2rem;
 }
 
-@media screen and (max-width: 480px){
- 
-    .entrar{
+@media screen and (max-width: 480px) {
+
+    .entrar {
         background-position: right;
     }
-    .login-img{
-        display:none;
+
+    .login-img {
+        display: none;
     }
+
     .form-group {
         margin-top: 3rem;
         width: 100%;
     }
+
     .revealbtn {
         width: 100%;
         margin-top: 4rem;
     }
-    .resp{
+
+    .resp {
         display: none;
     }
 }

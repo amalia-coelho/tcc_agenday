@@ -2,39 +2,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quattrocento:wght@400;700&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scrollbar-width: thin;
-    scrollbar-color: var(--roxo);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: var(--roxo);
 }
 
 /* Variáveis */
 
 :root {
-    --roxo: #6D26F8;
-    --azul-: #657ED4;
-    --cinza: #252525;
-    --branco: #fbfbff;
-    --quatro: "Quattrocento", sans-serif;
-    --pop: "Poppins", sans-serif;
-    --merri: "Merriweather", sans-serif;
+  --roxo: #6D26F8;
+  --azul-: #657ED4;
+  --cinza: #252525;
+  --branco: #fbfbff;
+  --quatro: "Quattrocento", sans-serif;
+  --pop: "Poppins", sans-serif;
+  --merri: "Merriweather", sans-serif;
 }
 
-  /* Works on Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
-    width: 12px;
-  }
-  
-  *::-webkit-scrollbar-track {
-    background: var(--cinza);
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--cinza);
 }
 
 *::-webkit-scrollbar-thumb {
-      border-radius: 20px;
-    background-color: var(--roxo);
-  }
+  border-radius: 20px;
+  background-color: var(--roxo);
+}
 
-  ::-webkit-scrollbar{
-    scroll-padding-top: 90px;
-  }
+::-webkit-scrollbar {
+  scroll-padding-top: 90px;
+}
