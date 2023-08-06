@@ -121,6 +121,7 @@ h1:hover {
     border-radius: 0 !important;
     BORDER: none !important;
     border-bottom: 2px solid #252525 !important;
+    background: none !important;
 }
 
 .form-control:focus {
@@ -177,4 +178,25 @@ small a {
     color: var(--roxo);
     text-decoration: none;
     margin-top: 2rem;
+}
+
+@media screen and (max-width: 480px){
+ 
+    .entrar{
+        background-position: right;
+    }
+    .login-img{
+        display:none;
+    }
+    .form-group {
+        margin-top: 3rem;
+        width: 100%;
+    }
+    .revealbtn {
+        width: 100%;
+        margin-top: 4rem;
+    }
+    .resp{
+        display: none;
+    }
 }

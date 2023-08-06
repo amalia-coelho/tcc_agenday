@@ -162,15 +162,23 @@ small a {
 /* RESPONSIVIDADE */
 
 @media screen and (max-width: 480px){
-    .entrar{
-        overflow-x: hidden;
+    .login-img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
     }
-    .login-element{
-        width: 0rem;
+    .login-element {
+        width: 15rem;
+        margin-left: 0;
     }
     .login-container{
-        display: block;
-    }
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column-reverse;
+}
     .login-content .titulo{
         text-align:start;
     }
@@ -193,7 +201,9 @@ small a {
 @media screen and (min-width: 769px) and (max-width: 1199px){
 
 
-
+    .login-content .titulo .resp{
+        font-size: 70px;
+    }
 
 
     
@@ -201,9 +211,12 @@ small a {
 
 @media screen and (min-width: 1200px){
 
-
+    .login-content .titulo .resp{
+        font-size: 70px;
+    }
     
 }
+
 
 
 
