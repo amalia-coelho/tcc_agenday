@@ -76,6 +76,7 @@
     position: absolute;
     left: 30px;
     bottom: 300px;
+    overflow: hidden;
 }
 
 .cadastro-element2 {
@@ -83,6 +84,7 @@
     transition: 1s;
 }
 .cadastro-img {
+    overflow: hidden;
     position: absolute;
     right: 30px;
     bottom: 0;
@@ -93,7 +95,7 @@
     transition: 1s;
 }
 
-.cadastro-element:hover {
+.cadastro-element:hover, .cadastro-element2:hover {
     scale: 1.05;
     cursor: pointer;
 }

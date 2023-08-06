@@ -38,11 +38,11 @@
                 <!-- fim do titulo -->
                 <!-- começa os input -->
 
-                <div class="form-group">
+                <div class="form-group name">
                     <label for="email">Email</label>
                     <input type="text" id="email" class="form-control" placeholder="Digite seu melhor email">
                 </div>
-                <div class="form-group">
+                <div class="form-group name">
                     <input type="text" id="email" class="form-control" placeholder="Confirme seu email">
                 </div>
 
@@ -100,7 +100,42 @@
             }
         });
     </script>
-
+<script>
+    ScrollReveal({
+      reset: true,
+      distance: '60px',
+      duration: 1500,
+      delay: 400
+    });
+    ScrollReveal().reveal('.cadastro-container, .h1', {
+      delay: 300,
+      origin: 'right'
+    });
+    ScrollReveal().reveal('.name', {
+      delay: 700,
+      origin: 'left'
+    });
+    ScrollReveal().reveal('.pass', {
+      delay: 900,
+      origin: 'right'
+    });
+    ScrollReveal().reveal('.revealbtn', {
+      delay: 500,
+      origin: 'left'
+    });
+    ScrollReveal().reveal('.revealbtn .create', {
+      delay: 900,
+      origin: 'bottom'
+    });
+    ScrollReveal().reveal('.cadastro-img', {
+      delay: 500,
+      origin: 'top'
+    });
+    ScrollReveal().reveal('.cadastro-img2', {
+      delay: 500,
+      origin: 'bottom'
+    });
+  </script>
 </body>
 
 </html>
