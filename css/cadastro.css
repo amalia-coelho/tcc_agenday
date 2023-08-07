@@ -27,7 +27,24 @@
     line-height: 1;
     transition: .5s ease-in-out;
     font-family: var(--quatro);
+    position: relative;
+}
 
+.titulo .h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0.1rem;
+    left: 50%;
+    width: 50%;
+    height: 4px;
+    border-bottom: 4px solid var(--azul);
+    background-color: var(--roxo);
+    transform: translateX(-50%);
+    transition: width 0.3s;
+}
+
+.titulo .h1:hover::after {
+    width: 100%;
 }
 
 /* botao */
@@ -118,12 +135,17 @@
     border-bottom: 2px solid #252525 !important;
 }
 
-.form-control:focus {
+.form-control:focus, .form-control:hover {
     box-shadow: none !important;
     border-color: var(--roxo) !important;
     /* Adicione a cor desejada para a borda ao remover o foco */
     outline: none !important;
     /* Remova também o contorno do teclado para melhorar a acessibilidade */
+}
+
+input:hover::placeholder{
+    color: var(--roxo) !important;
+
 }
 
 .form-group .custom-spacing {
