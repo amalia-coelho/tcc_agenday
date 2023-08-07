@@ -1,0 +1,223 @@
+
+.entrar {
+    height: 100vh;
+    width: 100%;
+    background-image: url('../img/doisfatores.png');
+    background-size: cover;
+    background-position: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    
+}
+
+.login-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-content h1 {
+    font-size: 70px;
+    font-weight: bold;
+    color: #000;
+    line-height: 1;
+    transition: .5s ease-in-out;
+    font-family: var(--quatro);
+
+}
+
+.login-content span {
+    font-size: 30px;
+
+}
+
+.login-content p {
+    font-size: 20px;
+    width: 20rem;
+    position: relative;
+}
+
+/* .login-content {
+    margin-left: 10%;
+    margin-top: 10%;
+} */
+
+.login-content .ent {
+    display: inline-block;
+    background-color: var(--roxo);
+    border-radius: 20px;
+    padding: 10px 40px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #fbfbff;
+    box-shadow: 3px 8px 22px var(--roxo);
+    transition: .5s;
+}
+
+.login-content .ent:hover {
+    scale: 1.04;
+    background-color: #fbfbff;
+    color: var(--roxo);
+    box-shadow: 3px 8px 22px #2525257b;
+    border: 1px solid var(--roxo);
+
+}
+
+
+.login-element {
+    width: 40rem;
+    transition: 1s;
+}
+
+.titulo {
+    margin-bottom: 3rem
+}
+
+.titulo .log-success {
+    color: var(--roxo);
+    transition: .5s ease-in-out;
+}
+
+.login-element:hover {
+    scale: 1.05;
+    cursor: pointer;
+}
+
+
+.login-container i {
+    color: var(--roxo);
+}
+
+small a {
+    font-size: 20px;
+    color: var(--roxo);
+    text-decoration: none;
+}
+
+small {
+    margin-top: 1.5rem;
+    display: block;
+    width: 500px;
+}
+
+.form-group.custom-spacing {
+    margin-bottom: 20px;
+    margin-top: 2rem;
+}
+
+.revealbtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.revealbtn .create{
+    color: var(--roxo);
+    text-decoration: none;
+    margin-top: 2rem;
+}
+/* Estilização para os campos de autenticação */
+.cod a{
+    font-size: 15px;
+    text-decoration: underline;
+}
+.inputs-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.inputs-container input {
+    width: 60px; /* Largura dos campos */
+    height: 70px; /* Altura dos campos */
+    margin: 0 5px; /* Espaçamento entre os campos */
+    font-size: 24px; /* Tamanho do texto (número) */
+    font-weight: bold; /* Fonte em negrito para melhor visibilidade */
+    border: 2px solid var(--roxo); /* Cor da borda roxa */
+    border-radius: 8px; /* Bordas arredondadas */
+    text-align: center;
+
+    /* Remover as setas padrão de incremento e decremento */
+    appearance: textfield;
+}
+
+/* Estilização para o botão de incremento ou decremento (aparece em alguns navegadores) */
+.inputs-container input::-webkit-inner-spin-button,
+.inputs-container input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Estilização para o campo de entrada quando estiver focado */
+.inputs-container input:focus {
+    outline: none;
+    border-color: var(--roxo); /* Cor da borda roxa quando o campo está em foco */
+}
+
+
+/* RESPONSIVIDADE */
+
+@media screen and (max-width: 480px){
+    .login-img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+    .login-element {
+        width: 15rem;
+        margin-left: 0;
+    }
+    .login-container{
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column-reverse;
+}
+    .login-content .titulo{
+        text-align:start;
+    }
+    .login-content .titulo .resp{
+        font-size: 70px;
+    }
+
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px){
+    .login-element{
+        width: 20rem;
+    }
+    .login-content .titulo .resp{
+        font-size: 70px;
+    }
+    
+}
+
+@media screen and (min-width: 769px) and (max-width: 1199px){
+
+
+    .login-content .titulo .resp{
+        font-size: 70px;
+    }
+
+
+    
+}
+
+@media screen and (min-width: 1200px){
+
+    .login-content .titulo .resp{
+        font-size: 70px;
+    }
+    
+}
+
+
+
+
