@@ -1,0 +1,136 @@
+body{
+  background-color: var(--branco);
+}
+
+.duvidas{
+  text-align: center;
+  padding-top: 4rem;
+  font-family: var(--quatro);
+}
+
+
+.duvidas-container {
+  margin-left: 84px; 
+}
+
+nav.menu-lateral.expandir ~ .duvidas-container {
+  margin-left: 280px;
+}
+nav.menu-lateral {
+  z-index: 1000; 
+}
+
+
+
+.faq {
+  
+  position: relative;
+  margin-bottom: 20px;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  font-size: 25px;
+  padding-left: 10px;
+}
+
+.faq-toggle {
+  font-family: var(--pop);
+  text-align: center;
+  width: 50%;
+  background-color: var(--roxo);
+  border-radius: 17px;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #fbfbff;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 10px;
+  box-shadow: 1px 5px 10px var(--roxo);
+}
+
+.arrow {
+  position: absolute;
+  top: 45%;
+  right: 10px;
+  transition: transform 0.3s ease; 
+  padding: 3px; 
+  border-top: 2px solid var(--branco);
+  border-right: 2px solid var(--branco);
+  transform: rotate(-45deg);
+  z-index: 10000;
+  width: 15px;
+  height: 15px;
+  margin-right: 25px;
+}
+
+.faq-content {
+  position: absolute;
+  z-index: 10; 
+  width: 50%; 
+  background-color: #fff;
+  padding: 10px;
+  animation: fade-in 0.5s ease;
+  display: none; 
+  top: calc(100% + 20px);
+  text-align: justify;
+  border-bottom: 2px solid #000;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faq.active .arrow {
+  transform: translateY(-50%) rotate(-224deg);
+  }
+
+
+  .mensagem-img{
+    position: fixed;
+    right: 10px;
+    top: 0px;
+    overflow: hidden;
+  }
+ 
+.mensagem-element{
+  width: 30rem;
+  transition: 0.5s ease-in-out;
+}
+
+.mensagem-element:hover{
+transform: scale(1.05);
+}
+
+.mensagem2-img{
+  position: fixed;
+  left: 100px;
+  bottom: 0px;
+  overflow: hidden;
+}
+
+.mensagem2-element{
+width: 24rem;
+transition: 0.5s ease-in-out;
+}
+
+.mensagem2-element:hover{
+transform: scale(1.05);
+}
+
+.duvidas h1{
+  margin-bottom: 3rem;
+}
+
+ol li{
+margin-bottom: 15px;
+text-align: justify;
+}
