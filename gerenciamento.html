@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +10,28 @@
   <link rel="stylesheet" href="css/menu.css">
 
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
 
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css"
     integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    ul li.item-menu a {
+      padding: 20px 34px !important;
+    }
+
+    ul li.item-menu::after {
+      margin-left: 34px !important;
+
+    }
+
+    ul li.ativo::before {
+      margin-left: 34px !important;
+    }
+  </style>
   <!-- /css -->
 
   <!-- js -->
@@ -30,7 +47,7 @@
   <section class="-container">
     <!-- INICIO MENU  -->
 
-  <nav class="menu-lateral">
+    <nav class="menu-lateral">
       <div class="btn-expandir">
         <i class="bi bi-list" id="btn-exp"></i>
       </div>
@@ -42,7 +59,7 @@
           </a>
         </li>
         <li class="item-menu">
-          <a href="#">
+          <a href="index.html">
             <span class="icon"><i class="bi bi-house-door-fill"></i></span>
             <span class="txt-link">Home</span>
           </a>
@@ -77,13 +94,13 @@
             <span class="txt-link">Gestão</span>
           </a>
         </li>
-        <li class="item-menu ativo">
-          <a href="#">
+        <li class="item-menu">
+          <a href="duvidas.html">
             <span class="icon"><i class="bi bi-question-lg"></i></span>
             <span class="txt-link">Dúvidas</span>
           </a>
         </li>
-        <li class="item-menu">
+        <li class="item-menu ativo">
           <a href="gerenciamento.html">
             <span class="icon"><i class="bi bi-gear-fill"></i></span>
             <span class="txt-link">Gerenciamento</span>
@@ -94,75 +111,78 @@
     <!-- FIM DO MENU -->
   </section>
 
-      
-      
-      <section class="adm-container">
-      <div class="adm">
-          <div class="adm-title row">
-              <div>
-                <h1>Gerenciamento</h1>
-              </div>
-              <div class="revealbtn">
-                <a class="ent" href="#">Salvar Alterações</a>
-              </div>
+
+
+  <section class="adm-container">
+    <div class="adm">
+      <div class="adm-title row">
+        <div>
+          <h1>Gerenciamento</h1>
+        </div>
+        <div class="revealbtn">
+          <a class="ent" href="#">Salvar Alterações</a>
+        </div>
+      </div>
+      <div class="adm-filtro mt-5 mb-5">
+        <div class="filtro-title">
+          <p>Filtrar por:</p>
+        </div>
+        <div class="filtro-btn">
+          <div class="revealbtn">
+            <a class="ent" href="#">Alunos</a>
           </div>
-          <div class="adm-filtro mt-5 mb-5">
-              <div class="filtro-title">
-                <p>Filtrar por:</p>
-              </div>
-              <div class="filtro-btn">
-                <div class="revealbtn">
-                  <a class="ent" href="#">Alunos</a>
-                </div>
-                <div class="revealbtn">
-                  <a class="ent" href="#">Professores</a>
-                </div>
-                <div class="revealbtn">
-                  <a class="ent" href="#">Turma</a>
-                </div>
-                <div class="revealbtn">
-                  <a class="ent" href="#">Gestão</a>
-                </div>
-                <div class="revealbtn">
-                  <a class="ent" href="#">Saúde</a>
-                </div>
-              </div>
+          <div class="revealbtn">
+            <a class="ent" href="#">Professores</a>
           </div>
+          <div class="revealbtn">
+            <a class="ent" href="#">Turma</a>
+          </div>
+          <div class="revealbtn">
+            <a class="ent" href="#">Gestão</a>
+          </div>
+          <div class="revealbtn">
+            <a class="ent" href="#">Saúde</a>
+          </div>
+        </div>
       </div>
-      <div class="adm-img">
-        <img src="img/spreadsheets-animate.svg" alt="Figura Inicial" class="adm-element">
-      </div>
-      <div class="adm-content mt-5">
-        <table class="table table-hover">
-          <thead class="thead">
-            <tr>
-              <th scope="col">Nome</th>
-              <th scope="col">Turma</th>
-              <th scope="col">Ações</th>
-            </tr>
-          </thead>
-          <tbody class="table-bordered">
-            <tr>
-              <td>Eric Junokas Oliveira</td>
-              <td>3MIN</td>
-              <td class="edit"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i class="bi bi-trash"></i></a></td>
-            </tr>
-            <tr>
-              <td>Iago Marques Pinto</td>
-              <td>3MIN</td>
-              <td class="edit small"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i class="bi bi-trash"></i></a></td>
-            </tr>
-            <tr>
-              <td>Laura Maytê Bronrinho</td>
-              <td>3MAM</td>
-              <td class="edit"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i class="bi bi-trash"></i></a></td>
-            </tr>
-          </tbody>
-        </table>
-        
-      
-      </div>
-    </section>
+    </div>
+    <div class="adm-img">
+      <img src="img/spreadsheets-animate.svg" alt="Figura Inicial" class="adm-element">
+    </div>
+    <div class="adm-content mt-5">
+      <table class="table table-hover">
+        <thead class="thead">
+          <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Turma</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody class="table-bordered">
+          <tr>
+            <td>Eric Junokas Oliveira</td>
+            <td>3MIN</td>
+            <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i class="bi bi-trash"></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td>Iago Marques Pinto</td>
+            <td>3MIN</td>
+            <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
+                  class="bi bi-trash"></i></a></td>
+          </tr>
+          <tr>
+            <td>Laura Maytê Bronrinho</td>
+            <td>3MAM</td>
+            <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i class="bi bi-trash"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+  </section>
 
   <!-- FIM DA DÚVIDA!! -->
 
