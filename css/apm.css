@@ -3,15 +3,20 @@ body{
 }
 
 .apm-container {
-    height: 100vh;
     width: 100%;
+    /* background-size: cover;
+    background-position: center; */
+    background: url('sua-imagem.jpg') center center no-repeat fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
-    background-position: center;
     padding-left: 5%;
     padding-right: 5%;
     position: relative;
     font-family: 'Poppins', sans-serif;
     background-color: #fbfbff;
+    background-image: url('../img/doisfatores.png');
 }
 .apm{
     display: flex;
@@ -28,7 +33,25 @@ body{
     font-family: var(--quatro);
     font-size: 80px;
     font-weight: 400;
+    position: relative;
 }
+.apm-title h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0.1rem;
+    left: 50%;
+    width: 5%;
+    height: 4px;
+    border-bottom: 4px solid var(--azul);
+    background-color: var(--roxo);
+    transform: translateX(-50%);
+    transition: width 0.3s;
+}
+
+.apm-title h1:hover::after {
+    width: 10%;
+}
+
 .apm-title p{
     font-family: var(--merri);
     font-size: 20px;
@@ -62,7 +85,7 @@ body{
     margin-bottom: 2rem;
     margin-left: 3rem;
     box-shadow: 1px 8px 20px 0px #000;
-    transition: 0.1s ease-in-out;
+    transition: 0.3s ease-in-out;
 }
 
 .apm-card:hover{

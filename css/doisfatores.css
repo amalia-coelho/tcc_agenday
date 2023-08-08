@@ -137,7 +137,6 @@ small {
     height: 70px; /* Altura dos campos */
     margin: 0 5px; /* Espaçamento entre os campos */
     font-size: 24px; /* Tamanho do texto (número) */
-    font-weight: bold; /* Fonte em negrito para melhor visibilidade */
     border: 2px solid var(--roxo); /* Cor da borda roxa */
     border-radius: 8px; /* Bordas arredondadas */
     text-align: center;

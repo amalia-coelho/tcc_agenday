@@ -178,6 +178,7 @@ small a {
     color: var(--roxo);
     text-decoration: none;
     margin-top: 2rem;
+    line-height: 5;
 }
 
 @media screen and (max-width: 480px) {
