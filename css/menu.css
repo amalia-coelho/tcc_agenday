@@ -1,3 +1,7 @@
+nav{
+    z-index: 1;
+}
+
 nav.menu-lateral {
     width: 84px;
     height: 100vh;
@@ -82,7 +86,7 @@ ul li.item-menu a {
     color: var(--branco);
     text-decoration: none;
     font-size: 20px;
-    padding: 20px 4% !important;
+    padding: 20px .1rem !important;
 
     display: flex;
     line-height: 40px;
@@ -103,3 +107,45 @@ ul li.item-menu a .icon>i {
     font-size: 30px;
     margin: -5px;
 }
+
+/* responsividade */
+@media screen and (max-width: 480px){
+    
+    nav{
+        position: fixed !important;
+    }
+
+    nav.menu-lateral {
+        width: 45px;
+    }
+    nav.menu-lateral.expandir {
+        width: 200px;
+    }
+    .btn-expandir{
+        padding-left: 10px !important;
+
+    }
+    ul{
+        padding-left: 10px !important;
+    }
+    ul li.item-menu a {
+        font-size: 15px;
+        line-height: 40px;
+    }
+    ul li.item-menu a .icon>i {
+        font-size: 25px;
+        margin: -5px;
+    }
+
+@media screen and (min-width: 481px) and (max-width: 768px){
+
+  
+}
+
+@media screen and (min-width: 769px) and (max-width: 1199px){
+
+
+  
+}
+
+  
