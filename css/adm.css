@@ -76,7 +76,8 @@ body {
     font-size: 20px;
     box-shadow: 3px 8px 22px var(--roxo);
     transition: .5s;
-    
+    border: 1px solid var(--roxo);
+
 }
 
 .adm-title .ent:hover,
@@ -124,15 +125,29 @@ body {
 
 /* tabela */
 /* tabela */
+
+::-webkit-scrollbar {
+    scroll-padding-top: 0px !important;
+  }
 .adm-content {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+
+.tabela-gera {
+        max-height: 500px;
+        overflow-y: auto;
+        width: 60% !important;
+   
 }
 
 .adm-content .table {
-    width: 60%;
+    max-height: 100px !important;
+    width: 100% !important;
     border-radius: 20px !important;
+    overflow: scroll !important;
 }
 
 /* CSS atualizado para o cabeçalho da tabela (thead) */
@@ -140,9 +155,13 @@ body {
     color: var(--branco);
     background-color: var(--roxo) !important;
 }
-
+/* CSS atualizado para o cabeçalho da tabela (tbody) */
+.adm-content .table tbody {
+    
+}
 /* Opcional: Alterar a cor do texto no cabeçalho da tabela */
 .adm-content .table thead th {
+    height: 10px !important;
     color: var(--branco);
 }
 
@@ -154,4 +173,8 @@ body {
 .table td a i {
     color: var(--cinza);
     font-size: 20px;
+}
+
+input{
+    border-color: var(--roxo) !important;
 }
