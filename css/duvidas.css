@@ -23,7 +23,6 @@ nav.menu-lateral {
 
 
 .faq {
-  
   position: relative;
   margin-bottom: 20px;
   text-align: center;
@@ -47,7 +46,7 @@ nav.menu-lateral {
   cursor: pointer;
   position: relative;
   margin-bottom: 10px;
-  box-shadow: 1px 5px 10px var(--roxo);
+  box-shadow: 3px 8px 22px var(--roxo);
 }
 
 .arrow {
@@ -134,3 +133,40 @@ ol li{
 margin-bottom: 15px;
 text-align: justify;
 }
+
+
+/* responsividade */
+@media screen and (max-width: 480px){
+
+  .mensagem-element, .mensagem2-element{
+    display: none;
+  }
+    .faq-toggle {
+      margin-left: 54px;
+      width: 80% ;
+      padding: 10px 20px !important;
+      margin-bottom: 10px;
+      box-shadow: 3px 8px 22px var(--roxo);
+  }
+  .faq {
+    margin-bottom: 20px;
+    font-size: 15px !important;
+    padding-left: 10px;
+  }
+  .arrow{
+    top: 60% !important;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px){
+
+  
+}
+
+@media screen and (min-width: 769px) and (max-width: 1199px){
+
+
+  
+}
+
+  
