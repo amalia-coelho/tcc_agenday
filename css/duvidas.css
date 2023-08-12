@@ -1,23 +1,25 @@
-body{
+body {
   background-color: var(--branco);
 }
 
-.duvidas{
+.duvidas {
   text-align: center;
   padding-top: 4rem;
   font-family: var(--quatro);
+  margin-top: 3rem ;
 }
 
 
 .duvidas-container {
-  margin-left: 84px; 
+  margin-left: 84px;
 }
 
-nav.menu-lateral.expandir ~ .duvidas-container {
+nav.menu-lateral.expandir~.duvidas-container {
   margin-left: 280px;
 }
+
 nav.menu-lateral {
-  z-index: 1000; 
+  z-index: 1000;
 }
 
 
@@ -53,8 +55,8 @@ nav.menu-lateral {
   position: absolute;
   top: 45%;
   right: 10px;
-  transition: transform 0.3s ease; 
-  padding: 3px; 
+  transition: transform 0.3s ease;
+  padding: 3px;
   border-top: 2px solid var(--branco);
   border-right: 2px solid var(--branco);
   transform: rotate(-45deg);
@@ -66,12 +68,12 @@ nav.menu-lateral {
 
 .faq-content {
   position: absolute;
-  z-index: 10; 
-  width: 50%; 
+  z-index: 10;
+  width: 50%;
   background-color: #fff;
   padding: 10px;
   animation: fade-in 0.5s ease;
-  display: none; 
+  display: none;
   top: calc(100% + 20px);
   text-align: justify;
   border-bottom: 2px solid #000;
@@ -82,6 +84,7 @@ nav.menu-lateral {
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -90,83 +93,148 @@ nav.menu-lateral {
 
 .faq.active .arrow {
   transform: translateY(-50%) rotate(-224deg);
-  }
+}
 
 
-  .mensagem-img{
-    position: fixed;
-    right: 10px;
-    top: 0px;
-    overflow: hidden;
-  }
- 
-.mensagem-element{
+.mensagem-img {
+  position: fixed;
+  right: 10px;
+  top: 0px;
+  overflow: hidden;
+}
+
+.mensagem-element {
   width: 30rem;
   transition: 0.5s ease-in-out;
 }
 
-.mensagem-element:hover{
-transform: scale(1.05);
+.mensagem-element:hover {
+  transform: scale(1.05);
 }
 
-.mensagem2-img{
+.mensagem2-img {
   position: fixed;
   left: 100px;
   bottom: 0px;
   overflow: hidden;
 }
 
-.mensagem2-element{
-width: 24rem;
-transition: 0.5s ease-in-out;
+.mensagem2-element {
+  width: 24rem;
+  transition: 0.5s ease-in-out;
 }
 
-.mensagem2-element:hover{
-transform: scale(1.05);
+.mensagem2-element:hover {
+  transform: scale(1.05);
 }
 
-.duvidas h1{
+.duvidas h1 {
   margin-bottom: 3rem;
 }
 
-ol li{
-margin-bottom: 15px;
-text-align: justify;
+ol li {
+  margin-bottom: 15px;
+  text-align: justify;
 }
 
 
 /* responsividade */
-@media screen and (max-width: 480px){
+@media screen and (max-width: 480px) {
 
-  .mensagem-element, .mensagem2-element{
+  .mensagem-img {
+    position: absolute;
+    right: 55px !important;
+    top: 0px;
+    overflow: hidden;
+  }
+
+  .mensagem-element {
+    width: 15rem;
+  }
+
+  .mensagem2-element {
     display: none;
   }
-    .faq-toggle {
-      margin-left: 54px;
-      width: 80% ;
-      padding: 10px 20px !important;
-      margin-bottom: 10px;
-      box-shadow: 3px 8px 22px var(--roxo);
+
+  .duvidas {
+    margin-left: 54px !important;
+    margin-top: 8rem !important;
   }
+
+  .faq-toggle {
+    margin-left: 54px;
+    width: 80%;
+    padding: 10px 20px !important;
+    margin-bottom: 10px;
+    box-shadow: 3px 8px 22px var(--roxo);
+  }
+
   .faq {
     margin-bottom: 20px;
     font-size: 15px !important;
     padding-left: 10px;
   }
-  .arrow{
+
+  .arrow {
     top: 60% !important;
+  }
+
+  .faq-content {
+    width: 80%;
+    padding: 5px;
+    top: calc(100% + 20px);
+    margin-left: 24px;
+    border: none !important;
   }
 }
 
-@media screen and (min-width: 481px) and (max-width: 768px){
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .mensagem-img {
+    position: absolute;
+    right: 55px !important;
+    top: 0px;
+    overflow: hidden;
+  }
 
-  
+  .mensagem-element {
+    width: 15rem;
+  }
+
+  .mensagem2-element {
+    display: none;
+  }
+
+  .duvidas {
+    margin-left: 54px !important;
+    margin-top: 8rem !important;
+  }
+
+  .faq-toggle {
+    margin-left: 54px;
+    width: 80%;
+    padding: 10px 20px !important;
+    margin-bottom: 10px;
+    box-shadow: 3px 8px 22px var(--roxo);
+  }
+
+  .faq {
+    margin-bottom: 20px;
+    font-size: 15px !important;
+    padding-left: 10px;
+  }
+
+  .arrow {
+    top: 60% !important;
+  }
+
+  .faq-content {
+    width: 80%;
+    padding: 5px;
+    top: calc(100% + 20px);
+    margin-left: 24px;
+    border: none !important;
+  }
+
 }
 
-@media screen and (min-width: 769px) and (max-width: 1199px){
-
-
-  
-}
-
-  
+@media screen and (min-width: 769px) and (max-width: 1199px) {}

@@ -1,4 +1,4 @@
-nav{
+nav {
     z-index: 1;
 }
 
@@ -109,43 +109,72 @@ ul li.item-menu a .icon>i {
 }
 
 /* responsividade */
-@media screen and (max-width: 480px){
-    
-    nav{
+@media screen and (max-width: 480px) {
+
+    nav {
         position: fixed !important;
     }
 
     nav.menu-lateral {
         width: 45px;
     }
+
     nav.menu-lateral.expandir {
         width: 200px;
     }
-    .btn-expandir{
+
+    .btn-expandir {
         padding-left: 10px !important;
 
     }
-    ul{
+
+    ul {
         padding-left: 10px !important;
     }
+
     ul li.item-menu a {
         font-size: 15px;
-        line-height: 40px;
+        line-height: 20px;
     }
+
     ul li.item-menu a .icon>i {
-        font-size: 25px;
+        font-size: 20px;
         margin: -5px;
     }
 
-@media screen and (min-width: 481px) and (max-width: 768px){
-
-  
 }
 
-@media screen and (min-width: 769px) and (max-width: 1199px){
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    nav {
+        position: fixed !important;
+    }
 
+    nav.menu-lateral {
+        width: 45px;
+    }
 
-  
+    nav.menu-lateral.expandir {
+        width: 200px;
+    }
+
+    .btn-expandir {
+        padding-left: 10px !important;
+
+    }
+
+    ul {
+        padding-left: 10px !important;
+    }
+
+    ul li.item-menu a {
+        font-size: 15px;
+        line-height: 20px;
+    }
+
+    ul li.item-menu a .icon>i {
+        font-size: 20px;
+        margin: -5px;
+    }
 }
 
-  
+@media screen and (min-width: 769px) and (max-width: 1199px) {}
