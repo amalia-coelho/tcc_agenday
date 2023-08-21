@@ -161,7 +161,23 @@ small {
 
 /* RESPONSIVIDADE */
 
+
 @media screen and (max-width: 480px){
+
+    .entrar{
+        padding-left: 5%;
+        padding-right: 5%;
+        overflow: hidden
+    }
+    .login-container {
+        margin-top: 5rem;
+        height: auto !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-content: center !important;
+        flex-direction: column !important;
+        align-items: center !important;
+    }
     .login-img{
         display: flex;
         align-items: center;
@@ -169,23 +185,31 @@ small {
         margin-bottom: 2rem;
     }
     .login-element {
-        width: 15rem;
+        width: 25rem;
         margin-left: 0;
     }
-    .login-container{
-        height: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column-reverse;
-}
-    .login-content .titulo{
-        text-align:start;
+   .revealbtn{
+    margin-top: 2rem;
+   }
+
+   .cod{
+    padding-left:1rem;
+   }
+    .login-content .titulo {
+        text-align: center;
     }
     .login-content .titulo .resp{
-        font-size: 70px;
+        font-size: 40px;
     }
-
+    .login-content h1 {
+        font-size: 40px;
+    }
+    .login-content .titulo small a {
+        font-size: 15px;
+    }
+    small {
+        width: auto !important;
+    }
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px){
