@@ -1,0 +1,73 @@
+main {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2rem;
+
+    /* background: url('../img/doisfatores.png') center center no-repeat fixed;  */
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-left: 5%;
+    padding-right: 5%;
+    position: relative;
+}
+
+  
+.gestao {
+    display: flex;
+    background-color: #fff; 
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 5rem;
+    /* border-top: 5px solid var(--azul-);  */
+}
+
+
+  .comuni h1{
+    font-family: var(--quatro);
+    font-size: 60px;
+    margin-top: 3rem;
+    position: relative;
+    text-align: center;
+  }
+
+  .comuni h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0.1rem;
+    left: 50%;
+    width: 30%;
+    height: 4px;
+    border-bottom: 4px solid var(--azul);
+    background-color: var(--roxo);
+    transform: translateX(-50%);
+    transition: width 0.3s;
+}
+
+.comuni h1:hover::after {
+    width: 80%;
+}
+
+.gestao-container{
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+
+.gestao-container .gestao-users {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.gestao-container .gestao-users img{
+    width: 10rem;
+}
