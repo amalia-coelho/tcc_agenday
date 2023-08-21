@@ -1,5 +1,11 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['email'])){
+        header('Location: index.php');
+    }else{
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
@@ -94,6 +100,9 @@
       </nav>
       <!-- FIM DO MENU -->
 
+        <?php
+          echo $_SESSION['email'];
+        ?>
         <div class="apm">
             <div class="apm-title">
                 <h1>APM</h1>
@@ -204,3 +213,6 @@
 </body>
 
 </html>
+<?php
+}
+?>
