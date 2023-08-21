@@ -80,6 +80,7 @@
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    
 }
 
 .revealbtn .create {
@@ -168,3 +169,114 @@ input:hover::placeholder{
 .cadastro-container i {
     color: var(--roxo);
 }
+
+/* responsividade */
+@media screen and (max-width: 480px) {
+
+    .cadastro {
+        background-position: 5%;
+    }
+    .cadastro-img2 {
+
+        display: none;
+    }
+    .cadastro-img {
+        display: none;
+    }
+
+    .form-group {
+        margin-top: 3rem;
+        width: 100%;
+    }
+
+    .revealbtn {
+        width: 100%;
+        margin-top: 4rem;
+    }
+    .cadastro-content {
+        width: 100%;
+    }
+    .resp {
+        display: none;
+    }
+}
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .cadastro {
+        background-position: 5%;
+    }
+    .cadastro-img2 {
+        top: 0;
+        left: -2rem;
+        overflow: visible;
+    }
+    .cadastro-element2{
+        width: 11rem !important;
+    }
+    .cadastro-element{
+        width: 13rem !important;
+        
+    }
+    .cadastro-img {
+        bottom: 0;
+        right: 0;
+        overflow: visible;
+    }
+
+
+    .form-group {
+        margin-top: 3rem;
+    }
+
+    .revealbtn {
+        width: 100%;
+        margin-top: 4rem;
+    }
+    .cadastro-content {
+        width: 70%;
+    }
+    .resp {
+        display: none;
+    }
+  }
+  
+  @media screen and (min-width: 769px) and (max-width: 1199px) {
+    .cadastro {
+        background-position: 5%;
+    }
+    .cadastro-img2 {
+        top: 0;
+        left: -2rem;
+        overflow: visible;
+    }
+    .cadastro-element2{
+        width: 13rem !important;
+    }
+    .cadastro-element{
+        width: 15rem !important;
+        
+    }
+    .cadastro-img {
+        bottom: 0;
+        right: 0;
+        overflow: visible;
+    }
+
+
+    .form-group {
+        margin-top: 3rem;
+    }
+
+    .revealbtn {
+        width: 100%;
+        margin-top: 4rem;
+    }
+    .cadastro-content {
+        width: 70%;
+    }
+    .resp {
+        display: none;
+    }
+
+    
+  }
+
