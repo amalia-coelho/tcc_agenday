@@ -1,26 +1,47 @@
+<?php
+    session_start();
+    if (!isset($_SESSION['email'])) {  
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/cadastro.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/cadastro.css">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css"
-        integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css" integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <!-- /css -->
 
-    <!-- js -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script>
+    <!-- js --> 
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
 
-    </script>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            $(".ent").click(function(){
+                // declaração de variáveis
+                var email = $("#email").val();
+                var senha = $("#password").val();
+
+                $.ajax({
+                url: "php/script_cadastro.php",
+                type: "POST",
+                data: "email="+email+"&senha="+senha,
+                dataType: "html"
+
+                }).done(function(resposta){
+                    $("#exibe").html(resposta);
+                }).fail(function(jqXHR, textStatus ) {
+                    console.log("Request failed: " + textStatus);
+                });
+            });
+        });
+        </script>
     <!-- /js -->
     <title>Cadastrar-se</title>
 </head>
@@ -43,7 +64,7 @@
                     <input type="text" id="email" class="form-control" placeholder="Digite seu melhor email">
                 </div>
                 <div class="form-group name">
-                    <input type="text" id="email" class="form-control" placeholder="Confirme seu email">
+                    <input type="text" id="email2" class="form-control" placeholder="Confirme seu email">
                 </div>
 
                 <div class="form-group custom-spacing pass">
@@ -55,16 +76,18 @@
                         </button>
                     </div>
                     <div class="input-group">
-                        <input type="password" id="password" class="form-control" placeholder="Confirme sua senha">
+                        <input type="password" id="password2" class="form-control" placeholder="Confirme sua senha">
                     </div>
                 </div>
 
                 <!-- fim dos input -->
                 <div class="revealbtn">
-                    <a class="ent" href="#">Criar Conta</a>
+                    <a class="ent">Criar Conta</a>
                     <a class="create" href="index.html">Voltar</a>
                   </div>
-
+                  <div id="exibe">
+                      <!-- Exibe mensagem de retorno do script -->
+                  </div>
             </div>
             <div class="cadastro-img2">
                 <img src="img/mobile-login-animate.svg" alt="Figura Inicial" class="cadastro-element2">
@@ -135,7 +158,11 @@
       delay: 500,
       origin: 'bottom'
     });
-  </script>
-</body>
-
+        </script>
+    </body>
 </html>
+<?php 
+    }else{
+        header('Location: comunicados.php');
+    }
+?>
