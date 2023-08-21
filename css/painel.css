@@ -1,0 +1,188 @@
+main{
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.painel{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: center;
+    padding-top: 3rem;
+}
+
+.painel-title h1{
+    font-family: var(--quatro);
+    font-size: 60px;
+    font-weight: 400;
+    position: relative;
+}
+
+.painel-title p{ 
+    padding-top: 20px;
+    font-family: var(--merri);
+    font-size: 20px;
+}
+
+.painel-title h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0.1rem;
+    left: 50%;
+    width: 5%;
+    height: 4px;
+    border-bottom: 4px solid var(--azul);
+    background-color: var(--roxo);
+    transform: translateX(-50%);
+    transition: width 0.3s;
+}
+
+.painel-title h1:hover::after {
+    width: 15%;
+}   
+.painel-group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.painel-card{
+    border-radius: 35%;
+    margin-left: 4.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column-reverse;
+    color: var(--cinza);
+    margin-bottom: 2rem;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    border: 2px solid var(--azul);
+    padding: 50px 5px;
+    
+}
+
+.painel-card:hover{
+    transform: scale(1.05);
+}
+
+/* .painel-card{
+    width: 200px;
+    padding: 100px;
+} */
+
+.card-info{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: var(--quatro);
+}
+
+.card-info p{
+    text-transform:capitalize;
+    font-size: 25px;
+}
+
+.painel-card img{
+    width: 20rem;
+    max-width: 20rem;
+}
+
+/* inputs */
+.form-group,
+.input-group {
+    width: 40%;
+}
+
+.form-group label {
+    margin-bottom: 1rem;
+    font-size: 20px;
+}
+
+.form-control {
+    border-radius: 0 !important;
+    BORDER: none !important;
+    border-bottom: 2px solid #252525 !important;
+}
+
+.form-control:focus, .form-control:hover {
+    box-shadow: none !important;
+    border-color: var(--roxo) !important;
+    /* Adicione a cor desejada para a borda ao remover o foco */
+    outline: none !important;
+    /* Remova também o contorno do teclado para melhorar a acessibilidade */
+}
+
+input:hover::placeholder{
+    color: var(--roxo) !important;
+
+}
+
+.form-group .custom-spacing {
+    margin-bottom: 20px;
+    margin-top: 2rem;
+}
+
+.input-group {
+    position: relative;
+}
+
+
+
+
+.check {
+
+    width: 80%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+
+/* check */
+/* fim do check */
+
+
+/* fim dos input */
+
+/* botao */
+
+.revealbtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+.revealbtn .ent {
+    display: inline-block;
+    background-color: var(--azul);
+    border-radius: 20px;
+    padding: 10px 100px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #fbfbff;
+    box-shadow: 3px 8px 22px var(--azul);
+    transition: .5s;
+}
+
+.revealbtn .ent:hover {
+    scale: 1.04;
+    background-color: #fbfbff;
+    color: var(--azul);
+    box-shadow: 3px 8px 22px #2525257b;
+    border: 1px solid var(--azul);
+
+}
+
+/* fim do botao */
