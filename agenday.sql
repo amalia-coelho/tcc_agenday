@@ -22,7 +22,6 @@ create table tb_usuario(
   	nm_usuario varchar(100) not null,
   	ds_email varchar(100) not null,
   	ds_senha varchar(50) not null,
-  	ds_imagem varchar(255),
   	nr_rm char(5) not null,
  	nr_verificacao char(6),
   	id_nivel int,
