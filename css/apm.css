@@ -6,7 +6,7 @@ body{
     width: 100%;
     /* background-size: cover;
     background-position: center; */
-    background: url('sua-imagem.jpg') center center no-repeat fixed; 
+    background: url('../img/doisfatores.png') center center no-repeat fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -15,8 +15,6 @@ body{
     padding-right: 5%;
     position: relative;
     font-family: 'Poppins', sans-serif;
-    background-color: #fbfbff;
-    background-image: url('../img/doisfatores.png');
 }
 .apm{
     display: flex;
@@ -75,7 +73,6 @@ body{
 }
 
 .apm-card{
-    cursor: pointer;
     background-color: var(--roxo);
     border-radius: 10px;
     display: flex;
@@ -87,6 +84,7 @@ body{
     margin-left: 3rem;
     box-shadow: 1px 8px 20px 0px #000;
     transition: 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 .apm-card:hover{
@@ -129,4 +127,156 @@ body{
 }
 .price .btn:hover{
     color: #000 !important;
+}
+
+/* carousel */
+.carousel {
+    display: none;
+}
+
+
+@media screen and (max-width: 480px) {
+    .apm-title p {
+        font-family: var(--merri);
+        font-size: 14px;
+        text-align: justify;
+        margin-left: 2rem;
+    }
+
+    .apm-card-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0 !important;
+    }
+
+    .carousel {
+        display: flex ;
+    }
+
+    .carousel-inner {
+        overflow: visible !important;
+    }
+
+    .apm-group{
+        display: none;
+    }
+
+    .apm-card{
+        box-shadow: none !important;
+        border: 1px solid #000;
+    }
+    .apm-card img{
+
+        border-radius: 10px !important;
+    }
+    .apm-card:hover{
+        transform: none;
+    }
+
+    .carousel i {
+        color: var(--roxo);
+        font-size: 30px;
+    }
+
+
+    .carousel .bi-caret-left {
+        margin-right: -.5rem;
+    }
+    
+    .carousel .bi-caret-right {
+        margin-left: 5.4rem;
+    }
+    
+
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+ 
+    .carousel {
+        display: flex ;
+    }
+
+
+    .apm-group{
+        display: none;
+    }
+
+    .apm-card{
+        box-shadow: none !important;
+        border: 1px solid #000;
+    }
+    .apm-card img{
+
+        border-radius: 10px !important;
+    }
+    .apm-card:hover{
+        transform: none;
+    }
+
+    .carousel i {
+        color: var(--roxo);
+        font-size: 30px;
+    }
+
+
+    .carousel .bi-caret-left {
+        margin-right: -.5rem;
+    }
+    
+    .carousel .bi-caret-right {
+        margin-left: 5.4rem;
+    }
+    .apm-card-container {
+        margin-right: 6rem !important;
+    }
+    
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1199px) {
+    .apm-title p {
+        font-family: var(--merri);
+        font-size: 18px;
+        text-align: justify;
+        margin-left: 3rem;
+    }
+
+    .carousel {
+        display: flex ;
+    }
+
+
+    .apm-group{
+        display: none;
+    }
+
+    .apm-card{
+        box-shadow: none !important;
+        border: 1px solid #000;
+    }
+    .apm-card img{
+
+        border-radius: 10px !important;
+    }
+    .apm-card:hover{
+        transform: none;
+    }
+
+    .carousel i {
+        color: var(--roxo);
+        font-size: 40px;
+    }
+
+
+    .carousel .bi-caret-left {
+        margin-right: 1rem;
+    }
+    
+    .carousel .bi-caret-right {
+        margin-left: 6.4rem;
+    }
+    .apm-card-container {
+        margin-right: 6rem !important;
+    }
 }
