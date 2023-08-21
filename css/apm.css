@@ -75,6 +75,7 @@ body{
 }
 
 .apm-card{
+    cursor: pointer;
     background-color: var(--roxo);
     border-radius: 10px;
     display: flex;
