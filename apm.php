@@ -74,6 +74,7 @@
           </li>
           <li class="item-menu">
             <a href="#">
+            <a href="painel.html">
               <span class="icon"><i class="bi bi-heart-fill"></i></span>
               <span class="txt-link">Saúde</span>
             </a>
@@ -109,6 +110,70 @@
                 <p>Olá, aqui é a APM (Associação de Pais e Mestres)! Nessa área é possível somente visualizar todos os itens que são vendidos na nossa escola, caso você queira adquirir alguma coisa, terá que se redirecionar para a secretária da Etec de Itanhaém.</p>
             </div>
             <div class="apm-card-container">
+
+              <!-- carousel -->
+              <div id="carouselExample" class="carousel slide">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <!-- conteudo -->
+                    <div class="apm-card">
+                      <img src="img/roupa.jpg" alt="" class="card-img">
+                      <div class="card-info">
+                          <div class="card-text">
+                            <p class="card-title">Camiseta </p>
+                            <p class="card-sub">Informática para Internet</p>
+                          </div>
+                          <div class="price">
+                            <a href="#" class="btn btn-secondary">R$50,00</a>
+                          </div>
+                        </div>
+                      </div>
+                    <!-- fim do conteudo -->
+                  </div>
+                  <div class="carousel-item">
+                    <!-- conteudo -->
+                    <div class="apm-card">
+                      <img src="img/roupa.jpg" alt="" class="card-img">
+                      <div class="card-info">
+                          <div class="card-text">
+                            <p class="card-title">Camiseta </p>
+                            <p class="card-sub">Informática para Internet</p>
+                          </div>
+                          <div class="price">
+                            <a href="#" class="btn btn-secondary">R$50,00</a>
+                          </div>
+                        </div>
+                      </div>
+                    <!-- fim do conteudo -->
+                  </div>
+                  <div class="carousel-item">
+                    <!-- conteudo -->
+                    <div class="apm-card">
+                      <img src="img/roupa.jpg" alt="" class="card-img">
+                      <div class="card-info">
+                          <div class="card-text">
+                            <p class="card-title">Camiseta </p>
+                            <p class="card-sub">Informática para Internet</p>
+                          </div>
+                          <div class="price">
+                            <a href="#" class="btn btn-secondary">R$50,00</a>
+                          </div>
+                        </div>
+                      </div>
+                    <!-- fim do conteudo -->
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                  <i class="bi bi-caret-left"></i>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                  <i class="bi bi-caret-right"></i>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+              <!-- fim do carousel -->
+
             <div class="apm-group">
               <!-- inicio card -->
               <div class="apm-card">
