@@ -38,13 +38,14 @@
             <h1 class="h1"><label class="log-success">Verificação </label> em <br>
               <span class="resp">Duas Etapas</span>
             </h1>
-            <small><a href="#">Verifique seu e-mail e abaixo digite o código de verificação que foi enviado no mesmo</a></small>
+            <small><a href="#">Verifique seu e-mail e abaixo digite o código de verificação que foi enviado no
+                mesmo</a></small>
           </div>
           <!-- fim do titulo -->
           <!-- começa os input -->
-          
-          
-  
+
+
+
           <div class="form-group custom-spacing pass inputs-container">
             <input type="number" class="form-control text-center" min="0" max="9" required autofocus>
             <input type="number" class="form-control text-center" min="0" max="9" required>
@@ -53,8 +54,8 @@
             <input type="number" class="form-control text-center" min="0" max="9" required>
             <input type="number" class="form-control text-center" min="0" max="9" required>
           </div>
-        <small class="cod"><a href="#">Reenviar Código</a></small>
-        
+          <small class="cod"><a href="#">Reenviar Código</a></small>
+
 
           <!-- fim dos input -->
           <div class="revealbtn">
@@ -130,19 +131,19 @@
     </script>
     <script>
       const inputs = document.querySelectorAll('.inputs-container input');
-  
+
       inputs.forEach((input, index) => {
-          input.addEventListener('input', () => {
-              if (input.value.length > 1) {
-                  input.value = input.value.slice(0, 1); // Limita o tamanho do valor para 1 dígito
-              }
-  
-              if (input.value.length === 1 && index < inputs.length - 1) {
-                  inputs[index + 1].focus(); // Move o foco para o próximo campo após a entrada de um dígito
-              }
-          });
+        input.addEventListener('input', () => {
+          if (input.value.length > 1) {
+            input.value = input.value.slice(0, 1); // Limita o tamanho do valor para 1 dígito
+          }
+
+          if (input.value.length === 1 && index < inputs.length - 1) {
+            inputs[index + 1].focus(); // Move o foco para o próximo campo após a entrada de um dígito
+          }
+        });
       });
-  </script>
+    </script>
 </body>
 
 </html>

@@ -42,7 +42,7 @@
       </div>
       <ul>
         <li class="item-menu">
-          <a href="#">
+          <a href="perfil.html">
             <span class="icon"><i class="bi bi-person-fill"></i></span>
             <span class="txt-link">Usuário</span>
           </a>

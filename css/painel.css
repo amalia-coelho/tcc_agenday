@@ -1,4 +1,4 @@
-main{
+main {
 
     display: flex;
     align-items: center;
@@ -6,7 +6,7 @@ main{
     justify-content: center;
 }
 
-.painel{
+.painel {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -17,14 +17,14 @@ main{
     padding-top: 3rem;
 }
 
-.painel-title h1{
+.painel-title h1 {
     font-family: var(--quatro);
     font-size: 60px;
     font-weight: 400;
     position: relative;
 }
 
-.painel-title p{ 
+.painel-title p {
     padding-top: 20px;
     font-family: var(--merri);
     font-size: 20px;
@@ -45,8 +45,9 @@ main{
 
 .painel-title h1:hover::after {
     width: 15%;
-}   
-.painel-group{
+}
+
+.painel-group {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -55,7 +56,8 @@ main{
     flex-wrap: wrap;
     width: 100%;
 }
-.painel-card{
+
+.painel-card {
     border-radius: 35%;
     margin-left: 4.5rem;
     display: flex;
@@ -68,10 +70,10 @@ main{
     cursor: pointer;
     border: 2px solid var(--azul);
     padding: 50px 5px;
-    
+
 }
 
-.painel-card:hover{
+.painel-card:hover {
     transform: scale(1.05);
 }
 
@@ -80,19 +82,19 @@ main{
     padding: 100px;
 } */
 
-.card-info{
+.card-info {
     display: flex;
     flex-direction: row;
     align-items: center;
     font-family: var(--quatro);
 }
 
-.card-info p{
-    text-transform:capitalize;
+.card-info p {
+    text-transform: capitalize;
     font-size: 25px;
 }
 
-.painel-card img{
+.painel-card img {
     width: 20rem;
     max-width: 20rem;
 }
@@ -114,7 +116,8 @@ main{
     border-bottom: 2px solid #252525 !important;
 }
 
-.form-control:focus, .form-control:hover {
+.form-control:focus,
+.form-control:hover {
     box-shadow: none !important;
     border-color: var(--roxo) !important;
     /* Adicione a cor desejada para a borda ao remover o foco */
@@ -122,7 +125,7 @@ main{
     /* Remova também o contorno do teclado para melhorar a acessibilidade */
 }
 
-input:hover::placeholder{
+input:hover::placeholder {
     color: var(--roxo) !important;
 
 }
@@ -156,7 +159,7 @@ input:hover::placeholder{
 
 /* botao */
 
-.revealbtn{
+.revealbtn {
     display: flex;
     align-items: center;
     justify-content: center;
