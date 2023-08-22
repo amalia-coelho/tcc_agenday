@@ -73,14 +73,13 @@
             </a>
           </li>
           <li class="item-menu">
-            <a href="#">
             <a href="painel.html">
               <span class="icon"><i class="bi bi-heart-fill"></i></span>
               <span class="txt-link">Saúde</span>
             </a>
           </li>
           <li class="item-menu">
-            <a href="#">
+            <a href="gestão.html">
               <span class="icon"><i class="bi bi-person-workspace"></i></span>
               <span class="txt-link">Gestão</span>
             </a>

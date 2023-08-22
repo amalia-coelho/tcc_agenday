@@ -1,0 +1,190 @@
+.perfil{
+    text-align: center;
+    padding-top: 4rem;
+    font-family: var(--quatro);
+  }
+
+  .perfil-container {
+    margin-left: 84px; 
+  }
+  
+  nav.menu-lateral.expandir ~ .perfil-container {
+    margin-left: 280px;
+  }
+  nav.menu-lateral {
+    z-index: 1000; 
+  }
+
+.user-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user{
+  font-family: var(--pop);
+  font-size: 25px;
+  margin-top: 100px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 25%;
+  align-items: stretch;
+  
+}
+
+.user .campos{
+  border-top: 10px solid var(--roxo);
+  border-radius: 10px;
+  box-shadow: -1px 2px 20px 0px rgba(0, 0, 0, 0.493);
+  padding: 10px 20px;
+}
+
+#health{
+  color: #00ff00;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.espelho-img{
+  position: fixed;
+  right: 10px;
+  bottom: 0px;
+  overflow: hidden;
+  transform: scaleX(-1);
+}
+
+.espelho-element{
+width: 30rem;
+transition: 0.5s ease-in-out;
+}
+
+.espelho-element:hover{
+transform: scale(1.05);
+}
+
+/* Add this new class to style the "Sua senha" label */
+.senha-label {
+  position: relative;
+}
+
+/* Add this class to style the edit icon */
+.edit-icon {
+  position: absolute;
+  bottom: 20px;
+  right: 0;
+  transform: translate(50%, 50%);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+  .user{
+    font-family: var(--pop);
+    font-size: 18px;
+    margin-top: 100px;
+    margin-left: 55px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 55%;
+    align-items: stretch; }
+
+  .espelho-element{
+    width: 18rem;
+    transition: 0.5s ease-in-out;
+    }
+
+    .espelho-img{
+      position: fixed;
+      right: 30px;
+      bottom: 0px;
+      overflow: hidden;
+      transform: scaleX(-1);
+    }
+
+    .perfil {
+      margin-left: 50px; 
+    }
+
+    #health{
+      color: #00ff00;
+      font-weight: bold;
+      font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .user{
+    font-family: var(--pop);
+    font-size: 18px;
+    margin-top: 100px;
+    margin-left: 55px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 45%;
+    align-items: stretch; }
+
+  .espelho-element{
+    width: 20rem;
+    transition: 0.5s ease-in-out;
+    }
+
+    .espelho-img{
+      position: fixed;
+      right: 30px;
+      bottom: 0px;
+      overflow: hidden;
+      transform: scaleX(-1);
+    }
+
+    .perfil {
+      margin-left: 70px; 
+    }
+
+    #health{
+      color: #00ff00;
+      font-weight: bold;  
+      font-size: 20px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1199px) {
+  .user{
+    font-family: var(--pop);
+    font-size: 18px;
+    margin-top: 100px;
+    margin-left: 55px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 30%;
+    align-items: stretch; }
+
+  .espelho-element{
+    width: 20rem;
+    transition: 0.5s ease-in-out;
+    }
+
+    .espelho-img{
+      position: fixed;
+      right: 30px;
+      bottom: 0px;
+      overflow: hidden;
+      transform: scaleX(-1);
+    }
+
+    .perfil {
+      margin-left: 55px; 
+    }
+
+    #health{
+      color: #00ff00;
+      font-weight: bold;  
+      font-size: 20px;
+    }
+}
