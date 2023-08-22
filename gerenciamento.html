@@ -19,18 +19,36 @@
     integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
+        ul li.item-menu a {
+        padding: 20px 34px !important;
+      }
+  
+      ul li.item-menu::after {
+        margin-left: 34px !important;
+  
+      }
+  
+      ul li.ativo::before {
+        margin-left: 34px !important;
+      }
+
+    @media screen and (max-width: 480px) {
+    
     ul li.item-menu a {
-      padding: 20px 34px !important;
+        padding: 20px .1rem !important;
+      }
+  
+      ul li.item-menu::after {
+        margin-left: 0px !important;
+  
+      }
+  
+      ul li.ativo::before {
+        margin-left: 0 px !important;
+      }
+      /* fim do menu */
     }
 
-    ul li.item-menu::after {
-      margin-left: 34px !important;
-
-    }
-
-    ul li.ativo::before {
-      margin-left: 34px !important;
-    }
   </style>
   <!-- /css -->
 
@@ -83,7 +101,7 @@
           </a>
         </li>
         <li class="item-menu">
-          <a href="#">
+          <a href="painel.html">
             <span class="icon"><i class="bi bi-heart-fill"></i></span>
             <span class="txt-link">Saúde</span>
           </a>
@@ -119,7 +137,8 @@
         <div>
           <h1>Gerenciamento</h1>
         </div>
-        <div class="revealbtn">
+        <div class="revealbtn" style="margin-left: 15rem;">
+          <a class="ent" href="#">Cadastrar</a>
           <a class="ent" href="#">Salvar Alterações</a>
         </div>
       </div>
@@ -169,6 +188,7 @@
           <tr>
             <th scope="col">Nome</th>
             <th scope="col">Turma</th>
+            <th scope="col">Síndrome</th>
             <th scope="col">Ações</th>
           </tr>
         </thead>
@@ -176,114 +196,133 @@
           <tr>
             <td>Eric Junokas Oliveira</td>
             <td>3MIN</td>
+            <td>Não</td>
             <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i class="bi bi-trash"></i></a>
             </td>
           </tr>
           <tr>
             <td>Maytê Bronzatto Palomo</td>
             <td>3MAM</td>
+            <td>Gostosa</td>
             <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i class="bi bi-trash"></i></a>
             </td>
           </tr>
           <tr>
             <td>Iago Marques Pinto</td>
             <td>3MIN</td>
+            <td>Não</td>
             <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
             class="bi bi-trash"></i></a></td>
           </tr>
           <tr>
             <td>Laura Aparecida Meirinho</td>
             <td>3MAM</td>
+            <td>Não</td>
             <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i class="bi bi-trash"></i></a>
             </td>
           </tr>
           <tr>
             <td>Laura Ongaro Camargo</td>
             <td>3MAM</td>
+            <td>Não</td>
             <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i class="bi bi-trash"></i></a>
             </td>
           </tr>
           <tr>
             <td>Amauri Matematico Silva</td>
             <td>Professor</td>
+            <td>Não</td>
             <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i class="bi bi-trash"></i></a>
             </td>
           </tr>
           <tr>
             <td>Carla Modernismo Pereira</td>
             <td>Professor</td>
+            <td>Não</td>
             <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i class="bi bi-trash"></i></a>
             </td>
           </tr>
           <tr>
             <td>Giancarros Marques Ceolin</td>
             <td>3MIN</td>
+            <td>Não</td>
             <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i class="bi bi-trash"></i></a>
             </td>
           </tr>
           <tr>
             <td>Xavinho Lucido Amongus</td>
             <td>3MIN</td>
+            <td>Não</td>
             <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i class="bi bi-trash"></i></a>
             </td>
           </tr>
           <tr>
             <td>Minicius Yasuo Pequeno</td>
             <td>3MIN</td>
+            <td>Não</td>
             <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i class="bi bi-trash"></i></a>
             </td>
           </tr>
           <tr>
             <td>Miguerle Padeiro Cacetinho</td>
             <td>3MIN</td>
+            <td>Não</td>
             <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i class="bi bi-trash"></i></a>
             </td>
           </tr>
           <tr>
             <td>Wesley Casteldelli Gartic</td>
             <td>3MIN</td>
+            <td>Não</td>
             <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i class="bi bi-trash"></i></a>
             </td>
           </tr>
           <tr>
             <td>Gabriel Aisten</td>
             <td>3MIN</td>
+            <td>Não</td>
             <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i class="bi bi-trash"></i></a>
             </td>
           </tr>
           <tr>
             <td>Guti Guti</td>
             <td>3MIN</td>
+            <td>Não</td>
             <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i class="bi bi-trash"></i></a>
             </td>
           </tr>
           <tr>
             <td>Pitheozinho Durante</td>
             <td>3MIN</td>
+            <td>Não</td>
             <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i class="bi bi-trash"></i></a>
             </td>
           </tr>
           <tr>
             <td>Gordao Magrao Mediano</td>
             <td>3MIN</td>
+            <td>Não</td>
             <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i class="bi bi-trash"></i></a>
             </td>
           </tr>
           <tr>
             <td>Raphael Cabeça de Nós Todos</td>
             <td>3MIN</td>
+            <td>Não</td>
             <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i class="bi bi-trash"></i></a>
             </td>
           </tr>
           <tr>
             <td>Fakeyell Do Grau</td>
             <td>3MIN</td>
+            <td>Não</td>
             <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i class="bi bi-trash"></i></a>
             </td>
           </tr>
           <tr>
             <td>Richard dos Efeitos Sonoros</td>
             <td>3MIN</td>
+            <td>Não</td>
             <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i class="bi bi-trash"></i></a>
             </td>
           </tr>
