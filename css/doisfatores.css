@@ -159,6 +159,14 @@ small {
 }
 
 
+#togglePassword{
+    background-color: #6D26F8;
+    color: var(--branco);
+}
+
+
+
+
 /* RESPONSIVIDADE */
 
 

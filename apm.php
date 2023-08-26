@@ -309,9 +309,9 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-            <button type="button" class="btn btn-primary">Adicionar Produto</button>
-          </div>
+              <button type="button" class="btn btn-roxo">Salvar</button>
+              <button type="button" class="btn btn-azul" data-bs-dismiss="modal">Fechar</button>
+            </div>
         </div>
       </div>
     </div>

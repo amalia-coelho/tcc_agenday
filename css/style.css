@@ -59,6 +59,8 @@ textarea,
   border-color: var(--roxo) !important;
 }
 
+
+
 .modal-header {
   background-color: var(--roxo);
   color: var(--branco);
@@ -80,6 +82,15 @@ textarea,
   transform: rotate(180deg);
   /* Gira o ícone 180 graus */
   color: black;
+}
+
+.btn-roxo {
+  background-color: var(--roxo) !important;
+  color: var(--branco) !important;
+}
+.btn-azul {
+  background-color: var(--azul) !important;
+  color: var(--branco) !important;
 }
 
 /* fim do modal close */

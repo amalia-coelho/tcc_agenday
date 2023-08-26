@@ -29,7 +29,7 @@
   <!-- INICIO DA HOME!! -->
   <section class="home">
 
-    <!-- PARTE DO LOGIN!! -->
+    <!-- PARTE DA SENHA!! -->
 
     <section class="entrar" id="entrar">
       <div class="login-container">
@@ -59,7 +59,7 @@
 
           <!-- fim dos input -->
           <div class="revealbtn">
-            <a class="ent" href="#">Verificar</a>
+            <a class="ent" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Verificar</a>
             <a class="create" href="forgot.html">Voltar</a>
           </div>
 
@@ -68,8 +68,41 @@
           <img src="img/authentication-animate.svg" alt="Figura Inicial" class="login-element">
         </div>
       </div>
+      <!-- incio do modal -->
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">Esqueci Minha Senha</h1>
+              <button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="mb-3">
+                  <label for="novasenha" class="form-label">Nova Senha</label>
+                  <input type="password" class="form-control" id="novasenha">
+                </div>
+                <div class="input-group">
+                  <input type="password" id="password" class="form-control" placeholder="Confirme Sua Senha">
+                  <button type="button" id="togglePassword" class="btn">
+                    <i class="bi bi-eye" id="eyeIcon"></i>
+                  </button>
+                </div>
+
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-roxo">Salvar</button>
+              <button type="button" class="btn btn-azul" data-bs-dismiss="modal">Fechar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- fim do modal -->
     </section>
-    <!-- FIM DO LOGIN!! -->
+    <!-- FIM DA SENHA!! -->
 
     <!-- js -->
     <script src="js/home.js"></script>
@@ -79,6 +112,22 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script>
+      const passwordInput = document.getElementById('password');
+      const togglePasswordButton = document.getElementById('togglePassword');
+      const eyeIcon = document.getElementById('eyeIcon');
+
+      togglePasswordButton.addEventListener('click', () => {
+        if (passwordInput.type === 'password') {
+          passwordInput.type = 'text';
+          eyeIcon.classList.remove('bi-eye-slash');
+          eyeIcon.classList.add('bi-eye');
+        } else {
+          passwordInput.type = 'password';
+          eyeIcon.classList.remove('bi-eye');
+          eyeIcon.classList.add('bi-eye-slash');
+        }
+      });
+
       ScrollReveal({
         reset: true,
         distance: '60px',
