@@ -38,3 +38,17 @@
 ::-webkit-scrollbar {
   scroll-padding-top: 90px;
 }
+
+.add {
+  background-color: var(--roxo) !important;
+  border-color: var(--roxo) !important;
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+  border-radius: 35% !important;
+  PADDING: 10px 20px !important;
+}
+
+.add i {
+  font-size: 2.25rem;
+}
