@@ -6,7 +6,7 @@ body {
   text-align: center;
   padding-top: 4rem;
   font-family: var(--quatro);
-  margin-top: 3rem ;
+  margin-top: 3rem;
 }
 
 
@@ -238,3 +238,23 @@ ol li {
 }
 
 @media screen and (min-width: 769px) and (max-width: 1199px) {}
+
+@media screen and (min-width: 1200px) {
+
+
+  .mensagem-element,
+  .mensagem2-element {
+    width: 15rem;
+  }
+
+
+  .faq {
+    font-size: 15px !important;
+  }
+
+  .faq-content {
+    padding: 5px;
+    top: calc(100% + 20px);
+    border: none !important;
+  }
+}

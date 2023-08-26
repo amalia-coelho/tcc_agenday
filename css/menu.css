@@ -178,3 +178,20 @@ ul li.item-menu a .icon>i {
 }
 
 @media screen and (min-width: 769px) and (max-width: 1199px) {}
+
+
+@media screen and (min-width: 1200px) {
+
+
+    ul li.item-menu a {
+        font-size: 15px;
+        line-height: 20px;
+    }
+
+    ul li.item-menu a .icon>i {
+        font-size: 20px;
+        margin: -5px;
+    }
+
+
+  }

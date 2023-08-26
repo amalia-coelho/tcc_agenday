@@ -205,3 +205,20 @@ small a {
         display: none;
     }
 }
+
+
+@media screen and (min-width: 1200px){
+    
+    .login-element {
+        width: 30rem;
+    }
+    .login-content h1 {
+        font-size: 60px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1199px) {
+
+
+  
+}
