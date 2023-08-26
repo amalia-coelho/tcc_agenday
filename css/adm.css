@@ -75,7 +75,7 @@ body {
     transition: .5s;
     border: 1px solid var(--roxo);
     margin: 1rem;
-    
+
 }
 
 .adm-title .ent:hover,
@@ -85,7 +85,7 @@ body {
     color: var(--roxo);
     box-shadow: 3px 8px 22px #2525257b;
     border: 1px solid var(--roxo);
-    
+
 }
 
 .adm-filtro {
@@ -126,7 +126,8 @@ body {
 
 ::-webkit-scrollbar {
     scroll-padding-top: 0px !important;
-  }
+}
+
 .adm-content {
     display: flex;
     align-items: center;
@@ -135,10 +136,10 @@ body {
 }
 
 .tabela-gera {
-        max-height: 500px;
-        overflow-y: auto;
-        width: 60% !important;
-   
+    max-height: 500px;
+    overflow-y: auto;
+    width: 60% !important;
+
 }
 
 .adm-content .table {
@@ -153,10 +154,10 @@ body {
     color: var(--branco);
     background-color: var(--roxo) !important;
 }
+
 /* CSS atualizado para o cabeçalho da tabela (tbody) */
-.adm-content .table tbody {
-    
-}
+.adm-content .table tbody {}
+
 /* Opcional: Alterar a cor do texto no cabeçalho da tabela */
 .adm-content .table thead th {
     height: 10px !important;
@@ -173,7 +174,7 @@ body {
     font-size: 20px;
 }
 
-input{
+input {
     border-color: var(--roxo) !important;
 }
 
@@ -183,34 +184,37 @@ input{
 
 /* responsividade */
 @media screen and (max-width: 480px) {
-    
 
-      .adm-title{
+
+    .adm-title {
         flex-direction: column;
 
-      }
+    }
 
-      .revealbtn{
+    .revealbtn {
         margin-left: 1rem !important;
-      }
-      .revealbtn .ent{
+    }
+
+    .revealbtn .ent {
         padding: 10px 40px;
         font-size: 13px;
-      }
-      .adm-title h1 {
+    }
+
+    .adm-title h1 {
         font-size: 40px;
         padding-left: 2rem;
     }
 
-    .adm-content .mt-5{
-         margin-top: 0rem !important;
+    .adm-content .mt-5 {
+        margin-top: 0rem !important;
     }
 
     .filtro-title {
         padding-left: 2rem;
         font-size: 15px;
     }
-    .filtro-btn{
+
+    .filtro-btn {
         flex-wrap: wrap;
         flex-direction: row !important;
         margin-left: 2rem;
@@ -222,15 +226,16 @@ input{
         font-size: 10px;
         box-shadow: 3px 8px 22px var(--roxo);
         margin: 0rem;
-        
+
     }
+
     .filtro-btn .revealbtn {
         margin-bottom: 1rem !important;
         margin-left: 0rem !important;
 
     }
-    
-    .adm-img{
+
+    .adm-img {
         display: none;
     }
 
@@ -241,39 +246,117 @@ input{
         width: 95% !important;
     }
 
-  }
-  
-  @media screen and (min-width: 481px) and (max-width: 768px) {
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
     ul li.item-menu a {
         padding: 20px 34px !important;
-      }
-  
-      ul li.item-menu::after {
+    }
+
+    ul li.item-menu::after {
         margin-left: 34px !important;
-  
-      }
-  
-      ul li.ativo::before {
+
+    }
+
+    ul li.ativo::before {
         margin-left: 34px !important;
-      }
- 
-  
-  }
-  
-  @media screen and (min-width: 769px) and (max-width: 1199px) {
+    }
+
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1199px) {
     ul li.item-menu a {
         padding: 20px 34px !important;
-      }
-  
-      ul li.item-menu::after {
+    }
+
+    ul li.item-menu::after {
         margin-left: 34px !important;
-  
-      }
-  
-      ul li.ativo::before {
+
+    }
+
+    ul li.ativo::before {
         margin-left: 34px !important;
-      }
-  }
+    }
+}
+
+
+@media screen and (min-width: 1200px) {
+
+
+    .revealbtn {
+        margin-left: 1rem !important;
+    }
+
+    .revealbtn .ent {
+        padding: 10px 40px;
+        font-size: 13px;
+    }
+
+    .adm-title h1 {
+        font-size: 40px;
+        padding-left: 2rem;
+    }
+
+    .adm-content .mt-5 {
+        margin-top: 0rem !important;
+    }
+
+    .filtro-title {
+        padding-left: 2rem;
+        font-size: 15px;
+    }
+
+    .filtro-btn {
+        flex-wrap: wrap;
+        flex-direction: row !important;
+        margin-left: 2rem;
+    }
+
+    .filtro-btn .ent {
+        border-radius: 20px;
+        padding: 10px 30px;
+        font-size: 13px;
+        box-shadow: 3px 8px 22px var(--roxo);
+        margin: 0rem;
+
+    }
+
+    .filtro-btn .revealbtn {
+        margin-bottom: 1rem !important;
+        margin-left: 0rem !important;
+
+    }
 
 
 
+    .adm-element {
+        width: 20rem;
+        z-index: 1;
+    }
+
+    .adm-img {
+        right: -6%;
+    }
+
+    .tabela-gera {
+        z-index: 1;
+        margin-left: 3rem;
+        max-height: 500px;
+        overflow-y: auto;
+        width: 75% !important;
+    }
+
+    ul li.item-menu a {
+        padding: 20px 34px !important;
+    }
+
+    ul li.item-menu::after {
+        margin-left: 34px !important;
+
+    }
+
+    ul li.ativo::before {
+        margin-left: 34px !important;
+    }
+}
