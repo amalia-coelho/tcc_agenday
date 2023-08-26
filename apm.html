@@ -275,18 +275,42 @@
     <!-- Modal -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
       aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
+      <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar Produto</h1>
+            <button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            ...
+            <form>
+              <div class="mb-3">
+                <label for="imageInput" class="form-label">Imagem do Produto</label>
+                <div class="input-group">
+                  <input type="file" class="form-control" id="imageInput" accept="image/*">
+                  <button class="btn btn-outline-secondary" type="button" id="editButton">
+                    <i class="bi bi-pencil"></i> <!-- Ícone de editar -->
+                  </button>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col">
+                  <label for="productName" class="form-label">Nome do Produto</label>
+                  <input type="text" class="form-control" id="productName">
+                </div>
+                <div class="col">
+                  <label for="productValue" class="form-label">Valor do Produto</label>
+                  <input type="text" class="form-control" id="productValue">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="productDescription" class="form-label">Descrição do Produto</label>
+                <textarea class="form-control" id="productDescription" rows="4"></textarea>
+              </div>
+            </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Understood</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary">Adicionar Produto</button>
           </div>
         </div>
       </div>

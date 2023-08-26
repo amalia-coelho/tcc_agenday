@@ -14,12 +14,15 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/comunicado.css">
   <link rel="stylesheet" href="css/menu.css">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0/css/select2.min.css" rel="stylesheet" />
 
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css" integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css"
+    integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- /css -->
 
   <!-- js -->
@@ -150,14 +153,86 @@
       <img src="img/ecotourism-animate.svg" alt="Figura Inicial" class="comunicado-element">
     </div>
 
+
+    <!-- incio do modal -->
+    <button type="button" class="btn btn-primary add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      <i class="bi bi-plus-circle-fill"></i> <!-- Ícone de adição -->
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar Produto</h1>
+            <button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="imageInput" class="form-label">Imagem do Produto</label>
+                <div class="input-group">
+                  <input type="file" class="form-control" id="imageInput" accept="image/*">
+                  <button class="btn btn-outline-secondary" type="button" id="editButton">
+                    <i class="bi bi-pencil"></i> <!-- Ícone de editar -->
+                  </button>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="productTitle" class="form-label">Título do Produto</label>
+                <input type="text" class="form-control" id="productTitle">
+              </div>
+              <div class="row mb-3">
+                <div class="col">
+                  <label for="productDate" class="form-label">Data e Hora</label>
+                  <input type="datetime-local" class="form-control" id="productDate">
+                </div>
+                <div class="col">
+                  <label for="productOptions" class="form-label">Opções</label>
+                  <select class="form-control" id="productOptions" multiple="multiple">
+                    <option value="3min">3min</option>
+                    <option value="3mad">3mad</option>
+                    <option value="3mam">3mam</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="selectAllOptions">
+                  <label class="form-check-label" for="selectAllOptions">Marcar todas as opções</label>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="productDescription" class="form-label">Descrição do Produto</label>
+                <textarea class="form-control" id="productDescription" rows="4"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary">Adicionar Produto</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- fim do modal -->
   </main>
   <!-- js -->
   <script src="js/duvidas.js"></script>
   <script src="js/menu.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0/js/select2.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  <script>
+   $(document).ready(function () {
+    $('#productOptions').select2();
+  });
+  </script>
 </body>
 
 </html>

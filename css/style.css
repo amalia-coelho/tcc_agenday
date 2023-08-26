@@ -43,7 +43,7 @@
   background-color: var(--roxo) !important;
   border-color: var(--roxo) !important;
   position: fixed;
-  right: 5%;
+  right: 2%;
   bottom: 5%;
   border-radius: 35% !important;
   PADDING: 10px 20px !important;
@@ -52,3 +52,34 @@
 .add i {
   font-size: 2.25rem;
 }
+
+.modal-body input,
+textarea,
+.modal-body i {
+  border-color: var(--roxo) !important;
+}
+
+.modal-header {
+  background-color: var(--roxo);
+  color: var(--branco);
+}
+
+
+/* modal close */
+/* Estilo para o botão de fechar do modal */
+.close-button {
+  position: relative;
+  background-color: var(--branco);
+  border-radius: 50%;
+  padding: 5px;
+  transition: transform 0.8s, color 0.3s;
+  color: var(--branco) !important;
+}
+
+.close-button:hover {
+  transform: rotate(180deg);
+  /* Gira o ícone 180 graus */
+  color: black;
+}
+
+/* fim do modal close */
