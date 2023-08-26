@@ -15,7 +15,7 @@
     padding-right: 5%;
     position: relative;
     font-family: 'Poppins', sans-serif;
-    
+
 }
 
 .login-container {
@@ -62,6 +62,7 @@
     color: #fbfbff;
     box-shadow: 3px 8px 22px var(--roxo);
     transition: .5s;
+    cursor: pointer;
 }
 
 .login-content .ent:hover {
@@ -153,7 +154,7 @@ small a {
 
 }
 
-.revealbtn .create{
+.revealbtn .create {
     color: var(--roxo);
     text-decoration: none;
     margin-top: 2rem;
@@ -161,62 +162,63 @@ small a {
 
 /* RESPONSIVIDADE */
 
-@media screen and (max-width: 480px){
-    .login-img{
+@media screen and (max-width: 480px) {
+    .login-img {
         display: flex;
         align-items: center;
         justify-content: center;
         margin-bottom: 2rem;
     }
+
     .login-element {
         width: 15rem;
         margin-left: 0;
     }
-    .login-container{
+
+    .login-container {
         height: auto;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column-reverse;
-}
-    .login-content .titulo{
-        text-align:start;
     }
-    .login-content .titulo .resp{
+
+    .login-content .titulo {
+        text-align: start;
+    }
+
+    .login-content .titulo .resp {
         font-size: 70px;
     }
 
 }
 
-@media screen and (min-width: 481px) and (max-width: 768px){
-    .login-element{
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .login-element {
         width: 20rem;
     }
-    .login-content .titulo .resp{
-        font-size: 70px;
-    }
-    
-}
 
-@media screen and (min-width: 769px) and (max-width: 1199px){
-
-
-    .login-content .titulo .resp{
+    .login-content .titulo .resp {
         font-size: 70px;
     }
 
-
-    
 }
 
-@media screen and (min-width: 1200px){
+@media screen and (min-width: 769px) and (max-width: 1199px) {
 
-    .login-content .titulo .resp{
+
+    .login-content .titulo .resp {
         font-size: 70px;
     }
-    
+
+
+
 }
 
+@media screen and (min-width: 1200px) {
 
+    .login-content .titulo .resp {
+        font-size: 70px;
+    }
 
-
+}
