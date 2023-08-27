@@ -179,6 +179,8 @@
           <!-- inicio card -->
           <div class="apm-card">
             <img src="img/roupa.jpg" alt="" class="card-img">
+            <button data-bs-toggle="modal" data-bs-target="#editModal"><i class="bi bi-pencil-square edit-icon"></i></button>
+            <i class="bi bi-trash-fill delete-icon"></i>
             <div class="card-info">
               <div class="card-text">
                 <p class="card-title">Camiseta </p>
@@ -193,6 +195,8 @@
           <!-- inicio card -->
           <div class="apm-card">
             <img src="img/roupa.jpg" alt="" class="card-img">
+            <button data-bs-toggle="modal" data-bs-target="#editModal"><i class="bi bi-pencil-square edit-icon"></i></button>
+            <i class="bi bi-trash-fill delete-icon"></i>
             <div class="card-info">
               <div class="card-text">
                 <p class="card-title">Camiseta </p>
@@ -207,6 +211,8 @@
           <!-- inicio card -->
           <div class="apm-card">
             <img src="img/roupa.jpg" alt="" class="card-img">
+            <button data-bs-toggle="modal" data-bs-target="#editModal"><i class="bi bi-pencil-square edit-icon"></i></button>
+            <i class="bi bi-trash-fill delete-icon"></i>
             <div class="card-info">
               <div class="card-text">
                 <p class="card-title">Camiseta </p>
@@ -221,6 +227,8 @@
           <!-- inicio card -->
           <div class="apm-card">
             <img src="img/roupa.jpg" alt="" class="card-img">
+            <button data-bs-toggle="modal" data-bs-target="#editModal"><i class="bi bi-pencil-square edit-icon"></i></button>
+            <i class="bi bi-trash-fill delete-icon"></i>
             <div class="card-info">
               <div class="card-text">
                 <p class="card-title">Camiseta </p>
@@ -235,6 +243,8 @@
           <!-- inicio card -->
           <div class="apm-card">
             <img src="img/roupa.jpg" alt="" class="card-img">
+            <button data-bs-toggle="modal" data-bs-target="#editModal"><i class="bi bi-pencil-square edit-icon"></i></button>
+            <i class="bi bi-trash-fill delete-icon"></i>
             <div class="card-info">
               <div class="card-text">
                 <p class="card-title">Camiseta </p>
@@ -249,6 +259,8 @@
           <!-- inicio card -->
           <div class="apm-card">
             <img src="img/roupa.jpg" alt="" class="card-img">
+            <button data-bs-toggle="modal" data-bs-target="#editModal"><i class="bi bi-pencil-square edit-icon"></i></button>
+            <i class="bi bi-trash-fill delete-icon"></i>
             <div class="card-info">
               <div class="card-text">
                 <p class="card-title">Camiseta </p>
@@ -267,12 +279,51 @@
       </div>
     </div>
 
-    <!-- incio do modal -->
+
+    <!-- Modal de Alteração -->
+    <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="editModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="editModalLabel">Editar Produto</h1>
+            <button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <!-- Inputs para a alteração -->
+              <div class="mb-3">
+                <label for="newProductName" class="form-label">Novo Nome do Produto</label>
+                <input type="text" class="form-control" id="newProductName">
+              </div>
+              <div class="mb-3">
+                <label for="newProductValue" class="form-label">Novo Valor do Produto</label>
+                <input type="text" class="form-control" id="newProductValue">
+              </div>
+              <div class="mb-3">
+                <label for="newProductDescription" class="form-label">Nova Descrição do Produto</label>
+                <textarea class="form-control" id="newProductDescription" rows="4"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary">Salvar Alterações</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fim do modal de Alteração -->
+
+
+
+
+    <!-- incio do modal E BOTAO QUE ABRE ELE -->
     <button type="button" class="btn btn-primary add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
       <i class="bi bi-plus-circle-fill"></i> <!-- Ícone de adição -->
     </button>
 
-    <!-- Modal -->
+    <!-- Modal de ADICIONAR APM -->
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
       aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
@@ -309,9 +360,9 @@
             </form>
           </div>
           <div class="modal-footer">
-              <button type="button" class="btn btn-roxo">Salvar</button>
-              <button type="button" class="btn btn-azul" data-bs-dismiss="modal">Fechar</button>
-            </div>
+            <button type="button" class="btn btn-roxo">Salvar</button>
+            <button type="button" class="btn btn-azul" data-bs-dismiss="modal">Fechar</button>
+          </div>
         </div>
       </div>
     </div>

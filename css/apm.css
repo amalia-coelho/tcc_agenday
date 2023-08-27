@@ -1,4 +1,4 @@
-body{
+body {
     background-color: var(--branco);
 }
 
@@ -6,7 +6,7 @@ body{
     width: 100%;
     /* background-size: cover;
     background-position: center; */
-    background: url('../img/doisfatores.png') center center no-repeat fixed; 
+    background: url('../img/doisfatores.png') center center no-repeat fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -16,7 +16,8 @@ body{
     position: relative;
     font-family: 'Poppins', sans-serif;
 }
-.apm{
+
+.apm {
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -27,12 +28,13 @@ body{
     padding-top: 3rem;
 }
 
-.apm-title h1{
+.apm-title h1 {
     font-family: var(--quatro);
     font-size: 80px;
     font-weight: 400;
     position: relative;
 }
+
 .apm-title h1::after {
     content: '';
     position: absolute;
@@ -50,12 +52,12 @@ body{
     width: 10%;
 }
 
-.apm-title p{
+.apm-title p {
     font-family: var(--merri);
     font-size: 20px;
 }
 
-.apm-card-container{
+.apm-card-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,7 +65,7 @@ body{
 
 }
 
-.apm-group{
+.apm-group {
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -72,7 +74,7 @@ body{
     margin-top: 3rem;
 }
 
-.apm-card{
+.apm-card {
     background-color: var(--roxo);
     border-radius: 10px;
     display: flex;
@@ -84,19 +86,75 @@ body{
     margin-left: 3rem;
     box-shadow: 1px 8px 20px 0px #000;
     transition: 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     cursor: pointer;
+    position: relative;
 }
 
-.apm-card:hover{
+
+/* EDIT CARD APM */
+
+
+.apm-card:hover {
+    /* Adicione um fundo opaco */
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 1px 8px 30px 0px #000;
+}
+
+/* Ícone de lápis */
+.edit-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    padding: 5px;
+    display: none;
+    /* Escondido por padrão */
+    z-index: 1;
+    /* Para estar acima da imagem */
+}
+
+.apm-card:hover .edit-icon {
+    display: block;
+    /* Mostrar quando o cartão estiver em foco */
+}
+
+.apm-card .bi-pencil-square {
+    color: var(--branco);
+    font-size: 23px;
+}
+
+/* Ícone de lixeira */
+.delete-icon {
+    border-radius: 100%;
+    padding: 10px 10px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: var(--cinza);
+    font-size: 23px;
+    cursor: pointer;
+    display: none;
+    z-index: 1;
+}
+.apm-card:hover .delete-icon {
+    display: block;
+    /* Mostrar quando o cartão estiver em foco */
+}
+
+/* FIM EDIT CARD APM */
+
+.apm-card:hover {
     transform: scale(1.05);
 }
 
-.card-text{
-    text-align:start;
+.card-text {
+    text-align: start;
     padding: 5%;
 }
 
-.apm-group .card-img{
+.apm-group .card-img {
     margin-top: 5px;
     padding: 10px;
     border-radius: 20px;
@@ -105,27 +163,30 @@ body{
 
 
 
-.apm-group .card-img, .card-info{
+.apm-group .card-img,
+.card-info {
     width: 280px;
 }
 
-.apm-card .card-title{
+.apm-card .card-title {
     font-weight: bold;
     font-size: 1.1em;
 }
-.card-info{
+
+.card-info {
     display: flex;
     flex-direction: row;
     align-items: center;
     font-family: var(--pop);
 }
 
-.price .btn{
+.price .btn {
     color: #000;
     margin-right: 10px;
     background-color: var(--branco) !important;
 }
-.price .btn:hover{
+
+.price .btn:hover {
     color: #000 !important;
 }
 
@@ -151,26 +212,28 @@ body{
     }
 
     .carousel {
-        display: flex ;
+        display: flex;
     }
 
     .carousel-inner {
         overflow: visible !important;
     }
 
-    .apm-group{
+    .apm-group {
         display: none;
     }
 
-    .apm-card{
+    .apm-card {
         box-shadow: none !important;
         border: 1px solid #000;
     }
-    .apm-card img{
+
+    .apm-card img {
 
         border-radius: 10px !important;
     }
-    .apm-card:hover{
+
+    .apm-card:hover {
         transform: none;
     }
 
@@ -183,34 +246,36 @@ body{
     .carousel .bi-caret-left {
         margin-right: -.5rem;
     }
-    
+
     .carousel .bi-caret-right {
         margin-left: 5.4rem;
     }
-    
+
 
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
- 
+
     .carousel {
-        display: flex ;
+        display: flex;
     }
 
 
-    .apm-group{
+    .apm-group {
         display: none;
     }
 
-    .apm-card{
+    .apm-card {
         box-shadow: none !important;
         border: 1px solid #000;
     }
-    .apm-card img{
+
+    .apm-card img {
 
         border-radius: 10px !important;
     }
-    .apm-card:hover{
+
+    .apm-card:hover {
         transform: none;
     }
 
@@ -223,14 +288,15 @@ body{
     .carousel .bi-caret-left {
         margin-right: -.5rem;
     }
-    
+
     .carousel .bi-caret-right {
         margin-left: 5.4rem;
     }
+
     .apm-card-container {
         margin-right: 6rem !important;
     }
-    
+
 
 }
 
@@ -243,23 +309,25 @@ body{
     }
 
     .carousel {
-        display: flex ;
+        display: flex;
     }
 
 
-    .apm-group{
+    .apm-group {
         display: none;
     }
 
-    .apm-card{
+    .apm-card {
         box-shadow: none !important;
         border: 1px solid #000;
     }
-    .apm-card img{
+
+    .apm-card img {
 
         border-radius: 10px !important;
     }
-    .apm-card:hover{
+
+    .apm-card:hover {
         transform: none;
     }
 
@@ -272,10 +340,11 @@ body{
     .carousel .bi-caret-left {
         margin-right: 1rem;
     }
-    
+
     .carousel .bi-caret-right {
         margin-left: 6.4rem;
     }
+
     .apm-card-container {
         margin-right: 6rem !important;
     }
