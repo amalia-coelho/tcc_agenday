@@ -104,6 +104,7 @@ h2 {
 .calendario tbody td:hover {
     background: var(--roxo);
     color: #fbfbff;
+    border: none;
 }
 
 .calendario table .dia-atual {

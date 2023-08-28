@@ -13,17 +13,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
         for (let i = 0; i < allDayCells.length; i++) {
             let dt = new Date(ano, mes, i - firstDayOfWeek + 1); // Ajusta o índice para começar a partir do primeiro dia da semana
+
+            let dtNow = new Date();
+
             let dayTable = allDayCells[i];
 
             if (dt.getMonth() !== mes) {
                 dayTable.classList.add('mes-anterior');
                 dayTable.classList.remove('proximo-mes');
+                dayTable.classList.remove('dia-atual');
+
             } else if (i >= getLastDayThisMonth + firstDayOfWeek) {
                 dayTable.classList.add('proximo-mes');
                 dayTable.classList.remove('mes-anterior');
+                dayTable.classList.remove('dia-atual');
+
             } else {
                 dayTable.classList.remove('mes-anterior');
+                dayTable.classList.remove('dia-atual');
+
                 dayTable.classList.remove('proximo-mes');
+                dayTable.classList.remove('dia-atual');
+
+            }
+            if (dt.getFullYear() == dtNow.getFullYear() && dt.getMonth() == dtNow.getMonth() && dt.getDate() == dtNow.getDate()) {
+                dayTable.classList.add('dia-atual');
             }
 
             dayTable.innerHTML = dt.getDate();
@@ -33,29 +47,29 @@ document.addEventListener('DOMContentLoaded', function () {
     let now = new Date();
     let mes = now.getMonth();
     let ano = now.getFullYear();
-    GetDaysCalendar(mes,ano);
+    GetDaysCalendar(mes, ano);
 
     const proximo = document.getElementById('btn-next');
     const anterior = document.getElementById('btn-ant');
-    
+
     console.log(proximo);
 
-    proximo.onclick = function(){
+    proximo.onclick = function () {
         mes++;
-        if(mes > 11){
+        if (mes > 11) {
             mes = 0;
             ano++;
         }
-        GetDaysCalendar(mes,ano);
-        
+        GetDaysCalendar(mes, ano);
+
     }
-    anterior.onclick = function(){
+    anterior.onclick = function () {
         mes--;
-        if(mes < 0){  // Deve ser "menor que 0" em vez de "maior que 0"
+        if (mes < 0) { // Deve ser "menor que 0" em vez de "maior que 0"
             mes = 11;
             ano--;
         }
-        GetDaysCalendar(mes,ano);
+        GetDaysCalendar(mes, ano);
     }
 
 })
