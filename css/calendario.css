@@ -1,0 +1,123 @@
+body {
+    background-color: var(--branco);
+}
+
+.calendario-container {
+    width: 100%;
+    /* background-size: cover;
+    background-position: center; */
+    background: url('../img/doisfatores.png') center center no-repeat fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-left: 5%;
+    padding-right: 5%;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+
+.calendario {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: center;
+    padding-top: 3rem;
+}
+
+.calendario-title h1 {
+    font-family: var(--quatro);
+    font-size: 80px;
+    font-weight: 400;
+    position: relative;
+}
+
+.calendario-title h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0.1rem;
+    left: 50%;
+    width: 5%;
+    height: 4px;
+    border-bottom: 4px solid var(--azul);
+    background-color: var(--roxo);
+    transform: translateX(-50%);
+    transition: width 0.3s;
+}
+
+.calendario-title h1:hover::after {
+    width: 10%;
+}
+
+.calendario-title p {
+    font-family: var(--merri);
+    font-size: 20px;
+}
+
+
+
+/* CALENDARIO */
+.calendario-view{
+    left: 50%;
+    margin: 0 0 0 -250px;
+    position: absolute;
+    width: 500px;
+    background-color: red;
+
+}
+
+.calendario-view h2{
+    margin-top: 20px;
+    font-size: 32px;
+    text-transform: uppercase;
+}
+
+.btn-prev, .btn-next{
+    position: absolute;
+    top: 50%;
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    margin-top: -16px;
+    border: 2px solid #cbd1d2;
+    border-radius: 50%;
+    color: #cbd1d2;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+@media screen and (max-width: 480px) {
+
+
+
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+
+
+
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1199px) {
+
+}
+
+@media screen and (min-width: 1200px){
+    .calendario-title h1 {
+        font-family: var(--quatro);
+        font-size: 60px;
+        font-weight: 400;
+        position: relative;
+    }
+
+    .calendario-title p {
+        font-family: var(--merri);
+        font-size: 16px;
+    }
+    
+}
