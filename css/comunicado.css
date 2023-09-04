@@ -28,7 +28,60 @@ main {
     border-bottom: 10px solid var(--azul); 
     margin-top: 5rem;
     /* border-top: 5px solid var(--azul-);  */
+    transition: 0.2s ease-in-out;
+    position: relative;
 }
+
+
+
+.comunicado:hover {
+    /* Adicione um fundo opaco */
+    background-color: #00000022;
+    box-shadow: 1px 8px 30px 0px #000;
+}
+
+/* Ícone de lápis */
+.edit-icon {
+    position: absolute;
+    bottom: 1%;
+    left: 97.1%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    padding: 5px;
+    display: none;
+    /* Escondido por padrão */
+    z-index: 1;
+    /* Para estar acima da imagem */
+}
+
+.comunicado:hover .edit-icon {
+    display: block;
+    /* Mostrar quando o cartão estiver em foco */
+}
+
+.comunicado .bi-pencil-square {
+    color: var(--cinza);
+    font-size: 23px;
+}
+
+/* Ícone de lixeira */
+.delete-icon {
+    border-radius: 100%;
+    padding: 10px 10px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: var(--cinza);
+    font-size: 23px;
+    cursor: pointer;
+    display: none;
+    z-index: 1;
+}
+.comunicado:hover .delete-icon {
+    display: block;
+    /* Mostrar quando o cartão estiver em foco */
+}
+
 
 .horizontal .comunicado-image {
     cursor: pointer;
@@ -107,7 +160,7 @@ main {
 }
 
 .comunicado-element {
-    width: 60rem;
+    width: 50rem;
     transition: 0.5s ease-in-out;
     cursor: pointer;
   }
