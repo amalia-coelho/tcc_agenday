@@ -30,155 +30,250 @@
 <body>
   <!-- INICIO DA DUVIDA!! -->
   <section class="-container">
-    <!-- INICIO MENU  -->
+      <!-- INICIO MENU  -->
 
     <nav class="menu-lateral">
-      <div class="btn-expandir">
-        <i class="bi bi-list" id="btn-exp"></i>
+        <div class="btn-expandir">
+          <i class="bi bi-list" id="btn-exp"></i>
+        </div>
+        <ul>
+          <li class="item-menu">
+            <a href="#">
+              <span class="icon"><i class="bi bi-person-fill"></i></span>
+              <span class="txt-link">Usuário</span>
+            </a>
+          </li>
+          <li class="item-menu">
+            <a href="#">
+              <span class="icon"><i class="bi bi-house-door-fill"></i></span>
+              <span class="txt-link">Home</span>
+            </a>
+          </li>
+          <li class="item-menu">
+            <a href="calendario.html">
+              <span class="icon"><i class="bi bi-calendar2-week-fill"></i></span>
+              <span class="txt-link">Calendário</span>
+            </a>
+          </li>
+          <li class="item-menu ativo">
+            <a href="#">
+              <span class="icon"><i class="bi bi-megaphone-fill"></i></span>
+              <span class="txt-link">Comunicados</span>
+            </a>
+          </li>
+          <li class="item-menu">
+            <a href="apm.html">
+              <span class="icon"><i class="bi bi-cart4"></i></span>
+              <span class="txt-link">APM</span>
+            </a>
+          </li>
+          <li class="item-menu">
+            <a href="#">
+              <span class="icon"><i class="bi bi-heart-fill"></i></span>
+              <span class="txt-link">Saúde</span>
+            </a>
+          </li>
+          <li class="item-menu">
+            <a href="#">
+              <span class="icon"><i class="bi bi-person-workspace"></i></span>
+              <span class="txt-link">Gestão</span>
+            </a>
+          </li>
+          <li class="item-menu">
+            <a href="duvidas.html">
+              <span class="icon"><i class="bi bi-question-lg"></i></span>
+              <span class="txt-link">Dúvidas</span>
+            </a>
+          </li>
+          <li class="item-menu">
+            <a href="gerenciamento.html">
+              <span class="icon"><i class="bi bi-gear-fill"></i></span>
+              <span class="txt-link">Gerenciamento</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- FIM DO MENU -->
+    </section>
+    <main>
+      <div class="comuni">
+        <h1>Gestão Pedagógica</h1>
       </div>
-      <ul>
-        <li class="item-menu">
-          <a href="perfil.html">
-            <span class="icon"><i class="bi bi-person-fill"></i></span>
-            <span class="txt-link">Usuário</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="#">
-            <span class="icon"><i class="bi bi-house-door-fill"></i></span>
-            <span class="txt-link">Home</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="#">
-            <span class="icon"><i class="bi bi-calendar2-week-fill"></i></span>
-            <span class="txt-link">Calendário</span>
-          </a>
-        </li>
-        <li class="item-menu ativo">
-          <a href="#">
-            <span class="icon"><i class="bi bi-megaphone-fill"></i></span>
-            <span class="txt-link">Comunicados</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="apm.html">
-            <span class="icon"><i class="bi bi-cart4"></i></span>
-            <span class="txt-link">APM</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="#">
-            <span class="icon"><i class="bi bi-heart-fill"></i></span>
-            <span class="txt-link">Saúde</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="#">
-            <span class="icon"><i class="bi bi-person-workspace"></i></span>
-            <span class="txt-link">Gestão</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="duvidas.html">
-            <span class="icon"><i class="bi bi-question-lg"></i></span>
-            <span class="txt-link">Dúvidas</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="gerenciamento.html">
-            <span class="icon"><i class="bi bi-gear-fill"></i></span>
-            <span class="txt-link">Gerenciamento</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <!-- FIM DO MENU -->
-  </section>
-  <main>
-    <div class="comuni">
-      <h1>Gestão</h1>
+      <section class="gestao">
+            <div class="gestao-container">
+              <div class="gestao-users">
+                <img src="img/perfil1.jpg" alt="Foto do Usuário">
+                <button data-bs-toggle="modal" data-bs-target="#editModal" ><i
+                  class="bi bi-pencil-square edit-icon"></i></button>
+              <i class="bi bi-trash-fill delete-icon"></i>
+                <p>Felipe Da Academia</p>
+                <p>Instrutor</p>
+              </div>
+              <div class="gestao-users">
+                <img src="img/perfil2.jpg" alt="Foto do Usuário">
+                    <button data-bs-toggle="modal" data-bs-target="#editModal" style="background: none; padding: 0; width: 0;"><i
+                  class="bi bi-pencil-square edit-icon"></i></button>
+              <i class="bi bi-trash-fill delete-icon"></i>
+                <p>Felipe Da Academia</p>
+                <p>Instrutor</p>
+              </div>
+              <div class="gestao-users">
+                <img src="img/perfil3.jpg" alt="Foto do Usuário">
+                    <button data-bs-toggle="modal" data-bs-target="#editModal" style="background: none; padding: 0; width: 0;"><i
+                  class="bi bi-pencil-square edit-icon"></i></button>
+              <i class="bi bi-trash-fill delete-icon"></i>
+                <p>Felipe Da Academia</p>
+                <p>Instrutor</p>
+              </div>
+              <div class="gestao-users">
+                <img src="img/perfil4.jpg" alt="Foto do Usuário">
+                    <button data-bs-toggle="modal" data-bs-target="#editModal" style="background: none; padding: 0; width: 0;"><i
+                  class="bi bi-pencil-square edit-icon"></i></button>
+              <i class="bi bi-trash-fill delete-icon"></i>
+                <p>Felipe Da Academia</p>
+                <p>Instrutor</p>
+              </div>
+              <div class="gestao-users">
+                <img src="img/perfil5.jpg" alt="Foto do Usuário">
+                    <button data-bs-toggle="modal" data-bs-target="#editModal" style="background: none; padding: 0; width: 0;"><i
+                  class="bi bi-pencil-square edit-icon"></i></button>
+              <i class="bi bi-trash-fill delete-icon"></i>
+                <p>Felipe Da Academia</p>
+                <p>Instrutor</p>
+              </div>
+              <div class="gestao-users">
+                <img src="img/perfil6.jpg" alt="Foto do Usuário">
+                    <button data-bs-toggle="modal" data-bs-target="#editModal" style="background: none; padding: 0; width: 0;"><i
+                  class="bi bi-pencil-square edit-icon"></i></button>
+              <i class="bi bi-trash-fill delete-icon"></i>
+                <p>Felipe Da Academia</p>
+                <p>Instrutor</p>
+              </div>
+              <div class="gestao-users">
+                <img src="img/perfil7.jpg" alt="Foto do Usuário">
+                    <button data-bs-toggle="modal" data-bs-target="#editModal" style="background: none; padding: 0; width: 0;"><i
+                  class="bi bi-pencil-square edit-icon"></i></button>
+              <i class="bi bi-trash-fill delete-icon"></i>
+                <p>Felipe Da Academia</p>
+                <p>Instrutor</p>
+              </div>
+              <div class="gestao-users">
+                <img src="img/perfil8.jpg" alt="Foto do Usuário">
+                    <button data-bs-toggle="modal" data-bs-target="#editModal" style="background: none; padding: 0; width: 0;"><i
+                  class="bi bi-pencil-square edit-icon"></i></button>
+              <i class="bi bi-trash-fill delete-icon"></i>
+                <p>Felipe Da Academia</p>
+                <p>Instrutor</p>
+              </div>
+              <div class="gestao-users">
+                <img src="img/perfil9.jpg" alt="Foto do Usuário">
+                    <button data-bs-toggle="modal" data-bs-target="#editModal" style="background: none; padding: 0; width: 0;"><i
+                  class="bi bi-pencil-square edit-icon"></i></button>
+              <i class="bi bi-trash-fill delete-icon"></i>
+                <p>Felipe Da Academia</p>
+                <p>Instrutor</p>
+              </div>
+              <div class="gestao-users">
+                <img src="img/perfil10.jpg" alt="Foto do Usuário">
+                    <button data-bs-toggle="modal" data-bs-target="#editModal" style="background: none; padding: 0; width: 0;"><i
+                  class="bi bi-pencil-square edit-icon"></i></button>
+              <i class="bi bi-trash-fill delete-icon"></i>
+                <p>Felipe Da Academia</p>
+                <p>Instrutor</p>
+              </div>
+            </div>
+          
+        </main>
+           <!-- Modal de Alteração -->
+    <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="editModalLabel">Editar Membro</h1>
+          <button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <!-- Inputs para a alteração -->
+            <div class="mb-3">
+              <label for="imageInput" class="form-label">Editar Imagem do Membro</label>
+              <div class="input-group">
+                <input type="file" class="form-control" id="imageInput" accept="image/*">
+                <button class="btn btn-outline-secondary" type="button" id="editButton">
+                  <i class="bi bi-pencil"></i> <!-- Ícone de editar -->
+                </button>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <label for="productName" class="form-label">Editar Nome do Membro</label>
+                <input type="text" class="form-control" id="productName">
+              </div>
+              <div class="col">
+                <label for="membroCargo" class="form-label">Editar Cargo do Membro</label>
+                <input type="text" class="form-control" id="membroCargo">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-roxo">Salvar Alterações</button>
+          <button type="button" class="btn btn-azul" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
     </div>
-    <section class="gestao">
-      <div class="gestao-container">
-        <div class="gestao-users">
-          <img src="img/OIP.jpg" alt="Foto do Usuário">
-          <p>Felipe Da Academia</p>
-          <p>Instrutor</p>
+  </div>
+  <!-- Fim do modal de Alteração -->
+
+
+
+
+  <!-- incio do modal E BOTAO QUE ABRE ELE -->
+  <button type="button" class="btn btn-primary add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <i class="bi bi-plus-circle-fill"></i> <!-- Ícone de adição -->
+  </button>
+
+  <!-- Modal de ADICIONAR APM -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar Membro</h1>
+          <button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="gestao-users">
-          <img src="img/OIP.jpg" alt="Foto do Usuário">
-          <p>Felipe Da Academia</p>
-          <p>Instrutor</p>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="imageInput" class="form-label">Imagem do Membro</label>
+              <div class="input-group">
+                <input type="file" class="form-control" id="imageInput" accept="image/*">
+                <button class="btn btn-outline-secondary" type="button" id="editButton">
+                  <i class="bi bi-pencil"></i> <!-- Ícone de editar -->
+                </button>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col">
+                <label for="productName" class="form-label">Nome do Membro</label>
+                <input type="text" class="form-control" id="productName">
+              </div>
+              <div class="col">
+                <label for="membroCargo" class="form-label">Cargo do Membro</label>
+                <input type="text" class="form-control" id="membroCargo">
+              </div>
+            </div>
+          </form>
         </div>
-        <div class="gestao-users">
-          <img src="img/OIP.jpg" alt="Foto do Usuário">
-          <p>Felipe Da Academia</p>
-          <p>Instrutor</p>
-        </div>
-        <div class="gestao-users">
-          <img src="img/OIP.jpg" alt="Foto do Usuário">
-          <p>Felipe Da Academia</p>
-          <p>Instrutor</p>
-        </div>
-        <div class="gestao-users">
-          <img src="img/OIP.jpg" alt="Foto do Usuário">
-          <p>Felipe Da Academia</p>
-          <p>Instrutor</p>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-roxo">Salvar</button>
+          <button type="button" class="btn btn-azul" data-bs-dismiss="modal">Fechar</button>
         </div>
       </div>
-
-
-      <!-- incio do modal -->
-      <button type="button" class="btn btn-primary add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-        <i class="bi bi-plus-circle-fill"></i> <!-- Ícone de adição -->
-      </button>
-
-      <!-- Modal -->
-      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar Membro</h1>
-              <button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="mb-3">
-                  <label for="imageInput" class="form-label">Foto Da Pessoa</label>
-                  <div class="input-group">
-                    <input type="file" class="form-control" id="imageInput" accept="image/*">
-                    <button class="btn btn-outline-secondary" type="button" id="editButton">
-                      <i class="bi bi-pencil"></i> <!-- Ícone de editar -->
-                    </button>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <label for="nameCompleto" class="form-label">Nome Completo</label>
-                  <input type="text" class="form-control" id="nameCompleto">
-                </div>
-                <div class="row mb-3">
-                  <div class="col">
-                    <label for="productOptions" class="form-label">Cargo</label>
-                    <select multiple class="form-select" id="productOptions">
-                      <option value="3min">Grêmio</option>
-                      <option value="3mad">Gestão</option>
-                      <option value="3mam">Apm</option>
-                    </select>
-                  </div>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-roxo">Salvar</button>
-              <button type="button" class="btn btn-azul" data-bs-dismiss="modal">Fechar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- fim do modal -->
-  </main>
+    </div>
+  </div>
+  <!-- fim do modal -->
   <!-- js -->
   <script src="js/duvidas.js"></script>
   <script src="js/menu.js"></script>

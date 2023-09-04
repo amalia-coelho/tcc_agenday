@@ -81,7 +81,7 @@
           </a>
         </li>
         <li class="item-menu">
-          <a href="gestão.html">
+          <a href="gestao.html">
             <span class="icon"><i class="bi bi-person-workspace"></i></span>
             <span class="txt-link">Gestão</span>
           </a>
@@ -105,20 +105,87 @@
     <?php
           echo $_SESSION['email'];
         ?>
-    <div class="calendario">
-      <div class="calendario-title">
-        <h1>Calendario</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, possimus?.</p>
+        <div class="info mt-5">
+          <div class="calendario">
+              <header>
+                  <h2 id="mes">Abril</h2>
+                  <h3 id="ano"></h3>
+                  <a class="btn-ant" id="btn-ant"><</a>
+  <a class="btn-pro" id="btn-next">></a>
+  
+                  </a>
+              </header>
+              <table>
+                  <thead>
+                      <tr>
+                          <td>Dom</td>
+                          <td>Seg</td>
+                          <td>Ter</td>
+                          <td>Qua</td>
+                          <td>Qui</td>
+                          <td>Sex</td>
+                          <td>Sáb</td>
+                      </tr>
+                  </thead>
+                  <tbody id="dias">
+                      <tr>
+                          <td>1</td>
+                          <td>2</td>
+                          <td>3</td>
+                          <td>4</td>
+                          <td>5</td>
+                          <td>6</td>
+                          <td>7</td>
+                      </tr>
+                      <tr>
+                          <td>1</td>
+                          <td>2</td>
+                          <td>3</td>
+                          <td>4</td>
+                          <td>5</td>
+                          <td>6</td>
+                          <td>7</td>
+                      </tr>
+                      <tr>
+                          <td>1</td>
+                          <td class="event" data-toggle="popover" data-content="Dia Das Crianças" data-trigger="hover">2</td>
+                          <td>3</td>
+                          <td>4</td>
+                          <td>5</td>
+                          <td>6</td>
+                          <td>7</td>
+                      </tr>
+                      <tr>
+                          <td>1</td>
+                          <td>2</td>
+                          <td>3</td>
+                          <td>4</td>
+                          <td>5</td>
+                          <td>6</td>
+                          <td>7</td>
+                      </tr>
+                      <tr>
+                          <td>1</td>
+                          <td>2</td>
+                          <td>3</td>
+                          <td>4</td>
+                          <td>5</td>
+                          <td>6</td>
+                          <td>7</td>
+                      </tr>
+                      <tr>
+                          <td>1</td>
+                          <td>2</td>
+                          <td>3</td>
+                          <td>4</td>
+                          <td>5</td>
+                          <td>6</td>
+                          <td>7</td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
       </div>
-      
-      <div class="calendario-view">
-          <header>
-            <h2 id="mes">Abril</h2>
-            <a class="btn-prev"><</a>
-            <a class="btn-next">></a>
-          </header>
-      </div>
-    </div>  
 
 
     <!-- Modal de Alteração -->
@@ -194,7 +261,16 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  
+  <script>
+    $('[data-toggle="popover"]').popover({}) 
+
+  </script>
 </body>
 
 </html>
