@@ -276,7 +276,7 @@
             <img src="img/roupa.jpg" alt="" class="card-img">
             <button data-bs-toggle="modal" data-bs-target="#editModal"><i
                 class="bi bi-pencil-square edit-icon"></i></button>
-            <i class="bi bi-trash-fill delete-icon"></i>
+              <i class="bi bi-trash-fill delete-icon"></i>
             <div class="card-info">
               <div class="card-text">
                 <p class="card-title">Camiseta </p>

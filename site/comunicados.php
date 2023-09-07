@@ -18,12 +18,48 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 		
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css" integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  	<!-- /css -->
+	<!-- /css -->
 
-  <!-- js -->
-  	<script src="https://unpkg.com/scrollreveal"></script>
-  <!-- /js -->
-  <title>Dúvidas</title>
+	<!-- js -->
+		<script src="https://unpkg.com/scrollreveal"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#salvar").click(function(){
+					// declaração de variáveis
+					var descricao = $('#ds_descricao').val();
+					var data = $('#dt_comunicado').val();
+					var turma = $('#id_turma').val();
+					var titulo = $('#nm_titulo').val();
+
+					$.ajax({
+					url: "php/script_addComunicado.php",
+					type: "POST",
+					data: "descricao="+descricao+"&data="+data+"&turma="+turma+"&titulo="+titulo,
+					dataType: "html"
+					
+					}).done(function(resposta){
+						//fechar o modal
+						// $('#fechar').click();
+
+						//Recarregar página
+						$("#exibe").html(resposta);
+
+						// Limpar os inputs
+						$('#ds_descricao').val(' ');
+						$('#dt_comunicado').val(' ');
+						$('#nm_titulo').val(' ');
+						
+						//resetar o select
+						$('#id_turma option:first').prop('selected',true);
+					}).fail(function(jqXHR, textStatus ) {
+						console.log("Request failed: " + textStatus);
+					});
+				});
+			});
+		</script>
+	<!-- /js -->
+	<title>Comunicados</title>
 </head>
 
 	<body>
@@ -120,7 +156,7 @@
 			?>
 
 			<div class="comunicado-img">
-			<img src="img/ecotourism-animate.svg" alt="Figura Inicial" class="comunicado-element">
+				<img src="img/ecotourism-animate.svg" alt="Figura Inicial" class="comunicado-element">
 			</div>
 
 
@@ -140,46 +176,56 @@
 						</div>
 						<div class="modal-body">
 							<div class="mb-3">
-								<label for="imageInput" class="form-label">Imagem do Comunicado</label>
+								<label for="ds_imagem" class="form-label">Imagem do comunicado</label>
 								<div class="input-group">
-									<input type="file" class="form-control" id="imageInput" accept="image/*">
+									<input type="file" class="form-control" id="ds_imagem" accept="image/*">
 									<button class="btn btn-outline-secondary" type="button" id="editButton">
 									<i class="bi bi-pencil"></i> <!-- Ícone de editar -->
 									</button>
 								</div>
 							</div>
 							<div class="mb-3">
-								<label for="productTitle" class="form-label">Título do Comunicado</label>
-								<input type="text" class="form-control" id="productTitle">
+								<label for="nm_titulo" class="form-label">Título</label>
+								<input type="text" class="form-control" id="nm_titulo">
 						</div>
 						<div class="row mb-3">
 							<div class="col">
-								<label for="productDate" class="form-label">Data e Hora</label>
-								<input type="datetime-local" class="form-control" id="productDate">
+								<label for="dt_comunicado" class="form-label">Data</label>
+								<input type="date" class="form-control" id="dt_comunicado">
 							</div>
 							<div class="col">
-								<label for="productOptions" class="form-label">Opções</label>
-								<select multiple class="form-select" id="productOptions">
-									<option value="3min">3min</option>
-									<option value="3mad">3mad</option>
-									<option value="3mam">3mam</option>
+								<label for="id_turma" class="form-label">Turmas</label>
+								<select class="form-select" id="id_turma">
+									<option>Selecione</option>
+									<?php 
+										$option = "";
+										$sql = "SELECT * FROM tb_turma";
+
+										foreach ($conn->query($sql) as $turma){
+											$option .= "<option value='".$turma['cd_turma']."'>".$turma['nm_turma']."</option>";
+										}
+										echo $option;
+									?>
 								</select>
 							</div>
 						</div>
 						<div class="mb-3">
 							<div class="form-check">
-								<input class="form-check-input" type="checkbox" id="selectAllOptions">
-								<label class="form-check-label" for="selectAllOptions">Marcar todas as opções</label>
+								<input class="form-check-input" type="checkbox" id="todasTurmas">
+								<label class="form-check-label" for="todasTurmas">Todas as turmas</label>
 							</div>
 						</div>
 						<div class="mb-3">
-							<label for="productDescription" class="form-label">Descrição</label>
-							<textarea class="form-control" id="productDescription" rows="4"></textarea>
+							<label for="ds_descricao" class="form-label">Descrição</label>
+							<textarea class="form-control" id="ds_descricao" rows="4"></textarea>
 						</div>
 						<!-- </div> -->
 						<div class="modal-footer">
-							<button type="button" class="btn btn-roxo">Salvar</button>
-							<button type="button" class="btn btn-azul" data-bs-dismiss="modal">Fechar</button>
+							<button type="button" class="btn btn-roxo" id="salvar">Salvar</button>
+							<button type="button" class="btn btn-azul" data-bs-dismiss="modal" id="fechar">Fechar</button>
+							<div id="exibe">
+				
+							</div>
 						</div>
 					</div>
 				</div>

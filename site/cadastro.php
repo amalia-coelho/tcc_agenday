@@ -83,7 +83,7 @@
                 <!-- fim dos input -->
                 <div class="revealbtn">
                     <a class="ent">Criar Conta</a>
-                    <a class="create" href="index.html">Voltar</a>
+                    <a class="create" href="index.php">Voltar</a>
                   </div>
                   <div id="exibe">
                       <!-- Exibe mensagem de retorno do script -->

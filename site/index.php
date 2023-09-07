@@ -27,28 +27,28 @@
 
   	</script>
 
-  	<script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
+  	<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
   	<script type="text/javascript">
-  	$(document).ready(function(){
-		$(".ent").click(function(){
-			// declaração de variáveis
-			var email = $("#email").val();
-			var senha = $("#password").val();
+		$(document).ready(function(){
+			$(".ent").click(function(){
+				// declaração de variáveis
+				var email = $("#email").val();
+				var senha = $("#password").val();
 
-			$.ajax({
-			url: "php/script_login.php",
-			type: "POST",
-			data: "email="+email+"&senha="+senha,
-			dataType: "html"
+				$.ajax({
+				url: "php/script_login.php",
+				type: "POST",
+				data: "email="+email+"&senha="+senha,
+				dataType: "html"
 
-			}).done(function(resposta){
-				$("#exibe").html(resposta);
-			}).fail(function(jqXHR, textStatus ) {
-				console.log("Request failed: " + textStatus);
+				}).done(function(resposta){
+					$("#exibe").html(resposta);
+				}).fail(function(jqXHR, textStatus ) {
+					console.log("Request failed: " + textStatus);
+				});
 			});
 		});
-  	});
   	</script>
 	<!-- /js -->
 	<title>Agenday</title>
@@ -121,7 +121,7 @@
         <!-- fim dos input -->
         <div class="revealbtn">
           <a class="ent">ENTRAR</a>
-          <a class="create" href="cadastro.html">Não tem uma conta? Criar</a>
+          <a class="create" href="cadastro.php">Não tem uma conta? Criar</a>
         </div>
       </div>
       <div class="login-img">
