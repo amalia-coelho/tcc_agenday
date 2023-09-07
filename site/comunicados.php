@@ -40,11 +40,14 @@
 					
 					}).done(function(resposta){
 						//fechar o modal
-						// $('#fechar').click();
+						$('#fechar').click();
 
-						//Recarregar página
-						$("#exibe").html(resposta);
+						//Notificar registro
+						alert(resposta);
 
+						// Recarregar div
+						$('').load(''); 
+						
 						// Limpar os inputs
 						$('#ds_descricao').val(' ');
 						$('#dt_comunicado').val(' ');
