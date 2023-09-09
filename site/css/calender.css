@@ -84,6 +84,7 @@ h2 {
     color: var(--branco);
     border: none;
 }
+
 .calendario thead td {
     height: 67.4px;
 }

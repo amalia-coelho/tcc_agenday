@@ -97,7 +97,7 @@ body {
 
 .apm-card:hover {
     /* Adicione um fundo opaco */
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: var(--azul);
     box-shadow: 1px 8px 30px 0px #000;
 }
 
@@ -138,6 +138,7 @@ body {
     display: none;
     z-index: 1;
 }
+
 .apm-card:hover .delete-icon {
     display: block;
     /* Mostrar quando o cartão estiver em foco */
