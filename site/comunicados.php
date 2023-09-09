@@ -43,11 +43,11 @@
 						$('#fechar').click();
 
 						//Notificar registro
-						alert(resposta);
+						alert("Comunicado adicionado com sucesso!");
 
-						// Recarregar div
-						$('').load(''); 
-						
+						//Recarregar página
+						$("#retorno").html(resposta);
+
 						// Limpar os inputs
 						$('#ds_descricao').val(' ');
 						$('#dt_comunicado').val(' ');
@@ -157,7 +157,10 @@
 				<?php
 				}
 			?>
-
+			
+			<div id="retorno">
+				<!-- Aqui o php vai enviar o refresh -->
+			</div>
 			<div class="comunicado-img">
 				<img src="img/ecotourism-animate.svg" alt="Figura Inicial" class="comunicado-element">
 			</div>
@@ -226,9 +229,6 @@
 						<div class="modal-footer">
 							<button type="button" class="btn btn-roxo" id="salvar">Salvar</button>
 							<button type="button" class="btn btn-azul" data-bs-dismiss="modal" id="fechar">Fechar</button>
-							<div id="exibe">
-				
-							</div>
 						</div>
 					</div>
 				</div>
