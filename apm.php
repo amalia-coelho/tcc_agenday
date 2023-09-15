@@ -25,12 +25,25 @@
   <!-- /css -->
 
   <!-- js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
+
   <script src="https://unpkg.com/scrollreveal"></script>
   <script>
 
   </script>
   <!-- /js -->
   <title>APM</title>
+  <script src="js/jquery.maskMoney.min.js"></script>
+  <script>
+    $(document).ready(function()
+  {
+       $(".preco").maskMoney({
+           prefix: "",
+           decimal: ",",
+           thousands: "."
+       });
+  });
+  </script>
 </head>
 
 <body>
@@ -280,7 +293,7 @@
             <div class="card-info">
               <div class="card-text">
                 <p class="card-title">Camiseta </p>
-                <p class="card-sub">Informática para Internet</p>
+                <p class="card-sub">Informática para Internet 2023</p>
               </div>
               <div class="price">
                 <a href="#" class="btn btn-secondary">R$50,00</a>
@@ -307,16 +320,27 @@
             <form>
               <!-- Inputs para a alteração -->
               <div class="mb-3">
-                <label for="newProductName" class="form-label">Novo Nome do Produto</label>
-                <input type="text" class="form-control" id="newProductName">
+                <label for="imageInput" class="form-label">Alterar Imagem do Produto</label>
+                <div class="input-group">
+                  <input type="file" class="form-control" id="imageInput" accept="image/*">
+                  <button class="btn btn-outline-secondary" type="button" id="editButton">
+                    <i class="bi bi-pencil"></i> <!-- Ícone de editar -->
+                  </button>
+                </div>
+              </div>
+              <div class="row mb-3">
+                <div class="col">
+                  <label for="productName" class="form-label">Alterar Nome do Produto</label>
+                  <input type="text" class="form-control" id="productName" maxlength="35">
+                </div>
+                <div class="col">
+                  <label for="productValue" class="form-label">Alterar Valor do Produto</label>
+                  <input type="text" class="form-control preco" id="productValue">
+                </div>
               </div>
               <div class="mb-3">
-                <label for="newProductValue" class="form-label">Novo Valor do Produto</label>
-                <input type="text" class="form-control" id="newProductValue">
-              </div>
-              <div class="mb-3">
-                <label for="newProductDescription" class="form-label">Nova Descrição do Produto</label>
-                <textarea class="form-control" id="newProductDescription" rows="4"></textarea>
+                <label for="productDescription" class="form-label">Alterar Descrição do Produto</label>
+                <textarea class="form-control" id="productDescription" rows="4" maxlength="35"></textarea>
               </div>
             </form>
           </div>
@@ -360,11 +384,11 @@
               <div class="row mb-3">
                 <div class="col">
                   <label for="productName" class="form-label">Nome do Produto</label>
-                  <input type="text" class="form-control" id="productName">
+                  <input type="text" class="form-control" id="productName" maxlength="35">
                 </div>
                 <div class="col">
                   <label for="productValue" class="form-label">Valor do Produto</label>
-                  <input type="text" class="form-control" id="productValue">
+                  <input type="text" class="form-control preco" id="productValue">
                 </div>
               </div>
               <div class="mb-3">
@@ -391,6 +415,8 @@
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  <script src="js/jQuery-Mask-Plugin-master/src/jquery.mask.js"></script>
+
 </body>
 
 </html>
