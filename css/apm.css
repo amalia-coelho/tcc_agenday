@@ -28,6 +28,10 @@ body {
     padding-top: 3rem;
 }
 
+.apm-card button{
+    border: none !important;
+}
+
 .apm-title h1 {
     font-family: var(--quatro);
     font-size: 80px;

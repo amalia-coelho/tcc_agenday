@@ -26,10 +26,10 @@ body {
 }
 
 .info {
-    left: 50%;
+    left: 30%;
     margin: 0 0 0 -250px;
     position: absolute;
-    width: 500px;
+    width: 800px;
 }
 
 h2 {
@@ -43,7 +43,11 @@ h2 {
 h3{
     
     font-weight: bold !important;
-    font-size: 1.17em !important;
+    font-size: 1.5 em !important;
+}
+
+tr{
+    font-size: 1.3em;
 }
 
 .btn-ant,
@@ -99,15 +103,10 @@ h3{
     border-right: var(--roxo);
 }
 
-.calendario tbody{
-
-    /* box-shadow: 0px 0px 5px 0px #000; */
-}
-
 .calendario td {
-    height: 71.4px;
+    height: 114.2px;
     text-align: center;
-    width: 71.4px;
+    width: 114.2px;
 }
 
 .calendario tbody td {
@@ -162,6 +161,81 @@ h3{
 .event.dia-atual::after {
     background-color: #fbfbff;
 
+}
+
+.data-evento{
+    width: 500px;
+    left: 100%;
+    top: 4px;
+    margin: 0 0 0 150px;
+    position: absolute;
+}
+
+
+.info-evento{
+    border-width: 1%;
+    position: relative;
+}
+
+/* CRUD */
+
+/* Ícone de lápis */
+.edit-icon {
+    position: absolute;
+    bottom: -28px;
+    left: 95%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    padding: 5px;
+    display: none;
+    /* Escondido por padrão */
+    z-index: 1;
+    /* Para estar acima da imagem */
+}
+
+.adm:hover .edit-icon {
+    display: block;
+    /* Mostrar quando o cartão estiver em foco */
+}
+
+.adm .bi-pencil-square {
+    color: var(--cinza);
+    font-size: 23px;
+}
+
+/* Ícone de lixeira */
+.delete-icon {
+    border-radius: 100%;
+    padding: 10px 10px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: var(--cinza);
+    font-size: 23px;
+    cursor: pointer;
+    display: none;
+    z-index: 1;
+}
+.adm:hover .delete-icon {
+    display: block;
+    /* Mostrar quando o cartão estiver em foco */
+}
+.info-evento h3{
+    font-size: 1.5em;
+}
+
+.info-evento::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    width: 55%;
+    height: 2px;
+    border-bottom: 2px solid var(--roxo);
+    transition: 0.2s ease-in-out;
+}
+.info-evento:hover:after {
+    border-bottom: 2px solid var(--azul);
+    width: 75%;
 }
 
 
