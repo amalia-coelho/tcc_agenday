@@ -106,6 +106,3 @@ INSERT INTO tb_nivel (nm_nivel) VALUES ('Estudante');
 INSERT INTO tb_turma (nm_turma) VALUES ('3MIN');
 INSERT INTO tb_turma (nm_turma) VALUES ('3MAD');
 INSERT INTO tb_turma (nm_turma) VALUES ('3MAM');
-
---Usuários
-INSERT INTO tb_usuario (nm_usuário,) VALUES ('3MAM');
