@@ -58,6 +58,8 @@
     color: #fbfbff;
     box-shadow: 3px 8px 22px var(--roxo);
     transition: .5s;
+    border: 1px solid var(--roxo);
+    cursor: pointer;
 }
 
 .cadastro-content .ent:hover {
@@ -65,7 +67,6 @@
     background-color: #fbfbff;
     color: var(--roxo);
     box-shadow: 3px 8px 22px #2525257b;
-    border: 1px solid var(--roxo);
 
 }
 
@@ -80,7 +81,7 @@
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    
+
 }
 
 .revealbtn .create {
@@ -136,7 +137,8 @@
     border-bottom: 2px solid #252525 !important;
 }
 
-.form-control:focus, .form-control:hover {
+.form-control:focus,
+.form-control:hover {
     box-shadow: none !important;
     border-color: var(--roxo) !important;
     /* Adicione a cor desejada para a borda ao remover o foco */
@@ -144,7 +146,7 @@
     /* Remova também o contorno do teclado para melhorar a acessibilidade */
 }
 
-input:hover::placeholder{
+input:hover::placeholder {
     color: var(--roxo) !important;
 
 }
@@ -170,16 +172,29 @@ input:hover::placeholder{
     color: var(--roxo);
 }
 
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+
+}
+
 /* responsividade */
 @media screen and (max-width: 480px) {
 
     .cadastro {
         background-position: 5%;
     }
+
     .cadastro-img2 {
 
         display: none;
     }
+
     .cadastro-img {
         display: none;
     }
@@ -193,29 +208,36 @@ input:hover::placeholder{
         width: 100%;
         margin-top: 4rem;
     }
+
     .cadastro-content {
         width: 100%;
     }
+
     .resp {
         display: none;
     }
 }
+
 @media screen and (min-width: 481px) and (max-width: 768px) {
     .cadastro {
         background-position: 5%;
     }
+
     .cadastro-img2 {
         top: 0;
         left: -2rem;
         overflow: visible;
     }
-    .cadastro-element2{
+
+    .cadastro-element2 {
         width: 11rem !important;
     }
-    .cadastro-element{
+
+    .cadastro-element {
         width: 13rem !important;
-        
+
     }
+
     .cadastro-img {
         bottom: 0;
         right: 0;
@@ -231,30 +253,36 @@ input:hover::placeholder{
         width: 100%;
         margin-top: 4rem;
     }
+
     .cadastro-content {
         width: 70%;
     }
+
     .resp {
         display: none;
     }
-  }
-  
-  @media screen and (min-width: 769px) and (max-width: 1199px) {
+}
+
+@media screen and (min-width: 769px) and (max-width: 1199px) {
     .cadastro {
         background-position: 5%;
     }
+
     .cadastro-img2 {
         top: 0;
         left: -2rem;
         overflow: visible;
     }
-    .cadastro-element2{
+
+    .cadastro-element2 {
         width: 13rem !important;
     }
-    .cadastro-element{
+
+    .cadastro-element {
         width: 15rem !important;
-        
+
     }
+
     .cadastro-img {
         bottom: 0;
         right: 0;
@@ -270,13 +298,14 @@ input:hover::placeholder{
         width: 100%;
         margin-top: 4rem;
     }
+
     .cadastro-content {
         width: 70%;
     }
+
     .resp {
         display: none;
     }
 
-    
-  }
 
+}

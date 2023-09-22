@@ -1,0 +1,98 @@
+.container {
+    position: relative;
+    max-width: 320px;
+    width: 100%;
+    border-radius: 8px;
+    margin: 80px auto 30px;
+}
+
+body {
+    background-color: #ffff;
+}
+
+.select-btn {
+    display: flex;
+    height: 50px;
+    width: 25%;
+    background-color: var(--branco);
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.select-btn .btn-text {
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--cinza);
+}
+
+.list-itens {
+    position: relative;
+    width: 25%;
+    margin-top: 15px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.list-itens .item {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    height: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    padding: 0 15px;
+    border-radius: 8px;
+}
+
+.list-itens .item:hover {
+    background-color: #dcc6fa;
+}
+
+.select-btn.open~.list-itens {
+    display: block;
+}
+
+.select-btn.open .bi-chevron-down {
+    transform: rotate(-180deg);
+    transition: 0.3s;
+}
+
+.item .checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 16px;
+    width: 16px;
+    border-radius: 4px;
+    margin-right: 12px;
+    border: 1.5px solid var(--cinza);
+    transition: all 0.3s ease-in-out;
+}
+
+.checkbox .bi-check-lg {
+    font-size: 11px;
+    transform: scale(0);
+    transition: all 0.3s ease-in-out;
+}
+
+.item .item-text {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--cinza);
+}
+
+.item.checked .bi-check-lg {
+    transform: scale(1);
+}
+
+/* .item.checked .checkbox{
+    background-color: var(--azul);
+    border-color: var(--azul);
+} */
