@@ -127,6 +127,12 @@
 				<span class="txt-link">Gerenciamento</span>
 			</a>
 			</li>
+			<li class="item-menu">
+				<a href="php/logout.php">
+					<span class="icon"><i class="bi bi-box-arrow-right"></i></span>
+					<span class="txt-link">Sair</span>
+          		</a>
+        	</li>
 		</ul>
 		</nav>
 		<!-- FIM DO MENU -->
