@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -18,7 +18,9 @@
 
   <!-- js -->
   <script src="https://unpkg.com/scrollreveal"></script>
-  
+  <script>
+
+  </script>
   <!-- /js -->
   <title>Esqueceu a Senha</title>
 </head>
