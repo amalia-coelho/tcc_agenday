@@ -7,8 +7,7 @@ create table tb_evento(
   	dt_inicio date not null,
   	hr_inicio time,
   	dt_final date,
-  	hr_final time not null,
-  	id_turma int,
+  	hr_final time,
   	ds_anotacoes varchar(255)
 );
 
@@ -34,14 +33,27 @@ create table tb_comunicado(
   	ds_descricao varchar(255) not null,
   	ds_imagem varchar(255),
   	dt_postagem date,
-  	id_turma int
+    dt_comunicado date,
+    id_usuario int not null
+);
+
+create table tb_comunicado_turma(
+	cd_comunicado_turma int primary key auto_increment,
+    id_comunicado int,
+    id_turma int
+);
+
+create table tb_evento_turma(
+	tb_evento_turma int primary key auto_increment,
+    id_evento int,
+    id_turma int
 );
 
 create table tb_apm(
 	cd_apm int primary key auto_increment,
   	nm_produto varchar(50) not null,
   	ds_descricao varchar(100),
-  	nr_valor decimal(4, 2) not null,
+  	nr_valor decimal(5, 2) not null,
   	ds_imagem varchar(255) not null,
   	id_nivel int
 );
@@ -78,13 +90,9 @@ create table tb_usuario_saude(
     id_usuario int
 );
 
-alter table tb_evento add foreign key fk_evento_turma(id_turma) references tb_turma(cd_turma);
-
 alter table tb_usuario add foreign key fk_usuario_nivel(id_nivel) references tb_nivel(cd_nivel);
 
 alter table tb_usuario add foreign key fk_usuario_turma(id_turma) references tb_turma(cd_turma);
-
-alter table tb_comunicado add foreign key fk_comunicado_turma(id_turma) references tb_turma(cd_turma); 
 
 alter table tb_apm add foreign key fk_apm_nivel(id_nivel) references tb_nivel(cd_nivel);
 
@@ -96,6 +104,15 @@ alter table tb_usuario_saude add foreign key fk_usuario_saude_saude(id_saude) re
 
 alter table tb_usuario_saude add foreign key fk_usuario_saude_usuario(id_usuario) references tb_usuario(cd_usuario);
 
+alter table tb_comunicado add foreign key fk_comunicado_usuario(id_usuario) references tb_usuario(cd_usuario);
+
+alter table tb_comunicado_turma add foreign key fk_comunicado_turma_comunicado(id_comunicado) references tb_comunicado(cd_comunicado);
+
+alter table tb_comunicado_turma add foreign key fk_comunicado_turma_turma(id_turma) references tb_turma(cd_turma);
+
+alter table tb_evento_turma add foreign key fk_evento_turma_evento(id_evento) references tb_evento(cd_evento);
+
+alter table tb_evento_turma add foreign key fk_evento_turma_turma(id_turma) references tb_turma(cd_turma);
 -- Valores iniciais
 
 -- Niveis
@@ -106,6 +123,3 @@ INSERT INTO tb_nivel (nm_nivel) VALUES ('Estudante');
 INSERT INTO tb_turma (nm_turma) VALUES ('3MIN');
 INSERT INTO tb_turma (nm_turma) VALUES ('3MAD');
 INSERT INTO tb_turma (nm_turma) VALUES ('3MAM');
-
---Usuários
-INSERT INTO tb_usuario (nm_usuário,) VALUES ('3MAM');
