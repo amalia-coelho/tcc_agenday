@@ -25,9 +25,11 @@ main {
 }
 
 .painel-title p {
+    margin-left: 5.31rem;
     padding-top: 20px;
     font-family: var(--merri);
     font-size: 20px;
+    word-break: break-word;
 }
 
 .painel-title h1::after {
@@ -69,7 +71,7 @@ main {
     transition: 0.3s ease-in-out;
     cursor: pointer;
     border: 2px solid var(--azul);
-    padding: 50px 5px;
+    padding: 35px 5px;
 
 }
 
@@ -95,7 +97,7 @@ main {
 }
 
 .painel-card img {
-    width: 20rem;
+    width: 15rem;
     max-width: 20rem;
 }
 
@@ -108,6 +110,7 @@ main {
 .form-group label {
     margin-bottom: 1rem;
     font-size: 20px;
+    margin-left: 1rem;
 }
 
 .form-control {
@@ -143,11 +146,10 @@ input:hover::placeholder {
 
 
 .check {
-
     width: 80%;
     display: flex;
     flex-direction: row-reverse;
-    align-items: center;
+    align-items: baseline;
 }
 
 
@@ -189,3 +191,38 @@ input:hover::placeholder {
 }
 
 /* fim do botao */
+/* responsividade */
+@media screen and (max-width: 480px) {
+
+    .painel-title h1 {
+        font-size: 3rem;
+        margin-left: 3rem;
+    }
+    .painel-title p {
+        margin-left: 3.30rem;
+        font-size: 20px;
+    }
+    .form-group,
+    .input-group {
+    width: 60%;
+}
+.revealbtn{
+    margin-left: 2rem !important;
+}
+
+}
+/* @media screen and (min-width: 481px) and (max-width: 768px) {
+
+
+  }
+  
+  @media screen and (min-width: 769px) and (max-width: 1199px) {
+
+    
+  }
+
+  @media screen and (min-width: 1200px) and (max-width: 1370px) {
+
+    
+  }
+ */
