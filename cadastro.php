@@ -59,14 +59,34 @@
                 <!-- fim do titulo -->
                 <!-- começa os input -->
 
-                <div class="form-group name">
+                <div class="form-group name mb-3">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" class="form-control" placeholder="Digite seu nome completo" required>
+                </div>
+                <div class="row mt-4">
+                    <div class="input-group col">
+                        <label for="RM"></label>
+                        <input placeholder="Digite seu RM" style="height: 2rem !important;" class="form-control rm" type="text" id="rm" required  data-mask="00000">
+                    </div>  
+                    <div class="input-group col">
+                        <select class="form-select" aria-label="Default select example" required>
+                            <option selected disabled>Qual seu Curso</option>
+                            <option value="1">1MIN</option>
+                            <option value="2">1MAM</option>
+                            <option value="3">1MAD</option>
+                            <option value="1">2MIN</option>
+                            <option value="2">2MAM</option>
+                            <option value="3">2MAD</option>
+                            <option value="1">3MIN</option>
+                            <option value="2">3MAM</option>
+                            <option value="3">3MAD</option>
+                          </select>
+                      </div>  
+                </div>
+                <div class="form-group name mt-2">
                     <label for="email">Email</label>
                     <input type="text" id="email" class="form-control" placeholder="Digite seu melhor email">
                 </div>
-                <div class="form-group name">
-                    <input type="text" id="email2" class="form-control" placeholder="Confirme seu email">
-                </div>
-
                 <div class="form-group custom-spacing pass">
                     <label for="password">Senha</label>
                     <div class="input-group">
@@ -80,9 +100,20 @@
                     </div>
                 </div>
 
+                <!-- pop up -->
+            
+                <div class="alert hide">
+                    <i class="bi bi-exclamation-circle"></i>
+                    <span class="msg">Aviso! Usuário não encontrado</span>
+                    <span class="close-btn">
+                        <i class="bi bi-x-lg"></i>
+                    </span>
+                </div>
+            
+                <!-- fim do pop up -->
                 <!-- fim dos input -->
                 <div class="revealbtn">
-                    <a class="ent">Criar Conta</a>
+                    <a class="ent" id="entrar">Criar Conta</a>
                     <a class="create" href="index.html">Voltar</a>
                   </div>
                   <div id="exibe">
