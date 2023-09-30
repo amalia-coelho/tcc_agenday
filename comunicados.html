@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/comunicado.css">
   <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/selectcheck.css">
 
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -29,12 +30,21 @@
   <script src="https://unpkg.com/scrollreveal"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
   <script src="js/jquery.maskMoney.min.js"></script>
+
+  
   <script>
        $(document).ready(function()
   {
        $('.date').mask('00/00/0000');
        $('.time').mask('00:00h');
-  });
+       $('#all-select').click(function() {
+          var checked = this.checked;
+          $('input[type="checkbox"]').each(function() {
+          this.checked = checked;
+      });
+    })
+    
+});
 
   </script>
   <!-- /js -->
@@ -102,6 +112,12 @@
           <a href="gerenciamento.html">
             <span class="icon"><i class="bi bi-gear-fill"></i></span>
             <span class="txt-link">Gerenciamento</span>
+          </a>
+        </li>
+        <li class="item-menu">
+          <a href="logout.php">
+            <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
+            <span class="txt-link">Sair</span>
           </a>
         </li>
       </ul>
@@ -194,25 +210,79 @@
                 <label for="productTitle" class="form-label">Alterar Título do Comunicado</label>
                 <input type="text" class="form-control" id="productTitle">
               </div>
-              <div class="row mb-3">
+              
+              <div class="row mb-3 altura-curso">
                 <div class="input-group col">
                   <input placeholder="Data" style="height: 2rem !important;" type="text" class="form-control date" id="dateInput" accept="image/*">
                   <input placeholder="Hora" style="height: 2rem !important;" class="form-control time" type="text" id="timeInput">
                   </input>
                 </div>  
                 <div class="col">
-                  <label for="productOptions" class="form-label">Alterar Opções</label>
-                  <select multiple class="form-select" id="productOptions">
-                    <option value="3min">3min</option>
-                    <option value="3mad">3mad</option>
-                    <option value="3mam">3mam</option>
-                  </select>
-                </div>
-              </div>
-              <div class="mb-3">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="selectAllOptions">
-                  <label class="form-check-label" for="selectAllOptions">Marcar todas as opções</label>
+                  <div class="select-btn">
+                    <span class="btn-text">Selecionar Curso</span>
+                    <i class="bi bi-chevron-down"></i>
+                    </div>
+                    <ul class="list-itens">
+                      <li class="a" id="all-select" style="cursor:pointer;">
+                        <label class="form-check-label" for="selectAllOptions" style="cursor:pointer;">Todos</label>
+                    </li>
+                        <li class="item">
+                            <span class="checkbox">
+                                <i class="bi bi-check-lg"></i>
+                            </span>
+                            <span class="item-text">1MIN</span>
+                        </li>
+                        <li class="item">
+                          <span class="checkbox">
+                              <i class="bi bi-check-lg"></i>
+                          </span>
+                          <span class="item-text">1MAM</span>
+                          
+                      </li>
+                      <li class="item">
+                        <span class="checkbox">
+                            <i class="bi bi-check-lg"></i>
+                        </span>
+                        <span class="item-text">1MAD</span>
+                    </li>
+                      <li class="item">
+                        <span class="checkbox">
+                            <i class="bi bi-check-lg"></i>
+                        </span>
+                        <span class="item-text">2MIN</span>
+                    </li>
+                      <li class="item">
+                        <span class="checkbox">
+                            <i class="bi bi-check-lg"></i>
+                        </span>
+                        <span class="item-text">2MAM</span>
+                    </li>
+                      <li class="item">
+                        <span class="checkbox">
+                            <i class="bi bi-check-lg"></i>
+                        </span>
+                        <span class="item-text">2MAD</span>
+                    </li>
+                      <li class="item">
+                        <span class="checkbox">
+                            <i class="bi bi-check-lg"></i>
+                        </span>
+                        <span class="item-text">3MIN</span>
+                    </li>
+                      <li class="item">
+                        <span class="checkbox">
+                            <i class="bi bi-check-lg"></i>
+                        </span>
+                        <span class="item-text">3MAM</span>
+                    </li>
+                      <li class="item">
+                        <span class="checkbox">
+                            <i class="bi bi-check-lg"></i>
+                        </span>
+                        <span class="item-text">3MAD</span>
+                    </li>
+                    
+                    </ul>
                 </div>
               </div>
               <div class="mb-3">
@@ -267,10 +337,72 @@
                   </input>
                 </div>
                 <div class="col">
-                  <label for="productOptions" class="form-label">Opções</label>
-                  <select multiple class="form-select" id="productOptions">
-                    <option value="3min">3min</option>
-                  </select>
+                  <div class="select-btn">
+                    <span class="btn-text">Selecionar Curso</span>
+                    <i class="bi bi-chevron-down"></i>
+                    </div>
+                    <ul class="list-itens">
+                      <li class="a" id="all-select" style="cursor:pointer;">
+                        <label class="form-check-label" for="selectAllOptions" style="cursor:pointer;">Todos</label>
+                    </li>
+                        <li class="item">
+                            <span class="checkbox">
+                                <i class="bi bi-check-lg"></i>
+                            </span>
+                            <span class="item-text">1MIN</span>
+                        </li>
+                        <li class="item">
+                          <span class="checkbox">
+                              <i class="bi bi-check-lg"></i>
+                          </span>
+                          <span class="item-text">1MAM</span>
+                          
+                      </li>
+                      <li class="item">
+                        <span class="checkbox">
+                            <i class="bi bi-check-lg"></i>
+                        </span>
+                        <span class="item-text">1MAD</span>
+                    </li>
+                      <li class="item">
+                        <span class="checkbox">
+                            <i class="bi bi-check-lg"></i>
+                        </span>
+                        <span class="item-text">2MIN</span>
+                    </li>
+                      <li class="item">
+                        <span class="checkbox">
+                            <i class="bi bi-check-lg"></i>
+                        </span>
+                        <span class="item-text">2MAM</span>
+                    </li>
+                      <li class="item">
+                        <span class="checkbox">
+                            <i class="bi bi-check-lg"></i>
+                        </span>
+                        <span class="item-text">2MAD</span>
+                    </li>
+                      <li class="item">
+                        <span class="checkbox">
+                            <i class="bi bi-check-lg"></i>
+                        </span>
+                        <span class="item-text">3MIN</span>
+                    </li>
+                      <li class="item">
+                        <span class="checkbox">
+                            <i class="bi bi-check-lg"></i>
+                        </span>
+                        <span class="item-text">3MAM</span>
+                    </li>
+                      <li class="item">
+                        <span class="checkbox">
+                            <i class="bi bi-check-lg"></i>
+                        </span>
+                        <span class="item-text">3MAD</span>
+                    </li>
+                    
+                    </ul>
+                </div>
                 </div>
               </div>
               <div class="mb-3">
@@ -303,7 +435,7 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
   <script src="js/jQuery-Mask-Plugin-master/src/jquery.mask.js"></script>
-
+  <script src="js/selectcheck.js"></script>
 </body>
 
 </html>
