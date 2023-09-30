@@ -1,79 +1,87 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const selectBtn = document.querySelector(".select-btn");
-  const itens = document.querySelectorAll(".item");
-  const allSelect = document.querySelector("#all-select");
+  const modal1 = document.querySelector("#staticBackdrop");
+  const modal2 = document.querySelector("#editModal");
+  const selectBtn1 = modal1.querySelector(".select-btn");
+  const selectBtn2 = modal2.querySelector(".select-btn");
+  const itens1 = modal1.querySelectorAll(".item");
+  const itens2 = modal2.querySelectorAll(".item");
+  const allSelect1 = modal1.querySelector("#all-select2");
+  const allSelect2 = modal2.querySelector("#all-select");
 
-  selectBtn.addEventListener("click", () => {
-    selectBtn.classList.toggle("open");
+  // Adicione um evento de clique para alternar a classe "open" para o botão de seleção de cada modal
+  selectBtn1.addEventListener("click", () => {
+    selectBtn1.classList.toggle("open");
   });
 
+  selectBtn2.addEventListener("click", () => {
+    selectBtn2.classList.toggle("open");
+  });
 
-  const itemElements = document.querySelectorAll('.item');
-  itemElements.forEach(item => {
+  // Adicione a lógica para seleção de itens de cada modal
+  function toggleItemSelection(item) {
+    const checkbox = item.querySelector('.checkbox');
+    checkbox.checked = !checkbox.checked;
+    item.classList.toggle('selected');
+    updateButtonText(modal1, itens1);
+    updateButtonText(modal2, itens2);
+  }
+
+  itens1.forEach(item => {
     item.addEventListener('click', () => {
-      // Encontre o checkbox associado a esta opção
-      const checkbox = item.querySelector('.checkbox');
-
-      // Verifique se o checkbox está marcado ou desmarcado e atualize-o
-      checkbox.checked = !checkbox.checked;
-
-      // Adicione ou remova uma classe para destacar visualmente a seleção
-      if (checkbox.checked) {
-        item.classList.add('selected');
-      } else {
-        item.classList.remove('selected');
-      }
+      toggleItemSelection(item);
     });
   });
-  allSelect.addEventListener("click", () => {
+
+  itens2.forEach(item => {
+    item.addEventListener('click', () => {
+      toggleItemSelection(item);
+    });
+  });
+
+  // Adicione a lógica para selecionar ou desmarcar todos os itens de cada modal
+  function toggleSelectAll(modal, items, allSelect) {
     const isChecked = allSelect.classList.contains("checked");
 
     if (!isChecked) {
-      itens.forEach(item => {
+      items.forEach(item => {
         item.classList.add("checked");
-
-        // Marque também o checkbox associado ao item
         const checkbox = item.querySelector('.checkbox');
-        checkbox.checked = true;
-      });
-
-      // Marque também os checkboxes dentro da UL
-      const ulCheckboxes = document.querySelectorAll('.list-itens .checkbox');
-      ulCheckboxes.forEach(checkbox => {
         checkbox.checked = true;
       });
     } else {
-      itens.forEach(item => {
+      items.forEach(item => {
         item.classList.remove("checked");
-
-        // Desmarque também o checkbox associado ao item
         const checkbox = item.querySelector('.checkbox');
-        checkbox.checked = false;
-      });
-
-      // Desmarque também os checkboxes dentro da UL
-      const ulCheckboxes = document.querySelectorAll('.list-itens .checkbox');
-      ulCheckboxes.forEach(checkbox => {
         checkbox.checked = false;
       });
     }
 
     allSelect.classList.toggle("checked");
-    updateButtonText();
+    updateButtonText(modal, items);
+  }
+
+  allSelect1.addEventListener("click", () => {
+    toggleSelectAll(modal1, itens1, allSelect1);
   });
 
-  function updateButtonText() {
-    let checkedItems = document.querySelectorAll(".item.checked");
-    let btnText = document.querySelector(".btn-text");
+  allSelect2.addEventListener("click", () => {
+    toggleSelectAll(modal2, itens2, allSelect2);
+  });
+
+  // Função para atualizar o texto do botão de seleção
+  function updateButtonText(modal, items) {
+    const checkedItems = Array.from(items).filter(item => {
+      const checkbox = item.querySelector('.checkbox');
+      return checkbox.checked;
+    });
+
+    const btnText = modal.querySelector(".btn-text");
 
     if (checkedItems && checkedItems.length > 0) {
-      // Excluir o botão "Todos" da contagem
-      const itemCount = checkedItems.length - 0; // Subtrair 1 para ignorar o botão "Todos"
+      const itemCount = checkedItems.length;
       btnText.innerText = itemCount > 1 ? `${itemCount} Cursos` : `${itemCount} Curso`;
     } else {
       btnText.innerText = "Selecionar Curso";
     }
   }
-
-  updateButtonText();
 });

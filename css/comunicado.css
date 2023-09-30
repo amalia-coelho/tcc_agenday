@@ -262,9 +262,11 @@ main {
     transform: scale(1);
 }
 
-/* input[type="checkbox"] {
-    width: 100px !important;
-} */
+input[type="checkbox"] {
+    border-radius: 4px !important;
+    border: 1.5px solid var(--cinza) !important;
+
+}
 
 /* responsividade */
 @media screen and (max-width: 480px) {
