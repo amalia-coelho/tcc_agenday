@@ -161,4 +161,15 @@ main {
     /* Mostrar quando o cartão estiver em foco */
 }
 
+@media screen and (max-width: 480px) {
+.gestao{
+  width: 100%;
+}
+.comuni h1 {
+  font-size: 3em;
+  margin-left: 2rem;
+}
+
+}
+
 /* FIM EDIT CARD GESTAO */
