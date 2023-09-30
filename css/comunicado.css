@@ -15,17 +15,17 @@ main {
     position: relative;
 }
 
-  
+
 .comunicado {
     display: flex;
-    background-color: #fff; 
+    background-color: #fff;
     border-radius: 10px;
     box-shadow: -1px 2px 20px 0px rgba(0, 0, 0, 0.493);
     overflow: hidden;
     max-width: 800px;
     width: 100%;
-    border-top: 10px solid var(--azul); 
-    border-bottom: 10px solid var(--azul); 
+    border-top: 10px solid var(--azul);
+    border-bottom: 10px solid var(--azul);
     margin-top: 5rem;
     /* border-top: 5px solid var(--azul-);  */
     transition: 0.2s ease-in-out;
@@ -77,6 +77,7 @@ main {
     display: none;
     z-index: 1;
 }
+
 .comunicado:hover .delete-icon {
     display: block;
     /* Mostrar quando o cartão estiver em foco */
@@ -100,6 +101,7 @@ main {
     display: block;
     transition: .5s ease-in-out;
 }
+
 .horizontal .comunicado-image img:hover {
     transform: scale(1.01);
 }
@@ -107,7 +109,7 @@ main {
 .horizontal .comunicado-content {
     flex: 2;
     padding: 20px;
-    color: #000; 
+    color: #000;
 }
 
 .comunicado-header h2 {
@@ -123,20 +125,21 @@ main {
 .comunicado-text {
     color: #333;
 }
-.duvidas h1{
-    margin-bottom: 3rem;
-  }
-  
 
-  .comuni h1{
+.duvidas h1 {
+    margin-bottom: 3rem;
+}
+
+
+.comuni h1 {
     font-family: var(--quatro);
     font-size: 60px;
     margin-top: 3rem;
     position: relative;
     text-align: center;
-  }
+}
 
-  .comuni h1::after {
+.comuni h1::after {
     content: '';
     position: absolute;
     bottom: 0.1rem;
@@ -163,19 +166,19 @@ main {
     width: 50rem;
     transition: 0.5s ease-in-out;
     cursor: pointer;
-  }
+}
 
-  .comunicado-element:hover {
+.comunicado-element:hover {
     transform: scale(1.05);
-  }
-  
-  .altura-curso{
+}
+
+.altura-curso {
     max-height: 3rem;
-  }
+}
 
 /* SELECT */
 
-  .select-btn{
+.select-btn {
     display: flex;
     height: 50px;
     width: 100% !important;
@@ -187,12 +190,14 @@ main {
     cursor: pointer;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
-.select-btn .btn-text{
+
+.select-btn .btn-text {
     font-size: 17px;
     font-weight: 400;
     color: var(--cinza);
 }
-.list-itens{
+
+.list-itens {
     position: relative;
     width: 100% !important;
     margin-top: 15px;
@@ -204,7 +209,8 @@ main {
     max-height: 20rem;
     overflow-y: scroll;
 }
-.list-itens .item{
+
+.list-itens .item {
     display: flex;
     align-items: center;
     list-style: none;
@@ -214,17 +220,21 @@ main {
     padding: 0 15px;
     border-radius: 8px;
 }
-.list-itens .item:hover{
-     background-color: #70c1e660;
+
+.list-itens .item:hover {
+    background-color: #70c1e660;
 }
-.select-btn.open ~ .list-itens{
+
+.select-btn.open~.list-itens {
     display: block;
 }
-.select-btn.open .bi-chevron-down{ 
+
+.select-btn.open .bi-chevron-down {
     transform: rotate(-180deg);
     transition: 0.3s;
 }
-.item .checkbox{
+
+.item .checkbox {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -235,57 +245,64 @@ main {
     border: 1.5px solid var(--cinza);
     transition: all 0.3s ease-in-out;
 }
-.checkbox .bi-check-lg{
+
+.checkbox .bi-check-lg {
     font-size: 11px;
     transform: scale(0);
     transition: all 0.3s ease-in-out;
 }
-.item .item-text{
+
+.item .item-text {
     font-size: 16px;
     font-weight: 400;
     color: var(--cinza);
 }
-.item.checked .bi-check-lg{
+
+.item.checked .bi-check-lg {
     transform: scale(1);
 }
 
-  /* responsividade */
-@media screen and (max-width: 480px) {
-    
-    .comunicado {
-    border-radius: 5px;
-    flex-direction: column;
-    margin-left: 3rem;
-    box-shadow: -1px 2px 7px 0px rgba(0, 0, 0, 0.493);
-    border-right: 1px solid var(--azul);
-    border-left: 1px solid var(--azul);
-    max-width: 300px;
-    width: 100%;
-    margin-top: 5rem;
-    transition: 0.2s ease-in-out;
-    /* border-top: 5px solid var(--azul-); */
-}
+/* input[type="checkbox"] {
+    width: 100px !important;
+} */
 
-    .comunicado:hover{
+/* responsividade */
+@media screen and (max-width: 480px) {
+
+    .comunicado {
+        border-radius: 5px;
+        flex-direction: column;
+        margin-left: 3rem;
+        box-shadow: -1px 2px 7px 0px rgba(0, 0, 0, 0.493);
+        border-right: 1px solid var(--azul);
+        border-left: 1px solid var(--azul);
+        max-width: 300px;
+        width: 100%;
+        margin-top: 5rem;
+        transition: 0.2s ease-in-out;
+        /* border-top: 5px solid var(--azul-); */
+    }
+
+    .comunicado:hover {
         transform: scale(1.01);
     }
 
-.horizontal .comunicado-image img {
-    padding-left: 0px;
-}
+    .horizontal .comunicado-image img {
+        padding-left: 0px;
+    }
 
-.comunicado-element {
-    width: 30rem;
-    transition: 0.5s ease-in-out;
-    cursor: pointer;
-}
-    
+    .comunicado-element {
+        width: 30rem;
+        transition: 0.5s ease-in-out;
+        cursor: pointer;
+    }
+
     .horizontal .comunicado-image,
     .horizontal .comunicado-content {
         flex: 1;
     }
 
-    .comuni h1{
+    .comuni h1 {
         font-size: 40px;
         margin-left: 2rem;
     }
@@ -298,24 +315,26 @@ main {
         font-size: 18px;
     }
 
-    .comunicado-text{
+    .comunicado-text {
         font-size: 15px !important;
     }
+
     .horizontal .comunicado-image {
         padding: 0;
     }
 
-    
-    
-    
 
-  }
-  
-  @media screen and (min-width: 481px) and (max-width: 768px) {
+
+
+
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
     .horizontal .comunicado-image img {
         width: 15rem;
     }
-    .comuni h1{
+
+    .comuni h1 {
         font-size: 40px;
         margin-left: 2rem;
     }
@@ -328,22 +347,24 @@ main {
         font-size: 18px;
     }
 
-    .comunicado-text{
-        font-size: 15px !important;
-    }
-    .comunicado-text{
+    .comunicado-text {
         font-size: 15px !important;
     }
 
-    .comunicado{
+    .comunicado-text {
+        font-size: 15px !important;
+    }
+
+    .comunicado {
         width: 80%;
     }
+
     .comunicado-img {
         position: relative;
         left: auto !important;
         bottom: auto !important;
     }
-    
+
     .comunicado-element {
         width: 18rem;
         display: flex;
@@ -351,16 +372,17 @@ main {
         justify-content: center;
         transition: 0.5s ease-in-out;
         cursor: pointer;
-      }
-    
-  }
-  
-  @media screen and (min-width: 769px) and (max-width: 1199px) {
+    }
+
+}
+
+@media screen and (min-width: 769px) and (max-width: 1199px) {
 
     .horizontal .comunicado-image img {
         width: 15rem;
     }
-    .comuni h1{
+
+    .comuni h1 {
         font-size: 40px;
         margin-left: 2rem;
     }
@@ -373,24 +395,25 @@ main {
         font-size: 18px;
     }
 
-    .comunicado-text{
-        font-size: 15px !important;
-    }
-    .comunicado-text{
+    .comunicado-text {
         font-size: 15px !important;
     }
 
-    .comunicado{
+    .comunicado-text {
+        font-size: 15px !important;
+    }
+
+    .comunicado {
         width: 90%;
         margin-left: 5rem;
     }
-    
+
     .comunicado-img {
         position: relative;
         left: auto !important;
         bottom: auto !important;
     }
-    
+
     .comunicado-element {
         width: 18rem;
         display: flex;
@@ -398,7 +421,6 @@ main {
         justify-content: center;
         transition: 0.5s ease-in-out;
         cursor: pointer;
-      }
-    
-  }
+    }
 
+}
