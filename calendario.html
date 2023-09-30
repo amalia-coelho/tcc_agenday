@@ -15,8 +15,6 @@
   <link rel="stylesheet" href="css/calendario.css">
   <link rel="stylesheet" href="css/menu.css">
   
-
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
@@ -124,6 +122,12 @@ $(".time").mask(mask, pattern);
             <span class="txt-link">Gerenciamento</span>
           </a>
         </li>
+        <li class="item-menu">
+          <a href="logout.php">
+            <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
+            <span class="txt-link">Sair</span>
+          </a>
+        </li>
       </ul>
     </nav>
     <!-- FIM DO MENU -->
@@ -211,7 +215,7 @@ $(".time").mask(mask, pattern);
                   </tbody>
               </table>
             </div>
-            <div class="data-evento">
+            <div class="data-evento mt-5">
               <h2>Eventos</h2>
               <div class="info-evento mt-5 adm">
                           <button data-bs-toggle="modal" data-bs-target="#editModal" style="border: none;"><i

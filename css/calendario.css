@@ -26,7 +26,7 @@ body {
 }
 
 .info {
-    left: 30%;
+    left: 42%;
     margin: 0 0 0 -250px;
     position: absolute;
     width: 800px;
@@ -164,11 +164,7 @@ tr{
 }
 
 .data-evento{
-    width: 500px;
-    left: 100%;
-    top: 4px;
-    margin: 0 0 0 150px;
-    position: absolute;
+    width: 700px;
 }
 
 
@@ -240,9 +236,20 @@ tr{
 
 
 @media screen and (max-width: 480px) {
-
-
-
+    .info {
+        left: 85%;
+        margin: 0 0 0 -250px;
+    }
+    tr {
+        font-size: .8em;
+    }
+    .calendario td {
+        height: 50px;
+        width: 50px;
+    }
+    .data-evento {
+        width: 200PX;
+    }
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
