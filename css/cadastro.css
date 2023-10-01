@@ -135,6 +135,7 @@
     border-radius: 0 !important;
     BORDER: none !important;
     border-bottom: 2px solid #252525 !important;
+    outline: none !important;
 }
 
 .form-control:focus,
