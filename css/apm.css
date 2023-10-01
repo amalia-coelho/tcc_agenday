@@ -183,6 +183,7 @@ body {
     flex-direction: row;
     align-items: center;
     font-family: var(--pop);
+    justify-content: space-between;
 }
 
 .price .btn {
