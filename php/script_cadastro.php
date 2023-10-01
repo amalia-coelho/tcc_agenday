@@ -11,16 +11,16 @@
         
         // SE O EMAIL JA FOR CADASTRADO
         if ($consulta){
-            echo 'Email já cadastrado, tente fazer login!';
+            echo "EMAIL EM USO!";
         }else{
-            $stmt = $conn->prepare("INSERT INTO tb_usuario (nm_usuario, ds_email, ds_senha, nr_rm, id_turma, id_nivel) VALUES(:nome, :email, :senha, :rm, :turma, :nivel)");
+            $stmt = $conn->prepare("INSERT INTO tb_usuario (nm_usuario, ds_email, ds_senha, nr_rm, id_turma, id_nivel) VALUES (:nome, :email, :senha, :rm, :turma, :nivel)");
             $stmt->execute(array(
-                ':nome' => "Raissa",
+                ':nome' => $_POST['nome'],
                 ':email' => $_POST['email'],
                 ':senha' => $_POST['senha'],
-                ':rm' => 00001,
-                ':turma' => 1,
-                ':nivel' => 1
+                ':rm' => $_POST['rm'],
+                ':turma' => $_POST['turma'],
+                ':nivel' => 2
             ));
             
             $stmt = $conn->prepare("SELECT * FROM tb_usuario WHERE ds_email = :email");

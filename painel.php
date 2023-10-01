@@ -5,10 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- css -->
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/duvidas.css">
   <link rel="stylesheet" href="css/menu.css">
-
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/painel.css">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -24,11 +23,10 @@
 
   </script>
   <!-- /js -->
-  <title>Dúvidas</title>
+  <title>Painel de Saúde</title>
 </head>
 
 <body>
-  <!-- INICIO DA DUVIDA!! -->
   <section class="-container">
     <!-- INICIO MENU  -->
 
@@ -44,19 +42,19 @@
           </a>
         </li>
         <li class="item-menu">
-          <a href="index.html">
+          <a href="#">
             <span class="icon"><i class="bi bi-house-door-fill"></i></span>
             <span class="txt-link">Home</span>
           </a>
         </li>
         <li class="item-menu">
-          <a href="calendario.html">
+          <a href="#">
             <span class="icon"><i class="bi bi-calendar2-week-fill"></i></span>
             <span class="txt-link">Calendário</span>
           </a>
         </li>
         <li class="item-menu">
-          <a href="comunicados.html">
+          <a href="comunicados.php">
             <span class="icon"><i class="bi bi-megaphone-fill"></i></span>
             <span class="txt-link">Comunicados</span>
           </a>
@@ -67,20 +65,20 @@
             <span class="txt-link">APM</span>
           </a>
         </li>
-        <li class="item-menu">
+        <li class="item-menu ativo">
           <a href="painel.html">
             <span class="icon"><i class="bi bi-heart-fill"></i></span>
             <span class="txt-link">Saúde</span>
           </a>
         </li>
         <li class="item-menu">
-          <a href="gestao.html">
+          <a href="#">
             <span class="icon"><i class="bi bi-person-workspace"></i></span>
             <span class="txt-link">Gestão</span>
           </a>
         </li>
-        <li class="item-menu ativo">
-          <a href="#">
+        <li class="item-menu">
+          <a href="duvidas.html">
             <span class="icon"><i class="bi bi-question-lg"></i></span>
             <span class="txt-link">Dúvidas</span>
           </a>
@@ -92,7 +90,7 @@
           </a>
         </li>
         <li class="item-menu">
-          <a href="logout.php">
+          <a href="php/logout.php">
             <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
             <span class="txt-link">Sair</span>
           </a>
@@ -101,84 +99,97 @@
     </nav>
     <!-- FIM DO MENU -->
   </section>
-
-  <!-- imagem -->
-
-
-  <div class="duvidas">
-    <h1> Dúvidas Frequentes</h1>
-  </div>
-  <div class="faq">
-    <button class="faq-toggle">
-      Como posso mudar a minha foto de perfil?
-      <span class="arrow"></span>
-    </button>
-    <div class="faq-content">
-      <ol>Para mudar sua foto de perfil, siga esses passos simples:
-
-        <li>Clique no ícone de usuário no menu lateral da tela.</li>
-        <li>Localize e clique no ícone de lápis para poder habilitar a edição</li>
-        <li>Escolha uma nova foto do seu dispositivo e carregue-a.</li>
-        <li>Salve suas alterações clicando no botão "Salvar" </li>
-        <li>Verifique se a nova foto aparece corretamente no seu perfil.</li>
-
-        Pronto! Agora você personalizou sua foto de perfil com facilidade!
-      </ol>
+  <main>
+    <div class="painel">
+      <div class="painel-title">
+        <h1>Painel de Saúde</h1>
+        <p>Seja bem-vindo ao Painel de Saúde! Aqui você visualiza sua saúde de forma prática e organizada. Acompanhe
+          seus dados pessoais, histórico e médico. Cuide-se melhor com nossa plataforma intuitiva e confiável.</p>
+      </div>
     </div>
-  </div>
-  <div class="faq">
-    <button class="faq-toggle">
-      Como adicionar um evento no calendário?
-      <span class="arrow"></span>
-    </button>
-    <div class="faq-content">
-      <ol>Para mudar sua foto de perfil, siga esses passos simples:
-
-        <li>Clique no ícone de usuário no menu lateral da tela.</li>
-        <li>Localize e clique no ícone de lápis para poder habilitar a edição</li>
-        <li>Escolha uma nova foto do seu dispositivo e carregue-a.</li>
-        <li>Salve suas alterações clicando no botão "Salvar" </li>
-        <li>Verifique se a nova foto aparece corretamente no seu perfil.</li>
-
-        Pronto! Agora você personalizou sua foto de perfil com facilidade!
-      </ol>
+    <div class="painel-group">
+      <!-- inicio card -->
+      <div class="painel-card">
+        <img src="img/toma.png" alt="" class="card-img">
+        <div class="card-info">
+          <div class="card-text">
+            <P>ansiedade</P>
+          </div>
+        </div>
+      </div>
+      <div class="painel-card">
+        <img src="img/toma.png" alt="" class="card-img">
+        <div class="card-info">
+          <div class="card-text">
+            <P>depressão</P>
+          </div>
+        </div>
+      </div>
+      <div class="painel-card">
+        <img src="img/toma.png" alt="" class="card-img">
+        <div class="card-info">
+          <div class="card-text">
+            <P>suína</P>
+          </div>
+        </div>
+      </div>
+      <div class="painel-card">
+        <img src="img/toma.png" alt="" class="card-img">
+        <div class="card-info">
+          <div class="card-text">
+            <P>asma</P>
+          </div>
+        </div>
+      </div>
+      <div class="painel-card">
+        <img src="img/toma.png" alt="" class="card-img">
+        <div class="card-info">
+          <div class="card-text">
+            <P>autismo</P>
+          </div>
+        </div>
+      </div>
+      <div class="painel-card">
+        <img src="img/toma.png" alt="" class="card-img">
+        <div class="card-info">
+          <div class="card-text">
+            <P>dislexia</P>
+          </div>
+        </div>
+      </div>
+      <div class="painel-card">
+        <img src="img/toma.png" alt="" class="card-img">
+        <div class="card-info">
+          <div class="card-text">
+            <P>diabetes</P>
+          </div>
+        </div>
+      </div>
+      <div class="painel-card">
+        <img src="img/toma.png" alt="" class="card-img">
+        <div class="card-info">
+          <div class="card-text">
+            <P>fobia social</P>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="form-group name">
+      <label for="outros">Outros:</label>
+      <input type="text" id="outros" class="form-control" placeholder="Digite aqui">
+      <div class="form-group check">
+        <label for="semdoenca">Não possuo síndromes, transtornos ou doenças</label>
+        <input type="checkbox" id="semdoenca" class="box" placeholder="Digite aqui">
+      </div>
+
+  </main>
+  <div class="revealbtn">
+    <a class="ent" href="#">ENVIAR</a>
   </div>
-  <div class="faq">
-    <button class="faq-toggle">
-      Como fazer para cadastrar novos alunos?
-      <span class="arrow"></span>
-    </button>
-    <div class="faq-content">
-      <ol>Para mudar sua foto de perfil, siga esses passos simples:
-
-        <li>Clique no ícone de usuário no menu lateral da tela.</li>
-        <li>Localize e clique no ícone de lápis para poder habilitar a edição</li>
-        <li>Escolha uma nova foto do seu dispositivo e carregue-a.</li>
-        <li>Salve suas alterações clicando no botão "Salvar" </li>
-        <li>Verifique se a nova foto aparece corretamente no seu perfil.</li>
-
-        Pronto! Agora você personalizou sua foto de perfil com facilidade!
-      </ol>
-    </div>
-  </div>
-
-
-
-  <!-- FIM DA DÚVIDA!! -->
-  <div class="mensagem2-img">
-    <img src="img/mensagem2.svg" alt="Figura Inicial" class="mensagem2-element">
-  </div>
-  <div class="mensagem-img">
-    <img src="img/mensagem.svg" alt="Figura Inicial" class="mensagem-element">
-  </div>
-  <!-- js -->
   <script src="js/duvidas.js"></script>
   <script src="js/menu.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
-  </script>
+    </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
-
-</html>

@@ -28,7 +28,7 @@ create table tb_usuario(
 );
 
 create table tb_comunicado(
-	cd_comunicado int primary key auto_increment,
+    cd_comunicado int primary key auto_increment,
   	nm_titulo varchar(100) not null,
   	ds_descricao varchar(255) not null,
   	ds_imagem varchar(255),
