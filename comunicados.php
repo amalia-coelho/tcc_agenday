@@ -60,7 +60,7 @@
 					//Recarregar página
 					$("#exibe").html(resposta);
 					
-					// Limpar os inputs
+						// Limpar os inputs
 						$('#ds_descricao').val(' ');
 						$('#dt_comunicado').val(' ');
 						$('#nm_titulo').val(' ');
@@ -71,6 +71,48 @@
 						console.log("Request failed: " + textStatus);
 					});
 				});
+
+				//UPDATE COMUNICADO
+
+				//Pegar os valores dos inputs
+	            $(".alterar").on("click", function(){
+	                $("#exibir-codigo") = $(this).text('cod');
+	                $("#alterarTitulo").val($(this).attr('titulo'));
+	                $("#alterarData").val($(this).attr('dt_comunicado'));
+	                $("#alterarDescricao").val($(this).attr('descricao'));
+	            });
+
+	            // Quando apertar para "salvar alterações"
+	            $("#salvarAlterar").click(function(){
+	                var codigo = $("#exibir-codigo").text();
+	                var titulo = $("#alterarTitulo").val();
+	                var dt_comunicado = $("#alterarData").val();
+	                var descricao = $("#alterarDescricao").val();
+
+	                $.ajax({
+	                url: "php/scriptUpdateComunicado.php",
+	                type: "POST",
+	                data: "codigo="+codigo+"&titulo="+titulo+"&descricao="+descricao+"&dt_comunicado="+dt_comunicado,
+	                dataType: "html"
+
+	                }).done(function(resposta){
+	                    //fechar o modal
+	                    $('#fechar').click();
+
+	                    // Notificar a alterações
+	                    alert("Comunicado alterado com sucesso!");
+
+	                    // Recarregar página
+	                    $('#exibe').html(resposta);
+
+	                    // Limpar os inputs
+	                    $('alterarTitulo').val(' ');
+	                    $('alterarDescricao').val(' ');
+	                    $('alterarData').val(' ');
+	                }).fail(function(jqXHR, textStatus ) {
+	                    console.log("Request failed: " + textStatus);
+	                });
+	            });
 			});
 			</script>
 	<!-- /js -->
@@ -168,7 +210,7 @@
 							<p class="date"><?php echo $item['dt_postagem'];?></p>
 						</div>
 						<p class="comunicado-text"><?php echo $item['ds_descricao'];?></p>
-						<button data-bs-toggle="modal" data-bs-target="#editModal" style="border:none;">
+						<button class="alterar" data-bs-toggle="modal" data-bs-target="#editModal" style="border:none;" cod="<?php echo $item['cd_comunicado'];?>" titulo="<?php echo $item['nm_titulo'];?>" descricao="<?php echo $item['ds_descricao']?>" dt_comunicado="<?php echo $item['dt_comunicado']?>">
 							<i class="bi bi-pencil-square edit-icon"></i>
 						</button>
 						<a href="php/script_deleteComunicado.php?cod=<?php echo $item['cd_comunicado'];?>"><i class="bi bi-trash-fill delete-icon"></i></a>  
@@ -200,13 +242,13 @@
                 			</div>
               			</div>
               			<div class="mb-3">
-							<label for="productTitle" class="form-label">Alterar Título do Comunicado</label>
-							<input type="text" class="form-control" id="productTitle">
+							<label for="alterarTitulo" class="form-label">Alterar Título do Comunicado</label>
+							<input type="text" class="form-control" id="alterarTitulo">
 						</div>
               			<div class="row mb-3 altura-curso">
 							<div class="col">
-								<label for="dt_comunicado" class="form-label">Data</label>
-								<input type="date" class="form-control" id="dt_comunicado">
+								<label for="alterarData" class="form-label">Data</label>
+								<input type="date" class="form-control" id="alterarData">
 							</div>
                 			<div class="col">
 								<div class="select-btn">
@@ -237,10 +279,11 @@
                 			<label for="alterarDescricao" class="form-label">Alterar Descrição</label>
                 			<textarea class="form-control" id="alterarDescricao" rows="4"></textarea>
               			</div>
+                		<p id="exibir-codigo"></p>
           			</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-roxo">Salvar Alterações</button>
-						<button type="button" class="btn btn-azul" data-bs-dismiss="modal">Cancelar</button>
+						<button type="button" class="btn btn-roxo" id="salvarAlterar">Salvar Alterações</button>
+						<button type="button" class="btn btn-azul" data-bs-dismiss="modal" id="cancelarAlterar">Cancelar</button>
 					</div>
 				</div>
       		</div>

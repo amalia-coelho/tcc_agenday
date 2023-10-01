@@ -11,7 +11,7 @@
             ':usuario' => $_SESSION['cd']
         ));
 
-        echo "<meta http-equiv='refresh' content='1'>";
+         echo "<meta http-equiv='refresh' content='1'>";
     } catch(PDOException $e) {
         echo 'ERROR: ' . $e->getMessage();
         echo "<br>".$stmt->rowCount();
