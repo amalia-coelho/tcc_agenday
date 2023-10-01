@@ -28,7 +28,7 @@ body {
     padding-top: 3rem;
 }
 
-.apm-card button{
+.apm-card button {
     border: none !important;
 }
 
@@ -142,6 +142,7 @@ body {
     display: none;
     z-index: 1;
 }
+
 .apm-card:hover .delete-icon {
     display: block;
     /* Mostrar quando o cartão estiver em foco */
