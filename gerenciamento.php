@@ -71,7 +71,7 @@
       </div>
       <ul>
         <li class="item-menu">
-          <a href="perfil.html">
+          <a href="perfil.php">
             <span class="icon"><i class="bi bi-person-fill"></i></span>
             <span class="txt-link">Usuário</span>
           </a>
@@ -83,43 +83,43 @@
           </a>
         </li>
         <li class="item-menu">
-          <a href="#">
+          <a href="calendario.php">
             <span class="icon"><i class="bi bi-calendar2-week-fill"></i></span>
             <span class="txt-link">Calendário</span>
           </a>
         </li>
         <li class="item-menu">
-          <a href="comunicados.html">
+          <a href="comunicados.php">
             <span class="icon"><i class="bi bi-megaphone-fill"></i></span>
             <span class="txt-link">Comunicados</span>
           </a>
         </li>
         <li class="item-menu">
-          <a href="apm.html">
+          <a href="apm.php">
             <span class="icon"><i class="bi bi-cart4"></i></span>
             <span class="txt-link">APM</span>
           </a>
         </li>
         <li class="item-menu">
-          <a href="painel.html">
+          <a href="painel.php">
             <span class="icon"><i class="bi bi-heart-fill"></i></span>
             <span class="txt-link">Saúde</span>
           </a>
         </li>
         <li class="item-menu">
-          <a href="#">
+          <a href="gestao.php">
             <span class="icon"><i class="bi bi-person-workspace"></i></span>
             <span class="txt-link">Gestão</span>
           </a>
         </li>
         <li class="item-menu">
-          <a href="duvidas.html">
+          <a href="duvidas.php">
             <span class="icon"><i class="bi bi-question-lg"></i></span>
             <span class="txt-link">Dúvidas</span>
           </a>
         </li>
         <li class="item-menu ativo">
-          <a href="gerenciamento.html">
+          <a href="#">
             <span class="icon"><i class="bi bi-gear-fill"></i></span>
             <span class="txt-link">Gerenciamento</span>
           </a>
@@ -204,14 +204,6 @@
               <td>Eric Junokas Oliveira</td>
               <td>3MIN</td>
               <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
-                    class="bi bi-trash"></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td>Maytê Bronzatto Palomo</td>
-              <td>3MAM</td>
-              <td>Gostosa</td>
               <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
                     class="bi bi-trash"></i></a>
               </td>

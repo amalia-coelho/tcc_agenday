@@ -38,37 +38,37 @@
       </div>
       <ul>
         <li class="item-menu">
-          <a href="#">
+          <a href="perfil.php">
             <span class="icon"><i class="bi bi-person-fill"></i></span>
             <span class="txt-link">Usuário</span>
           </a>
         </li>
         <li class="item-menu">
-          <a href="#">
+          <a href="index.php">
             <span class="icon"><i class="bi bi-house-door-fill"></i></span>
             <span class="txt-link">Home</span>
           </a>
         </li>
         <li class="item-menu">
-          <a href="calendario.html">
+          <a href="calendario.php">
             <span class="icon"><i class="bi bi-calendar2-week-fill"></i></span>
             <span class="txt-link">Calendário</span>
           </a>
         </li>
         <li class="item-menu ativo">
-          <a href="#">
+          <a href="comunicados.php">
             <span class="icon"><i class="bi bi-megaphone-fill"></i></span>
             <span class="txt-link">Comunicados</span>
           </a>
         </li>
         <li class="item-menu">
-          <a href="apm.html">
+          <a href="apm.php">
             <span class="icon"><i class="bi bi-cart4"></i></span>
             <span class="txt-link">APM</span>
           </a>
         </li>
         <li class="item-menu">
-          <a href="#">
+          <a href="painel.php">
             <span class="icon"><i class="bi bi-heart-fill"></i></span>
             <span class="txt-link">Saúde</span>
           </a>
@@ -86,7 +86,7 @@
           </a>
         </li>
         <li class="item-menu">
-          <a href="gerenciamento.html">
+          <a href="gerenciamento.php">
             <span class="icon"><i class="bi bi-gear-fill"></i></span>
             <span class="txt-link">Gerenciamento</span>
           </a>
