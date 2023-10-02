@@ -112,7 +112,7 @@
               <i class="bi bi-eye" id="eyeIcon"></i>
             </button>
           </div>
-          <small><a href="forgot.html">Esqueceu sua senha?</a></small>
+          <small><a href="forgot.php">Esqueceu sua senha?</a></small>
           <div id="exibe">
 
           </div>
@@ -121,7 +121,7 @@
         <!-- fim dos input -->
         <div class="revealbtn">
           <a class="ent">ENTRAR</a>
-          <a class="create" href="cadastro.html">Não tem uma conta? Criar</a>
+          <a class="create" href="cadastro.php">Não tem uma conta? Criar</a>
         </div>
       </div>
       <div class="login-img">
