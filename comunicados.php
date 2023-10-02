@@ -39,10 +39,10 @@
 				$('.time').mask('00:00h');
 				
 				$('#all-select').click(function() {
-					var checked = this.checked;
-					$('input[type="checkbox"]').each(function() {
-						this.checked = checked;
-					});
+          			var checked = this.checked;
+          			$('input[type="checkbox"]').each(function() {
+          				this.checked = checked;
+      				});
 				});
 				
 				$("#salvar").click(function(){
@@ -84,42 +84,57 @@
 
 				//Pegar os valores dos inputs
 	            $(".alterar").on("click", function(){
-	                $("#exibir-codigo") = $(this).text('cod');
+	                $("#exibir_cod").text($(this).attr('cod'));
 	                $("#alterarTitulo").val($(this).attr('titulo'));
 	                $("#alterarData").val($(this).attr('dt_comunicado'));
 	                $("#alterarDescricao").val($(this).attr('descricao'));
-	            });
+	            
+					//SELECT TURMAS
+					var turmasString = $(this).attr('turmas'); // Aqui, você obtém a string de atributo
+					var turmasArray = turmasString.split('-');
+
+					for (var i = 0; i < turmasArray.length; i++) {
+           				$("input[name='turmasAlterar[]'][value='" + turmasArray[i] + "']").prop('checked', true);
+        			}
+				});
 
 	            // Quando apertar para "salvar alterações"
 	            $("#salvarAlterar").click(function(){
-	                var codigo = $("#exibir-codigo").text();
-	                var titulo = $("#alterarTitulo").val();
-	                var dt_comunicado = $("#alterarData").val();
-	                var descricao = $("#alterarDescricao").val();
-
-	                $.ajax({
-	                url: "php/scriptUpdateComunicado.php",
-	                type: "POST",
-	                data: "codigo="+codigo+"&titulo="+titulo+"&descricao="+descricao+"&dt_comunicado="+dt_comunicado,
-	                dataType: "html"
-
-	                }).done(function(resposta){
-	                    //fechar o modal
-	                    $('#fechar').click();
-
-	                    // Notificar a alterações
-	                    alert("Comunicado alterado com sucesso!");
-
-	                    // Recarregar página
-	                    $('#exibe').html(resposta);
-
-	                    // Limpar os inputs
-	                    $('alterarTitulo').val(' ');
-	                    $('alterarDescricao').val(' ');
-	                    $('alterarData').val(' ');
-	                }).fail(function(jqXHR, textStatus ) {
-	                    console.log("Request failed: " + textStatus);
-	                });
+	                // declaração de variáveis
+					var cod = $("#exibir_cod").text();
+					var titulo = $('#alterarTitulo').val();
+					var data_comunicado = $('#alterarData').val();
+					var descricao = $('#alterarDescricao').val();
+					
+					var turmasSelecionadas = $("input[name='turmasAlterar[]']:checked").map(function() {
+                    	return $(this).val();
+					}).get();
+					
+					$.ajax({
+					url: "php/script_updateComunicado.php",
+					type: "POST",
+					data: "codigo="+cod+"&descricao="+descricao+"&data_comunicado="+data_comunicado+"&titulo="+titulo+"&turmas="+turmasSelecionadas,
+					dataType: "html"
+				
+					}).done(function(resposta){
+					//fechar o modal
+					$('#fecharAlterar').click();
+					
+					//Notificar registro
+					alert("Comunicado alterado com sucesso!");
+					
+					//Recarregar página
+					$("#exibe").html(resposta);
+					
+					// Limpar os inputs
+					$("#exibir_cod").text(" ");
+	                $("#alterarTitulo").val(" ");
+	                $("#alterarData").val(" ");
+	                $("#alterarDescricao").val(" ");
+					$("input[name='turmasAlterar[]").prop('checked', false);
+					}).fail(function(jqXHR, textStatus ) {
+						console.log("Request failed: " + textStatus);
+					});
 	            });
 			});
 			</script>
@@ -207,7 +222,15 @@
 		<?php
 			$sql = "SELECT * FROM tb_comunicado";
 
-			foreach ($conn->query($sql) as $item){?>
+			foreach ($conn->query($sql) as $item){
+				//pegar a array de turmas selecionadas no comunicado
+				$stmt = $conn->prepare("SELECT id_turma FROM tb_comunicado_turma WHERE id_comunicado = :id");
+				$stmt->execute(array(
+					':id' => $item['cd_comunicado']
+				));
+				$turmasAlterar = $stmt->fetchAll(PDO::FETCH_COLUMN);
+				$turmasString = implode('-', $turmasAlterar);
+				?>
 				<section class="comunicado horizontal">
 					<div class="comunicado-image">
 						<img src="img/foto.webp" alt="Imagem do comunicado">
@@ -222,8 +245,7 @@
 							<p class="date"><?php echo $postagem;?></p>
 						</div>
 						<p class="comunicado-text"><?php echo $item['ds_descricao'];?></p>
-						<p><?php echo $item['dt_comunicado'];?></p>
-						<button class="alterar" data-bs-toggle="modal" data-bs-target="#editModal" style="border:none;" cod="<?php echo $item['cd_comunicado'];?>" titulo="<?php echo $item['nm_titulo'];?>" descricao="<?php echo $item['ds_descricao']?>" dt_comunicado="<?php echo $item['dt_comunicado']?>">
+						<button class="alterar" data-bs-toggle="modal" data-bs-target="#editModal" style="border:none;" cod="<?php echo $item['cd_comunicado'];?>" titulo="<?php echo $item['nm_titulo'];?>" descricao="<?php echo $item['ds_descricao']?>" dt_comunicado="<?php echo $item['dt_comunicado']?>" turmas="<?php echo $turmasString;?>">
 							<i class="bi bi-pencil-square edit-icon"></i>
 						</button>
 						<a href="php/script_deleteComunicado.php?cod=<?php echo $item['cd_comunicado'];?>"><i class="bi bi-trash-fill delete-icon"></i></a>  
@@ -270,16 +292,16 @@
 								</div>
 								<ul class="list-itens">
 									<li class="a" id="all-select" style="cursor:pointer;">
-										<label class="form-check-label" for="selectAllOptions"
-											style="cursor:pointer;">Todos</label>
+										<label class="form-check-label" for="selectAllOptions" style="cursor:pointer;">Todos</label>
 									</li>
 									<?php
+										//exibir o select
 										$sql = "SELECT * FROM tb_turma";
 
 										foreach ($conn->query($sql) as $item){?>
 											<li class="item">
 												<!-- Checkbox oculto -->
-												<input type="checkbox" class="checkbox" value="<?php echo $item['cd_turma'];?>" id="<?php echo $item['nm_turma'];?>">
+												<input type="checkbox" class="checkbox" name="turmasAlterar[]" value="<?php echo $item['cd_turma'];?>" id="<?php echo $item['nm_turma'];?>">
 												<label class="checkbox-label" for="<?php echo $item['nm_turma'];?>"></label>
 												</span>
 												<span class="item-text"><?php echo $item['nm_turma'];?></span>
@@ -290,16 +312,17 @@
                     			</ul>
                 			</div>
               			</div>
-						<div class="mb-3">
-                			<label for="alterarDescricao" class="form-label">Alterar Descrição</label>
-                			<textarea class="form-control" id="alterarDescricao" rows="4"></textarea>
-              			</div>
-                		<p id="exibir-codigo"></p>
-          			</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-roxo" id="salvarAlterar">Salvar Alterações</button>
-						<button type="button" class="btn btn-azul" data-bs-dismiss="modal" id="cancelarAlterar">Cancelar</button>
-					</div>
+						  <br>
+						  <div class="mb-3">
+							  <label for="alterarDescricao" class="form-label">Alterar Descrição</label>
+							  <textarea class="form-control" id="alterarDescricao" rows="4"></textarea>
+							</div>
+						</div>
+						<p id="exibir_cod" style="visibility: hidden;"></p>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-roxo" id="salvarAlterar">Salvar Alterações</button>
+							<button type="button" class="btn btn-azul" data-bs-dismiss="modal" id="cancelarAlterar">Cancelar</button>
+						</div>
 				</div>
       		</div>
     	</div>
