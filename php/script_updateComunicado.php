@@ -11,7 +11,7 @@
             ":codigo" => $_POST['codigo'],
             ":titulo" => $_POST['titulo'],
             ":descricao" => $_POST['descricao'],
-            ":dt_comunicado" => $_POST['dt_comunicado']
+            ":dt_comunicado" => $_POST['data_comunicado']
         ));
         
         $turmasSelecionadas = explode("-", $_POST['turmas']); //transforma a str que o ajax mandou em array
@@ -24,7 +24,6 @@
                 ':turma' => $turma
             ));
         }
-        echo "<meta http-equiv='refresh' content='1'>";
     } catch(PDOException $e) {
         echo 'ERROR: ' . $e->getMessage();
         echo "<br>".$stmt->rowCount();
