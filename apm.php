@@ -1,3 +1,10 @@
+<?php
+	include("php/conexao.php");
+    session_start();
+    if (!isset($_SESSION['email'])){
+        header('Location: index.php');
+    }else{
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
@@ -21,6 +28,8 @@
 		<!-- /js -->
 
 		<script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
+		<script src="js/jquery.maskMoney.min.js"></script>
+
 
 		<script type="text/javascript">
 			$(document).ready(function(){
@@ -58,67 +67,67 @@
 		<section class="apm-container">
 			<!-- INICIO MENU  -->
 			<nav class="menu-lateral">
-				<div class="btn-expandir">
-					<i class="bi bi-list" id="btn-exp"></i>
-				</div>
-				<ul>
-					<li class="item-menu">
-						<a href="perfil.html">
-							<span class="icon"><i class="bi bi-person-fill"></i></span>
-							<span class="txt-link">Usuário</span>
-						</a>
-					</li>
-					<li class="item-menu">
-						<a href="index.html">
-							<span class="icon"><i class="bi bi-house-door-fill"></i></span>
-							<span class="txt-link">Home</span>
-						</a>
-					</li>
-					<li class="item-menu">
-						<a href="#">
-							<span class="icon"><i class="bi bi-calendar2-week-fill"></i></span>
-							<span class="txt-link">Calendário</span>
-						</a>
-					</li>
-					<li class="item-menu">
-						<a href="comunicados.html">
-							<span class="icon"><i class="bi bi-megaphone-fill"></i></span>
-							<span class="txt-link">Comunicados</span>
-						</a>
-					</li>
-					<li class="item-menu ativo">
-						<a href="#">
-							<span class="icon"><i class="bi bi-cart4"></i></span>
-							<span class="txt-link">APM</span>
-						</a>
-					</li>
-					<li class="item-menu">
-						<a href="painel.html">
-							<span class="icon"><i class="bi bi-heart-fill"></i></span>
-							<span class="txt-link">Saúde</span>
-						</a>
-					</li>
-					<li class="item-menu">
-						<a href="gestão.html">
-							<span class="icon"><i class="bi bi-person-workspace"></i></span>
-							<span class="txt-link">Gestão</span>
-						</a>
-					</li>
-					<li class="item-menu">
-						<a href="duvidas.html">
-							<span class="icon"><i class="bi bi-question-lg"></i></span>
-							<span class="txt-link">Dúvidas</span>
-						</a>
-					</li>
-					<li class="item-menu">
-						<a href="gerenciamento.html">
-							<span class="icon"><i class="bi bi-gear-fill"></i></span>
-							<span class="txt-link">Gerenciamento</span>
-						</a>
-					</li>
-				</ul>
-			</nav>
-			<!-- FIM DO MENU -->
+      <div class="btn-expandir">
+        <i class="bi bi-list" id="btn-exp"></i>
+      </div>
+      <ul>
+      <li class="item-menu">
+				<a href="perfil.php">
+				<span class="icon"><i class="bi bi-person-fill"></i></span>
+				<span class="txt-link">Usuário</span>
+				</a>
+			</li>
+			<li class="item-menu">
+				<a href="calendario.php">
+					<span class="icon"><i class="bi bi-house-door-fill"></i></span>
+					<span class="txt-link">Home</span>
+				</a>
+			</li>
+        <li class="item-menu">
+				<a href="comunicados.php">
+				<span class="icon"><i class="bi bi-megaphone-fill"></i></span>
+				<span class="txt-link">Comunicados</span>
+				</a>
+			</li>
+			<li class="item-menu ">
+				<a href="apm.php">
+				<span class="icon"><i class="bi bi-cart4"></i></span>
+				<span class="txt-link">APM</span>
+				</a>
+			</li>
+			<li class="item-menu">
+				<a href="painel.php">
+				<span class="icon"><i class="bi bi-heart-fill"></i></span>
+				<span class="txt-link">Saúde</span>
+				</a>
+			</li>
+			<li class="item-menu">
+				<a href="gestao.php">
+				<span class="icon"><i class="bi bi-person-workspace"></i></span>
+				<span class="txt-link">Gestão</span>
+				</a>
+			</li>
+        <li class="item-menu">
+				<a href="duvidas.php">
+				<span class="icon"><i class="bi bi-question-lg"></i></span>
+				<span class="txt-link">Dúvidas</span>
+				</a>
+			</li>
+			<li class="item-menu">
+				<a href="gerenciamento.php">
+				<span class="icon"><i class="bi bi-gear-fill"></i></span>
+				<span class="txt-link">Gerenciamento</span>
+				</a>
+			</li>
+			<li class="item-menu">
+				<a href="php/logout.php">
+				<span class="icon"><i class="bi bi-box-arrow-right"></i></span>
+				<span class="txt-link">Sair</span>
+				</a>
+			</li>
+			</ul>
+    </nav>
+	<!-- FIM DO MENU -->
 
 	<div class="apm">
 		<div class="apm-title">
@@ -128,36 +137,34 @@
 			secretária da Etec de Itanhaém.</p>
 		</div>
 		<div class="apm-card-container">
-
 				<!-- carousel -->
 				<div id="carouselExample" class="carousel slide">
 					<div class="carousel-inner">
 						<!-- conteudo -->
 						<?php 
-								require('php/conexao.php');
-								$sql = 'SELECT * FROM tb_apm';
-								foreach ($conn->query($sql) as $row) {
-									?>
-							<div class="carousel-item active">
-								<div class="apm-card">
-									<img src="img/roupa.jpg" alt="" class="card-img">
-									<button data-bs-toggle="modal" data-bs-target="#editModal"><i class="bi bi-pencil-square edit-icon"></i></button>
-									<a href="php/delete_apm.php?cd=<?php echo $row['cd_apm'];?>"><i class="bi bi-trash-fill delete-icon"></i></a>
-									<div class="card-info">
-										<div class="card-text">
-											<p class="card-title"><?php echo $row['nm_produto']; ?></p>
-											<p class="card-sub"><?php echo $row['ds_descricao']; ?></p>
-										</div>
-										<div class="price">
-											<a href="#" class="btn btn-secondary"><?php echo $row['nr_valor']; ?></a>
-										</div>
+							$sql = 'SELECT * FROM tb_apm';
+							foreach ($conn->query($sql) as $row) {
+						?>
+						<div class="carousel-item active">
+							<div class="apm-card">
+								<img src="img/roupa.jpg" alt="" class="card-img">
+								<button data-bs-toggle="modal" data-bs-target="#editModal"><i class="bi bi-pencil-square edit-icon"></i></button>
+								<a href="php/delete_apm.php?cd=<?php echo $row['cd_apm'];?>"><i class="bi bi-trash-fill delete-icon"></i></a>
+								<div class="card-info">
+									<div class="card-text">
+										<p class="card-title"><?php echo $row['nm_produto']; ?></p>
+										<p class="card-sub"><?php echo $row['ds_descricao']; ?></p>
+									</div>
+									<div class="price">
+										<a href="#" class="btn btn-secondary"><?php echo $row['nr_valor']; ?></a>
 									</div>
 								</div>
 							</div>
-							<!-- fim do conteudo -->
-							<?php    		
-								}
-							?>
+						</div>
+						<?php    		
+							}
+						?>
+						<!-- fim do conteudo -->
 					</div>
 					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
 						<i class="bi bi-caret-left"></i>
@@ -171,30 +178,27 @@
 				<!-- fim do carousel -->
 
 			<?php 
-				require('php/conexao.php');
 				$sql = 'SELECT * FROM tb_apm';
 				foreach ($conn->query($sql) as $row) {
 			?>
-
-				<div class="apm-group">
-					<!-- inicio card -->
-					<div class="apm-card">
-						<img src="img/roupa.jpg" alt="" class="card-img">
-						<button data-bs-toggle="modal" data-bs-target="#editModal" id="alterar"><i class="bi bi-pencil-square edit-icon"></i></button>
-						<a href="php/delete_apm.php?cd=<?php echo $row['cd_apm'];?>"><i class="bi bi-trash-fill delete-icon"></i></a>
-						<div class="card-info">
-							<div class="card-text">
-								<p class="card-title"><?php echo $row['nm_produto']; ?></p>
-								<p class="card-sub"><?php echo $row['ds_descricao']; ?></p>
-							</div>
-							<div class="price">
-								<a href="#" class="btn btn-secondary"><?php echo $row['nr_valor']; ?></a>
+					<div class="apm-group">
+						<!-- inicio card -->
+						<div class="apm-card">
+							<img src="img/roupa.jpg" alt="" class="card-img">
+							<button data-bs-toggle="modal" data-bs-target="#editModal" id="alterar"><i class="bi bi-pencil-square edit-icon"></i></button>
+							<a href="php/delete_apm.php?cd=<?php echo $row['cd_apm'];?>"><i class="bi bi-trash-fill delete-icon"></i></a>
+							<div class="card-info">
+								<div class="card-text">
+									<p class="card-title"><?php echo $row['nm_produto']; ?></p>
+									<p class="card-sub"><?php echo $row['ds_descricao']; ?></p>
+								</div>
+								<div class="price">
+									<a href="#" class="btn btn-secondary">R$ <?php echo $row['nr_valor']; ?></a>
+								</div>
 							</div>
 						</div>
+						<!-- fim card -->
 					</div>
-					<!-- fim card -->
-
-				</div>
 			<?php    		
 				}
 			?>
@@ -274,7 +278,7 @@
 										</div>
 										<div class="col">
 											<label for="nr_valor" class="form-label">Valor do Produto</label>
-											<input type="number" class="form-control" id="nr_valor">
+											<input type="number" class="form-control preco" id="nr_valor">
 										</div>
 									</div>
 									<div class="mb-3">
@@ -296,11 +300,15 @@
 
 		<!-- FIM DA DÚVIDA!! -->
 
-		<!-- js -->
-		<script src="js/menu.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-			integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
-		</script>
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<!-- js -->
+<script src="js/menu.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  <script src="js/jQuery-Mask-Plugin-master/src/jquery.mask.js"></script>
 	</body>
 </html>
+<?php
+	}
+?>

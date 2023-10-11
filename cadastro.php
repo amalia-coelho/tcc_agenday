@@ -127,7 +127,7 @@
  <footer>
     <div class="footer-items">
       <div class="footer-img logo">
-          <img src="img/Logo DO V.png" alt="Logo">
+          <img src="img/logo-branca.png" alt="Logo">
       </div>
       <div class="footer-titles">
         <p class="title-footer">Início</p>
@@ -233,6 +233,6 @@
 </html>
 <?php 
     }else{
-        header('Location: calendario.php');
+        header('Location: comunicados.php');
     }
 ?>

@@ -69,66 +69,66 @@
       <!-- INICIO MENU  -->
 
       <nav class="menu-lateral">
-        <div class="btn-expandir">
-          <i class="bi bi-list" id="btn-exp"></i>
-        </div>
-        <ul>
-          <li class="item-menu">
-            <a href="#">
-              <span class="icon"><i class="bi bi-person-fill"></i></span>
-              <span class="txt-link">Usuário</span>
-            </a>
-          </li>
-          <li class="item-menu">
-            <a href="calendario.php">
-              <span class="icon"><i class="bi bi-house-door-fill"></i></span>
-              <span class="txt-link">Home</span>
-            </a>
-          </li>
-          <li class="item-menu ativo">
-            <a href="comunicados.php">
-              <span class="icon"><i class="bi bi-megaphone-fill"></i></span>
-              <span class="txt-link">Comunicados</span>
-            </a>
-          </li>
-          <li class="item-menu">
-            <a href="apm.php">
-              <span class="icon"><i class="bi bi-cart4"></i></span>
-              <span class="txt-link">APM</span>
-            </a>
-          </li>
-          <li class="item-menu">
-            <a href="painel.php">
-              <span class="icon"><i class="bi bi-heart-fill"></i></span>
-              <span class="txt-link">Saúde</span>
-            </a>
-          </li>
-          <li class="item-menu">
-            <a href="gestao.php">
-              <span class="icon"><i class="bi bi-person-workspace"></i></span>
-              <span class="txt-link">Gestão</span>
-            </a>
-          </li>
-          <li class="item-menu">
-            <a href="duvidas.html">
-              <span class="icon"><i class="bi bi-question-lg"></i></span>
-              <span class="txt-link">Dúvidas</span>
-            </a>
-          </li>
-          <li class="item-menu">
-            <a href="gerenciamento.php">
-              <span class="icon"><i class="bi bi-gear-fill"></i></span>
-              <span class="txt-link">Gerenciamento</span>
-            </a>
-          </li>
-          <li class="item-menu">
-            <a href="logout.php">
-              <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
-              <span class="txt-link">Sair</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <div class="btn-expandir">
+        <i class="bi bi-list" id="btn-exp"></i>
+      </div>
+      <ul>
+      <li class="item-menu">
+				<a href="perfil.php">
+				<span class="icon"><i class="bi bi-person-fill"></i></span>
+				<span class="txt-link">Usuário</span>
+				</a>
+			</li>
+      <li class="item-menu">
+				<a href="calendario.php">
+					<span class="icon"><i class="bi bi-house-door-fill"></i></span>
+					<span class="txt-link">Home</span>
+				</a>
+			</li>
+        <li class="item-menu">
+				<a href="comunicados.php">
+				<span class="icon"><i class="bi bi-megaphone-fill"></i></span>
+				<span class="txt-link">Comunicados</span>
+				</a>
+			</li>
+			<li class="item-menu ">
+				<a href="apm.php">
+				<span class="icon"><i class="bi bi-cart4"></i></span>
+				<span class="txt-link">APM</span>
+				</a>
+			</li>
+			<li class="item-menu">
+				<a href="painel.php">
+				<span class="icon"><i class="bi bi-heart-fill"></i></span>
+				<span class="txt-link">Saúde</span>
+				</a>
+			</li>
+			<li class="item-menu">
+				<a href="gestao.php">
+				<span class="icon"><i class="bi bi-person-workspace"></i></span>
+				<span class="txt-link">Gestão</span>
+				</a>
+			</li>
+        <li class="item-menu">
+				<a href="duvidas.php">
+				<span class="icon"><i class="bi bi-question-lg"></i></span>
+				<span class="txt-link">Dúvidas</span>
+				</a>
+			</li>
+			<li class="item-menu">
+				<a href="gerenciamento.php">
+				<span class="icon"><i class="bi bi-gear-fill"></i></span>
+				<span class="txt-link">Gerenciamento</span>
+				</a>
+			</li>
+			<li class="item-menu">
+				<a href="php/logout.php">
+				<span class="icon"><i class="bi bi-box-arrow-right"></i></span>
+				<span class="txt-link">Sair</span>
+				</a>
+			</li>
+			</ul>
+    </nav>
       <!-- FIM DO MENU -->
     </section>
     <main>
@@ -136,13 +136,13 @@
         <h1>Gestão Pedagógica</h1>
       </div>
 
+      <section class="gestao">
       <?php 
 				require('php/conexao.php');
 				$sql = 'SELECT * FROM tb_gestao';
 				foreach ($conn->query($sql) as $row) {
 			?>
 
-        <section class="gestao">
               <div class="gestao-container">
                 <div class="gestao-users">
                   <img src="img/perfil1.jpg" alt="Foto do Usuário">
@@ -153,10 +153,10 @@
                   <p><?php echo $row['ds_cargo']; ?></p>
                 </div>
               </div>
-        </section>
-      <?php    		
+              <?php    		
           }
-        ?>
+          ?>
+          </section>
     </main>
            <!-- Modal de Alteração -->
     <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"

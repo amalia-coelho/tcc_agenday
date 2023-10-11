@@ -45,61 +45,61 @@
         <i class="bi bi-list" id="btn-exp"></i>
       </div>
       <ul>
+      <li class="item-menu">
+				<a href="perfil.php">
+				<span class="icon"><i class="bi bi-person-fill"></i></span>
+				<span class="txt-link">Usuário</span>
+				</a>
+			</li>
+      <li class="item-menu">
+				<a href="calendario.php">
+					<span class="icon"><i class="bi bi-house-door-fill"></i></span>
+					<span class="txt-link">Home</span>
+				</a>
+			</li>
         <li class="item-menu">
-          <a href="perfil.php">
-            <span class="icon"><i class="bi bi-person-fill"></i></span>
-            <span class="txt-link">Usuário</span>
-          </a>
-        </li>
+				<a href="comunicados.php">
+				<span class="icon"><i class="bi bi-megaphone-fill"></i></span>
+				<span class="txt-link">Comunicados</span>
+				</a>
+			</li>
+			<li class="item-menu ">
+				<a href="apm.php">
+				<span class="icon"><i class="bi bi-cart4"></i></span>
+				<span class="txt-link">APM</span>
+				</a>
+			</li>
+			<li class="item-menu">
+				<a href="painel.php">
+				<span class="icon"><i class="bi bi-heart-fill"></i></span>
+				<span class="txt-link">Saúde</span>
+				</a>
+			</li>
+			<li class="item-menu">
+				<a href="gestao.php">
+				<span class="icon"><i class="bi bi-person-workspace"></i></span>
+				<span class="txt-link">Gestão</span>
+				</a>
+			</li>
         <li class="item-menu">
-          <a href="calendario.php">
-            <span class="icon"><i class="bi bi-house-door-fill"></i></span>
-            <span class="txt-link">Home</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="comunicados.php">
-            <span class="icon"><i class="bi bi-megaphone-fill"></i></span>
-            <span class="txt-link">Comunicados</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="apm.php">
-            <span class="icon"><i class="bi bi-cart4"></i></span>
-            <span class="txt-link">APM</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="painel.php">
-            <span class="icon"><i class="bi bi-heart-fill"></i></span>
-            <span class="txt-link">Saúde</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="gestao.php">
-            <span class="icon"><i class="bi bi-person-workspace"></i></span>
-            <span class="txt-link">Gestão</span>
-          </a>
-        </li>
-        <li class="item-menu ativo">
-          <a href="duvidas.php">
-            <span class="icon"><i class="bi bi-question-lg"></i></span>
-            <span class="txt-link">Dúvidas</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="gerenciamento.php">
-            <span class="icon"><i class="bi bi-gear-fill"></i></span>
-            <span class="txt-link">Gerenciamento</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="logout.php">
-            <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
-            <span class="txt-link">Sair</span>
-          </a>
-        </li>
-      </ul>
+				<a href="duvidas.php">
+				<span class="icon"><i class="bi bi-question-lg"></i></span>
+				<span class="txt-link">Dúvidas</span>
+				</a>
+			</li>
+			<li class="item-menu">
+				<a href="gerenciamento.php">
+				<span class="icon"><i class="bi bi-gear-fill"></i></span>
+				<span class="txt-link">Gerenciamento</span>
+				</a>
+			</li>
+			<li class="item-menu">
+				<a href="php/logout.php">
+				<span class="icon"><i class="bi bi-box-arrow-right"></i></span>
+				<span class="txt-link">Sair</span>
+				</a>
+			</li>
+			</ul>
     </nav>
     <!-- FIM DO MENU -->
   </section>
@@ -145,7 +145,7 @@
   </div>
   <div class="faq">
     <button class="faq-toggle">
-      Como fazer para cadastrar novos alunos?
+      Como cadastrar uma nova síndrome?
       <span class="arrow"></span>
     </button>
     <div class="faq-content">
@@ -154,7 +154,7 @@
         <li>Clique no ícone de usuário no menu lateral da tela.</li>
         <li>Localize e clique no ícone de síndromes ou soenças;</li>
         <li>Será aberto um campo para modificação e adição;</li>
-        <li>Ap[os alterar apenas salve.</li>
+        <li>Após alterar apenas salve.</li>
 
         Pronto! Agora você Atualizou seus dados com facilidade!
       </ol>

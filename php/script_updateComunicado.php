@@ -24,6 +24,8 @@
                 ':turma' => $turma
             ));
         }
+
+        echo "<meta http-equiv='refresh' content='1'>";
     } catch(PDOException $e) {
         echo 'ERROR: ' . $e->getMessage();
         echo "<br>".$stmt->rowCount();

@@ -144,72 +144,66 @@
 	<section class="-container">
     <!-- INICIO MENU  -->
     <nav class="menu-lateral">
-		<div class="btn-expandir">
-        	<i class="bi bi-list" id="btn-exp"></i>
-      	</div>
-		<ul>
+			<div class="btn-expandir">
+			  <i class="bi bi-list" id="btn-exp"></i>
+			</div>
+			<ul>
 			<li class="item-menu">
-				<a href="perfil.html">
-					<span class="icon"><i class="bi bi-person-fill"></i></span>
-					<span class="txt-link">Usuário</span>
-				</a>
-			</li>
-			<li class="item-menu">
-				<a href="#">
+					  <a href="perfil.php">
+					  <span class="icon"><i class="bi bi-person-fill"></i></span>
+					  <span class="txt-link">Usuário</span>
+					  </a>
+				  </li>
+				  <li class="item-menu">
+				<a href="calendario.php">
 					<span class="icon"><i class="bi bi-house-door-fill"></i></span>
 					<span class="txt-link">Home</span>
 				</a>
 			</li>
-			<li class="item-menu">
-				<a href="#">
-					<span class="icon"><i class="bi bi-calendar2-week-fill"></i></span>
-					<span class="txt-link">Calendário</span>
-				</a>
-			</li>
-			<li class="item-menu ativo">
-				<a href="#">
-					<span class="icon"><i class="bi bi-megaphone-fill"></i></span>
-					<span class="txt-link">Comunicados</span>
-				</a>
-			</li>
-			<li class="item-menu">
-				<a href="apm.html">
-					<span class="icon"><i class="bi bi-cart4"></i></span>
-					<span class="txt-link">APM</span>
-				</a>
-			</li>
-			<li class="item-menu">
-				<a href="painel.html">
-					<span class="icon"><i class="bi bi-heart-fill"></i></span>
-					<span class="txt-link">Saúde</span>
-				</a>
-			</li>
-			<li class="item-menu">
-			<a href="#">
-				<span class="icon"><i class="bi bi-person-workspace"></i></span>
-				<span class="txt-link">Gestão</span>
-			</a>
-			</li>
-			<li class="item-menu">
-			<a href="duvidas.html">
-				<span class="icon"><i class="bi bi-question-lg"></i></span>
-				<span class="txt-link">Dúvidas</span>
-			</a>
-			</li>
-			<li class="item-menu">
-			<a href="gerenciamento.html">
-				<span class="icon"><i class="bi bi-gear-fill"></i></span>
-				<span class="txt-link">Gerenciamento</span>
-			</a>
-			</li>
-			<li class="item-menu">
-			<a href="logout.php">
-				<span class="icon"><i class="bi bi-box-arrow-right"></i></span>
-				<span class="txt-link">Sair</span>
-			</a>
-			</li>
-		</ul>
-    </nav>
+			  <li class="item-menu">
+					  <a href="comunicados.php">
+					  <span class="icon"><i class="bi bi-megaphone-fill"></i></span>
+					  <span class="txt-link">Comunicados</span>
+					  </a>
+				  </li>
+				  <li class="item-menu ">
+					  <a href="apm.php">
+					  <span class="icon"><i class="bi bi-cart4"></i></span>
+					  <span class="txt-link">APM</span>
+					  </a>
+				  </li>
+				  <li class="item-menu">
+					  <a href="painel.php">
+					  <span class="icon"><i class="bi bi-heart-fill"></i></span>
+					  <span class="txt-link">Saúde</span>
+					  </a>
+				  </li>
+				  <li class="item-menu">
+					  <a href="gestao.php">
+					  <span class="icon"><i class="bi bi-person-workspace"></i></span>
+					  <span class="txt-link">Gestão</span>
+					  </a>
+				  </li>
+			  <li class="item-menu">
+					  <a href="duvidas.php">
+					  <span class="icon"><i class="bi bi-question-lg"></i></span>
+					  <span class="txt-link">Dúvidas</span>
+					  </a>
+				  </li>
+				  <li class="item-menu">
+					  <a href="gerenciamento.php">
+					  <span class="icon"><i class="bi bi-gear-fill"></i></span>
+					  <span class="txt-link">Gerenciamento</span>
+					  </a>
+				  </li>
+				  <li class="item-menu">
+					  <a href="php/logout.php">
+					  <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
+					  <span class="txt-link">Sair</span>
+					  </a>
+				  </li>
+				  </ul>
+		  </nav>
     <!-- FIM DO MENU -->
   </section>
 	<main>
@@ -321,7 +315,7 @@
 						<p id="exibir_cod" style="visibility: hidden;"></p>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-roxo" id="salvarAlterar">Salvar Alterações</button>
-							<button type="button" class="btn btn-azul" data-bs-dismiss="modal" id="cancelarAlterar">Cancelar</button>
+							<button type="button" class="btn btn-azul" data-bs-dismiss="modal" id="fecharAlterar">Cancelar</button>
 						</div>
 				</div>
       		</div>
