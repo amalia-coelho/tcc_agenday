@@ -263,9 +263,45 @@ main {
 }
 
 input[type="checkbox"] {
-    border-radius: 4px !important;
-    border: 1.5px solid var(--cinza) !important;
+    border-radius: 50% !important;
+    background-color: red !important;
 
+}
+
+
+/* Estilização personalizada para o checkbox do modal */
+.modal-checkbox {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--cinza);
+    /* Cor da borda preta */
+    border-radius: 4px;
+    /* Bordas arredondadas */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.modal-checkbox .bi-check-lg {
+    font-size: 11px;
+    transform: scale(0);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Estilização para o checkbox quando estiver marcado */
+.modal-checkbox.checked {
+    border-color: var(--azul);
+    /* Cor da borda quando marcado */
+    background-color: var(--azul);
+    /* Cor de fundo quando marcado */
+    color: #fff;
+    /* Cor do ícone de check */
+}
+
+.modal-checkbox.checked .bi-check-lg {
+    transform: scale(1);
 }
 
 /* responsividade */

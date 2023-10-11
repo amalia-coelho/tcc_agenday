@@ -25,11 +25,9 @@
 
 		<!-- js -->
 		<script src="https://unpkg.com/scrollreveal"></script>
-		<!-- /js -->
-
 		<script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
 		<script src="js/jquery.maskMoney.min.js"></script>
-
+		<!-- /js -->
 
 		<script type="text/javascript">
 			$(document).ready(function(){
@@ -56,17 +54,23 @@
 					}).always(function() {
 						console.log("completou");
 					});
+
+					$(".preco").maskMoney({
+						prefix: "R$ ",
+						decimal: ",",
+						thousands: "."
+      				});
 				});
 			});
 		</script>
 		<title>APM</title>
 	</head>
 
-	<body>
-	<!-- INICIO DA DUVIDA!! -->
-		<section class="apm-container">
-			<!-- INICIO MENU  -->
-			<nav class="menu-lateral">
+<body>
+  <!-- INICIO DA DUVIDA!! -->
+  <section class="apm-container">
+    <!-- INICIO MENU  -->
+    <nav class="menu-lateral">
       <div class="btn-expandir">
         <i class="bi bi-list" id="btn-exp"></i>
       </div>

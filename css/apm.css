@@ -184,6 +184,7 @@ body {
     align-items: center;
     justify-content: space-between;
     font-family: var(--pop);
+    justify-content: space-between;
 }
 
 .price .btn {
