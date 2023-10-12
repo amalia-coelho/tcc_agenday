@@ -8,34 +8,41 @@
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
-	<head>
+<head>
 	<title>Comunicados</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
 	<!-- css -->
-		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="css/comunicado.css">
-		<link rel="stylesheet" href="css/menu.css">
-		<link rel="stylesheet" href="css/selectcheck.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/comunicado.css">
+	<link rel="stylesheet" href="css/menu.css">
+	<link rel="stylesheet" href="css/selectcheck.css">
 
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css" integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css"
+		integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<!-- /css -->
 
 	<!-- js -->
-		<script src="https://unpkg.com/scrollreveal"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
-		<script src="js/jquery.maskMoney.min.js"></script>
+	<script src="https://unpkg.com/scrollreveal"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
+	<script src="js/jquery.maskMoney.min.js"></script>
 
 
 		<script>
 			$(document).ready(function(){
+				$('.date').mask('00/00/0000');
+				$('.time').mask('00:00h');
+				
 				$('#all-select').click(function() {
-					var checked = this.checked;
-					$('input[type="checkbox"]').each(function() {
-						this.checked = checked;
-					});
+          			var checked = this.checked;
+          			$('input[type="checkbox"]').each(function() {
+          				this.checked = checked;
+      				});
 				});
 				
 				$("#salvar").click(function(){
@@ -44,10 +51,14 @@
 					var data_comunicado = $('#dt_comunicado').val();
 					var titulo = $('#nm_titulo').val();
 					
+					var turmasSelecionadas = $("input[name='turmas[]']:checked").map(function() {
+                    	return $(this).val();
+					}).get();
+					
 					$.ajax({
 					url: "php/script_addComunicado.php",
 					type: "POST",
-					data: "descricao="+descricao+"&data_comunicado="+data_comunicado+"&titulo="+titulo,
+					data: "descricao="+descricao+"&data_comunicado="+data_comunicado+"&titulo="+titulo+"&turmas="+turmasSelecionadas,
 					dataType: "html"
 				
 					}).done(function(resposta){
@@ -60,13 +71,10 @@
 					//Recarregar página
 					$("#exibe").html(resposta);
 					
-						// Limpar os inputs
-						$('#ds_descricao').val(' ');
-						$('#dt_comunicado').val(' ');
-						$('#nm_titulo').val(' ');
-						
-						//resetar o select
-						$('#id_turma option:first').prop('selected',true);
+					// Limpar os inputs
+					$('#ds_descricao').val(' ');
+					$('#dt_comunicado').val(' ');
+					$('#nm_titulo').val(' ');
 					}).fail(function(jqXHR, textStatus ) {
 						console.log("Request failed: " + textStatus);
 					});
@@ -76,42 +84,57 @@
 
 				//Pegar os valores dos inputs
 	            $(".alterar").on("click", function(){
-	                $("#exibir-codigo") = $(this).text('cod');
+	                $("#exibir_cod").text($(this).attr('cod'));
 	                $("#alterarTitulo").val($(this).attr('titulo'));
 	                $("#alterarData").val($(this).attr('dt_comunicado'));
 	                $("#alterarDescricao").val($(this).attr('descricao'));
-	            });
+	            
+					//SELECT TURMAS
+					var turmasString = $(this).attr('turmas'); // Aqui, você obtém a string de atributo
+					var turmasArray = turmasString.split('-');
+
+					for (var i = 0; i < turmasArray.length; i++) {
+           				$("input[name='turmasAlterar[]'][value='" + turmasArray[i] + "']").prop('checked', true);
+        			}
+				});
 
 	            // Quando apertar para "salvar alterações"
 	            $("#salvarAlterar").click(function(){
-	                var codigo = $("#exibir-codigo").text();
-	                var titulo = $("#alterarTitulo").val();
-	                var dt_comunicado = $("#alterarData").val();
-	                var descricao = $("#alterarDescricao").val();
-
-	                $.ajax({
-	                url: "php/scriptUpdateComunicado.php",
-	                type: "POST",
-	                data: "codigo="+codigo+"&titulo="+titulo+"&descricao="+descricao+"&dt_comunicado="+dt_comunicado,
-	                dataType: "html"
-
-	                }).done(function(resposta){
-	                    //fechar o modal
-	                    $('#fechar').click();
-
-	                    // Notificar a alterações
-	                    alert("Comunicado alterado com sucesso!");
-
-	                    // Recarregar página
-	                    $('#exibe').html(resposta);
-
-	                    // Limpar os inputs
-	                    $('alterarTitulo').val(' ');
-	                    $('alterarDescricao').val(' ');
-	                    $('alterarData').val(' ');
-	                }).fail(function(jqXHR, textStatus ) {
-	                    console.log("Request failed: " + textStatus);
-	                });
+	                // declaração de variáveis
+					var cod = $("#exibir_cod").text();
+					var titulo = $('#alterarTitulo').val();
+					var data_comunicado = $('#alterarData').val();
+					var descricao = $('#alterarDescricao').val();
+					
+					var turmasSelecionadas = $("input[name='turmasAlterar[]']:checked").map(function() {
+                    	return $(this).val();
+					}).get();
+					
+					$.ajax({
+					url: "php/script_updateComunicado.php",
+					type: "POST",
+					data: "codigo="+cod+"&descricao="+descricao+"&data_comunicado="+data_comunicado+"&titulo="+titulo+"&turmas="+turmasSelecionadas,
+					dataType: "html"
+				
+					}).done(function(resposta){
+					//fechar o modal
+					$('#fecharAlterar').click();
+					
+					//Notificar registro
+					alert("Comunicado alterado com sucesso!");
+					
+					//Recarregar página
+					$("#exibe").html(resposta);
+					
+					// Limpar os inputs
+					$("#exibir_cod").text(" ");
+	                $("#alterarTitulo").val(" ");
+	                $("#alterarData").val(" ");
+	                $("#alterarDescricao").val(" ");
+					$("input[name='turmasAlterar[]").prop('checked', false);
+					}).fail(function(jqXHR, textStatus ) {
+						console.log("Request failed: " + textStatus);
+					});
 	            });
 			});
 			</script>
@@ -121,72 +144,66 @@
 	<section class="-container">
     <!-- INICIO MENU  -->
     <nav class="menu-lateral">
-		<div class="btn-expandir">
-        	<i class="bi bi-list" id="btn-exp"></i>
-      	</div>
-		<ul>
+			<div class="btn-expandir">
+			  <i class="bi bi-list" id="btn-exp"></i>
+			</div>
+			<ul>
 			<li class="item-menu">
-				<a href="perfil.html">
-					<span class="icon"><i class="bi bi-person-fill"></i></span>
-					<span class="txt-link">Usuário</span>
-				</a>
-			</li>
-			<li class="item-menu">
-				<a href="#">
+					  <a href="perfil.php">
+					  <span class="icon"><i class="bi bi-person-fill"></i></span>
+					  <span class="txt-link">Usuário</span>
+					  </a>
+				  </li>
+				  <li class="item-menu">
+				<a href="calendario.php">
 					<span class="icon"><i class="bi bi-house-door-fill"></i></span>
 					<span class="txt-link">Home</span>
 				</a>
 			</li>
-			<li class="item-menu">
-				<a href="#">
-					<span class="icon"><i class="bi bi-calendar2-week-fill"></i></span>
-					<span class="txt-link">Calendário</span>
-				</a>
-			</li>
-			<li class="item-menu ativo">
-				<a href="#">
-					<span class="icon"><i class="bi bi-megaphone-fill"></i></span>
-					<span class="txt-link">Comunicados</span>
-				</a>
-			</li>
-			<li class="item-menu">
-				<a href="apm.html">
-					<span class="icon"><i class="bi bi-cart4"></i></span>
-					<span class="txt-link">APM</span>
-				</a>
-			</li>
-			<li class="item-menu">
-				<a href="painel.html">
-					<span class="icon"><i class="bi bi-heart-fill"></i></span>
-					<span class="txt-link">Saúde</span>
-				</a>
-			</li>
-			<li class="item-menu">
-			<a href="#">
-				<span class="icon"><i class="bi bi-person-workspace"></i></span>
-				<span class="txt-link">Gestão</span>
-			</a>
-			</li>
-			<li class="item-menu">
-			<a href="duvidas.html">
-				<span class="icon"><i class="bi bi-question-lg"></i></span>
-				<span class="txt-link">Dúvidas</span>
-			</a>
-			</li>
-			<li class="item-menu">
-			<a href="gerenciamento.html">
-				<span class="icon"><i class="bi bi-gear-fill"></i></span>
-				<span class="txt-link">Gerenciamento</span>
-			</a>
-			</li>
-			<li class="item-menu">
-			<a href="logout.php">
-				<span class="icon"><i class="bi bi-box-arrow-right"></i></span>
-				<span class="txt-link">Sair</span>
-			</a>
-			</li>
-		</ul>
-    </nav>
+			  <li class="item-menu">
+					  <a href="comunicados.php">
+					  <span class="icon"><i class="bi bi-megaphone-fill"></i></span>
+					  <span class="txt-link">Comunicados</span>
+					  </a>
+				  </li>
+				  <li class="item-menu ">
+					  <a href="apm.php">
+					  <span class="icon"><i class="bi bi-cart4"></i></span>
+					  <span class="txt-link">APM</span>
+					  </a>
+				  </li>
+				  <li class="item-menu">
+					  <a href="painel.php">
+					  <span class="icon"><i class="bi bi-heart-fill"></i></span>
+					  <span class="txt-link">Saúde</span>
+					  </a>
+				  </li>
+				  <li class="item-menu">
+					  <a href="gestao.php">
+					  <span class="icon"><i class="bi bi-person-workspace"></i></span>
+					  <span class="txt-link">Gestão</span>
+					  </a>
+				  </li>
+			  <li class="item-menu">
+					  <a href="duvidas.php">
+					  <span class="icon"><i class="bi bi-question-lg"></i></span>
+					  <span class="txt-link">Dúvidas</span>
+					  </a>
+				  </li>
+				  <li class="item-menu">
+					  <a href="gerenciamento.php">
+					  <span class="icon"><i class="bi bi-gear-fill"></i></span>
+					  <span class="txt-link">Gerenciamento</span>
+					  </a>
+				  </li>
+				  <li class="item-menu">
+					  <a href="php/logout.php">
+					  <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
+					  <span class="txt-link">Sair</span>
+					  </a>
+				  </li>
+				  </ul>
+		  </nav>
     <!-- FIM DO MENU -->
   </section>
 	<main>
@@ -199,7 +216,15 @@
 		<?php
 			$sql = "SELECT * FROM tb_comunicado";
 
-			foreach ($conn->query($sql) as $item){?>
+			foreach ($conn->query($sql) as $item){
+				//pegar a array de turmas selecionadas no comunicado
+				$stmt = $conn->prepare("SELECT id_turma FROM tb_comunicado_turma WHERE id_comunicado = :id");
+				$stmt->execute(array(
+					':id' => $item['cd_comunicado']
+				));
+				$turmasAlterar = $stmt->fetchAll(PDO::FETCH_COLUMN);
+				$turmasString = implode('-', $turmasAlterar);
+				?>
 				<section class="comunicado horizontal">
 					<div class="comunicado-image">
 						<img src="img/foto.webp" alt="Imagem do comunicado">
@@ -207,10 +232,14 @@
 					<div class="comunicado-content">
 						<div class="comunicado-header">
 							<h2><?php echo $item['nm_titulo'];?></h2>
-							<p class="date"><?php echo $item['dt_postagem'];?></p>
+							<?php
+								list($ano, $mes, $dia) = explode('-', $item['dt_postagem']);
+								$postagem = $dia."-".$mes."-".$ano;
+							?>
+							<p class="date"><?php echo $postagem;?></p>
 						</div>
 						<p class="comunicado-text"><?php echo $item['ds_descricao'];?></p>
-						<button class="alterar" data-bs-toggle="modal" data-bs-target="#editModal" style="border:none;" cod="<?php echo $item['cd_comunicado'];?>" titulo="<?php echo $item['nm_titulo'];?>" descricao="<?php echo $item['ds_descricao']?>" dt_comunicado="<?php echo $item['dt_comunicado']?>">
+						<button class="alterar" data-bs-toggle="modal" data-bs-target="#editModal" style="border:none;" cod="<?php echo $item['cd_comunicado'];?>" titulo="<?php echo $item['nm_titulo'];?>" descricao="<?php echo $item['ds_descricao']?>" dt_comunicado="<?php echo $item['dt_comunicado']?>" turmas="<?php echo $turmasString;?>">
 							<i class="bi bi-pencil-square edit-icon"></i>
 						</button>
 						<a href="php/script_deleteComunicado.php?cod=<?php echo $item['cd_comunicado'];?>"><i class="bi bi-trash-fill delete-icon"></i></a>  
@@ -255,17 +284,19 @@
 									<span class="btn-text">Selecionar Curso</span>
 									<i class="bi bi-chevron-down"></i>
 								</div>
-                    			<ul class="list-itens">
-									<li class="item" id="all-select">
-										<label class="form-check-label" for="selectAllOptions">Todos</label>
+								<ul class="list-itens">
+									<li class="a" id="all-select" style="cursor:pointer;">
+										<label class="form-check-label" for="selectAllOptions" style="cursor:pointer;">Todos</label>
 									</li>
 									<?php
+										//exibir o select
 										$sql = "SELECT * FROM tb_turma";
 
 										foreach ($conn->query($sql) as $item){?>
 											<li class="item">
-												<span class="checkbox">
-													<i class="bi bi-check-lg"></i>
+												<!-- Checkbox oculto -->
+												<input type="checkbox" class="checkbox" name="turmasAlterar[]" value="<?php echo $item['cd_turma'];?>" id="<?php echo $item['nm_turma'];?>">
+												<label class="checkbox-label" for="<?php echo $item['nm_turma'];?>"></label>
 												</span>
 												<span class="item-text"><?php echo $item['nm_turma'];?></span>
 											</li>
@@ -275,16 +306,17 @@
                     			</ul>
                 			</div>
               			</div>
-						<div class="mb-3">
-                			<label for="alterarDescricao" class="form-label">Alterar Descrição</label>
-                			<textarea class="form-control" id="alterarDescricao" rows="4"></textarea>
-              			</div>
-                		<p id="exibir-codigo"></p>
-          			</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-roxo" id="salvarAlterar">Salvar Alterações</button>
-						<button type="button" class="btn btn-azul" data-bs-dismiss="modal" id="cancelarAlterar">Cancelar</button>
-					</div>
+						  <br>
+						  <div class="mb-3">
+							  <label for="alterarDescricao" class="form-label">Alterar Descrição</label>
+							  <textarea class="form-control" id="alterarDescricao" rows="4"></textarea>
+							</div>
+						</div>
+						<p id="exibir_cod" style="visibility: hidden;"></p>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-roxo" id="salvarAlterar">Salvar Alterações</button>
+							<button type="button" class="btn btn-azul" data-bs-dismiss="modal" id="fecharAlterar">Cancelar</button>
+						</div>
 				</div>
       		</div>
     	</div>
@@ -329,17 +361,19 @@
 									<span class="btn-text">Selecionar Curso</span>
 									<i class="bi bi-chevron-down"></i>
 								</div>
-                    			<ul class="list-itens">
-									<li class="item" id="all-select">
-										<label class="form-check-label" for="selectAllOptions">Todos</label>
+								<ul class="list-itens">
+									<li class="a" id="all-select" style="cursor:pointer;">
+										<label class="form-check-label" for="selectAllOptions"
+											style="cursor:pointer;">Todos</label>
 									</li>
 									<?php
 										$sql = "SELECT * FROM tb_turma";
 
 										foreach ($conn->query($sql) as $item){?>
 											<li class="item">
-												<span class="checkbox">
-													<i class="bi bi-check-lg"></i>
+												<!-- Checkbox oculto -->
+												<input type="checkbox" class="checkbox" name="turmas[]" value="<?php echo $item['cd_turma'];?>" id="<?php echo $item['nm_turma'];?>">
+												<label class="checkbox-label" for="<?php echo $item['nm_turma'];?>"></label>
 												</span>
 												<span class="item-text"><?php echo $item['nm_turma'];?></span>
 											</li>
@@ -364,7 +398,6 @@
 		<!-- fim do modal ADD-->
 	</main>
 	
-	<!-- js -->
 	<script src="js/duvidas.js"></script>
 	<script src="js/menu.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"

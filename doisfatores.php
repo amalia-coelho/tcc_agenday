@@ -60,7 +60,7 @@
           <!-- fim dos input -->
           <div class="revealbtn">
             <a class="ent" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Verificar</a>
-            <a class="create" href="forgot.php">Voltar</a>
+            <a class="create" href="forgot.html">Voltar</a>
           </div>
 
         </div>

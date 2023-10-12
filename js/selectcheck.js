@@ -8,24 +8,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const allSelect1 = modal1.querySelector("#all-select2");
   const allSelect2 = modal2.querySelector("#all-select");
 
-  // Função para atualizar o texto do botão de seleção
-  function updateButtonText(modal, items) {
-    const checkedItems = Array.from(items).filter(item => {
-      const checkbox = item.querySelector('.checkbox');
-      return checkbox.checked;
-    });
+  // Adicione um evento de clique para alternar a classe "open" para o botão de seleção de cada modal
+  selectBtn1.addEventListener("click", () => {
+    selectBtn1.classList.toggle("open");
+  });
 
-    const btnText = modal.querySelector(".btn-text");
+  selectBtn2.addEventListener("click", () => {
+    selectBtn2.classList.toggle("open");
+  });
 
-    if (checkedItems.length > 0) {
-      const itemCount = checkedItems.length;
-      btnText.innerText = itemCount > 1 ? `${itemCount} Cursos` : `${itemCount} Curso`;
-    } else {
-      btnText.innerText = "Selecionar Curso";
-    }
-  }
-
-  // Função para alternar a classe "selected" nos itens
+  // Adicione a lógica para seleção de itens de cada modal
   function toggleItemSelection(item) {
     const checkbox = item.querySelector('.checkbox');
     checkbox.checked = !checkbox.checked;
@@ -34,22 +26,13 @@ document.addEventListener("DOMContentLoaded", () => {
     updateButtonText(modal2, itens2);
   }
 
-  // Adicione eventos de clique aos checkboxes e aos itens
   itens1.forEach(item => {
-    const checkbox = item.querySelector('.checkbox');
-    checkbox.addEventListener('click', () => {
-      toggleItemSelection(item);
-    });
     item.addEventListener('click', () => {
       toggleItemSelection(item);
     });
   });
 
   itens2.forEach(item => {
-    const checkbox = item.querySelector('.checkbox');
-    checkbox.addEventListener('click', () => {
-      toggleItemSelection(item);
-    });
     item.addEventListener('click', () => {
       toggleItemSelection(item);
     });
@@ -85,12 +68,20 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleSelectAll(modal2, itens2, allSelect2);
   });
 
-  // Adicione um evento de clique para alternar a classe "open" para o botão de seleção de cada modal
-  selectBtn1.addEventListener("click", () => {
-    selectBtn1.classList.toggle("open");
-  });
+  // Função para atualizar o texto do botão de seleção
+  function updateButtonText(modal, items) {
+    const checkedItems = Array.from(items).filter(item => {
+      const checkbox = item.querySelector('.checkbox');
+      return checkbox.checked;
+    });
 
-  selectBtn2.addEventListener("click", () => {
-    selectBtn2.classList.toggle("open");
-  });
+    const btnText = modal.querySelector(".btn-text");
+
+    if (checkedItems && checkedItems.length > 0) {
+      const itemCount = checkedItems.length;
+      btnText.innerText = itemCount > 1 ? `${itemCount} Cursos` : `${itemCount} Curso`;
+    } else {
+      btnText.innerText = "Selecionar Curso";
+    }
+  }
 });

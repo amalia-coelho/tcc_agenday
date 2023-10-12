@@ -17,6 +17,7 @@
                 $_SESSION['cd'] = $usuario['cd_usuario'];
                 $_SESSION['id_nivel'] = $usuario['id_nivel'];
                 $_SESSION['id_turma'] = $usuario['id_turma'];
+
                 echo "<meta http-equiv='refresh' content='1'>";
             }else{
                 echo "Senha incorreta!";
