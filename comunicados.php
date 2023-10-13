@@ -32,112 +32,121 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
 	<script src="js/jquery.maskMoney.min.js"></script>
 
-
-		<script>
-			$(document).ready(function(){
-				$('.date').mask('00/00/0000');
-				$('.time').mask('00:00h');
-				
-				$('#all-select').click(function() {
-          			var checked = this.checked;
-          			$('input[type="checkbox"]').each(function() {
-          				this.checked = checked;
-      				});
+	<script>
+		$(document).ready(function(){
+			$('.date').mask('00/00/0000');
+			$('.time').mask('00:00h');
+			
+			$('#all-select').click(function() {
+				var checked = this.checked;
+				$('input[type="checkbox"]').each(function() {
+					this.checked = checked;
 				});
+			});
+			
+			$("#salvar").click(function(){
+				// pega os valores de inputs normais
+				var descricao = $('#ds_descricao').val();
+				var data_comunicado = $('#dt_comunicado').val();
+				var titulo = $('#nm_titulo').val();
 				
-				$("#salvar").click(function(){
-					// declaração de variáveis
-					var descricao = $('#ds_descricao').val();
-					var data_comunicado = $('#dt_comunicado').val();
-					var titulo = $('#nm_titulo').val();
-					
-					var turmasSelecionadas = $("input[name='turmas[]']:checked").map(function() {
-                    	return $(this).val();
-					}).get();
-					
-					$.ajax({
+				//mapeia o array das turmas e salva os id's das selecionadas
+				var turmasSelecionadas = $("input[name='turmas[]']:checked").map(function() {
+					return $(this).val();
+				}).get();
+				
+				// Crie um objeto com informações do arquivo
+				var imagem = $('#ds_imagem')[0];
+				// Crie um objeto com informações do arquivo
+				var imagemInfo = {
+        			nomeArquivo: fileName,
+					tipoArquivo: imagem[0].files[0].type,
+					tamanhoArquivo: imagem[0].files[0].size
+    			};
+
+				$.ajax({
 					url: "php/script_addComunicado.php",
 					type: "POST",
-					data: "descricao="+descricao+"&data_comunicado="+data_comunicado+"&titulo="+titulo+"&turmas="+turmasSelecionadas,
+					data: "descricao="+descricao+"&data_comunicado="+data_comunicado+"&titulo="+titulo+"&turmas="+turmasSelecionadas+"&ds_imagem="+imagemInfo,
 					dataType: "html"
 				
 					}).done(function(resposta){
-					//fechar o modal
-					$('#fechar').click();
-					
-					//Notificar registro
-					alert("Comunicado adicionado com sucesso!");
-					
-					//Recarregar página
-					$("#exibe").html(resposta);
-					
-					// Limpar os inputs
-					$('#ds_descricao').val(' ');
-					$('#dt_comunicado').val(' ');
-					$('#nm_titulo').val(' ');
+						//fechar o modal
+						$('#fechar').click();
+						
+						//Notificar registro
+						alert("Comunicado adicionado com sucesso!");
+						
+						//Recarregar página
+						$("#exibe").html(resposta);
+						
+						// Limpar os inputs
+						$('#ds_descricao').val(' ');
+						$('#dt_comunicado').val(' ');
+						$('#nm_titulo').val(' ');
 					}).fail(function(jqXHR, textStatus ) {
 						console.log("Request failed: " + textStatus);
 					});
-				});
-
-				//UPDATE COMUNICADO
-
-				//Pegar os valores dos inputs
-	            $(".alterar").on("click", function(){
-	                $("#exibir_cod").text($(this).attr('cod'));
-	                $("#alterarTitulo").val($(this).attr('titulo'));
-	                $("#alterarData").val($(this).attr('dt_comunicado'));
-	                $("#alterarDescricao").val($(this).attr('descricao'));
-	            
-					//SELECT TURMAS
-					var turmasString = $(this).attr('turmas'); // Aqui, você obtém a string de atributo
-					var turmasArray = turmasString.split('-');
-
-					for (var i = 0; i < turmasArray.length; i++) {
-           				$("input[name='turmasAlterar[]'][value='" + turmasArray[i] + "']").prop('checked', true);
-        			}
-				});
-
-	            // Quando apertar para "salvar alterações"
-	            $("#salvarAlterar").click(function(){
-	                // declaração de variáveis
-					var cod = $("#exibir_cod").text();
-					var titulo = $('#alterarTitulo').val();
-					var data_comunicado = $('#alterarData').val();
-					var descricao = $('#alterarDescricao').val();
-					
-					var turmasSelecionadas = $("input[name='turmasAlterar[]']:checked").map(function() {
-                    	return $(this).val();
-					}).get();
-					
-					$.ajax({
-					url: "php/script_updateComunicado.php",
-					type: "POST",
-					data: "codigo="+cod+"&descricao="+descricao+"&data_comunicado="+data_comunicado+"&titulo="+titulo+"&turmas="+turmasSelecionadas,
-					dataType: "html"
-				
-					}).done(function(resposta){
-					//fechar o modal
-					$('#fecharAlterar').click();
-					
-					//Notificar registro
-					alert("Comunicado alterado com sucesso!");
-					
-					//Recarregar página
-					$("#exibe").html(resposta);
-					
-					// Limpar os inputs
-					$("#exibir_cod").text(" ");
-	                $("#alterarTitulo").val(" ");
-	                $("#alterarData").val(" ");
-	                $("#alterarDescricao").val(" ");
-					$("input[name='turmasAlterar[]").prop('checked', false);
-					}).fail(function(jqXHR, textStatus ) {
-						console.log("Request failed: " + textStatus);
-					});
-	            });
 			});
-			</script>
+
+			//UPDATE COMUNICADO
+
+			//Pegar os valores dos inputs
+			$(".alterar").on("click", function(){
+				$("#exibir_cod").text($(this).attr('cod'));
+				$("#alterarTitulo").val($(this).attr('titulo'));
+				$("#alterarData").val($(this).attr('dt_comunicado'));
+				$("#alterarDescricao").val($(this).attr('descricao'));
+			
+				//SELECT TURMAS
+				var turmasString = $(this).attr('turmas'); // Aqui, você obtém a string de atributo
+				var turmasArray = turmasString.split('-');
+
+				for (var i = 0; i < turmasArray.length; i++) {
+					$("input[name='turmasAlterar[]'][value='" + turmasArray[i] + "']").prop('checked', true);
+				}
+			});
+
+			// Quando apertar para "salvar alterações"
+			$("#salvarAlterar").click(function(){
+				// declaração de variáveis
+				var cod = $("#exibir_cod").text();
+				var titulo = $('#alterarTitulo').val();
+				var data_comunicado = $('#alterarData').val();
+				var descricao = $('#alterarDescricao').val();
+				
+				var turmasSelecionadas = $("input[name='turmasAlterar[]']:checked").map(function() {
+					return $(this).val();
+				}).get();
+				
+				$.ajax({
+				url: "php/script_updateComunicado.php",
+				type: "POST",
+				data: "codigo="+cod+"&descricao="+descricao+"&data_comunicado="+data_comunicado+"&titulo="+titulo+"&turmas="+turmasSelecionadas,
+				dataType: "html"
+			
+				}).done(function(resposta){
+				//fechar o modal
+				$('#fecharAlterar').click();
+				
+				//Notificar registro
+				alert("Comunicado alterado com sucesso!");
+				
+				//Recarregar página
+				$("#exibe").html(resposta);
+				
+				// Limpar os inputs
+				$("#exibir_cod").text(" ");
+				$("#alterarTitulo").val(" ");
+				$("#alterarData").val(" ");
+				$("#alterarDescricao").val(" ");
+				$("input[name='turmasAlterar[]").prop('checked', false);
+				}).fail(function(jqXHR, textStatus ) {
+					console.log("Request failed: " + textStatus);
+				});
+			});
+		});
+		</script>
 	<!-- /js -->
 	</head>
 <body>
@@ -227,7 +236,7 @@
 				?>
 				<section class="comunicado horizontal">
 					<div class="comunicado-image">
-						<img src="img/foto.webp" alt="Imagem do comunicado">
+						<img src="<?php echo $item['ds_imagem'];?>" alt="Imagem do comunicado">
 					</div>
 					<div class="comunicado-content">
 						<div class="comunicado-header">
@@ -341,7 +350,7 @@
 						<div class="mb-3">
 							<label for="imageInput" class="form-label">Imagem do Comunicado</label>
 							<div class="input-group">
-								<input type="file" class="form-control" id="imageInput" accept="image/*">
+								<input type="file" class="form-control" id="ds_imagem" accept=".jpg, .jpeg">
 								<button class="btn btn-outline-secondary" type="button" id="editButton">
 									<i class="bi bi-pencil"></i> <!-- Ícone de editar -->
 								</button>
