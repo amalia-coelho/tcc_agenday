@@ -39,7 +39,7 @@
 					var nr_valor = $("#nr_valor").val();
 					var ds_descricao = $("#ds_descricao").val();
 					$.ajax({
-					url: "php/script_apm.php",
+					url: "php/add_apm.php",
 					type: "POST",
 					data: "nm_produto="+nm_produto+"&ds_imagem="+ds_imagem+"&nr_valor="+nr_valor+"&ds_descricao="+ds_descricao,
 					dataType: "html"
