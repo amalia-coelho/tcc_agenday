@@ -34,11 +34,13 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+            $(".spinner-border").hide();
             $("#entrar").click(function () {
                 // declaração de variáveis
                 var nome = $("#nome").val();
                 var email = $("#email").val();
                 var senha = $("#senha").val();
+                var confirmacao = $("#senhaConfirmacao").val();
                 var rm = $("#rm").val();
                 var turma = $("#turma").val();
 
@@ -46,7 +48,7 @@
                     url: "php/script_cadastro.php",
                     type: "POST",
                     data: "nome=" + nome + "&email=" + email + "&senha=" + senha + "&rm=" + rm +
-                        "&turma=" + turma,
+                        "&turma=" + turma +"&confirmacao="+confirmacao,
                     dataType: "html"
 
                 }).done(function (resposta) {
@@ -143,7 +145,7 @@
                     </div>
                     <span class="span-required">Senha de no mínimo 8 Caracteres</span>
                     <div class="input-group">
-                        <input type="password" id="confirmarSenha" required class="form-control required"
+                        <input type="password" id="senhaConfirmacao" required class="form-control required"
                             oninput="comparePassword()" placeholder="Confirme sua senha">
 
                     </div>
@@ -156,6 +158,8 @@
                 </div>
                 <div class="revealbtn">
                     <a class="ent" href="#" id="entrar">Criar Conta</a>
+                    <div class="spinner-border mt-5" role="status">
+            </div>
                     <a class="create" href="index.php">Voltar</a>
                 </div>
             </div>

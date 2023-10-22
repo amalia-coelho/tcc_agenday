@@ -22,7 +22,7 @@
                 echo '<div class="alert" style="background-color: #DCEED7; border-left: 8px solid #9EB0A0;">
                 <i class="bi bi-check-lg "style="color: #9EB0A0";
                 "></i>
-                 <span class="msg" style="color: #9EB0A0;
+                 <span class="msg" style="color: #9EB0A0;font-size: 17px
                  " >Credencias Corretas!</span>
              </div>
              <script>
