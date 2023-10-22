@@ -21,11 +21,12 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     padding-left: 5%;
     padding-right: 5%;
     text-align: center;
     padding-top: 3rem;
+    height: 100vh;
 }
 
 .apm-card button {
