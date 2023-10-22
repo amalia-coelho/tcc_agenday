@@ -1,20 +1,33 @@
 <?php
+    session_start();
     include("conexao.php");
+    
+    function obterCaminhoSubpasta() {
+        $dirAtual = __DIR__;
+        $subpasta = $dirAtual . '/../uploads/' . $_SESSION['cd'];
+        return $subpasta;
+    }
+    
     try{
         //Apagar relacionados ao registro
-        $stmt = $conn->prepare("DELETE FROM tb_comunicado_turma WHERE id_comunicado = :cd");
-        $stmt->execute(array(
+        $delete_comunicado_turma = $conn->prepare("DELETE FROM tb_comunicado_turma WHERE id_comunicado = :cd");
+        $delete_comunicado_turma->execute(array(
             ':cd' => $_POST['codigo']
         ));
 
-        //Alterar imagem
+        // Upload imagem + caminho ds_imagem
         if ($_FILES['alterarImagem']['name'] != null) {
-            unlink($_POST['imagemAntiga']); //Apagar imagem antiga
+            $imagem = "../".$_POST['imagemAntiga'];
+            // Apagar a imagem
+            if(file_exists($imagem)){
+                unlink($imagem);
+            }
             
-            $caminhoDestino =  __DIR__ . '/../uploads/' . $_SESSION['cd'] . '/' . $_FILES['alterarImagem']['name']; //Calcular destino imagem
+            // Caminho para upload da nova
+            $subpasta = obterCaminhoSubpasta();
+            $caminhoDestino = $subpasta.'/'.$_FILES['alterarImagem']['name'];
             move_uploaded_file($_FILES['alterarImagem']['tmp_name'], $caminhoDestino); //Mover arquivo
-            
-            $arquivo = $caminhoDestino; //Path para salvar no banco
+            $arquivo = 'uploads/'. $_SESSION['cd'] . '/' . $_FILES['alterarImagem']['name']; //Calcular destino imagem
         }else{
             $arquivo = $_POST['imagemAntiga'];
         }
@@ -37,7 +50,7 @@
             ));
         }
 
-        // echo "<meta http-equiv='refresh' content='1'>";
+        echo "<meta http-equiv='refresh' content='1'>";
     } catch(PDOException $e) {
         echo 'ERROR: ' . $e->getMessage();
         echo "<br>".$stmt->rowCount();
