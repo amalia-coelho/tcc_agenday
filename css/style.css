@@ -27,11 +27,10 @@
 }
 
 *::-webkit-scrollbar-track {
-  background: var(--cinza);
+  background: var(--branco);
 }
 
 *::-webkit-scrollbar-thumb {
-  border-radius: 20px;
   background-color: var(--roxo);
 }
 

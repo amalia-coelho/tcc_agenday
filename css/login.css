@@ -5,6 +5,7 @@
 }
 
 .entrar {
+    margin-top: 0;
     height: 100vh;
     width: 100%;
     background-image: url('../img/login.png');
