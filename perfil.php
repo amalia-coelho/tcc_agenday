@@ -29,9 +29,9 @@
 		$(document).ready(function(){
 			$("#alterar").click(function(){
 				//pegar os valores dos input's
-				var $senhaAtual = $("#senhaAtual").val();
-				var $senhaNova = $("#senhaNova").val();
-				var $confirmacao = $("#senhaConfirmacao").val();
+				var senhaAtual = $("#senhaAtual").val();
+				var senhaNova = $("#senhaNova").val();
+				var confirmacao = $("#senhaConfirmacao").val();
 
 				$.ajax({
                 url: "php/script_alterarSenha.php",
@@ -53,73 +53,67 @@
 
 <body>
     <section class="-container">
-        <nav class="menu-lateral">
-            <div class="btn-expandir">
-                <i class="bi bi-list" id="btn-exp"></i>
-            </div>
-            <ul>
-            <li class="item-menu ativo">
-                <a href="#">
-                    <span class="icon"><i class="bi bi-person-fill"></i></span>
-                    <span class="txt-link">Usuário</span>
-                </a>
-            </li>
-            <li class="item-menu">
-                <a href="index.php">
-                    <span class="icon"><i class="bi bi-house-door-fill"></i></span>
-                    <span class="txt-link">Home</span>
-                </a>
-            </li>
-            <li class="item-menu">
-                <a href="calendario.php">
-                    <span class="icon"><i class="bi bi-calendar2-week-fill"></i></span>
-                    <span class="txt-link">Calendário</span>
-                </a>
-            </li>
-            <li class="item-menu">
-                <a href="comunicados.php">
-                    <span class="icon"><i class="bi bi-megaphone-fill"></i></span>
-                    <span class="txt-link">Comunicados</span>
-                </a>
-            </li>
-            <li class="item-menu">
-              <a href="apm.php">
-                <span class="icon"><i class="bi bi-cart4"></i></span>
-                <span class="txt-link">APM</span>
-              </a>
-            </li>
-            <li class="item-menu">
-              <a href="painel.php">
-                <span class="icon"><i class="bi bi-heart-fill"></i></span>
-                <span class="txt-link">Saúde</span>
-              </a>
-            </li>
-            <li class="item-menu">
-              <a href="gestao.php">
-                <span class="icon"><i class="bi bi-person-workspace"></i></span>
-                <span class="txt-link">Gestão</span>
-              </a>
-            </li>
-            <li class="item-menu">
-              <a href="duvidas.php">
-                <span class="icon"><i class="bi bi-question-lg"></i></span>
-                <span class="txt-link">Dúvidas</span>
-              </a>
-            </li>
-            <li class="item-menu">
-              <a href="gerenciamento.php">
-                <span class="icon"><i class="bi bi-gear-fill"></i></span>
-                <span class="txt-link">Gerenciamento</span>
-              </a>
-            </li>
-            <li class="item-menu">
-              <a href="php/logout.php">
-                <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
-                <span class="txt-link">Sair</span>
-              </a>
-            </li>
-            </ul>
-        </nav>
+    <nav class="menu-lateral">
+      <div class="btn-expandir">
+        <i class="bi bi-list" id="btn-exp"></i>
+      </div>
+      <ul>
+      <li class="item-menu">
+				<a href="perfil.php">
+				<span class="icon"><i class="bi bi-person-fill"></i></span>
+				<span class="txt-link">Usuário</span>
+				</a>
+			</li>
+			<li class="item-menu">
+				<a href="calendario.php">
+					<span class="icon"><i class="bi bi-house-door-fill"></i></span>
+					<span class="txt-link">Home</span>
+				</a>
+			</li>
+        <li class="item-menu">
+				<a href="comunicados.php">
+				<span class="icon"><i class="bi bi-megaphone-fill"></i></span>
+				<span class="txt-link">Comunicados</span>
+				</a>
+			</li>
+			<li class="item-menu ">
+				<a href="apm.php">
+				<span class="icon"><i class="bi bi-cart4"></i></span>
+				<span class="txt-link">APM</span>
+				</a>
+			</li>
+			<li class="item-menu">
+				<a href="painel.php">
+				<span class="icon"><i class="bi bi-heart-fill"></i></span>
+				<span class="txt-link">Saúde</span>
+				</a>
+			</li>
+			<li class="item-menu">
+				<a href="gestao.php">
+				<span class="icon"><i class="bi bi-person-workspace"></i></span>
+				<span class="txt-link">Gestão</span>
+				</a>
+			</li>
+        <li class="item-menu">
+				<a href="duvidas.php">
+				<span class="icon"><i class="bi bi-question-lg"></i></span>
+				<span class="txt-link">Dúvidas</span>
+				</a>
+			</li>
+			<li class="item-menu">
+				<a href="gerenciamento.php">
+				<span class="icon"><i class="bi bi-gear-fill"></i></span>
+				<span class="txt-link">Gerenciamento</span>
+				</a>
+			</li>
+			<li class="item-menu">
+				<a href="php/logout.php">
+				<span class="icon"><i class="bi bi-box-arrow-right"></i></span>
+				<span class="txt-link">Sair</span>
+				</a>
+			</li>
+			</ul>
+    </nav>
     </section>
     <div class="perfil">
         <h1>Perfil</h1>
@@ -183,7 +177,7 @@
 						<input type="password" class="form-control" id="senhaAtual" placeholder="Sua Senha Atual">
 					</div>
 					<div class="input-group mb-3">
-						<input type="password" class="form-control" id="senhaNova"placeholder="Sua Nova Senha">
+						<input type="password" class="form-control" id="senhaNova" placeholder="Sua Nova Senha">
 					</div>
 					<div class="input-group mb-3">
 						<input type="password" id="senhaConfirmacao" class="form-control" placeholder="Confirme Sua Senha">

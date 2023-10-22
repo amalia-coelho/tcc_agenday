@@ -46,10 +46,10 @@
         <!-- fim dos input -->
         <div class="revealbtn">
           <div>
-            <a class="ent" href="doisfatores.php">Redefinir Senha</a>
+            <a class="ent" href="doisfatores.html">Redefinir Senha</a>
           </div>
           <div>
-            <a class="create" href="index.php">Voltar</a>
+            <a class="create" href="index.html">Voltar</a>
           </div>
         </div>
 
