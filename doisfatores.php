@@ -103,7 +103,13 @@
       <!-- fim do modal -->
     </section>
     <!-- FIM DA SENHA!! -->
+<!-- footer -->
+<?php
 
+include('footer.php');
+?>
+
+<!-- fim do footer -->
     <!-- js -->
     <script src="js/home.js"></script>
 

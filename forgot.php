@@ -60,7 +60,13 @@
     </div>
   </section>
   <!-- FIM DO LOGIN!! -->
+<!-- footer -->
+<?php
 
+include('footer.php');
+?>
+
+<!-- fim do footer -->
   <!-- js -->
   <script src="js/home.js"></script>
 

@@ -99,7 +99,7 @@ textarea,
 
 /* INICIO FOOTER */
 footer {
-  border-top: 1px solid #fff;
+  border-top: none;
   padding-top: 20px;
   background-color: var(--cinza);
   width: 100%;
