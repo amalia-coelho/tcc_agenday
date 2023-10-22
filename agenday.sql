@@ -53,7 +53,7 @@ create table tb_apm(
 	cd_apm int primary key auto_increment,
   	nm_produto varchar(50) not null,
   	ds_descricao varchar(100),
-  	nr_valor decimal(5, 2) not null,
+  	nr_valor varchar(100) not null,
   	ds_imagem varchar(255) not null,
   	id_nivel int
 );

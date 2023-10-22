@@ -307,12 +307,12 @@
 		<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
 		aria-labelledby="staticBackdropLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
+				<form  id="addComunicado" enctype="multipart/form-data">
 				<div class="modal-content">
 					<div class="modal-header">
 						<h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar Comunicado</h1>
 						<button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
-					<form  id="addComunicado" enctype="multipart/form-data">
 						<div class="modal-body">
 							<div class="mb-3">
 								<label for="imageInput" class="form-label">Imagem do Comunicado</label>
@@ -327,7 +327,7 @@
 								<label for="nm_titulo" class="form-label">Título do Comunicado</label>
 								<input type="text" name="titulo" class="form-control" id="nm_titulo">
 							</div>
-							<div class="row mb-3">
+							<div class="row mb-3 altura curso">
 								<div class="col">
 									<label for="dt_comunicado" class="form-label">Data</label>
 									<input type="date" name="data_comunicado" class="form-control" id="dt_comunicado">
