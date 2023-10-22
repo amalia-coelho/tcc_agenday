@@ -17,12 +17,28 @@
                 $_SESSION['cd'] = $usuario['cd_usuario'];
                 $_SESSION['id_nivel'] = $usuario['id_nivel'];
                 $_SESSION['id_turma'] = $usuario['id_turma'];
+
                 echo "<meta http-equiv='refresh' content='1'>";
+                echo '<div class="alert" style="background-color: #DCEED7; border-left: 8px solid #9EB0A0;">
+                <i class="bi bi-check-lg "style="color: #9EB0A0";
+                "></i>
+                 <span class="msg" style="color: #9EB0A0;
+                 " >Credencias Corretas!</span>
+             </div>';
             }else{
-                echo "Senha incorreta!";
+                echo '<div class="alert">
+                    <i class="bi bi-exclamation-circle"></i>
+                    <span class="msg">Senha Incorreta!</span>
+                </div>';
             }
         }else{
-            echo "Usuário não encontrado!";
+            echo '<div class="alert">
+              <i class="bi bi-search"></i>
+                    <span class="msg">Usuário Não Encontrado!</span>
+                </div>';
+            
+ 
+
         }
     } catch(PDOException $e) {
         echo 'ERROR: ' . $e->getMessage();

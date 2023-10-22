@@ -107,15 +107,15 @@
         <div class="form-group custom-spacing pass">
           <label for="password">Senha</label>
           <div class="input-group">
-            <input type="password" id="password" class="form-control" placeholder="Digite sua senha">
+            <input type="password" id="password" class="form-control" required placeholder="Digite sua senha">
             <button type="button" id="togglePassword" class="btn">
               <i class="bi bi-eye" id="eyeIcon"></i>
             </button>
           </div>
           <small><a href="forgot.php">Esqueceu sua senha?</a></small>
-          <div id="exibe">
+        </div>
+        <div id="exibe">
 
-          </div>
         </div>
 
         <!-- fim dos input -->
