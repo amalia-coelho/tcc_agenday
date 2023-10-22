@@ -1,27 +1,28 @@
-.perfil{
-    text-align: center;
-    padding-top: 4rem;
-    font-family: var(--quatro);
-  }
+.perfil {
+  text-align: center;
+  padding-top: 4rem;
+  font-family: var(--quatro);
+}
 
-  .perfil-container {
-    margin-left: 84px; 
-  }
-  
-  nav.menu-lateral.expandir ~ .perfil-container {
-    margin-left: 280px;
-  }
-  nav.menu-lateral {
-    z-index: 1000; 
-  }
+.perfil-container {
+  margin-left: 84px;
+}
 
-.user-container{
+nav.menu-lateral.expandir~.perfil-container {
+  margin-left: 280px;
+}
+
+nav.menu-lateral {
+  z-index: 1000;
+}
+
+.user-container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.user{
+.user {
   font-family: var(--pop);
   font-size: 25px;
   margin-top: 100px;
@@ -31,41 +32,42 @@
   flex-direction: column;
   width: 25%;
   align-items: stretch;
-  
+
 }
 
-.user .campos{
+.user .campos {
   border-top: 10px solid var(--roxo);
   border-radius: 10px;
   box-shadow: -1px 2px 20px 0px rgba(0, 0, 0, 0.493);
   padding: 10px 20px;
 }
 
-.mb-3 input{
+.mb-3 input {
   font-family: var(--pop);
   padding: 10px 20px !important;
   border-top: 10px solid var(--roxo) !important;
 }
-.mb-3 input:focus{
+
+.mb-3 input:focus {
   box-shadow: none !important;
 }
 
 
 
-#togglePassword{
+#togglePassword {
   background-color: #6D26F8;
   color: var(--branco);
 }
 
 
 
-#health{
+#health {
   color: #00ff00;
   font-weight: bold;
   font-size: 28px;
 }
 
-.espelho-img{
+.espelho-img {
   position: fixed;
   right: 10px;
   bottom: 0px;
@@ -73,13 +75,13 @@
   transform: scaleX(-1);
 }
 
-.espelho-element{
-width: 30rem;
-transition: 0.5s ease-in-out;
+.espelho-element {
+  width: 30rem;
+  transition: 0.5s ease-in-out;
 }
 
-.espelho-element:hover{
-transform: scale(1.05);
+.espelho-element:hover {
+  transform: scale(1.05);
 }
 
 /* Add this new class to style the "Sua senha" label */
@@ -96,8 +98,132 @@ transform: scale(1.05);
   cursor: pointer;
 }
 
+/* pop up */
+
+body .alert {
+  background: #FFE1E3;
+  border-left: 8px solid #FF4356;
+  position: relative;
+  visibility: none;
+  animation-delay: .5s;
+  animation: shake 1s ease forwards;
+}
+
+.alert .bi-exclamation-circle,
+.alert .bi-check-lg,
+.alert .bi-search {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #FF455A;
+  font-size: 30px !important;
+}
+
+body .alert .msg {
+  font-size: 20px;
+  padding: 0 40px;
+  color: #DC7777;
+}
+
+body .alert .close-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #FF99A4;
+  padding: 9px 16px;
+  cursor: pointer;
+}
+
+body .alert .close-btn:hover {
+  background-color: #FC4B55;
+}
+
+
+body .alert .bi-x-lg {
+  color: #FF455A;
+  font-size: 22px;
+  line-height: 40px;
+}
+
+.hide {
+  display: none;
+}
+
+
+/*@keyframes error {
+  0% {
+    transform: translateX(-5%);
+  }
+
+
+  40%{
+    transform: translateX(5%);
+  }
+
+  80% {
+    transform: translateX(-5%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+
+}
+*/
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px);
+  }
+
+  10% {
+    transform: translate(-1px, -2px);
+  }
+
+  20% {
+    transform: translate(-3px, 0px);
+  }
+
+  30% {
+    transform: translate(3px, 2px);
+  }
+
+  40% {
+    transform: translate(1px, -1px);
+  }
+
+  50% {
+    transform: translate(-1px, 2px);
+  }
+
+  60% {
+    transform: translate(-3px, 1px);
+  }
+
+  70% {
+    transform: translate(3px, 1px);
+  }
+
+  80% {
+    transform: translate(-1px, -1px);
+  }
+
+  90% {
+    transform: translate(1px, 2px);
+  }
+
+  100% {
+    transform: translate(1px, -2px);
+  }
+}
+
+/* fim do pop up */
+
+
 @media screen and (max-width: 480px) {
-  .user{
+  .user {
     font-family: var(--pop);
     font-size: 18px;
     margin-top: 100px;
@@ -107,34 +233,35 @@ transform: scale(1.05);
     justify-content: center;
     flex-direction: column;
     width: 55%;
-    align-items: stretch; }
+    align-items: stretch;
+  }
 
-  .espelho-element{
+  .espelho-element {
     width: 18rem;
     transition: 0.5s ease-in-out;
-    }
+  }
 
-    .espelho-img{
-      position: fixed;
-      right: 30px;
-      bottom: 0px;
-      overflow: hidden;
-      transform: scaleX(-1);
-    }
+  .espelho-img {
+    position: fixed;
+    right: 30px;
+    bottom: 0px;
+    overflow: hidden;
+    transform: scaleX(-1);
+  }
 
-    .perfil {
-      margin-left: 50px; 
-    }
+  .perfil {
+    margin-left: 50px;
+  }
 
-    #health{
-      color: #00ff00;
-      font-weight: bold;
-      font-size: 20px;
-    }
+  #health {
+    color: #00ff00;
+    font-weight: bold;
+    font-size: 20px;
+  }
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
-  .user{
+  .user {
     font-family: var(--pop);
     font-size: 18px;
     margin-top: 100px;
@@ -144,34 +271,35 @@ transform: scale(1.05);
     justify-content: center;
     flex-direction: column;
     width: 45%;
-    align-items: stretch; }
+    align-items: stretch;
+  }
 
-  .espelho-element{
+  .espelho-element {
     width: 20rem;
     transition: 0.5s ease-in-out;
-    }
+  }
 
-    .espelho-img{
-      position: fixed;
-      right: 30px;
-      bottom: 0px;
-      overflow: hidden;
-      transform: scaleX(-1);
-    }
+  .espelho-img {
+    position: fixed;
+    right: 30px;
+    bottom: 0px;
+    overflow: hidden;
+    transform: scaleX(-1);
+  }
 
-    .perfil {
-      margin-left: 70px; 
-    }
+  .perfil {
+    margin-left: 70px;
+  }
 
-    #health{
-      color: #00ff00;
-      font-weight: bold;  
-      font-size: 20px;
-    }
+  #health {
+    color: #00ff00;
+    font-weight: bold;
+    font-size: 20px;
+  }
 }
 
 @media screen and (min-width: 769px) and (max-width: 1199px) {
-  .user{
+  .user {
     font-family: var(--pop);
     font-size: 18px;
     margin-top: 100px;
@@ -181,28 +309,29 @@ transform: scale(1.05);
     justify-content: center;
     flex-direction: column;
     width: 30%;
-    align-items: stretch; }
+    align-items: stretch;
+  }
 
-  .espelho-element{
+  .espelho-element {
     width: 20rem;
     transition: 0.5s ease-in-out;
-    }
+  }
 
-    .espelho-img{
-      position: fixed;
-      right: 30px;
-      bottom: 0px;
-      overflow: hidden;
-      transform: scaleX(-1);
-    }
+  .espelho-img {
+    position: fixed;
+    right: 30px;
+    bottom: 0px;
+    overflow: hidden;
+    transform: scaleX(-1);
+  }
 
-    .perfil {
-      margin-left: 55px; 
-    }
+  .perfil {
+    margin-left: 55px;
+  }
 
-    #health{
-      color: #00ff00;
-      font-weight: bold;  
-      font-size: 20px;
-    }
+  #health {
+    color: #00ff00;
+    font-weight: bold;
+    font-size: 20px;
+  }
 }

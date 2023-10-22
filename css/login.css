@@ -165,6 +165,11 @@ small a {
 
 /* pop up */
 
+.spinner-border {
+    background-color: var(--roxo) !important;
+}
+
+
 body .alert {
     background: #FFE1E3;
     border-left: 8px solid #FF4356;

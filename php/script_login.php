@@ -24,7 +24,12 @@
                 "></i>
                  <span class="msg" style="color: #9EB0A0;
                  " >Credencias Corretas!</span>
-             </div>';
+             </div>
+             <script>
+             $(".spinner-border").show();
+             </script>
+             ';
+             
             }else{
                 echo '<div class="alert">
                     <i class="bi bi-exclamation-circle"></i>

@@ -31,6 +31,8 @@
 
   	<script type="text/javascript">
   	$(document).ready(function(){
+      $(".spinner-border").hide();
+
 		$(".ent").click(function(){
 			// declaração de variáveis
 			var email = $("#email").val();
@@ -44,6 +46,7 @@
 
 			}).done(function(resposta){
 				$("#exibe").html(resposta);
+
 			}).fail(function(jqXHR, textStatus ) {
 				console.log("Request failed: " + textStatus);
 			});
@@ -120,7 +123,10 @@
 
         <!-- fim dos input -->
         <div class="revealbtn">
-          <a class="ent">ENTRAR</a>
+          <a class="ent">ENTRAR
+            </a>
+            <div class="spinner-border mt-5" role="status">
+            </div>
           <a class="create" href="cadastro.php">Não tem uma conta? Criar</a>
         </div>
       </div>

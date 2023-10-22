@@ -17,11 +17,22 @@
                 $stmt->execute();
 
                 echo "<meta http-equiv='refresh' content='1'>";
+                echo '<div class="alert" style="background-color: #DCEED7; border-left: 8px solid #9EB0A0;">
+                <i class="bi bi-check-lg "style="color: #9EB0A0";
+                "></i>
+                 <span class="msg" style="color: #9EB0A0;
+                 " >Senha Alterada!</span>
+             </div>'; 
             }else{
-                echo "A confirmação da senha não bateee!!";
-            }
+                echo '<div class="alert">
+                <i class="bi bi-exclamation-circle"></i>
+                <span class="msg">As Senha Não Coincidem!</span>
+            </div>';            }
         }else{
-            echo "Confirmação da senha atual incorreta!";
+            echo '<div class="alert">
+            <i class="bi bi-exclamation-circle"></i>
+            <span class="msg">Senha Atual Incorreta!</span>
+        </div>';  
         }
     } catch(PDOException $e) {
         echo 'ERROR: ' . $e->getMessage();

@@ -34,7 +34,7 @@
 				var confirmacao = $("#senhaConfirmacao").val();
 
 				$.ajax({
-                url: "php/script_alterarSenha.php",
+                url: "php/alterar_senha.php",
                 type: "POST",
                 data: "senhaAtual="+senhaAtual+"&senhaNova="+senhaNova+"&confirmacao="+confirmacao,
                 dataType: "html"
@@ -185,13 +185,13 @@
 							<i class="bi bi-eye" id="eyeIcon"></i>
 						</button>
 					</div>
+          <div id="exibe">
+            
+          </div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-roxo" id="alterar">Alterar</button>
 					<button type="button" class="btn btn-azul" data-bs-dismiss="modal">Cancelar</button>
-				</div>
-				<div id="exibe">
-					
 				</div>
 			</div>
 		</div>
