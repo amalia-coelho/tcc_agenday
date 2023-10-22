@@ -111,7 +111,7 @@
           <img src="img/perfil1.jpg" alt="Foto do Usuário">
           <button data-bs-toggle="modal" data-bs-target="#editModal"><i
               class="bi bi-pencil-square edit-icon"></i></button>
-          <i class="bi bi-trash-fill delete-icon"></i>
+          <i href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" class="bi bi-trash-fill delete-icon"></i>
           <p>Felipe Da Academia</p>
           <p>Instrutor</p>
         </div>
@@ -119,7 +119,7 @@
           <img src="img/perfil2.jpg" alt="Foto do Usuário">
           <button data-bs-toggle="modal" data-bs-target="#editModal" style="background: none; padding: 0; width: 0;"><i
               class="bi bi-pencil-square edit-icon"></i></button>
-          <i class="bi bi-trash-fill delete-icon"></i>
+          <i href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" class="bi bi-trash-fill delete-icon"></i>
           <p>Felipe Da Academia</p>
           <p>Instrutor</p>
         </div>
@@ -127,7 +127,7 @@
           <img src="img/perfil3.jpg" alt="Foto do Usuário">
           <button data-bs-toggle="modal" data-bs-target="#editModal" style="background: none; padding: 0; width: 0;"><i
               class="bi bi-pencil-square edit-icon"></i></button>
-          <i class="bi bi-trash-fill delete-icon"></i>
+          <i href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" class="bi bi-trash-fill delete-icon"></i>
           <p>Felipe Da Academia</p>
           <p>Instrutor</p>
         </div>
@@ -135,7 +135,7 @@
           <img src="img/perfil4.jpg" alt="Foto do Usuário">
           <button data-bs-toggle="modal" data-bs-target="#editModal" style="background: none; padding: 0; width: 0;"><i
               class="bi bi-pencil-square edit-icon"></i></button>
-          <i class="bi bi-trash-fill delete-icon"></i>
+          <i href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" class="bi bi-trash-fill delete-icon"></i>
           <p>Felipe Da Academia</p>
           <p>Instrutor</p>
         </div>
@@ -143,7 +143,7 @@
           <img src="img/perfil5.jpg" alt="Foto do Usuário">
           <button data-bs-toggle="modal" data-bs-target="#editModal" style="background: none; padding: 0; width: 0;"><i
               class="bi bi-pencil-square edit-icon"></i></button>
-          <i class="bi bi-trash-fill delete-icon"></i>
+          <i href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" class="bi bi-trash-fill delete-icon"></i>
           <p>Felipe Da Academia</p>
           <p>Instrutor</p>
         </div>
@@ -151,7 +151,7 @@
           <img src="img/perfil6.jpg" alt="Foto do Usuário">
           <button data-bs-toggle="modal" data-bs-target="#editModal" style="background: none; padding: 0; width: 0;"><i
               class="bi bi-pencil-square edit-icon"></i></button>
-          <i class="bi bi-trash-fill delete-icon"></i>
+          <i href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" class="bi bi-trash-fill delete-icon"></i>
           <p>Felipe Da Academia</p>
           <p>Instrutor</p>
         </div>
@@ -159,7 +159,7 @@
           <img src="img/perfil7.jpg" alt="Foto do Usuário">
           <button data-bs-toggle="modal" data-bs-target="#editModal" style="background: none; padding: 0; width: 0;"><i
               class="bi bi-pencil-square edit-icon"></i></button>
-          <i class="bi bi-trash-fill delete-icon"></i>
+          <i href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" class="bi bi-trash-fill delete-icon"></i>
           <p>Felipe Da Academia</p>
           <p>Instrutor</p>
         </div>
@@ -167,7 +167,7 @@
           <img src="img/perfil8.jpg" alt="Foto do Usuário">
           <button data-bs-toggle="modal" data-bs-target="#editModal" style="background: none; padding: 0; width: 0;"><i
               class="bi bi-pencil-square edit-icon"></i></button>
-          <i class="bi bi-trash-fill delete-icon"></i>
+          <i href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" class="bi bi-trash-fill delete-icon"></i>
           <p>Felipe Da Academia</p>
           <p>Instrutor</p>
         </div>
@@ -175,7 +175,7 @@
           <img src="img/perfil9.jpg" alt="Foto do Usuário">
           <button data-bs-toggle="modal" data-bs-target="#editModal" style="background: none; padding: 0; width: 0;"><i
               class="bi bi-pencil-square edit-icon"></i></button>
-          <i class="bi bi-trash-fill delete-icon"></i>
+          <i href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" class="bi bi-trash-fill delete-icon"></i>
           <p>Felipe Da Academia</p>
           <p>Instrutor</p>
         </div>
@@ -183,13 +183,39 @@
           <img src="img/perfil10.jpg" alt="Foto do Usuário">
           <button data-bs-toggle="modal" data-bs-target="#editModal" style="background: none; padding: 0; width: 0;"><i
               class="bi bi-pencil-square edit-icon"></i></button>
-          <i class="bi bi-trash-fill delete-icon"></i>
+          <i href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" class="bi bi-trash-fill delete-icon"></i>
           <p>Felipe Da Academia</p>
           <p>Instrutor</p>
         </div>
       </div>
 
   </main>
+
+
+  <!-- Modal De Exclusao -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content custom-modal">
+          <div class="modal-circle">
+              <i class="bi bi-x-circle mt-5" style="color: #ff0000; font-size:5em;display: flex; align-items: center; justify-content: center;"></i>
+          </div>
+            <div class="modal-header" style="background-color: #fff; border: none; text-align: center; justify-content: center;">
+                <h5 class="modal-title" style="color:#000; font-size:1.5em ">Você tem certeza?</h5>
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                <p>Você realmente deseja excluir esses registros? Este processo não pode ser desfeito.</p>
+            </div>
+            <div class="modal-footer" style="border: none; justify-content: center;">
+              <a href="php/delete_apm.php?cd=<?php echo $row['cd_membro'];?>"><button type="button" class="btn btn-danger">Sim, Excluir</button></a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- fim do Modal De Exclusao -->
+
+
   <!-- Modal de Alteração -->
   <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="editModalLabel" aria-hidden="true">

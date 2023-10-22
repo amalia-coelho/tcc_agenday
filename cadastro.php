@@ -149,7 +149,7 @@
                     </div>
                     <span class="span-required">As Senhas devem ser compatíveis</span>
                 </div>
-
+                            
                 <!-- fim dos input -->
                 <div id="exibe">
                     <!-- Exibe mensagem de retorno do script -->

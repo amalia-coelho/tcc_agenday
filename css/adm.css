@@ -110,6 +110,7 @@ body {
     position: fixed;
     bottom: 0;
     right: -30px;
+    z-index: -1;
 }
 
 .adm-element {
@@ -177,6 +178,8 @@ body {
 input {
     border-color: var(--roxo) !important;
 }
+
+
 
 /* menu */
 

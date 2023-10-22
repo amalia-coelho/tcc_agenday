@@ -165,7 +165,7 @@
         </div>
       </div>
     </div>
-    <div class="adm-img">
+    <div class="adm-img" style="z-index: -1">
       <img src="img/spreadsheets-animate.svg" alt="Figura Inicial" class="adm-element">
     </div>
 
@@ -198,151 +198,151 @@
               <td>Eric Junokas Oliveira</td>
               <td>3MIN</td>
               <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
-                    class="bi bi-trash"></i></a>
+              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
+                    class="bi bi-trash" ></i></a>
               </td>
             </tr>
             <tr>
               <td>Maytê Bronzatto Palomo</td>
               <td>3MAM</td>
               <td>Gostosa</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
-                    class="bi bi-trash"></i></a>
+              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
+                    class="bi bi-trash" ></i></a>
               </td>
             </tr>
             <tr>
               <td>Iago Marques Pinto</td>
               <td>3MIN</td>
               <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
-                    class="bi bi-trash"></i></a></td>
+              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
+                    class="bi bi-trash" ></i></a></td>
             </tr>
             <tr>
               <td>Laura Aparecida Meirinho</td>
               <td>3MAM</td>
               <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
-                    class="bi bi-trash"></i></a>
+              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
+                    class="bi bi-trash" ></i></a>
               </td>
             </tr>
             <tr>
               <td>Laura Ongaro Camargo</td>
               <td>3MAM</td>
               <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
-                    class="bi bi-trash"></i></a>
+              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
+                    class="bi bi-trash" ></i></a>
               </td>
             </tr>
             <tr>
               <td>Amauri Matematico Silva</td>
               <td>Professor</td>
               <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
-                    class="bi bi-trash"></i></a>
+              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
+                    class="bi bi-trash" ></i></a>
               </td>
             </tr>
             <tr>
               <td>Carla Modernismo Pereira</td>
               <td>Professor</td>
               <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
-                    class="bi bi-trash"></i></a>
+              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
+                    class="bi bi-trash" ></i></a>
               </td>
             </tr>
             <tr>
               <td>Giancarros Marques Ceolin</td>
               <td>3MIN</td>
               <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
-                    class="bi bi-trash"></i></a>
+              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
+                    class="bi bi-trash" ></i></a>
               </td>
             </tr>
             <tr>
               <td>Xavinho Lucido Amongus</td>
               <td>3MIN</td>
               <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
-                    class="bi bi-trash"></i></a>
+              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
+                    class="bi bi-trash" ></i></a>
               </td>
             </tr>
             <tr>
               <td>Minicius Yasuo Pequeno</td>
               <td>3MIN</td>
               <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
-                    class="bi bi-trash"></i></a>
+              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
+                    class="bi bi-trash" ></i></a>
               </td>
             </tr>
             <tr>
               <td>Miguerle Padeiro Cacetinho</td>
               <td>3MIN</td>
               <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
-                    class="bi bi-trash"></i></a>
+              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
+                    class="bi bi-trash" ></i></a>
               </td>
             </tr>
             <tr>
               <td>Wesley Casteldelli Gartic</td>
               <td>3MIN</td>
               <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
-                    class="bi bi-trash"></i></a>
+              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
+                    class="bi bi-trash" ></i></a>
               </td>
             </tr>
             <tr>
               <td>Gabriel Aisten</td>
               <td>3MIN</td>
               <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
-                    class="bi bi-trash"></i></a>
+              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
+                    class="bi bi-trash" ></i></a>
               </td>
             </tr>
             <tr>
               <td>Guti Guti</td>
               <td>3MIN</td>
               <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
-                    class="bi bi-trash"></i></a>
+              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
+                    class="bi bi-trash" ></i></a>
               </td>
             </tr>
             <tr>
               <td>Pitheozinho Durante</td>
               <td>3MIN</td>
               <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
-                    class="bi bi-trash"></i></a>
+              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
+                    class="bi bi-trash" ></i></a>
               </td>
             </tr>
             <tr>
               <td>Gordao Magrao Mediano</td>
               <td>3MIN</td>
               <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
-                    class="bi bi-trash"></i></a>
+              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
+                    class="bi bi-trash" ></i></a>
               </td>
             </tr>
             <tr>
               <td>Raphael Cabeça de Nós Todos</td>
               <td>3MIN</td>
               <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
-                    class="bi bi-trash"></i></a>
+              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
+                    class="bi bi-trash" ></i></a>
               </td>
             </tr>
             <tr>
               <td>Fakeyell Do Grau</td>
               <td>3MIN</td>
               <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
-                    class="bi bi-trash"></i></a>
+              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
+                    class="bi bi-trash" ></i></a>
               </td>
             </tr>
             <tr>
               <td>Richard dos Efeitos Sonoros</td>
               <td>3MIN</td>
               <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
-                    class="bi bi-trash"></i></a>
+              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
+                    class="bi bi-trash" ></i></a>
               </td>
             </tr>
           </tbody>
@@ -351,6 +351,29 @@
 
     </div>
   </section>
+
+    <!-- Modal De Exclusao -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content custom-modal">
+          <div class="modal-circle">
+              <i class="bi bi-x-circle mt-5" style="color: #ff0000; font-size:5em;display: flex; align-items: center; justify-content: center;"></i>
+          </div>
+            <div class="modal-header" style="background-color: #fff; border: none; text-align: center; justify-content: center;">
+                <h5 class="modal-title" style="color:#000; font-size:1.5em ">Você tem certeza?</h5>
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                <p>Você realmente deseja excluir esses registros? Este processo não pode ser desfeito.</p>
+            </div>
+            <div class="modal-footer" style="border: none; justify-content: center;">
+              <a href="php/delete_apm.php?cd=<?php echo $row['cd_apm'];?>"><button type="button" class="btn btn-danger">Sim, Excluir</button></a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- fim do Modal De Exclusao -->
 
   <!-- FIM DA DÚVIDA!! -->
 

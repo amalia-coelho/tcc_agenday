@@ -214,7 +214,7 @@
 						<button class="alterar" data-bs-toggle="modal" data-bs-target="#editModal" style="border:none;" cod="<?php echo $item['cd_comunicado'];?>" titulo="<?php echo $item['nm_titulo'];?>" descricao="<?php echo $item['ds_descricao']?>" dt_comunicado="<?php echo $item['dt_comunicado']?>" turmas="<?php echo $turmasString;?>" imagem="<?php echo $item['ds_imagem'];?>">
 							<i class="bi bi-pencil-square edit-icon"></i>
 						</button>
-						<a href="php/delete_comunicado.php?cod=<?php echo $item['cd_comunicado'];?>"><i class="bi bi-trash-fill delete-icon"></i></a>  
+						<a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i class="bi bi-trash-fill delete-icon"></i></a>  
 					</div>
 				</section>
 				<?php
@@ -223,6 +223,31 @@
 		<div class="comunicado-img">
 			<img src="img/ecotourism-animate.svg" alt="Figura Inicial" class="comunicado-element">
 		</div>
+
+
+			<!-- Modal De Exclusao -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content custom-modal">
+          <div class="modal-circle">
+              <i class="bi bi-x-circle mt-5" style="color: #ff0000; font-size:5em;display: flex; align-items: center; justify-content: center;"></i>
+          </div>
+            <div class="modal-header" style="background-color: #fff; border: none; text-align: center; justify-content: center;">
+                <h5 class="modal-title" style="color:#000; font-size:1.5em ">Você tem certeza?</h5>
+            </div>
+            <div class="modal-body" style="text-align: center;">
+                <p>Você realmente deseja excluir esses registros? Este processo não pode ser desfeito.</p>
+            </div>
+            <div class="modal-footer" style="border: none; justify-content: center;">
+              <a href="php/delete_comunicado.php?cod=<?php echo $item['cd_comunicado'];?>"><button type="button" class="btn btn-danger">Sim, Excluir</button></a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- fim do Modal De Exclusao -->
+
 
     	<!-- Modal de Alteração -->
     	<div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
