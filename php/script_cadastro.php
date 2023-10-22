@@ -11,7 +11,10 @@
         
         // SE O EMAIL JA FOR CADASTRADO
         if ($consulta){
-            echo "EMAIL EM USO!";
+            echo '<div class="alert">
+                    <i class="bi bi-exclamation-circle"></i>
+                    <span class="msg">Email Já está Cadastrado!</span>
+                </div>';
         }else{
             $stmt = $conn->prepare("INSERT INTO tb_usuario (nm_usuario, ds_email, ds_senha, nr_rm, id_turma, id_nivel) VALUES (:nome, :email, :senha, :rm, :turma, :nivel)");
             $stmt->execute(array(

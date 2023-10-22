@@ -29,6 +29,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
     <script src="js/jquery.maskMoney.min.js"></script>
+      	<script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
+
 
     <script type="text/javascript">
         $(document).ready(function () {
@@ -214,15 +216,13 @@
     <!-- Fim do Footer -->
 
     <!-- js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
     <script>
-        $('.close-btn').click(function () {
-            $('.alert').addClass("hide");
-            $('.alert').removeClass("show");
-        })
 
 
         const passwordInput = document.getElementById('senha');
