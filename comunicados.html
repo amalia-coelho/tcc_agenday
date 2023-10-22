@@ -34,11 +34,40 @@
 
 	<script>
 		$(document).ready(function () {
-			$('.date').mask('00/00/0000');
-			$('.time').mask('00:00h');
+			$('.date').mask('00/00/0000', {
+				onKeyPress: function (date, e, field) {
+					var currentDate = new Date();
+					var inputDate = parseDate(date);
 
+					// Valida se a data inserida é uma data real e futura
+					if (inputDate < currentDate) {
+						// Limpa o campo se a data for inválida
+						field.val('');
+					}
+				}
+			});
 
+			$('.time').mask('00:00h', {
+				onKeyPress: function (time, e, field) {
+					// Valida se o horário inserido é um horário real
+					if (!isValidTime(time)) {
+						// Limpa o campo se o horário for inválido
+						field.val('');
+					}
+				}
+			});
 		});
+
+		function parseDate(input) {
+			var parts = input.split('/');
+			return new Date(parts[2], parts[1] - 1, parts[0]);
+		}
+
+		function isValidTime(time) {
+			// Validação simples para verificar se o horário está no formato correto
+			var timeRegex = /^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]h$/;
+			return timeRegex.test(time);
+		}
 	</script>
 	<!-- /js -->
 </head>
@@ -50,59 +79,71 @@
 
 		<nav class="menu-lateral">
 			<div class="btn-expandir">
-			  <i class="bi bi-list" id="btn-exp"></i>
+				<i class="bi bi-list" id="btn-exp"></i>
 			</div>
 			<ul>
-			<li class="item-menu">
-					  <a href="perfil.php">
-					  <span class="icon"><i class="bi bi-person-fill"></i></span>
-					  <span class="txt-link">Usuário</span>
-					  </a>
-				  </li>
-			  <li class="item-menu">
-					  <a href="comunicados.php">
-					  <span class="icon"><i class="bi bi-megaphone-fill"></i></span>
-					  <span class="txt-link">Comunicados</span>
-					  </a>
-				  </li>
-				  <li class="item-menu ">
-					  <a href="apm.php">
-					  <span class="icon"><i class="bi bi-cart4"></i></span>
-					  <span class="txt-link">APM</span>
-					  </a>
-				  </li>
-				  <li class="item-menu">
-					  <a href="painel.php">
-					  <span class="icon"><i class="bi bi-heart-fill"></i></span>
-					  <span class="txt-link">Saúde</span>
-					  </a>
-				  </li>
-				  <li class="item-menu">
-					  <a href="gestao.php">
-					  <span class="icon"><i class="bi bi-person-workspace"></i></span>
-					  <span class="txt-link">Gestão</span>
-					  </a>
-				  </li>
-			  <li class="item-menu">
-					  <a href="duvidas.php">
-					  <span class="icon"><i class="bi bi-question-lg"></i></span>
-					  <span class="txt-link">Dúvidas</span>
-					  </a>
-				  </li>
-				  <li class="item-menu">
-					  <a href="gerenciamento.php">
-					  <span class="icon"><i class="bi bi-gear-fill"></i></span>
-					  <span class="txt-link">Gerenciamento</span>
-					  </a>
-				  </li>
-				  <li class="item-menu">
-					  <a href="php/logout.php">
-					  <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
-					  <span class="txt-link">Sair</span>
-					  </a>
-				  </li>
-				  </ul>
-		  </nav>
+				<li class="item-menu">
+					<a href="perfil.html">
+						<span class="icon"><i class="bi bi-person-fill"></i></span>
+						<span class="txt-link">Usuário</span>
+					</a>
+				</li>
+				<li class="item-menu">
+					<a href="#">
+						<span class="icon"><i class="bi bi-house-door-fill"></i></span>
+						<span class="txt-link">Home</span>
+					</a>
+				</li>
+				<li class="item-menu">
+					<a href="#">
+						<span class="icon"><i class="bi bi-calendar2-week-fill"></i></span>
+						<span class="txt-link">Calendário</span>
+					</a>
+				</li>
+				<li class="item-menu ativo">
+					<a href="#">
+						<span class="icon"><i class="bi bi-megaphone-fill"></i></span>
+						<span class="txt-link">Comunicados</span>
+					</a>
+				</li>
+				<li class="item-menu">
+					<a href="apm.html">
+						<span class="icon"><i class="bi bi-cart4"></i></span>
+						<span class="txt-link">APM</span>
+					</a>
+				</li>
+				<li class="item-menu">
+					<a href="painel.html">
+						<span class="icon"><i class="bi bi-heart-fill"></i></span>
+						<span class="txt-link">Saúde</span>
+					</a>
+				</li>
+				<li class="item-menu">
+					<a href="#">
+						<span class="icon"><i class="bi bi-person-workspace"></i></span>
+						<span class="txt-link">Gestão</span>
+					</a>
+				</li>
+				<li class="item-menu">
+					<a href="duvidas.html">
+						<span class="icon"><i class="bi bi-question-lg"></i></span>
+						<span class="txt-link">Dúvidas</span>
+					</a>
+				</li>
+				<li class="item-menu">
+					<a href="gerenciamento.html">
+						<span class="icon"><i class="bi bi-gear-fill"></i></span>
+						<span class="txt-link">Gerenciamento</span>
+					</a>
+				</li>
+				<li class="item-menu">
+					<a href="logout.php">
+						<span class="icon"><i class="bi bi-box-arrow-right"></i></span>
+						<span class="txt-link">Sair</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
 		<!-- FIM DO MENU -->
 	</section>
 	<main>
@@ -199,8 +240,8 @@
 							<div class="input-group col">
 								<input placeholder="Data" style="height: 2rem !important;" type="text"
 									class="form-control date" id="dateInput" accept="image/*">
-								<input placeholder="Hora" style="height: 2rem !important;" class="form-control time"
-									type="text" id="timeInput">
+								<input placeholder="Hora" style="height: 2rem !important;" id="time"
+									class="form-control time" type="text" id="timeInput">
 								</input>
 							</div>
 							<div class="col">
@@ -322,8 +363,8 @@
 							<div class="input-group col">
 								<input placeholder="Data" style="height: 2rem !important;" type="text"
 									class="form-control date" id="dateInput" accept="image/*">
-								<input placeholder="Hora" style="height: 2rem !important;" class="form-control time"
-									type="text" id="timeInput">
+								<input placeholder="Hora" style="height: 2rem !important;" id="time"
+									class="form-control time" type="text" id="timeInput">
 								</input>
 							</div>
 							<div class="col">
@@ -416,7 +457,7 @@
 	<script src="js/menu.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
-		</script>
+	</script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 	<script src="js/jQuery-Mask-Plugin-master/src/jquery.mask.js"></script>
 	<script src="js/selectcheck.js"></script>

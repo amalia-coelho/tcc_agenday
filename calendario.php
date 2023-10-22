@@ -64,23 +64,29 @@
 	<section class="calendario-container">
 		<!-- INICIO MENU  -->
 		<nav class="menu-lateral">
-      <div class="btn-expandir">
-        <i class="bi bi-list" id="btn-exp"></i>
-      </div>
-      <ul>
-      <li class="item-menu">
+			<div class="btn-expandir">
+			<i class="bi bi-list" id="btn-exp"></i>
+			</div>
+			<ul>
+			<li class="item-menu">
 				<a href="perfil.php">
 				<span class="icon"><i class="bi bi-person-fill"></i></span>
 				<span class="txt-link">Usuário</span>
 				</a>
 			</li>
 			<li class="item-menu">
-				<a href="calendario.php">
-					<span class="icon"><i class="bi bi-house-door-fill"></i></span>
-					<span class="txt-link">Home</span>
+				<a href="index.html">
+				<span class="icon"><i class="bi bi-house-door-fill"></i></span>
+				<span class="txt-link">Home</span>
 				</a>
 			</li>
-        <li class="item-menu">
+			<li class="item-menu ativo">
+				<a href="#">
+				<span class="icon"><i class="bi bi-calendar2-week-fill"></i></span>
+				<span class="txt-link">Calendário</span>
+				</a>
+			</li>
+			<li class="item-menu">
 				<a href="comunicados.php">
 				<span class="icon"><i class="bi bi-megaphone-fill"></i></span>
 				<span class="txt-link">Comunicados</span>
@@ -104,7 +110,7 @@
 				<span class="txt-link">Gestão</span>
 				</a>
 			</li>
-        <li class="item-menu">
+			<li class="item-menu">
 				<a href="duvidas.php">
 				<span class="icon"><i class="bi bi-question-lg"></i></span>
 				<span class="txt-link">Dúvidas</span>
@@ -123,7 +129,7 @@
 				</a>
 			</li>
 			</ul>
-    </nav>
+		</nav>
 		<!-- FIM DO MENU -->
 		
 		<div class="info mt-5">
@@ -205,7 +211,6 @@
 					</tbody>
 				</table>
 			</div>
-			<br>
 			<div class="data-evento">
 				<h2>Eventos</h2>
 				<?php
@@ -225,10 +230,7 @@
 					}
 				?>
 				</div>
-				<br>
-				<br>
 		</div>
-
 
 
 	<!-- Modal de Alteração -->

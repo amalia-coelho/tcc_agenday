@@ -66,7 +66,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-left: 6rem;
-    flex-wrap: wrap;
+
 }
 
 .apm-group {
@@ -182,8 +182,8 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
     font-family: var(--pop);
+    justify-content: space-between;
 }
 
 .price .btn {

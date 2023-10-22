@@ -44,8 +44,6 @@
 
 			}).done(function(resposta){
 				$("#exibe").html(resposta);
-        windown.location.href = "comunicados.php";
-
 			}).fail(function(jqXHR, textStatus ) {
 				console.log("Request failed: " + textStatus);
 			});
