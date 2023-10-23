@@ -62,15 +62,15 @@
       <nav>
         <ul>
           <li><a href="#">Início</a></li>
-          <li><a href="#">Sobre nós</a></li>
+          <li><a href="#titulo">Sobre nós</a></li>
            <li><a href="#entrar">Entrar</a></li>
-          <li><a href="#">Cadastro</a></li>
+          <li><a href="cadastro.php">Cadastro</a></li>
         </ul>
       </nav>
     </div>
 
     <div class="content">
-      <div class="titulo">
+      <div class="titulo" id="titulo">
         <h1 class="h1">AGENDAY <br>
           <span>ORGANIZE SEU <span class="success">SUCESSO</span></span>
         </h1>

@@ -8,7 +8,7 @@
     padding-right: 5%;
     position: relative;
     font-family: 'Poppins', sans-serif;
-
+    overflow: hidden;
 }
 
 .cadastro-container {
@@ -21,14 +21,14 @@
 }
 
 .cadastro-container h1 {
-    font-size: 70px;
+    font-size: 55px;
     font-weight: bold;
     color: #000;
     line-height: 1;
     transition: .5s ease-in-out;
     font-family: var(--quatro);
     position: relative;
-}
+}   
 
 .titulo .h1::after {
     content: '';
@@ -58,6 +58,8 @@
     color: #fbfbff;
     box-shadow: 3px 8px 22px var(--roxo);
     transition: .5s;
+    border: 1px solid var(--roxo);
+    cursor: pointer;
 }
 
 .cadastro-content .ent:hover {
@@ -65,7 +67,6 @@
     background-color: #fbfbff;
     color: var(--roxo);
     box-shadow: 3px 8px 22px #2525257b;
-    border: 1px solid var(--roxo);
 
 }
 
@@ -97,7 +98,7 @@
 }
 
 .cadastro-element2 {
-    width: 25rem;
+    width: 20rem;
     transition: 1s;
 }
 
@@ -109,7 +110,7 @@
 }
 
 .cadastro-element {
-    width: 30rem;
+    width: 20rem;
     transition: 1s;
 }
 
@@ -170,11 +171,25 @@ input:hover::placeholder{
     color: var(--roxo);
 }
 
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}
+
 /* responsividade */
 @media screen and (max-width: 480px) {
 
     .cadastro {
         background-position: 5%;
+    }
+    .cadastro-container h1{
+        margin-top: 65px;
+        font-size: 65px;
     }
     .cadastro-img2 {
 
@@ -195,9 +210,16 @@ input:hover::placeholder{
     }
     .cadastro-content {
         width: 100%;
+        margin-bottom: 60px;
     }
     .resp {
         display: none;
+    }
+    footer{
+        margin-top: 0px;
+    }
+    .cadastro-content .ent {
+        padding: 5px 25px;
     }
 }
 @media screen and (min-width: 481px) and (max-width: 768px) {
@@ -280,3 +302,13 @@ input:hover::placeholder{
     
   }
 
+  @media screen and (min-width: 1200px) and (max-width: 1370px) {
+    .cadastro-container h1 {
+        font-size: 65px;
+        padding-top: 3rem;
+    }
+    .form-group label {
+        margin-bottom: 1rem;
+        font-size: 15px;
+    }
+  }

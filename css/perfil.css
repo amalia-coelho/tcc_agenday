@@ -41,6 +41,24 @@
   padding: 10px 20px;
 }
 
+.mb-3 input{
+  font-family: var(--pop);
+  padding: 10px 20px !important;
+  border-top: 10px solid var(--roxo) !important;
+}
+.mb-3 input:focus{
+  box-shadow: none !important;
+}
+
+
+
+#togglePassword{
+  background-color: #6D26F8;
+  color: var(--branco);
+}
+
+
+
 #health{
   color: #00ff00;
   font-weight: bold;

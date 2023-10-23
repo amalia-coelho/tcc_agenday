@@ -115,10 +115,6 @@ ul li.item-menu a .icon>i {
         position: fixed !important;
     }
 
-    nav.menu-lateral {
-        width: 45px;
-    }
-
     nav.menu-lateral.expandir {
         width: 200px;
     }
@@ -141,6 +137,10 @@ ul li.item-menu a .icon>i {
         font-size: 20px;
         margin: -5px;
     }
+    nav.menu-lateral {
+    width: 45px;
+    height: 100%;
+}
 
 }
 
@@ -180,7 +180,7 @@ ul li.item-menu a .icon>i {
 @media screen and (min-width: 769px) and (max-width: 1199px) {}
 
 
-@media screen and (min-width: 1200px) {
+/* @media screen and (max-width: 1600px) {
 
 
     ul li.item-menu a {
@@ -194,4 +194,4 @@ ul li.item-menu a .icon>i {
     }
 
 
-  }
+  } */
