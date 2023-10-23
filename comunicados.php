@@ -38,7 +38,7 @@
 			});
 		
 			//ADD COMUNICADO
-			$('#addComunicado').submit(function (e) {
+			$('#add_comunicado ').submit(function (e) {
 				e.preventDefault();
 
 				var formulario = new FormData(this); // Crie um objeto FormData com os dados do formulário
@@ -312,7 +312,7 @@
 						<h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar Comunicado</h1>
 						<button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
 					</div>
-					<form  id="addComunicado" enctype="multipart/form-data">
+					<form  id="add_comunicado " enctype="multipart/form-data">
 						<div class="modal-body">
 							<div class="mb-3">
 								<label for="imageInput" class="form-label">Imagem do Comunicado</label>
