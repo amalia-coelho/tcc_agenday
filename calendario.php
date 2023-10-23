@@ -130,10 +130,25 @@
 			</li>
 			</ul>
 		</nav>
+	</section>
 		<!-- FIM DO MENU -->
-		
+		<div class="area">
+
+            <ul class="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+
 		<div class="info mt-5">
-			<div class="calendario">
+			<div class="calendario mb-5">
 				<header>
 					<h2 id="mes">Abril</h2>
 					<h3 id="ano"></h3>
@@ -155,7 +170,8 @@
 					</thead>
 					<tbody id="dias">
 						<tr>
-							<td>1</td>
+							<td>1<p>ooo</p></td>
+							
 							<td>2</td>
 							<td>3</td>
 							<td>4</td>
@@ -211,7 +227,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="data-evento">
+			<!-- <div class="data-evento">
 				<h2>Eventos</h2>
 				<?php
 					// Exibir os eventos cadastrados no banco
@@ -230,6 +246,7 @@
 					}
 				?>
 				</div>
+		</div> -->
 		</div>
 
 
@@ -304,8 +321,6 @@
 		</div>
 	</div>
 	<!-- fim do modal -->
-	</section>
-
 	<!-- FIM DA DÚVIDA!! -->
 
 	<!-- js -->
