@@ -57,10 +57,6 @@
 					
 					}).done(function(resposta) {
 						$("#exibe").html(resposta);
-						$("#ds_descricao").val(' ');
-						$("#nm_produto").val(' ');
-						$("#nr_valor").val(' ');
-						$("#ds_imagem").val(' ');
 
 					}).fail(function(jqXHR, textStatus ) {
 					  console.log("Request failed: " + textStatus);
@@ -270,8 +266,6 @@
 									<textarea class="form-control" id="newProductDescription" rows="4"></textarea>
 								</div>
 							</div>
-							<div id="exibe">		
-							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-roxo" id="salvar_alt">Salvar Alterações</button>
 								<button type="button" class="btn btn-azul" data-bs-dismiss="modal">Cancelar</button>
@@ -282,7 +276,7 @@
 				<!-- Fim do modal de Alteração -->
 
 
-
+				
 
 				<!-- incio do modal E BOTAO QUE ABRE ELE -->
 				<button type="button" class="btn btn-primary add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -321,11 +315,12 @@
 										<label for="ds_descricao" class="form-label">Descrição do Produto</label>
 										<textarea class="form-control" id="ds_descricao" rows="4" maxlength="15"></textarea>
 									</div>
-							</div>
-							<div id="exibe2">		
-							</div>
+								</div>
+						
+									<div id="exibe">		
+									</div>
 								<div class="modal-footer">
-									<button type="button" id="salvar_novo" class="btn btn-roxo" onclick="window.location.reload()">Salvar</button>
+									<button type="button" id="salvar_novo" class="btn btn-roxo">Salvar</button>
 									
 									<button type="button" class="btn btn-azul" data-bs-dismiss="modal">Fechar</button>
 								</div>
@@ -338,7 +333,7 @@
 
 		<!-- FIM DA DÚVIDA!! -->
 
-<!-- js -->
+		<!-- js -->
 <script src="js/menu.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
