@@ -9,7 +9,7 @@ if (empty($_POST['nm_produto']) || empty($_POST['ds_descricao']) || empty($_POST
             <i class="bi bi-exclamation-circle"></i>
             <span class="msg" style="font-size: 17px">Nome deve ter pelo menos 3 caracteres.</span>
         </div>';
-} elseif (strlen($_POST['ds_descricao']) < 10) {
+} elseif (strlen($_POST['ds_descricao']) < 5) {
     echo '<div class="alert">
             <i class="bi bi-exclamation-circle"></i>
             <span class="msg" style="font-size: 17px">Descrição muito curta.</span>
