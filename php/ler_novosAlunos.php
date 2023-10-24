@@ -6,7 +6,7 @@ if ($_FILES['registro_alunos']['type'] == "text/csv") {
     // Ler os dados do arquivo
     $dados_arquivo = fopen($_FILES['registro_alunos']['tmp_name'], "r");
 
-    $tabela = '<table>';
+    $tabela = "<table id='tabelaUsuarios'>";
     // Percorrer o array de dados do arquivo
     $primeiraLinha = True;
     $primeiroRegistro = True;
@@ -17,10 +17,10 @@ if ($_FILES['registro_alunos']['type'] == "text/csv") {
             $tabela .= "<thead><tr><th>".$linha[0]."</th><th>".$linha[1]."</th><th>".$linha[2]."</th></tr></thead>";
             $primeiraLinha = false;
         }elseif ($primeiroRegistro == true) {
-            $tabela .= "<tbody><tr><td>".$linha[0]."</td><td>".$linha[1]."</td><td>".$linha[2]."</td></tr>";
+            $tabela .= "<tbody><tr><td class='rm'>".$linha[0]."</td><td class='nome'>".$linha[1]."</td><td class='email'>".$linha[2]."</td></tr>";
             $primeiroRegistro = false;
         }else{
-            $tabela .= "<tr><td>".$linha[0]."</td><td>".$linha[1]."</td><td>".$linha[2]."</td></tr>";
+            $tabela .= "<tr><td class='rm'>".$linha[0]."</td><td class='nome'>".$linha[1]."</td><td class='email'>".$linha[2]."</td></tr>";
         }
     }
     $tabela .= "</tbody></table>";
