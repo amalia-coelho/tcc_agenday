@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/gestao.css">
   <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/perfilfundo.scss">
 
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"

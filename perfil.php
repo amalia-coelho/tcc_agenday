@@ -14,6 +14,7 @@
 	<!-- css -->
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/perfil.css">
+	<!-- <link rel="stylesheet" href="css/perfilfundo.scss"> -->
 	<link rel="stylesheet" href="css/menu.css">
 
 
@@ -115,6 +116,15 @@
 			</ul>
     </nav>
     </section>
+	<div class="perfil-container hero">
+		<div class="cube"></div>
+	<div class="cube"></div>
+	<div class="cube"></div>
+	<div class="cube"></div>
+	<div class="cube"></div>
+	<div class="cube"></div>
+	<div class="cube"></div>
+
     <div class="perfil">
         <h1>Perfil</h1>
     </div>
@@ -161,7 +171,7 @@
 		</label>
 	</div>
 </div>
-
+	</div>
 <!-- Modal de Alteração -->
 <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
 	aria-labelledby="editModalLabel" aria-hidden="true">
