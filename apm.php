@@ -28,7 +28,11 @@
 		<!-- /js -->
 
 		<script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
-		<script src="js/jquery.maskMoney.min.js"></script>
+	<!-- js -->
+	<script src="https://unpkg.com/scrollreveal"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
+	<script src="js/jquery.maskMoney.min.js"></script>
+
 
 
 		<script type="text/javascript">
@@ -52,6 +56,7 @@
 					dataType: "html"
 					
 					}).done(function(resposta) {
+						$("#exibe").html(resposta);
 						$("#ds_descricao").val(' ');
 						$("#nm_produto").val(' ');
 						$("#nr_valor").val(' ');
@@ -265,6 +270,8 @@
 									<textarea class="form-control" id="newProductDescription" rows="4"></textarea>
 								</div>
 							</div>
+							<div id="exibe">		
+							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-roxo" id="salvar_alt">Salvar Alterações</button>
 								<button type="button" class="btn btn-azul" data-bs-dismiss="modal">Cancelar</button>
@@ -315,6 +322,8 @@
 										<textarea class="form-control" id="ds_descricao" rows="4" maxlength="15"></textarea>
 									</div>
 							</div>
+							<div id="exibe2">		
+							</div>
 								<div class="modal-footer">
 									<button type="button" id="salvar_novo" class="btn btn-roxo" onclick="window.location.reload()">Salvar</button>
 									
@@ -331,10 +340,11 @@
 
 <!-- js -->
 <script src="js/menu.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+	<script src="js/jQuery-Mask-Plugin-master/src/jquery.mask.js"></script>
   <script src="js/jQuery-Mask-Plugin-master/src/jquery.mask.js"></script>
 	</body>
 </html>

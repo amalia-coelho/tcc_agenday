@@ -167,7 +167,14 @@
 		  </nav>
     <!-- FIM DO MENU -->
   </section>
-	<main>
+	</section>
+	<main class="body">
+     <div class="wave"></div>
+     <div class="wave"></div>
+     <div class="wave"></div>
+  </div>
+<section >		
+	
     	<div class="comuni">
 			<h1>Comunicados</h1>
     	</div>
@@ -267,10 +274,6 @@
 				<?php
 			}
 			?>	
-		<div class="comunicado-img">
-			<img src="img/ecotourism-animate.svg" alt="Figura Inicial" class="comunicado-element">
-		</div>
-
 
 			<!-- Modal De Exclusao -->
 <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -452,6 +455,7 @@
 			</div>
 		</div>
 		<!-- fim do modal ADD-->
+										</section>
 	</main>
 	
 	<script src="js/duvidas.js"></script>

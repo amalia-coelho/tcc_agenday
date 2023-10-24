@@ -78,12 +78,14 @@ if (empty($_POST['titulo']) || empty($_POST['data_comunicado']) || empty($_POST[
             <i class="bi bi-check-lg "style="color: #9EB0A0";
             "></i>
              <span class="msg" style="color: #9EB0A0; font-size:18px;
-             " >Alteração Feita!</span>
+             " >Comunicado adicionado!</span>
          </div>';
             echo "<meta http-equiv='refresh' content='1'>";
         } else {
-            echo "Erro no envio da imagem!";
-        }
+            echo '<div class="alert">
+            <i class="bi bi-exclamation-circle"></i>
+            <span class="msg" style="font-size: 17px">Erro no envio da imagem!.</span>
+        </div>';        }
     } else {
         echo "O arquivo não chegou no script!";
     }

@@ -19,7 +19,7 @@
                 $_SESSION['id_turma'] = $usuario['id_turma'];
 
                 echo "<meta http-equiv='refresh' content='1'>";
-                echo '<div class="alert" style="background-color: #DCEED7; border-left: 8px solid #9EB0A0;">
+                echo '<div class="alert" style="background-color: #DCEED7; border-left: 8px solid #9EB0A0; animation: none;">
                 <i class="bi bi-check-lg "style="color: #9EB0A0";
                 "></i>
                  <span class="msg" style="color: #9EB0A0;font-size: 17px
