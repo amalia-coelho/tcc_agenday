@@ -1,5 +1,27 @@
 <?php
-try {
+if (empty($_POST['titulo']) || empty($_POST['data_comunicado']) || empty($_POST['descricao'])) {
+    echo '<div class="alert">
+            <i class="bi bi-exclamation-circle"></i>
+            <span class="msg" style="font-size: 17px">Por favor, preencha todos os campos.</span>
+        </div>';
+} elseif (strlen($_POST['titulo']) < 3) {
+    echo '<div class="alert">
+            <i class="bi bi-exclamation-circle"></i>
+            <span class="msg" style="font-size: 17px">Titulo deve ter pelo menos 3 caracteres.</span>
+        </div>';
+} elseif (strlen($_POST['data_comunicado']) < 3) {
+    echo '<div class="alert">
+            <i class="bi bi-exclamation-circle"></i>
+            <span class="msg" style="font-size: 17px">Selecione uma Data.</span>
+        </div>';
+} elseif (strlen($_POST['descricao']) < 3) {
+    echo '<div class="alert">
+            <i class="bi bi-exclamation-circle"></i>
+            <span class="msg" style="font-size: 17px">Escreva uma descrição.</span>
+        </div>';
+}
+ else {
+   try {
     session_start();
     include('conexao.php');
     
@@ -52,6 +74,12 @@ try {
                 ));
             }
             
+                    echo '<div class="alert" style="background-color: #DCEED7; border-left: 8px solid #9EB0A0; animation: none;">
+            <i class="bi bi-check-lg "style="color: #9EB0A0";
+            "></i>
+             <span class="msg" style="color: #9EB0A0; font-size:18px;
+             " >Alteração Feita!</span>
+         </div>';
             echo "<meta http-equiv='refresh' content='1'>";
         } else {
             echo "Erro no envio da imagem!";
@@ -65,4 +93,8 @@ try {
     echo 'ERROR: ' . $e->getMessage();
     echo "<br>" . $stmt->rowCount();
 }
+}
 ?>
+
+
+

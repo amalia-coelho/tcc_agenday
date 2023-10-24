@@ -16,6 +16,8 @@
 	<link rel="stylesheet" href="css/comunicado.css">
 	<link rel="stylesheet" href="css/menu.css">
 	<link rel="stylesheet" href="css/selectcheck.css">
+	    <link rel="stylesheet" href="css/selectcheck.css">
+
 
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -49,12 +51,6 @@
 					contentType: false,
 					processData: false,
 				}).done(function(resposta){
-					//fechar o modal
-					$('#fechar').click();
-					
-					//Notificar registro
-					alert("Comunicado adicionado com sucesso!");
-					
 					//Recarregar página
 					$("#exibe").html(resposta);
 				}).fail(function(jqXHR, textStatus ) {
@@ -96,14 +92,7 @@
 					contentType: false,
 					processData: false,
 				}).done(function(resposta){
-					//fechar o modal
-					$('#fecharAlterar').click();
-					
-					//Notificar registro
-					alert("Comunicado alterado com sucesso!");
-					
-					//Recarregar página
-					$("#exibe").html(resposta);
+					$("#exibe2").html(resposta);
 				}).fail(function(jqXHR, textStatus ) {
 					console.log("Request failed: " + textStatus);
 				});
@@ -182,9 +171,67 @@
     	<div class="comuni">
 			<h1>Comunicados</h1>
     	</div>
-		<div id="exibe">
-			
-		</div>
+    <div class="adm-filtro mt-5 mb-5">
+        <div class="espaco filtro-title">
+          <p>Filtrar por:</p>
+        </div>
+        <div class="espaco filtro-btn turma">
+          <div class="col">
+                  <div class="select-btn">
+                    <span class="btn-text">Selecionar Curso</span>
+                    <i class="bi bi-chevron-down"></i>
+                  </div>
+                  <ul class="list-itens">
+                    <li class="a" id="all-select" style="cursor:pointer;">
+                      <label class="form-check-label" for="selectAllOptions" style="cursor:pointer;">Todos</label>
+                    </li>
+                    <?php
+                      //exibir o select
+                      $sql = "SELECT * FROM tb_turma";
+
+                      foreach ($conn->query($sql) as $item){?>
+                        <li class="item">
+                          <!-- Checkbox oculto -->
+                          <input type="checkbox" class="checkbox" name="turmasAlterar[]" value="<?php echo $item['cd_turma'];?>" id="<?php echo $item['nm_turma'];?>">
+                          <label class="checkbox-label" for="<?php echo $item['nm_turma'];?>"></label>
+                          </span>
+                          <span class="item-text"><?php echo $item['nm_turma'];?></span>
+                        </li>
+                      <?php
+                      }
+                    ?>
+                  </ul>
+                </div>
+        </div>
+        <div class="espaco filtro-btn sindrome">
+          <div class="col">
+                  <div class="select-btn">
+                    <span class="btn-text">Selecionar Data</span>
+                    <i class="bi bi-chevron-down"></i>
+                  </div>
+                  <ul class="list-itens">
+                    <li class="a" id="all-select" style="cursor:pointer;">
+                      <label class="form-check-label" for="selectAllOptions" style="cursor:pointer;">Todos</label>
+                    </li>
+                        <li class="item">
+                          <!-- Checkbox oculto -->
+                          <input type="checkbox" class="checkbox" name="Date" value="Recente" id="recente">
+                          <label class="checkbox-label" for="antigo"></label>
+                          </span>
+                          <span class="item-text">Recente</span>
+                        </li>
+                        <li class="item">
+                          <!-- Checkbox oculto -->
+                          <input type="checkbox" class="checkbox" name="Date" value="Antigo" id="Antigo">
+                          <label class="checkbox-label" for="antigo"></label>
+                          </span>
+                          <span class="item-text">Antigo</span>
+                        </li>
+                  </ul>
+                </div>
+        </div>
+      </div>
+    </div>
 		<?php
 			$sql = "SELECT * FROM tb_comunicado";
 
@@ -277,7 +324,7 @@
 									<label for="alterarData" class="form-label">Data</label>
 									<input type="date" name="data_comunicado" class="form-control" id="alterarData">
 								</div>
-								<div class="col">
+							<div class="col">
 									<div class="select-btn">
 										<span class="btn-text">Selecionar Curso</span>
 										<i class="bi bi-chevron-down"></i>
@@ -312,6 +359,9 @@
 							<p id="exibir_cod" style="display: none;"></p>
 							<p id="exibir_path" style="display: none;"></p>
 						</div>
+							<div id="exibe2">
+		
+							</div>
 						<div class="modal-footer">
 							<button type="submit" class="btn btn-roxo" id="salvarAlterar">Salvar Alterações</button>
 							<button type="button" class="btn btn-azul" data-bs-dismiss="modal" id="fecharAlterar">Cancelar</button>
@@ -329,7 +379,7 @@
 		</button>
 
 		<!-- Modal ADD -->
-		<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+		<div class="modal fade adcomuni" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
 		aria-labelledby="staticBackdropLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered">
 				<form  id="addComunicado" enctype="multipart/form-data">
@@ -362,7 +412,8 @@
 										<span class="btn-text">Selecionar Curso</span>
 										<i class="bi bi-chevron-down"></i>
 									</div>
-									<ul class="list-itens">
+									<ul class="list-itens" style="position: absolute !important;
+    width: 190px !important;">
 										<li class="a" id="all-select" style="cursor:pointer;">
 											<label class="form-check-label" for="selectAllOptions"
 												style="cursor:pointer;">Todos</label>
@@ -389,6 +440,9 @@
 								<textarea class="form-control" name="descricao" id="ds_descricao" rows="4"></textarea>
 							</div>
 						</div>
+							<div id="exibe">
+			
+							</div>
 						<div class="modal-footer">
 							<button type="submit" class="btn btn-roxo" id="salvar">Salvar</button>
 							<button type="button" class="btn btn-azul" id="fechar" data-bs-dismiss="modal">Fechar</button>
@@ -407,7 +461,9 @@
 	</script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 	<script src="js/jQuery-Mask-Plugin-master/src/jquery.mask.js"></script>
-	<script src="js/selectcheck.js"></script>
+	  <script src="js/select-gerenciamento.js"></script></body>
+	  <script src="js/selectcheck.js"></script></body>
+
 </body>
 
 </html>

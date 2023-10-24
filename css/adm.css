@@ -89,7 +89,24 @@ body {
 }
 
 .adm-filtro {
-    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.adm-filtro .select-btn, .adm-filtro .list-itens {
+    width: 220px !important;
+}
+
+.adm-filtro .list-itens {
+    background-color: #fbfbff;
+    position: absolute;
+    width: 220px;
+    z-index: 2;
+    height: 300px;
 }
 
 .filtro-title {

@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  include('php/conexao.php');
+  if (!isset($_SESSION['email'])) {
+    header('Location: index.php');
+  } else {
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -8,6 +15,8 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/adm.css">
   <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/selectcheck.css">
+
 
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
@@ -18,6 +27,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css"
     integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- js -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
+  <script src="js/jquery.maskMoney.min.js"></script>
   <style>
     ul li.item-menu a {
       padding: 20px 34px !important;
@@ -146,22 +160,61 @@
         <div class="filtro-title">
           <p>Filtrar por:</p>
         </div>
-        <div class="filtro-btn">
-          <div class="revealbtn">
-            <a class="ent" href="#">Alunos</a>
-          </div>
-          <div class="revealbtn">
-            <a class="ent" href="#">Professores</a>
-          </div>
-          <div class="revealbtn">
-            <a class="ent" href="#">Turma</a>
-          </div>
-          <div class="revealbtn">
-            <a class="ent" href="#">Gestão</a>
-          </div>
-          <div class="revealbtn">
-            <a class="ent" href="#">Saúde</a>
-          </div>
+        <div class="filtro-btn turma">
+          <div class="col">
+                  <div class="select-btn">
+                    <span class="btn-text">Selecionar Curso</span>
+                    <i class="bi bi-chevron-down"></i>
+                  </div>
+                  <ul class="list-itens">
+                    <li class="a" id="all-select" style="cursor:pointer;">
+                      <label class="form-check-label" for="selectAllOptions" style="cursor:pointer;">Todos</label>
+                    </li>
+                    <?php
+                      //exibir o select
+                      $sql = "SELECT * FROM tb_turma";
+
+                      foreach ($conn->query($sql) as $item){?>
+                        <li class="item">
+                          <!-- Checkbox oculto -->
+                          <input type="checkbox" class="checkbox" name="turmasAlterar[]" value="<?php echo $item['cd_turma'];?>" id="<?php echo $item['nm_turma'];?>">
+                          <label class="checkbox-label" for="<?php echo $item['nm_turma'];?>"></label>
+                          </span>
+                          <span class="item-text"><?php echo $item['nm_turma'];?></span>
+                        </li>
+                      <?php
+                      }
+                    ?>
+                  </ul>
+                </div>
+        </div>
+        <div class="filtro-btn sindrome">
+          <div class="col">
+                  <div class="select-btn">
+                    <span class="btn-text">Selecionar Síndrome</span>
+                    <i class="bi bi-chevron-down"></i>
+                  </div>
+                  <ul class="list-itens">
+                    <li class="a" id="all-select" style="cursor:pointer;">
+                      <label class="form-check-label" for="selectAllOptions" style="cursor:pointer;">Todos</label>
+                    </li>
+                    <?php
+                      //exibir o select
+                      $sql = "SELECT * FROM tb_saude";
+
+                      foreach ($conn->query($sql) as $item){?>
+                        <li class="item">
+                          <!-- Checkbox oculto -->
+                          <input type="checkbox" class="checkbox" name="sindromesAlterar[]" value="<?php echo $item['cd_sindrome'];?>" id="<?php echo $item['nm_sindrome'];?>">
+                          <label class="checkbox-label" for="<?php echo $item['nm_sindrome'];?>"></label>
+                          </span>
+                          <span class="item-text"><?php echo $item['nm_sindrome'];?></span>
+                        </li>
+                      <?php
+                      }
+                    ?>
+                  </ul>
+                </div>
         </div>
       </div>
     </div>
@@ -400,6 +453,10 @@
     integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-</body>
+  <script src="js/jQuery-Mask-Plugin-master/src/jquery.mask.js"></script>
+  <script src="js/select-gerenciamento.js"></script></body>
 
 </html>
+<?php
+    }
+?>
