@@ -40,7 +40,6 @@ if (empty($_POST['nm_produto']) || empty($_POST['ds_descricao']) || empty($_POST
         $cadastrar_apm .=$row['nr_valor']."   ";
         $cadastrar_apm .=$row['ds_imagem']."<br>";
       }
-      echo $cadastrar_apm;
       echo "<meta http-equiv='refresh' content='1'>";
       echo '<div class="alert" style="background-color: #DCEED7; border-left: 8px solid #9EB0A0; animation: none;">
          <i class="bi bi-check-lg "style="color: #9EB0A0";

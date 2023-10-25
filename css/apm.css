@@ -67,7 +67,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-left: 6rem;
-
+    flex-wrap: wrap !important;
 }
 
 .apm-group {
@@ -320,11 +320,6 @@ body .alert .bi-x-lg {
     color: #000 !important;
 }
 
-/* carousel */
-.carousel {
-    display: none;
-}
-
 
 /* modal exclusao */
 
@@ -447,17 +442,6 @@ body .alert .bi-x-lg {
         margin-left: 0 !important;
     }
 
-    .carousel {
-        display: flex;
-    }
-
-    .carousel-inner {
-        overflow: visible !important;
-    }
-
-    .apm-group {
-        display: none;
-    }
 
     .apm-card {
         box-shadow: none !important;
@@ -465,26 +449,7 @@ body .alert .bi-x-lg {
     }
 
     .apm-card img {
-
         border-radius: 10px !important;
-    }
-
-    .apm-card:hover {
-        transform: none;
-    }
-
-    .carousel i {
-        color: var(--roxo);
-        font-size: 30px;
-    }
-
-
-    .carousel .bi-caret-left {
-        margin-right: -.5rem;
-    }
-
-    .carousel .bi-caret-right {
-        margin-left: 5.4rem;
     }
 
 
@@ -492,14 +457,7 @@ body .alert .bi-x-lg {
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
 
-    .carousel {
-        display: flex;
-    }
 
-
-    .apm-group {
-        display: none;
-    }
 
     .apm-card {
         box-shadow: none !important;
@@ -511,23 +469,6 @@ body .alert .bi-x-lg {
         border-radius: 10px !important;
     }
 
-    .apm-card:hover {
-        transform: none;
-    }
-
-    .carousel i {
-        color: var(--roxo);
-        font-size: 30px;
-    }
-
-
-    .carousel .bi-caret-left {
-        margin-right: -.5rem;
-    }
-
-    .carousel .bi-caret-right {
-        margin-left: 5.4rem;
-    }
 
     .apm-card-container {
         margin-right: 6rem !important;
@@ -544,14 +485,7 @@ body .alert .bi-x-lg {
         margin-left: 3rem;
     }
 
-    .carousel {
-        display: flex;
-    }
 
-
-    .apm-group {
-        display: none;
-    }
 
     .apm-card {
         box-shadow: none !important;
@@ -563,23 +497,9 @@ body .alert .bi-x-lg {
         border-radius: 10px !important;
     }
 
-    .apm-card:hover {
-        transform: none;
-    }
-
-    .carousel i {
-        color: var(--roxo);
-        font-size: 40px;
-    }
 
 
-    .carousel .bi-caret-left {
-        margin-right: 1rem;
-    }
 
-    .carousel .bi-caret-right {
-        margin-left: 6.4rem;
-    }
 
     .apm-card-container {
         margin-right: 6rem !important;

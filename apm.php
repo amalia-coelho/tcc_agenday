@@ -145,46 +145,6 @@
 			secretária da Etec de Itanhaém.</p>
 		</div>
 		<div class="apm-card-container">
-				<!-- carousel -->
-				<div id="carouselExample" class="carousel slide">
-					<div class="carousel-inner">
-						<!-- conteudo -->
-						<?php 
-							$sql = 'SELECT * FROM tb_apm';
-							foreach ($conn->query($sql) as $row) {
-						?>
-						<div class="carousel-item active">
-							<div class="apm-card">
-								<img src="img/roupa.jpg" alt="" class="card-img">
-								<button data-bs-toggle="modal" data-bs-target="#editModal"><i class="bi bi-pencil-square edit-icon"></i></button>
-								<a href="php/delete_apm.php?cd=<?php echo $row['cd_apm'];?>"><i class="bi bi-trash-fill delete-icon"></i></a>
-								<div class="card-info">
-									<div class="card-text">
-										<p class="card-title"><?php echo $row['nm_produto']; ?></p>
-										<p class="card-sub"><?php echo $row['ds_descricao']; ?></p>
-									</div>
-									<div class="price">
-										<a href="#" class="btn btn-secondary"><?php echo $row['nr_valor']; ?></a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<?php    		
-							}
-						?>
-						<!-- fim do conteudo -->
-					</div>
-					<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-						<i class="bi bi-caret-left"></i>
-						<span class="visually-hidden">Previous</span>
-					</button>
-					<button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-						<i class="bi bi-caret-right"></i>
-						<span class="visually-hidden">Next</span>
-					</button>
-				</div>
-				<!-- fim do carousel -->
-
 			<?php 
 				$sql = 'SELECT * FROM tb_apm';
 				foreach ($conn->query($sql) as $row) {
