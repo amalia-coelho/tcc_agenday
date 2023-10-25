@@ -5,8 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const selectBtn2 = modal2.querySelector(".select-btn");
   const itens1 = modal1.querySelectorAll(".item");
   const itens2 = modal2.querySelectorAll(".item");
-  const allSelect1 = modal1.querySelector("#all-select2");
-  const allSelect2 = modal2.querySelector("#all-select");
+  const allSelect1 = modal1.querySelector("#all-select4");
+  const allSelect2 = modal2.querySelector("#all-select3");
 
   // Adicione um evento de clique para alternar a classe "open" para o botão de seleção de cada modal
   selectBtn1.addEventListener("click", () => {

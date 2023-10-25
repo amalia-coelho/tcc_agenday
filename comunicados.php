@@ -189,7 +189,7 @@
                     <i class="bi bi-chevron-down"></i>
                   </div>
                   <ul class="list-itens">
-                    <li class="a" id="all-select" style="cursor:pointer;">
+                    <li class="a" id="all-select1" style="cursor:pointer;">
                       <label class="form-check-label" for="selectAllOptions" style="cursor:pointer;">Todos</label>
                     </li>
                     <?php
@@ -217,19 +217,19 @@
                     <i class="bi bi-chevron-down"></i>
                   </div>
                   <ul class="list-itens">
-                    <li class="a" id="all-select" style="cursor:pointer;">
+                    <li class="a" id="all-select2" style="cursor:pointer;">
                       <label class="form-check-label" for="selectAllOptions" style="cursor:pointer;">Todos</label>
                     </li>
                         <li class="item">
                           <!-- Checkbox oculto -->
                           <input type="checkbox" class="checkbox" name="Date" value="Recente" id="recente">
-                          <label class="checkbox-label" for="antigo"></label>
+                          <label class="checkbox-label" for="recente"></label>
                           </span>
                           <span class="item-text">Recente</span>
                         </li>
                         <li class="item">
                           <!-- Checkbox oculto -->
-                          <input type="checkbox" class="checkbox" name="Date" value="Antigo" id="Antigo">
+                          <input type="checkbox" class="checkbox" name="Date" value="Antigo" id="antigo">
                           <label class="checkbox-label" for="antigo"></label>
                           </span>
                           <span class="item-text">Antigo</span>
@@ -333,7 +333,7 @@
 										<i class="bi bi-chevron-down"></i>
 									</div>
 									<ul class="list-itens">
-										<li class="a" id="all-select" style="cursor:pointer;">
+										<li class="a" id="all-select3" style="cursor:pointer;">
 											<label class="form-check-label" for="selectAllOptions" style="cursor:pointer;">Todos</label>
 										</li>
 										<?php
@@ -417,7 +417,7 @@
 									</div>
 									<ul class="list-itens" style="position: absolute !important;
     width: 190px !important;">
-										<li class="a" id="all-select" style="cursor:pointer;">
+										<li class="a" id="all-select4" style="cursor:pointer;">
 											<label class="form-check-label" for="selectAllOptions"
 												style="cursor:pointer;">Todos</label>
 										</li>
@@ -465,7 +465,7 @@
 	</script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 	<script src="js/jQuery-Mask-Plugin-master/src/jquery.mask.js"></script>
-	  <script src="js/select-gerenciamento.js"></script></body>
+	  <script src="js/select-comunicado.js"></script></body>
 	  <script src="js/selectcheck.js"></script></body>
 
 </body>
