@@ -137,10 +137,11 @@ ul li.item-menu a .icon>i {
         font-size: 20px;
         margin: -5px;
     }
+
     nav.menu-lateral {
-    width: 45px;
-    height: 100%;
-}
+        width: 45px;
+        height: 100%;
+    }
 
 }
 
