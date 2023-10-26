@@ -64,10 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
         toggleSelectAll(turma, itens1, allSelect1);
     });
 
-    allSelect2.addEventListener("click", () => {
-        toggleSelectAll(sindrome, itens2, allSelect2);
-    });
-
     // Função para atualizar o texto do botão de seleção
     function updateButtonText(turma, items) {
         const checkedItems = Array.from(items).filter(item => {
@@ -98,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const itemCount = checkedItems.length;
             btnText.innerText = itemCount > 1 ? `Antigo` : `Recente`;
         } else {
-            btnText.innerText = "Selecionar Síndrome";
+            btnText.innerText = "Selecionar Data";
         }
     }
 });

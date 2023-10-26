@@ -32,13 +32,7 @@
 
 	<script>
 		$(document).ready(function(){
-			$('#all-select').click(function() {
-				var checked = this.checked;
-				$('input[type="checkbox"]').each(function() {
-					this.checked = checked;
-				});
-			});
-		
+
 			//ADD COMUNICADO
 			$('#addComunicado').submit(function (e) {
 				e.preventDefault();
@@ -217,19 +211,16 @@
                     <i class="bi bi-chevron-down"></i>
                   </div>
                   <ul class="list-itens">
-                    <li class="a" id="all-select2" style="cursor:pointer;">
-                      <label class="form-check-label" for="selectAllOptions" style="cursor:pointer;">Todos</label>
-                    </li>
-                        <li class="item">
+                        <li class="item check-all">
                           <!-- Checkbox oculto -->
-                          <input type="checkbox" class="checkbox" name="Date" value="Recente" id="recente">
+                          <input type="radio" class="checkbox dateee" name="Date" value="Recente" id="recente">
                           <label class="checkbox-label" for="recente"></label>
                           </span>
                           <span class="item-text">Recente</span>
                         </li>
-                        <li class="item">
+                        <li class="item check-all">
                           <!-- Checkbox oculto -->
-                          <input type="checkbox" class="checkbox" name="Date" value="Antigo" id="antigo">
+                          <input type="radio" class="checkbox dateee" name="Date" value="Antigo" id="antigo">
                           <label class="checkbox-label" for="antigo"></label>
                           </span>
                           <span class="item-text">Antigo</span>
