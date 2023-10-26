@@ -59,7 +59,7 @@
         <i class="bi bi-list" id="btn-exp"></i>
       </div>
       <ul>
-      <li class="item-menu">
+      <li class="item-menu ativo">
 				<a href="perfil.php">
 				<span class="icon"><i class="bi bi-person-fill"></i></span>
 				<span class="txt-link">Usuário</span>

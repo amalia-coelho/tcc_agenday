@@ -126,7 +126,7 @@
 				<span class="txt-link">Dúvidas</span>
 				</a>
 			</li>
-			<li class="item-menu">
+			<li class="item-menu ativo">
 				<a href="gerenciamento.php">
 				<span class="icon"><i class="bi bi-gear-fill"></i></span>
 				<span class="txt-link">Gerenciamento</span>

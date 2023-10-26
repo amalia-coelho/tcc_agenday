@@ -56,7 +56,7 @@
             <span class="txt-link">Calendário</span>
           </a>
         </li>
-        <li class="item-menu ativo">
+        <li class="item-menu">
           <a href="comunicados.php">
             <span class="icon"><i class="bi bi-megaphone-fill"></i></span>
             <span class="txt-link">Comunicados</span>
@@ -74,7 +74,7 @@
             <span class="txt-link">Saúde</span>
           </a>
         </li>
-        <li class="item-menu">
+        <li class="item-menu ativo">
           <a href="#">
             <span class="icon"><i class="bi bi-person-workspace"></i></span>
             <span class="txt-link">Gestão</span>

@@ -97,7 +97,7 @@
 				<span class="txt-link">Comunicados</span>
 				</a>
 			</li>
-			<li class="item-menu ">
+			<li class="item-menu ativo">
 				<a href="apm.php">
 				<span class="icon"><i class="bi bi-cart4"></i></span>
 				<span class="txt-link">APM</span>
