@@ -15,7 +15,11 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/calendario.css">
 	<link rel="stylesheet" href="css/menu.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css' rel='stylesheet'>
+
+    <link href="css/custom.css" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
 	integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 
@@ -25,37 +29,8 @@
 	<!-- /css -->
 
 	<!-- js -->
-	<script src="js/calendario.js"></script>
 	<script src="https://unpkg.com/scrollreveal"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
-	<script src="js/jquery.maskMoney.min.js"></script>
-	<script>
-		$(document).ready(function () {
-			$('.date').mask('00/00/0000');
-			//  $('.time').mask('00:00h');
-			var mask = "HG:MN",
-			pattern = {
-				'translation': {
-				'H': {
-					pattern: /[0-2]/
-				},
-				'G': {
-					pattern: /[0-23]/
-				},
-				'M': {
-					pattern: /[0-5]/
-				},
-				'N': {
-					pattern: /[0-59]/
-				}
-				}
-			};
-
-			$(".time").mask(mask, pattern);
-		});
-	</script>
-	<!-- /js -->
-
 	<title>Calendário</title>
 </head>
 
@@ -131,197 +106,132 @@
 			</ul>
 		</nav>
 	</section>
-		<!-- FIM DO MENU -->
-		<div class="area">
+	<!-- fim do menu -->
+	<!-- inicio do calendario -->
+	<div class="area">
 
-            <ul class="circles">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-            </ul>
+<ul class="circles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+</ul>
 
-		<div class="info mt-5">
-			<div class="calendario mb-5">
-				<header>
-					<h2 id="mes">Abril</h2>
-					<h3 id="ano"></h3>
-					<a class="btn-ant" id="btn-ant"><</a>
-					<a class="btn-pro" id="btn-next">></a>
-					</a>
-				</header>
-				<table>
-					<thead>
-						<tr>
-							<td>Dom</td>
-							<td>Seg</td>
-							<td>Ter</td>
-							<td>Qua</td>
-							<td>Qui</td>
-							<td>Sex</td>
-							<td>Sáb</td>
-						</tr>
-					</thead>
-					<tbody id="dias">
-						<tr>
-							<td>1<p>ooo</p></td>
-							
-							<td>2</td>
-							<td>3</td>
-							<td>4</td>
-							<td>5</td>
-							<td>6</td>
-							<td>7</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>2</td>
-							<td>3</td>
-							<td>4</td>
-							<td>5</td>
-							<td>6</td>
-							<td>7</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td data-toggle="popover" data-content="Dia Das Crianças" data-trigger="hover">2</td>
-							<td>3</td>
-							<td>4</td>
-							<td>5</td>
-							<td>6</td>
-							<td>7</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>2</td>
-							<td>3</td>
-							<td>4</td>
-							<td>5</td>
-							<td>6</td>
-							<td>7</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td class="event" data-toggle="popover" data-content="Dia Das Crianças" data-trigger="hover">2</td>
-							<td>3</td>
-							<td>4</td>
-							<td>5</td>
-							<td>6</td>
-							<td>7</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>2</td>
-							<td>3</td>
-							<td>4</td>
-							<td>5</td>
-							<td>6</td>
-							<td>7</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<!-- <div class="data-evento">
-				<h2>Eventos</h2>
-				<?php
-					// Exibir os eventos cadastrados no banco
-					$sql = "SELECT * FROM tb_comunicado";
-	
-					foreach ($conn->query($sql) as $item){?>
-						<div class="info-evento mt-5 adm">
-							<button data-bs-toggle="modal" data-bs-target="#editModal" style="border: none;">
-								<i class="bi bi-pencil-square edit-icon"></i>
-							</button>
-							<i class="bi bi-trash-fill delete-icon"></i>
-							<h3><?php echo $item[''];?></h3>
-							<h4>25/25/2025</h4>
-						</div>
-				<?php
-					}
-				?>
-				</div>
-		</div> -->
-		</div>
+    <h2 class="mb-4"></h2>
 
+    <span id="msg"></span>
 
-	<!-- Modal de Alteração -->
-	<div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-		aria-labelledby="editModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-		<div class="modal-content">
-			<div class="modal-header">
-			<h1 class="modal-title fs-5" id="editModalLabel">Editar Evento</h1>
-			<button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<div class="modal-body">
-			<form>
-				<!-- Inputs para a alteração -->
-				<div class="mb-3">
-				<label for="productTitle" class="form-label">Alterar Título do Evento</label>
-				<input type="text" class="form-control" id="productTitle">
-				</div>
-				<div class="col">
-				<label for="productDate" class="form-label">Alterar Data e Hora</label>
-				<input type="datetime-local" class="form-control" id="productDate">
-				</div>
-			</form>
-			</div>
-			<div class="modal-footer">
-			<button type="button" class="btn btn-primary">Salvar Alterações</button>
-			<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-			</div>
-		</div>
-		</div>
+    <div id='calendar'></div>
+
+    <!-- Modal Visualizar -->
+    <div class="modal fade" id="visualizarModal" tabindex="-1" aria-labelledby="visualizarModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="visualizarModalLabel">Visualizar o Evento</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <dl class="row">
+
+                        <dt class="col-sm-3">ID: </dt>
+                        <dd class="col-sm-9" id="visualizar_id"></dd>
+
+                        <dt class="col-sm-3">Título: </dt>
+                        <dd class="col-sm-9" id="visualizar_title"></dd>
+
+                        <dt class="col-sm-3">Início: </dt>
+                        <dd class="col-sm-9" id="visualizar_start"></dd>
+
+                        <dt class="col-sm-3">Fim: </dt>
+                        <dd class="col-sm-9" id="visualizar_end"></dd>
+
+                    </dl>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Cadastrar -->
+    <div class="modal fade" id="cadastrarModal" tabindex="-1" aria-labelledby="cadastrarModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="cadastrarModalLabel">Cadastrar o Evento</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <span id="msgCadEvento"></span>
+
+                    <form method="POST" id="formCadEvento">
+
+                        <div class="row mb-3">
+                            <label for="cad_title" class="col-sm-2 col-form-label">Título</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="cad_title" class="form-control" id="cad_title" placeholder="Título do evento">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="cad_start" class="col-sm-2 col-form-label">Início</label>
+                            <div class="col-sm-10">
+                                <input type="datetime-local" name="cad_start" class="form-control" id="cad_start">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="cad_end" class="col-sm-2 col-form-label">Fim</label>
+                            <div class="col-sm-10">
+                                <input type="datetime-local" name="cad_end" class="form-control" id="cad_end">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="cad_color" class="col-sm-2 col-form-label">Cor</label>
+                            <div class="col-sm-10">
+                                <select name="cad_color" class="form-control" id="cad_color">
+                                    <option value="">Selecione</option>
+                                    <option style="color:#FFD700;" value="#FFD700">Amarelo</option>
+                                    <option style="color:#0071c5;" value="#0071c5">Azul Turquesa</option>
+                                    <option style="color:#FF4500;" value="#FF4500">Laranja</option>
+                                    <option style="color:#8B4513;" value="#8B4513">Marrom</option>
+                                    <option style="color:#1C1C1C;" value="#1C1C1C">Preto</option>
+                                    <option style="color:#436EEE;" value="#436EEE">Royal Blue</option>
+                                    <option style="color:#A020F0;" value="#A020F0">Roxo</option>
+                                    <option style="color:#40E0D0;" value="#40E0D0">Turquesa</option>
+                                    <option style="color:#228B22;" value="#228B22">Verde</option>
+                                    <option style="color:#8B0000;" value="#8B0000">Vermelho</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" name="btnCadEvento" class="btn btn-success" id="btnCadEvento">Cadastrar</button>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
 	</div>
-	<!-- Fim do modal de Alteração -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src='js/index.global.min.js'></script>
+    <script src="js/bootstrap5/index.global.min.js"></script>
+    <script src='js/core/locales-all.global.min.js'></script>
+    <script src='js/custom.js'></script>
 
 
+	<!-- fim do calendario -->
 
-
-	<!-- incio do modal E BOTAO QUE ABRE ELE -->
-	<button type="button" class="btn btn-primary add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-		<i class="bi bi-plus-circle-fill"></i> <!-- Ícone de adição -->
-	</button>
-
-	<!-- Modal de ADICIONAR Evento -->
-	<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-		aria-labelledby="staticBackdropLabel" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered">
-		<div class="modal-content">
-			<div class="modal-header">
-			<h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar Evento</h1>
-			<button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
-			</div>
-			<div class="modal-body">
-			<form>
-				<div class="mb-3">
-				<label for="productTitle" class="form-label">Título do Comunicado</label>
-				<input type="text" class="form-control" id="productTitle">
-				</div>
-				<div class="input-group col">
-				<input placeholder="Data" style="height: 2rem !important;" type="text" class="form-control date"
-					id="dateInput" accept="image/*">
-				<input placeholder="Hora" style="height: 2rem !important;" class="form-control time" type="text"
-					id="timeInput">
-				</input>
-				</div>
-			</form>
-			</div>
-			<div class="modal-footer">
-			<button type="button" class="btn btn-roxo">Salvar</button>
-			<button type="button" class="btn btn-azul" data-bs-dismiss="modal">Fechar</button>
-			</div>
-		</div>
-		</div>
-	</div>
-	<!-- fim do modal -->
-	<!-- FIM DA DÚVIDA!! -->
 
 	<!-- js -->
 	<script src="js/menu.js"></script>
@@ -342,9 +252,7 @@
 	crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 	<script src="js/jQuery-Mask-Plugin-master/src/jquery.mask.js"></script>
-	<script>
-	$('[data-toggle="popover"]').popover({}) 
-	</script>
+
 </body>
 
 </html>

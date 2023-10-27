@@ -1,14 +1,12 @@
 create database db_agenday;
 use db_agenday;
 
-create table tb_evento(
-	cd_evento int primary key auto_increment,
-  	nm_titulo varchar(100) not null,
-  	dt_inicio date not null,
-  	hr_inicio time,
-  	dt_final date,
-  	hr_final time,
-  	ds_anotacoes varchar(255)
+create table events(
+	id int primary key auto_increment,
+  	title varchar(220),
+  	color varchar(45),
+  	start datetime,
+  	end datetime
 );
 
 create table tb_turma(
@@ -110,7 +108,7 @@ alter table tb_comunicado_turma add foreign key fk_comunicado_turma_comunicado(i
 
 alter table tb_comunicado_turma add foreign key fk_comunicado_turma_turma(id_turma) references tb_turma(cd_turma);
 
-alter table tb_evento_turma add foreign key fk_evento_turma_evento(id_evento) references tb_evento(cd_evento);
+alter table tb_evento_turma add foreign key fk_evento_turma_evento(id_evento) references events(id);
 
 alter table tb_evento_turma add foreign key fk_evento_turma_turma(id_turma) references tb_turma(cd_turma);
 -- Valores iniciais
