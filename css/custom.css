@@ -1,11 +1,58 @@
 body {
     margin: 40px 10px;
     padding: 0;
-    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
     font-size: 14px;
 }
 
 #calendar {
     max-width: 1100px;
     margin: 0 auto;
+    font-family: var(--pop);
+}
+
+table {
+    background: #fbfbff;
+}
+
+thead {
+    background-color: var(--roxo);
+    color: var(--branco);
+}
+
+body .alert {
+    background: #DCEED7;
+    border-left: 8px solid #9EB0A0;
+    position: relative;
+    width: 600px;
+}
+
+td {}
+
+.fc-theme-bootstrap5 .fc-list,
+.fc-theme-bootstrap5 .fc-scrollgrid,
+.fc-theme-bootstrap5 td,
+.fc-theme-bootstrap5 th {
+    border: 1px solid #ced4da65;
+}
+
+.btn-group>.btn-group:not(:last-child)>.btn,
+.btn-group>.btn.dropdown-toggle-split:first-child,
+.btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border: none;
+    outline: none;
+    background-color: var(--roxo);
+}
+
+.btn-group>.btn-group:not(:first-child),
+.btn-group>:not(.btn-check:first-child)+.btn {
+    margin-left: calc(var(--bs-border-width) * -1);
+    background: var(--roxo);
+    border: none;
+}
+
+.fc-direction-ltr .fc-toolbar>*> :not(:first-child) {
+    margin-left: 0.75em;
+    border: none;
 }

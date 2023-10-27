@@ -32,6 +32,7 @@
 	<script src="https://unpkg.com/scrollreveal"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
 	<title>Calendário</title>
+
 </head>
 
 <body>
@@ -125,9 +126,11 @@
 
     <h2 class="mb-4"></h2>
 
-    <span id="msg"></span>
+	<div class="d-flex align-items-center justify-content-center ">
 
-    <div id='calendar'></div>
+		<span id="msg"></span>
+</div>
+    <div id='calendar' style="font-family: var(--pop); text-transform: capitalize"></div>
 
     <!-- Modal Visualizar -->
     <div class="modal fade" id="visualizarModal" tabindex="-1" aria-labelledby="visualizarModalLabel" aria-hidden="true">
@@ -177,21 +180,21 @@
                         <div class="row mb-3">
                             <label for="cad_title" class="col-sm-2 col-form-label">Título</label>
                             <div class="col-sm-10">
-                                <input type="text" name="cad_title" class="form-control" id="cad_title" placeholder="Título do evento">
+                                <input style="border-color: none !important;" type="text" name="cad_title" class="form-control" id="cad_title" placeholder="Título do evento">
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="cad_start" class="col-sm-2 col-form-label">Início</label>
                             <div class="col-sm-10">
-                                <input type="datetime-local" name="cad_start" class="form-control" id="cad_start">
+                                <input style="border-color: none !important;" type="datetime-local" name="cad_start" class="form-control" id="cad_start">
                             </div>
                         </div>
 
                         <div class="row mb-3">
                             <label for="cad_end" class="col-sm-2 col-form-label">Fim</label>
                             <div class="col-sm-10">
-                                <input type="datetime-local" name="cad_end" class="form-control" id="cad_end">
+                                <input style="border-color: none !important;" type="datetime-local" name="cad_end" class="form-control" id="cad_end">
                             </div>
                         </div>
 
@@ -202,11 +205,13 @@
                                     <option value="">Selecione</option>
                                     <option style="color:#FFD700;" value="#FFD700">Amarelo</option>
                                     <option style="color:#0071c5;" value="#0071c5">Azul Turquesa</option>
+                                    <option style="color:#657ed4;" value="#657ed4">Azul Agenday</option>
                                     <option style="color:#FF4500;" value="#FF4500">Laranja</option>
                                     <option style="color:#8B4513;" value="#8B4513">Marrom</option>
                                     <option style="color:#1C1C1C;" value="#1C1C1C">Preto</option>
                                     <option style="color:#436EEE;" value="#436EEE">Royal Blue</option>
                                     <option style="color:#A020F0;" value="#A020F0">Roxo</option>
+                                    <option style="color:#6d26f8;" value="#6d26f8">Roxo Valorun</option>
                                     <option style="color:#40E0D0;" value="#40E0D0">Turquesa</option>
                                     <option style="color:#228B22;" value="#228B22">Verde</option>
                                     <option style="color:#8B0000;" value="#8B0000">Vermelho</option>
