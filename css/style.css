@@ -12,8 +12,8 @@
 /* Variáveis */
 
 :root {
-  --roxo: #6d26f8;
-  --azul: #657ed4;
+  --roxo: rgb(109, 38, 248);
+  --azul: rgb(101, 126, 212);
   --cinza: #252525;
   --branco: #fbfbff;
   --quatro: "Quattrocento", sans-serif;

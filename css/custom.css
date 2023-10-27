@@ -1,3 +1,8 @@
+:root {
+
+    --fc-today-bg-color: rgba(101, 126, 212, .15);
+}
+
 body {
     margin: 40px 10px;
     padding: 0;
