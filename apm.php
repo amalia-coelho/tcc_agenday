@@ -27,7 +27,7 @@
 		<script src="https://unpkg.com/scrollreveal"></script>
 		<!-- /js -->
 
-		<script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
+		<!-- <script type="text/javascript" src="js/jquery-3.6.1.min.js"></script> -->
 	<!-- js -->
 	<script src="https://unpkg.com/scrollreveal"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
@@ -37,34 +37,31 @@
 
 		<script type="text/javascript">
 			$(document).ready(function(){
+				$(".preco").maskMoney({
+					prefix: "R$ ",
+					decimal: ",",
+					thousands: "."
+				});
 
-        $(".preco").maskMoney({
-        prefix: "R$ ",
-        decimal: ",",
-        thousands: "."
-      });
+				//ADD COMUNICADO
+				$('#addProduto').submit(function (e) {
+					e.preventDefault();
 
-				$("#salvar_novo").click(function(){
-					var nm_produto = $("#nm_produto").val();
-					var ds_imagem = $("#ds_imagem").val();
-					var nr_valor = $("#nr_valor").val();
-					var ds_descricao = $("#ds_descricao").val();
+					var formulario = new FormData(this); // Crie um objeto FormData com os dados do formulário
 					$.ajax({
-					url: "php/add_apm.php",
-					type: "POST",
-					data: "nm_produto="+nm_produto+"&ds_imagem="+ds_imagem+"&nr_valor="+nr_valor+"&ds_descricao="+ds_descricao,
-					dataType: "html"
-					
-					}).done(function(resposta) {
+						type: 'POST',
+						url: 'php/add_apm.php',
+						data: formulario,
+						contentType: false,
+						processData: false,
+					}).done(function(resposta){
+						//Recarregar página
 						$("#exibe").html(resposta);
-
 					}).fail(function(jqXHR, textStatus ) {
-					  console.log("Request failed: " + textStatus);
-
-					}).always(function() {
-						console.log("completou");
+						console.log("Request failed: " + textStatus);
 					});
 				});
+
 			});
 		</script>
 		<title>APM</title>
@@ -149,56 +146,50 @@
 				$sql = 'SELECT * FROM tb_apm';
 				foreach ($conn->query($sql) as $row) {
 			?>
-					<div class="apm-group">
-						<!-- inicio card -->
-						<div class="apm-card">
-							<img src="img/roupa.jpg" alt="" class="card-img">
-							<button data-bs-toggle="modal" data-bs-target="#editModal" id="alterar"><i class="bi bi-pencil-square edit-icon"></i></button>
-							<a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i class="bi bi-trash-fill delete-icon"></i></a>
-							<div class="card-info">
-								<div class="card-text">
-									<p class="card-title"><?php echo $row['nm_produto']; ?></p>
-									<p class="card-sub"><?php echo $row['ds_descricao']; ?></p>
-								</div>
-								<div class="price">
-									<a href="#" class="btn btn-secondary"><?php echo $row['nr_valor']; ?></a>
-								</div>
-							</div>
+			<div class="apm-group">
+				<!-- inicio card -->
+				<div class="apm-card">
+					<img src="img/roupa.jpg" alt="" class="card-img">
+					<button data-bs-toggle="modal" data-bs-target="#editModal" id="alterar"><i class="bi bi-pencil-square edit-icon"></i></button>
+					<a data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i class="bi bi-trash-fill delete-icon"></i></a>
+					<div class="card-info">
+						<div class="card-text">
+							<p class="card-title"><?php echo $row['nm_produto']; ?></p>
+							<p class="card-sub"><?php echo $row['ds_descricao']; ?></p>
 						</div>
-						<!-- fim card -->
+						<div class="price">
+							<a href="#" class="btn btn-secondary"><?php echo $row['nr_valor']; ?></a>
+						</div>
 					</div>
-			<?php    		
+				</div>
+				<!-- fim card -->
+			</div>
+		</div>
+
+			<!-- Modal De Exclusao -->
+			<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content custom-modal">
+					<div class="modal-circle">
+						<i class="bi bi-x-circle mt-5" style="color: #ff0000; font-size:5em;display: flex; align-items: center; justify-content: center;"></i>
+					</div>
+						<div class="modal-header" style="background-color: #fff; border: none; text-align: center; justify-content: center;">
+							<h5 class="modal-title" style="color:#000; font-size:1.5em ">Você tem certeza?</h5>
+						</div>
+						<div class="modal-body" style="text-align: center;">
+							<p>Você realmente deseja excluir esses registros? Este processo não pode ser desfeito.</p>
+						</div>
+						<div class="modal-footer" style="border: none; justify-content: center;">
+						<a href="php/delete_apm.php?cd=<?php echo $row['cd_apm'];?>"><button type="button" class="btn btn-danger">Sim, Excluir</button></a>
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<?php
 				}
 			?>
-		</div>
-    </div>
-
-
-			
-
-
-<!-- Modal De Exclusao -->
-<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content custom-modal">
-          <div class="modal-circle">
-              <i class="bi bi-x-circle mt-5" style="color: #ff0000; font-size:5em;display: flex; align-items: center; justify-content: center;"></i>
-          </div>
-            <div class="modal-header" style="background-color: #fff; border: none; text-align: center; justify-content: center;">
-                <h5 class="modal-title" style="color:#000; font-size:1.5em ">Você tem certeza?</h5>
-            </div>
-            <div class="modal-body" style="text-align: center;">
-                <p>Você realmente deseja excluir esses registros? Este processo não pode ser desfeito.</p>
-            </div>
-            <div class="modal-footer" style="border: none; justify-content: center;">
-              <a href="php/delete_apm.php?cd=<?php echo $row['cd_apm'];?>"><button type="button" class="btn btn-danger">Sim, Excluir</button></a>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- fim do Modal De Exclusao -->
+			<!-- fim do Modal De Exclusao -->
 
 
 				<!-- Modal de Alteração -->
@@ -247,15 +238,16 @@
 					aria-labelledby="staticBackdropLabel" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered">
 						<div class="modal-content">
-							<div class="modal-header">
-								<h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar Produto</h1>
-								<button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
-							</div>
-							<div class="modal-body">
+							<form id="addProduto" enctype="multipart/form-data">
+								<div class="modal-header">
+									<h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar Produto</h1>
+									<button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
 									<div class="mb-3">
 										<label for="ds_imagem" class="form-label">Imagem do Produto</label>
 										<div class="input-group">
-											<input type="file" class="form-control" id="ds_imagem" accept="image/*">
+											<input type="file" class="form-control" name="ds_imagem" id="ds_imagem" accept="image/*">
 											<button class="btn btn-outline-secondary" type="button" id="editButton">
 												<i class="bi bi-pencil"></i> <!-- Ícone de editar -->
 											</button>
@@ -264,26 +256,24 @@
 									<div class="row mb-3">
 										<div class="col">
 											<label for="nm_produto" class="form-label">Nome do Produto</label>
-											<input type="text" class="form-control" id="nm_produto" maxlength="10">
+											<input type="text" class="form-control" name="nm_produto" id="nm_produto" maxlength="10">
 										</div>
 										<div class="col">
 											<label for="nr_valor" class="form-label preco">Valor do Produto</label>
-											<input type="text" class="form-control preco" id="nr_valor">
+											<input type="text" class="form-control preco" name="nr_valor" id="nr_valor">
 										</div>
 									</div>
 									<div class="mb-3">
 										<label for="ds_descricao" class="form-label">Descrição do Produto</label>
-										<textarea class="form-control" id="ds_descricao" rows="4" maxlength="15"></textarea>
+										<textarea class="form-control" id="ds_descricao" name="ds_descricao" rows="4" maxlength="15"></textarea>
 									</div>
 								</div>
-						
-									<div id="exibe">		
-									</div>
+								<div id="exibe"></div>
 								<div class="modal-footer">
-									<button type="button" id="salvar_novo" class="btn btn-roxo">Salvar</button>
-									
-									<button type="button" class="btn btn-azul" data-bs-dismiss="modal">Fechar</button>
+									<button type="submit" class="btn btn-roxo">Salvar</button>
+									<button type="button" class="btn btn-azul" id="fechar" data-bs-dismiss="modal">Fechar</button>
 								</div>
+							</form>
 						</div>	
 					</div>
 				</div>
@@ -294,13 +284,10 @@
 		<!-- FIM DA DÚVIDA!! -->
 
 		<!-- js -->
-<script src="js/menu.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
-	</script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-	<script src="js/jQuery-Mask-Plugin-master/src/jquery.mask.js"></script>
-  <script src="js/jQuery-Mask-Plugin-master/src/jquery.mask.js"></script>
+		<script src="js/menu.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+		<script src="js/jQuery-Mask-Plugin-master/src/jquery.mask.js"></script>
 	</body>
 </html>
 <?php
