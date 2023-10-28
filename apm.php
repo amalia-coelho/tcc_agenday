@@ -176,6 +176,11 @@
 								<div class="card-text">
 									<p class="card-title"><?php echo $row['nm_produto']; ?></p>
 									<p class="card-sub"><?php echo $row['ds_descricao']; ?></p>
+									<i class="bi bi-star-fill" style="color: #FFA401;" ></i>
+									<i class="bi bi-star-fill" style="color: #FFA401;" ></i>
+									<i class="bi bi-star-fill" style="color: #FFA401;" ></i>
+									<i class="bi bi-star-fill" style="color: #FFA401;" ></i>
+									<i class="bi bi-star-fill" style="color: #FFA401;" ></i>
 								</div>
 								<div class="price">
 									<a href="#" class="btn btn-secondary"><?php echo $row['nr_valor']; ?></a>
