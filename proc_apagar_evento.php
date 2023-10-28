@@ -23,3 +23,4 @@ if (!empty($id)) {
     $_SESSION['msg'] = '<div class="alert alert-danger" role="alert">Erro: O evento não foi apagado com sucesso!</div>';
     header("Location: calendario.php");
 }
+

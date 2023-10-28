@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       btnText.innerText = "Selecionar Curso";
     }
-  }  
+  }
 
   // Função para atualizar o texto do botão de seleção de Síndrome
   function updateButtonText2(sindrome, items) {
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const itemCount = checkedItems.length;
       btnText.innerText = itemCount > 1 ? `${itemCount} Recente` : `${itemCount} Antigo`;
     } else {
-      btnText.innerText = "Selecionar Data";
+      btnText.innerText = "Selecionar Sindrome";
     }
   }
 });

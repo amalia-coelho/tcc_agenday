@@ -219,7 +219,7 @@
                         </dl>
 
                         <button class="btn btn-warning" id="btnViewEditEvento">Editar</button>
-						<a href="" id="apagar_evento" class="btn btn-danger">Apagar</a>
+						<a href="" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" class="btn btn-danger">Apagar</a>
 
                     </div>
 
@@ -368,8 +368,8 @@
                 <p>Você realmente deseja excluir esses registros? Este processo não pode ser desfeito.</p>
             </div>
             <div class="modal-footer" style="border: none; justify-content: center;">
-              <a href="php/delete_events.php?cod=<?php echo $eventos['id'];?>"><button type="button" class="btn btn-danger">Sim, Excluir</button></a>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <a href="" id="apagar_evento"><button type="button" class="btn btn-danger">Sim, Excluir</button></a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não, não tenho</button>
             </div>
         </div>
     </div>
