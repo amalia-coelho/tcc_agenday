@@ -112,7 +112,7 @@
 	<div class="area">
 
 <ul class="circles">
-		<li></li>
+		<li class="segue"></li>
 		<li></li>
 		<li></li>
 		<li></li>
@@ -217,7 +217,7 @@
         </div>
     </div>
 <!-- Modal de Alteração -->
-<!-- <div class="modal fade" id="alterarModal" tabindex="-1" aria-labelledby="alterarModalLabel" aria-hidden="true">
+<div class="modal fade" id="alterarModal" tabindex="-1" aria-labelledby="alterarModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -279,7 +279,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
     	<!-- Fim do modal de Alteração -->
 
 		<!-- Modal De Exclusao -->
@@ -380,6 +380,9 @@
 
 	<!-- fim do calendario -->
 
+
+<script>
+</script>
 
 	<!-- js -->
 	<script src="js/menu.js"></script>
