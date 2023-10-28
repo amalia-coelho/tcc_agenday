@@ -117,7 +117,7 @@
     </nav>
     </section>
 	<div class="perfil-container hero">
-		<div class="cube"></div>
+	<div class="cube"></div>
 	<div class="cube"></div>
 	<div class="cube"></div>
 	<div class="cube"></div>
