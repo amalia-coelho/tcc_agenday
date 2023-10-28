@@ -50,7 +50,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Identificar o clique do usuário sobre o evento
         eventClick: function (info) {
-
+            $("#apagar_evento").attr("href", "proc_apagar_evento.php?id=" + info.event.id);
+            info.jsEvent.preventDefault(); // don't let the browser navigate
+            console.log(info.event);
             // Apresentar os detalhes do evento
             document.getElementById("visualizarEvento").style.display = "block";
             document.getElementById("visualizarModalLabel").style.display = "block";
@@ -280,7 +282,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // Enviar a mensagem para o HTML
                 msg.innerHTML = `<div class="alert alert-success" role="alert">${resposta['msg']}</div>`;
-                
+
                 // Enviar a mensagem para o HTML
                 msgEditEvento.innerHTML = "";
 
@@ -291,7 +293,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const eventoExiste = calendar.getEventById(resposta['id']);
 
                 // Verificar se encontrou o evento no FullCalendar pelo id
-                if(eventoExiste){
+                if (eventoExiste) {
 
                     // Atualizar os atributos do evento com os novos valores do banco de dados
                     eventoExiste.setProp('title', resposta['title']);

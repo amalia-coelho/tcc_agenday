@@ -186,38 +186,110 @@
 		</div>
 
 
-    <!-- Modal Visualizar -->
-    <div class="modal fade" id="visualizarModal" tabindex="-1" aria-labelledby="visualizarModalLabel" aria-hidden="true">
+  <!-- Modal Visualizar -->
+  <div class="modal fade" id="visualizarModal" tabindex="-1" aria-labelledby="visualizarModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
+
                     <h1 class="modal-title fs-5" id="visualizarModalLabel">Visualizar o Evento</h1>
+
+                    <h1 class="modal-title fs-5" id="editarModalLabel" style="display: none;">Editar o Evento</h1>
+
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
 
-                    <dl class="row">
+                    <div id="visualizarEvento">
 
-                        <dt class="col-sm-3">ID: </dt>
-                        <dd class="col-sm-9" id="visualizar_id"></dd>
+                        <dl class="row">
 
-                        <dt class="col-sm-3">Título: </dt>
-                        <dd class="col-sm-9" id="visualizar_title"></dd>
+                            <dt class="col-sm-3">ID: </dt>
+                            <dd class="col-sm-9" id="visualizar_id"></dd>
 
-                        <dt class="col-sm-3">Início: </dt>
-                        <dd class="col-sm-9" id="visualizar_start"></dd>
+                            <dt class="col-sm-3">Título: </dt>
+                            <dd class="col-sm-9" id="visualizar_title"></dd>
 
-                        <dt class="col-sm-3">Fim: </dt>
-                        <dd class="col-sm-9" id="visualizar_end"></dd>
-						<a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i class="bi bi-trash-fill delete-icon"></i></a>  
-                    </dl>
+                            <dt class="col-sm-3">Início: </dt>
+                            <dd class="col-sm-9" id="visualizar_start"></dd>
+
+                            <dt class="col-sm-3">Fim: </dt>
+                            <dd class="col-sm-9" id="visualizar_end"></dd>
+
+                        </dl>
+
+                        <button class="btn btn-warning" id="btnViewEditEvento">Editar</button>
+						<a href="" id="apagar_evento" class="btn btn-danger">Apagar</a>
+
+                    </div>
+
+                    <div id="editarEvento" style="display: none;">
+
+                        <span id="msgEditEvento"></span>
+
+                        <form method="POST" id="formEditEvento">
+
+                            <input type="hidden" name="edit_id" id="edit_id">
+
+                            <div class="row mb-3">
+                                <label for="edit_title" class="col-sm-2 col-form-label">Título</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="edit_title" class="form-control" id="edit_title" placeholder="Título do evento">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="edit_start" class="col-sm-2 col-form-label">Início</label>
+                                <div class="col-sm-10">
+                                    <input type="datetime-local" name="edit_start" class="form-control" id="edit_start">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="edit_end" class="col-sm-2 col-form-label">Fim</label>
+                                <div class="col-sm-10">
+                                    <input type="datetime-local" name="edit_end" class="form-control" id="edit_end">
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <label for="edit_color" class="col-sm-2 col-form-label">Cor</label>
+                                <div class="col-sm-10">
+                                    <select name="edit_color" class="form-control" id="edit_color">
+                                        <option value="">Selecione</option>
+                                        <option style="color:#FFD700;" value="#FFD700">Amarelo</option>
+                                        <option style="color:#0071c5;" value="#0071c5">Azul Turquesa</option>
+                                        <option style="color:#FF4500;" value="#FF4500">Laranja</option>
+										<option style="color:#657ed4;" value="#657ed4">Azul Agenday</option>
+                                        <option style="color:#8B4513;" value="#8B4513">Marrom</option>
+                                        <option style="color:#1C1C1C;" value="#1C1C1C">Preto</option>
+                                        <option style="color:#436EEE;" value="#436EEE">Royal Blue</option>
+                                        <option style="color:#A020F0;" value="#A020F0">Roxo</option>
+ 										<option style="color:#6d26f8;" value="#6d26f8">Roxo Valorun</option>
+                                        <option style="color:#40E0D0;" value="#40E0D0">Turquesa</option>
+                                        <option style="color:#228B22;" value="#228B22">Verde</option>
+                                        <option style="color:#8B0000;" value="#8B0000">Vermelho</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button type="button" name="btnViewEvento" class="btn btn-primary" id="btnViewEvento">Cancelar</button>
+
+                            <button type="submit" name="btnEditEvento" class="btn btn-warning" id="btnEditEvento">Salvar</button>
+
+                        </form>
+
+                    </div>
 
                 </div>
             </div>
         </div>
     </div>
+	<!-- fim do modal cadastrar -->
+
+
 <!-- Modal de Alteração -->
-<div class="modal fade" id="alterarModal" tabindex="-1" aria-labelledby="alterarModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="alterarModal" tabindex="-1" aria-labelledby="alterarModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -279,7 +351,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     	<!-- Fim do modal de Alteração -->
 
 		<!-- Modal De Exclusao -->
