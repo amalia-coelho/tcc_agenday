@@ -207,23 +207,23 @@
         <div class="espaco filtro-btn sindrome">
           <div class="col">
                   <div class="select-btn">
-                    <span class="btn-text">Selecionar Data</span>
+                    <span class="btn-text" id="seltet">Selecionar Data</span>
                     <i class="bi bi-chevron-down"></i>
                   </div>
                   <ul class="list-itens">
-                        <li class="item check-all">
+                        <li class="item check-all" onclick="recente()">
                           <!-- Checkbox oculto -->
                           <input type="radio" class="checkbox dateee" name="Date" value="Recente" id="recente">
                           <label class="checkbox-label" for="recente"></label>
                           </span>
-                          <span class="item-text">Recente</span>
+                          <span class="item-text" >Recente</span>
                         </li>
-                        <li class="item check-all">
+                        <li class="item check-all" onclick="antigo()">
                           <!-- Checkbox oculto -->
                           <input type="radio" class="checkbox dateee" name="Date" value="Antigo" id="antigo">
                           <label class="checkbox-label" for="antigo"></label>
                           </span>
-                          <span class="item-text">Antigo</span>
+                          <span class="item-text" >Antigo</span>
                         </li>
                   </ul>
                 </div>
@@ -262,32 +262,32 @@
 						<a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i class="bi bi-trash-fill delete-icon"></i></a>  
 					</div>
 				</section>
+				<!-- Modal De Exclusao -->
+	<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content custom-modal">
+			  <div class="modal-circle">
+				  <i class="bi bi-x-circle mt-5" style="color: #ff0000; font-size:5em;display: flex; align-items: center; justify-content: center;"></i>
+			  </div>
+				<div class="modal-header" style="background-color: #fff; border: none; text-align: center; justify-content: center;">
+					<h5 class="modal-title" style="color:#000; font-size:1.5em ">Você tem certeza?</h5>
+				</div>
+				<div class="modal-body" style="text-align: center;">
+					<p>Você realmente deseja excluir esses registros? Este processo não pode ser desfeito.</p>
+				</div>
+				<div class="modal-footer" style="border: none; justify-content: center;">
+				  <a href="php/delete_comunicado.php?cod=<?php echo $item['cd_comunicado'];?>"><button type="button" class="btn btn-danger">Sim, Excluir</button></a>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- fim do Modal De Exclusao -->
 				<?php
 			}
 			?>	
 
-			<!-- Modal De Exclusao -->
-<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content custom-modal">
-          <div class="modal-circle">
-              <i class="bi bi-x-circle mt-5" style="color: #ff0000; font-size:5em;display: flex; align-items: center; justify-content: center;"></i>
-          </div>
-            <div class="modal-header" style="background-color: #fff; border: none; text-align: center; justify-content: center;">
-                <h5 class="modal-title" style="color:#000; font-size:1.5em ">Você tem certeza?</h5>
-            </div>
-            <div class="modal-body" style="text-align: center;">
-                <p>Você realmente deseja excluir esses registros? Este processo não pode ser desfeito.</p>
-            </div>
-            <div class="modal-footer" style="border: none; justify-content: center;">
-              <a href="php/delete_comunicado.php?cod=<?php echo $item['cd_comunicado'];?>"><button type="button" class="btn btn-danger">Sim, Excluir</button></a>
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- fim do Modal De Exclusao -->
 
 
     	<!-- Modal de Alteração -->
@@ -458,7 +458,18 @@
 	<script src="js/jQuery-Mask-Plugin-master/src/jquery.mask.js"></script>
 	  <script src="js/select-comunicado.js"></script></body>
 	  <script src="js/selectcheck.js"></script></body>
-
+	<script>
+					function recente(){
+		var selecttexto = document.getElementById('seltet');
+		console.log(selecttexto);
+		selecttexto.innerHTML = "Recente";
+   }
+					function antigo(){
+						var selecttexto = document.getElementById('seltet');
+		// console.log(selecttexto);
+		selecttexto.innerHTML = "Antigo";
+   }
+	</script>
 </body>
 
 </html>

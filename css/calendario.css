@@ -154,6 +154,51 @@ body {
 }
 
 
+.data-evento{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: auto;
+}
+
+.info-evento {
+    display: flex;
+    background: #b6b6fc;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 50%;
+    padding: 10px;
+    border-radius: 5px;
+    text-transform: capitalize;
+    z-index: 999;
+    align-content: center;
+    color: var(--branco);
+    cursor: pointer;
+    text-shadow: 1px 1px 1px #000;
+    transition: 0.2s ease-in-out;
+}
+
+.info-evento:hover{
+    transform: scale(1.01);
+}
+
+h3{
+    margin-bottom: 0;
+}
+
+.info-custom{
+    margin: 0 70px;
+}
+
+.info-buttons button i, .info-buttons i{
+    text-shadow: 1px 1px 1px #000;
+    color: var(--branco);
+    font-size: 20px;
+    cursor: pointer;
+    /* color: var(--cinza); */
+}
 
 
 @media screen and (max-width: 480px) {

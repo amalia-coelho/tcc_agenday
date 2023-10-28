@@ -96,9 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (checkedItems && checkedItems.length > 0) {
       const itemCount = checkedItems.length;
-      btnText.innerText = itemCount > 1 ? `${itemCount} Síndromes` : `${itemCount} Síndrome`;
+      btnText.innerText = itemCount > 1 ? `${itemCount} Recente` : `${itemCount} Antigo`;
     } else {
-      btnText.innerText = "Selecionar Síndrome";
+      btnText.innerText = "Selecionar Data";
     }
   }
 });

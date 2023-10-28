@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
         checkbox.checked = !checkbox.checked;
         item.classList.toggle('selected');
         updateButtonText(turma, itens1);
-        updateButtonText2(sindrome, itens2);
     }
 
     itens1.forEach(item => {
@@ -81,20 +80,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Função para atualizar o texto do botão de seleção de Síndrome
-    function updateButtonText2(sindrome, items) {
-        const checkedItems = Array.from(items).filter(item => {
-            const checkbox = item.querySelector('.checkbox');
-            return checkbox.checked;
-        });
 
-        const btnText = sindrome.querySelector(".btn-text");
 
-        if (checkedItems && checkedItems.length > 0) {
-            const itemCount = checkedItems.length;
-            btnText.innerText = itemCount > 1 ? `Antigo` : `Recente`;
-        } else {
-            btnText.innerText = "Selecionar Data";
-        }
-    }
+//    let dropdown = document.querySelector('.dropdown');
+//    dropdown.onclick = function(){
+//     dropdown.classList.toggle('active');
+//    }
 });
