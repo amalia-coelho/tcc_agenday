@@ -353,9 +353,7 @@
 							<p id="exibir_cod" style="display: none;"></p>
 							<p id="exibir_path" style="display: none;"></p>
 						</div>
-							<div id="exibe2">
-		
-							</div>
+							<div id="exibe2"></div>
 						<div class="modal-footer">
 							<button type="submit" class="btn btn-roxo" id="salvarAlterar">Salvar Alterações</button>
 							<button type="button" class="btn btn-azul" data-bs-dismiss="modal" id="fecharAlterar">Cancelar</button>
