@@ -137,52 +137,53 @@
 	<div class="data-title">
 		<h2>Eventos</h2>
 	</div>
-						<div class="info-evento mt-4 adm" style="z-index: 999;">
-							<div class="info-custom info-title">
-								<h3>toma</h3>
-							</div>
-							<div class="info-custom info-date">
-								<h4>25/25/2025</h4>
-							</div>
-							<div class="info-custom info-buttons">
-								<button data-bs-toggle="modal" data-bs-target="#alterarModal" style="border: none;background: none !important;">
-									<i class="bi bi-pencil-square edit-icon"></i>
-								</button>
-								<a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i class="bi bi-trash-fill delete-icon"></i></a>  
+    <?php 
+					$sql = 'SELECT * FROM events';
+					foreach ($conn->query($sql) as $row) {
+				?>
+                    <div class="info-evento mt-4 adm" style="z-index: 999;">
+                        <div class="info-custom info-title">
+                            <h3><?php echo $row['title']; ?></h3>
+                        </div>
+                        <div class="info-custom info-date">
+                            <h4><?php echo $row['start']; ?>5</h4>
+                        </div>
+                        <div class="info-custom info-buttons">
+                            <button data-bs-toggle="modal" data-bs-target="#alterarModal" style="border: none;background: none !important;">
+                                <i class="bi bi-pencil-square edit-icon"></i>
+                            </button>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash-fill delete-icon"></i></a>  
+                            
+                        </div>
+                    </div>
+					
+                    <!-- Modal De Exclusao EMBAIXO -->
+                    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content custom-modal">
+                      <div class="modal-circle">
+                          <i class="bi bi-x-circle mt-5" style="color: #ff0000; font-size:5em;display: flex; align-items: center; justify-content: center;"></i>
+                      </div>
+                        <div class="modal-header" style="background-color: #fff; border: none; text-align: center; justify-content: center;">
+                            <h5 class="modal-title" style="color:#000; font-size:1.5em ">Você tem certeza?</h5>
+                        </div>
+                        <div class="modal-body" style="text-align: center;">
+                            <p>Você realddddmente deseja excluir esses registros? Este processo não pode ser desfeito.</p>
+                        </div>
+                        <div class="modal-footer" style="border: none; justify-content: center;">
+                          <a href="php/delete_events.php?cod=<?php echo $row['id'];?>"><button type="button" class="btn btn-danger">Sim, Excluir</button></a>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não, não tenho</button>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                    
+                    <!-- fim do Modal De Exclusao EMBAIXO -->
+	
+				<?php    		
+					}
+				?>
 
-							</div>
-						</div>
-						<div class="info-evento mt-4 adm">
-							<div class="info-custom info-title">
-								<h3>toma</h3>
-							</div>
-							<div class="info-custom info-date">
-								<h4>25/25/2025</h4>
-							</div>
-							<div class="info-custom info-buttons">
-								<button data-bs-toggle="modal" data-bs-target="#alterarModal" style="border: none;background: none !important;">
-									<i class="bi bi-pencil-square edit-icon"></i>
-								</button>
-								<a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i class="bi bi-trash-fill delete-icon"></i></a>  
-
-							</div>
-						</div>
-						<div class="info-evento mt-4 adm">
-							<div class="info-custom info-title">
-								<h3>toma</h3>
-							</div>
-							<div class="info-custom info-date">
-								<h4>25/25/2025</h4>
-							</div>
-							<div class="info-custom info-buttons">
-								<button data-bs-toggle="modal" data-bs-target="#alterarModal" style="border: none;background: none !important;">
-									<i class="bi bi-pencil-square edit-icon"></i>
-								</button>
-								<a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i class="bi bi-trash-fill delete-icon"></i></a>  
-
-							</div>
-						</div>
-				</div>
 		</div>
 
 
@@ -272,11 +273,11 @@
                                     </select>
                                 </div>
                             </div>
-
+                            
                             <button type="button" name="btnViewEvento" class="btn btn-primary" id="btnViewEvento">Cancelar</button>
-
+                            
                             <button type="submit" name="btnEditEvento" class="btn btn-warning" id="btnEditEvento">Salvar</button>
-
+                            
                         </form>
 
                     </div>
