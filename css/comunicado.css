@@ -6,10 +6,6 @@ main {
     padding-bottom: 2rem;
     height: 100vh;
     /* background: url('../img/doisfatores.png') center center no-repeat fixed; */
-    /* -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; */
     padding-left: 5%;
     padding-right: 5%;
     position: relative;
@@ -18,109 +14,16 @@ main {
 
 /* background */
 
-.body {
-    margin: auto;
-    overflow: auto;
-    background-size: 400% 400%;
-    background: linear-gradient(315deg, #fbfbff, #fff);
-    animation: gradient 30s linear infinite;
+body {
+    background: linear-gradient(90deg, rgba(165, 165, 165, 0.03) 0%, rgba(165, 165, 165, 0.03) 8%, rgba(235, 235, 235, 0.03) 8%, rgba(235, 235, 235, 0.03) 9%, rgba(7, 7, 7, 0.03) 9%, rgba(7, 7, 7, 0.03) 14%, rgba(212, 212, 212, 0.03) 14%, rgba(212, 212, 212, 0.03) 17%, rgba(219, 219, 219, 0.03) 17%, rgba(219, 219, 219, 0.03) 95%, rgba(86, 86, 86, 0.03) 95%, rgba(86, 86, 86, 0.03) 100%), linear-gradient(67.5deg, rgba(80, 80, 80, 0.03) 0%, rgba(80, 80, 80, 0.03) 11%, rgba(138, 138, 138, 0.03) 11%, rgba(138, 138, 138, 0.03) 17%, rgba(122, 122, 122, 0.03) 17%, rgba(122, 122, 122, 0.03) 24%, rgba(166, 166, 166, 0.03) 24%, rgba(166, 166, 166, 0.03) 27%, rgba(245, 245, 245, 0.03) 27%, rgba(245, 245, 245, 0.03) 89%, rgba(88, 88, 88, 0.03) 89%, rgba(88, 88, 88, 0.03) 100%), linear-gradient(67.5deg, rgba(244, 244, 244, 0.03) 0%, rgba(244, 244, 244, 0.03) 4%, rgba(16, 16, 16, 0.03) 4%, rgba(16, 16, 16, 0.03) 10%, rgba(157, 157, 157, 0.03) 10%, rgba(157, 157, 157, 0.03) 20%, rgba(212, 212, 212, 0.03) 20%, rgba(212, 212, 212, 0.03) 83%, rgba(5, 5, 5, 0.03) 83%, rgba(5, 5, 5, 0.03) 84%, rgba(237, 237, 237, 0.03) 84%, rgba(237, 237, 237, 0.03) 100%), linear-gradient(90deg, #FFF, #FFF);
     background-attachment: fixed;
-}
-
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    100% {
-        background-position: 100% 50%;
-    }
-}
-
-.wave {
-    background: rgb(101, 126, 212, 0.75);
-    border-radius: 1000% 1000% 0 0;
-    position: fixed;
-    width: 200%;
-    height: 6em;
-    animation: wave 10s -3s linear infinite;
-    transform: translate3d(0, 0, 0);
-    opacity: 0.8;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-}
-
-.wave::before,
-.wave::after {
-    content: "";
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: rgba(101, 126, 212, 0.75);
-    border-radius: 50%;
-    animation: particles 8s infinite;
-}
-
-.wave::before {
-    top: -20px;
-    left: 50%;
-}
-
-.wave::after {
-    top: -20px;
-    left: 100%;
-}
-
-.wave:nth-of-type(2) {
-    bottom: -1.25em;
-    animation: wave 18s linear reverse infinite;
-    opacity: 0.8;
-}
-
-.wave:nth-of-type(3) {
-    bottom: -2.5em;
-    animation: wave 20s -1s reverse infinite;
-    opacity: 0.9;
-}
-
-@keyframes wave {
-    2% {
-        transform: translateX(1);
-    }
-
-    25% {
-        transform: translateX(-25%);
-    }
-
-    50% {
-        transform: translateX(-50%);
-    }
-
-    75% {
-        transform: translateX(-25%);
-    }
-
-    100% {
-        transform: translateX(1);
-    }
-}
-
-@keyframes particles {
-    0% {
-        transform: translateY(0) translateX(0) scale(1);
-        opacity: 0.8;
-    }
-
-    50% {
-        transform: translateY(-100px) translateX(50px) scale(0.8);
-        opacity: 0.5;
-    }
-
-    100% {
-        transform: translateY(-200px) translateX(100px) scale(0.6);
-        opacity: 0;
-    }
+    /* Defina o background como fixo */
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 /* fim do background */
