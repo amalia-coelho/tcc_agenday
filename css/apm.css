@@ -353,6 +353,8 @@ body .alert .bi-x-lg {
     padding: 10px;
     border-radius: 20px;
     transition: 0.3s ease-in-out;
+    height: 300px;
+
 }
 
 
