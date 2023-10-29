@@ -128,10 +128,14 @@ body {
 .price .btn {
     color: #FFF;
     margin-right: 10px;
-    background-color: var(--roxo) !important;
+    /* background-color: var(--roxo) !important; */
+    background-image: linear-gradient(to right, var(--roxo) 0%, var(--azul) 51%, var(--roxo) 100%);
     width: 100%;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+    background-size: 200% auto;
+    transition: 0.5s;
+
 }
 
 
@@ -381,9 +385,10 @@ body .alert .bi-x-lg {
 
 
 .price .btn:hover {
-    color: #000 !important;
-}
+    background-position: right center !important;
+    /* change the direction of the change here */
 
+}
 
 /* modal exclusao */
 
