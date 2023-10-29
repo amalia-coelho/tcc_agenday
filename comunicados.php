@@ -242,7 +242,7 @@
 				$turmasAlterar = $stmt->fetchAll(PDO::FETCH_COLUMN);
 				$turmasString = implode('-', $turmasAlterar);
 				?>
-				<section class="comunicado horizontal">
+				<section class="comunicado horizontal borda-gradient">
 					<div class="comunicado-image">
 						<img src="<?php echo $item['ds_imagem'];?>" alt="Imagem do comunicado">
 					</div>
