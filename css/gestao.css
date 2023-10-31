@@ -4,7 +4,7 @@ main {
   flex-direction: column;
   align-items: center;
   padding-bottom: 2rem;
-
+  height: 100vh;
   /* background: url('../img/doisfatores.png') center center no-repeat fixed;  */
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -44,14 +44,15 @@ main {
   left: 45%;
   width: 30%;
   height: 4px;
-  border-bottom: 4px solid var(--roxo);
-  background-color: var(--roxo);
+  background-image: linear-gradient(to right, var(--roxo) 0%, var(--azul) 51%, var(--roxo) 100%);
+  background-size: 200% auto;  
   transform: translateX(-50%);
   transition: width 0.3s;
 }
 
 .comuni h1:hover::after {
   width: 80%;
+  background-position: right center !important;  
 }
 
 .gestao-container {

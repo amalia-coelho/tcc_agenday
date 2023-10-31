@@ -51,14 +51,16 @@ body {
     left: 50%;
     width: 5%;
     height: 4px;
-    border-bottom: 4px solid var(--azul);
-    background-color: var(--roxo);
+    background-image: linear-gradient(to right, var(--roxo) 0%, var(--azul) 51%, var(--roxo) 100%);
+    background-size: 200% auto;
     transform: translateX(-50%);
-    transition: width 0.3s;
+    transition: 0.3s;
 }
 
 .apm-title h1:hover::after {
     width: 10%;
+    background-position: right center !important;
+
 }
 
 .apm-title p {
@@ -129,10 +131,10 @@ body {
     color: #FFF;
     margin-right: 10px;
     /* background-color: var(--roxo) !important; */
-    background-image: linear-gradient(to right, var(--roxo) 0%, var(--azul) 51%, var(--roxo) 100%);
     width: 100%;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+    background-image: linear-gradient(to right, var(--roxo) 0%, var(--azul) 51%, var(--roxo) 100%);
     background-size: 200% auto;
     transition: 0.5s;
 
@@ -312,8 +314,8 @@ body .alert .bi-x-lg {
 /* Ícone de lápis */
 .edit-icon {
     position: absolute;
-    top: 40%;
-    left: 50%;
+    bottom: 10%;
+    left: 10%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
     padding: 5px;
@@ -329,7 +331,7 @@ body .alert .bi-x-lg {
 }
 
 .apm-card .bi-pencil-square {
-    color: var(--branco);
+    color: var(--cinza);
     font-size: 23px;
 }
 
@@ -338,7 +340,7 @@ body .alert .bi-x-lg {
     border-radius: 100%;
     padding: 10px 10px;
     position: absolute;
-    top: 5px;
+    bottom: 14%;
     right: 5px;
     color: var(--cinza);
     font-size: 23px;
@@ -384,7 +386,8 @@ body .alert .bi-x-lg {
 
 
 
-.price .btn:hover {
+.apm-card:hover
+.price .btn {
     background-position: right center !important;
     /* change the direction of the change here */
 

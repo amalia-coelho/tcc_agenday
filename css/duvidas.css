@@ -130,7 +130,29 @@ nav.menu-lateral {
 
 .duvidas h1 {
   margin-bottom: 3rem;
+  position: relative;
+  font-size: 50px;
 }
+
+.duvidas h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0.1rem;
+    left: 50%;
+    width: 10%;
+    height: 4px;
+    background-image: linear-gradient(to right, var(--roxo) 0%, var(--azul) 51%, var(--roxo) 100%);
+    background-size: 200% auto;
+    transform: translateX(-50%);
+    transition: width 0.3s;
+}
+
+.duvidas h1:hover::after {
+    width: 20%;
+    background-position: right center !important;
+}
+
+
 
 ol li {
   margin-bottom: 15px;

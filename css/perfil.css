@@ -96,7 +96,29 @@ body {
 
 .perfil h1 {
   font-size: 60px;
+  position: relative;
 }
+
+.perfil h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0.1rem;
+    left: 50%;
+    width: 5%;
+    height: 4px;
+    background-image: linear-gradient(to right, var(--roxo) 0%, var(--azul) 51%, var(--roxo) 100%);
+    background-size: 200% auto;
+    transform: translateX(-50%);
+    transition: width 0.3s;
+
+}
+
+.perfil h1:hover::after {
+    width: 10%;
+    background-position: right center !important;
+}
+
+
 
 .perfil-container {
   margin-left: 84px;

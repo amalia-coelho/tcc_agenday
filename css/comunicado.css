@@ -69,7 +69,7 @@ body {
     background-color: #fbfbff;
     position: absolute;
     width: 220px;
-    z-index: 2;
+    z-index: 999;
     height: 300px;
     font-family: var(--pop);
 }
@@ -131,6 +131,7 @@ body {
     margin-top: 5rem;
     position: relative;
     transition: 0.2s ease-in-out;
+    z-index: 2;
 
 }
 
@@ -144,7 +145,6 @@ body {
     top: 0;
     height: 10px;
     background-image: linear-gradient(to right, var(--roxo) 0%, var(--azul) 51%, var(--roxo) 100%);
-    z-index: -1;
     /* border-radius: 10px; */
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
@@ -167,7 +167,6 @@ body {
     bottom: 0;
     height: 10px;
     background-image: linear-gradient(to right, var(--roxo) 0%, var(--azul) 51%, var(--roxo) 100%);
-    z-index: -1;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     background-size: 200% auto !important;
@@ -230,8 +229,8 @@ body {
     border-radius: 100%;
     padding: 10px 10px;
     position: absolute;
-    top: 5px;
-    right: 5px;
+    bottom: 20px;
+    right: 40px;
     color: var(--cinza);
     font-size: 23px;
     cursor: pointer;
@@ -253,7 +252,6 @@ body {
     align-items: center;
     padding: 0.5rem 0;
     width: 20rem;
-    Z-INDEX: -1;
 }
 
 .horizontal .comunicado-image img {
@@ -306,16 +304,17 @@ body {
     position: absolute;
     bottom: 0.1rem;
     left: 50%;
-    width: 30%;
+    width: 20%;
     height: 4px;
-    border-bottom: 4px solid var(--azul);
-    background-color: var(--roxo);
+    background-image: linear-gradient(to right, var(--azul) 0%, var(--roxo) 51%, var(--azul) 100%);
+    background-size: 200% auto;
     transform: translateX(-50%);
     transition: width 0.3s;
 }
 
 .comuni h1:hover::after {
-    width: 80%;
+    width: 40%;
+    background-position: right center !important;    
 }
 
 .comunicado-img {

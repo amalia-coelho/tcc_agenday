@@ -50,14 +50,15 @@ body {
     left: 50%;
     width: 40%;
     height: 4px;
-    border-bottom: 4px solid var(--roxo);
-    background-color: var(--roxo);
+    background-image: linear-gradient(to right, var(--roxo) 0%, var(--azul) 51%, var(--roxo) 100%);
+    background-size: 200% auto;
     transform: translateX(-50%);
     transition: width 0.3s;
 }
 
 .adm-title h1:hover::after {
     width: 65%;
+    background-position: right center !important;
 }
 
 /* botao */
