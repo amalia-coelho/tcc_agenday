@@ -42,14 +42,8 @@
           </a>
         </li>
         <li class="item-menu">
-          <a href="index.php">
-            <span class="icon"><i class="bi bi-house-door-fill"></i></span>
-            <span class="txt-link">Home</span>
-          </a>
-        </li>
-        <li class="item-menu">
           <a href="calendario.php">
-            <span class="icon"><i class="bi bi-calendar2-week-fill"></i></span>
+            <span class="icon"><i class="bi bi-house-door-fill"></i></span>
             <span class="txt-link">Calendário</span>
           </a>
         </li>

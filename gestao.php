@@ -100,14 +100,8 @@
           </a>
         </li>
         <li class="item-menu">
-          <a href="index.php">
-            <span class="icon"><i class="bi bi-house-door-fill"></i></span>
-            <span class="txt-link">Home</span>
-          </a>
-        </li>
-        <li class="item-menu">
           <a href="calendario.php">
-            <span class="icon"><i class="bi bi-calendar2-week-fill"></i></span>
+            <span class="icon"><i class="bi bi-house-door-fill"></i></span>
             <span class="txt-link">Calendário</span>
           </a>
         </li>
@@ -136,7 +130,7 @@
           </a>
         </li>
         <li class="item-menu">
-          <a href="duvidas.html">
+          <a href="duvidas.php">
             <span class="icon"><i class="bi bi-question-lg"></i></span>
             <span class="txt-link">Dúvidas</span>
           </a>
@@ -211,7 +205,7 @@
 		<form id="alterarGestao" enctype="multipart/form-data">
 			<div class="modal-header">
 				<h1 class="modal-title fs-5" id="editModalLabel">Editar Membro</h1>
-				<button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
+				<button type="button" class="btn-close btn-close-white close-button" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
 				<form>
@@ -265,7 +259,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar Membro</h1>
-          <button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close btn-close-white close-button" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 		    <form id="addGestao" enctype="multipart/form-data">
         <div class="modal-body">

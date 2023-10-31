@@ -44,14 +44,8 @@
           </a>
         </li>
         <li class="item-menu">
-          <a href="index.html">
-            <span class="icon"><i class="bi bi-house-door-fill"></i></span>
-            <span class="txt-link">Home</span>
-          </a>
-        </li>
-        <li class="item-menu">
           <a href="calendario.php">
-            <span class="icon"><i class="bi bi-calendar2-week-fill"></i></span>
+            <span class="icon"><i class="bi bi-house-door-fill"></i></span>
             <span class="txt-link">Calendário</span>
           </a>
         </li>
@@ -92,7 +86,7 @@
           </a>
         </li>
         <li class="item-menu">
-          <a href="logout.php">
+				<a href="php/logout.php">
             <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
             <span class="txt-link">Sair</span>
           </a>

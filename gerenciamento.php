@@ -93,7 +93,7 @@
       <li class="item-menu">
 				<a href="calendario.php">
 					<span class="icon"><i class="bi bi-house-door-fill"></i></span>
-					<span class="txt-link">Home</span>
+					<span class="txt-link">Calendário</span>
 				</a>
 			</li>
         <li class="item-menu">

@@ -50,15 +50,9 @@
 				<span class="txt-link">Usuário</span>
 				</a>
 			</li>
-			<li class="item-menu">
-				<a href="index.html">
-				<span class="icon"><i class="bi bi-house-door-fill"></i></span>
-				<span class="txt-link">Home</span>
-				</a>
-			</li>
 			<li class="item-menu ativo">
 				<a href="#">
-				<span class="icon"><i class="bi bi-calendar2-week-fill"></i></span>
+                <span class="icon"><i class="bi bi-house-door-fill"></i></span>
 				<span class="txt-link">Calendário</span>
 				</a>
 			</li>
@@ -197,7 +191,7 @@
 
                     <h1 class="modal-title fs-5" id="editarModalLabel" style="display: none;">Editar o Evento</h1>
 
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
 
@@ -286,6 +280,7 @@
             </div>
         </div>
     </div>
+	<!-- fim do modal cadastrar -->
 
 
 <!-- Modal de Alteração -->
@@ -294,7 +289,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="alterarModalLabel">Alterar Evento</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
 
@@ -383,7 +378,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="cadastrarModalLabel">Cadastrar o Evento</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
 
