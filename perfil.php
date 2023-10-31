@@ -68,7 +68,7 @@
 			<li class="item-menu">
 				<a href="calendario.php">
 					<span class="icon"><i class="bi bi-house-door-fill"></i></span>
-					<span class="txt-link">Home</span>
+					<span class="txt-link">Calendário</span>
 				</a>
 			</li>
         <li class="item-menu">
@@ -179,7 +179,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<h1 class="modal-title fs-5" id="editModalLabel">Alterar Senha</h1>
-					<button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
+					<button type="button" class="btn-close btn-close-white close-button" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<!-- Inputs para a alteração -->
