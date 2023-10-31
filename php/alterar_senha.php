@@ -1,4 +1,17 @@
 <?php
+if (empty($_POST['senhaAtual']) || empty($_POST['senhaNova']) || empty($_POST['confirmacao'])) {
+    echo '<div class="alert">
+            <i class="bi bi-exclamation-circle"></i>
+            <span class="msg" style="font-size: 17px">Por favor, preencha todos os campos.</span>
+        </div>';
+}
+elseif (strlen($_POST['senhaNova']) < 8){
+    echo '<div class="alert">
+            <i class="bi bi-exclamation-circle"></i>
+            <span class="msg" style="font-size: 17px">Senha de no mínimo 8 caracteres.</span>
+        </div>';
+} 
+else {
     try{
         session_start();
         include('conexao.php');
@@ -38,4 +51,5 @@
         echo 'ERROR: ' . $e->getMessage();
         echo "<br>".$stmt->rowCount();
     }
+}
 ?>
