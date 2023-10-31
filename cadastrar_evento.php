@@ -27,3 +27,5 @@ if ($cad_event->execute()) {
 
 // Converter o array em objeto e retornar para o JavaScript
 echo json_encode($retorna);
+?>
+

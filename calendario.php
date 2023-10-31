@@ -286,7 +286,6 @@
             </div>
         </div>
     </div>
-	<!-- fim do modal cadastrar -->
 
 
 <!-- Modal de Alteração -->
