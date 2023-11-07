@@ -314,7 +314,7 @@ body .alert .bi-x-lg {
 /* Ícone de lápis */
 .edit-icon {
     position: absolute;
-    bottom: 10%;
+    bottom: 8%;
     left: 10%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
@@ -340,18 +340,26 @@ body .alert .bi-x-lg {
     border-radius: 100%;
     padding: 10px 10px;
     position: absolute;
-    bottom: 14%;
+    bottom: 12%;
     right: 5px;
     color: var(--cinza);
     font-size: 23px;
     cursor: pointer;
     display: none;
     z-index: 1;
+    transition: 0.2s;
 }
 
 .apm-card:hover .delete-icon {
     display: block;
     /* Mostrar quando o cartão estiver em foco */
+}
+
+.delete-icon:hover{
+    background: red;
+    border-radius: 5px;
+    padding: 5px 12px;
+    color: var(--branco);
 }
 
 /* FIM EDIT CARD APM */
