@@ -236,7 +236,16 @@ body {
     cursor: pointer;
     display: none;
     z-index: 1;
+    transition: .2s;
 }
+
+.delete-icon:hover{
+    background: red;
+    border-radius: 5px;
+    padding: 5px 12px;
+    color: var(--branco);
+}
+
 
 .comunicado:hover .delete-icon {
     display: block;
@@ -257,7 +266,6 @@ body {
 .horizontal .comunicado-image img {
     height: auto;
     width: 20rem;
-    padding-left: 10px;
     display: block;
     transition: .5s ease-in-out;
 }
@@ -270,6 +278,7 @@ body {
     flex: 2;
     padding: 20px;
     color: #000;
+    text-align: justify;
 }
 
 .comunicado-header h2 {
@@ -591,10 +600,15 @@ body .alert .bi-x-lg {
 
 
 /* responsividade */
-@media screen and (max-width: 480px) {
+    @media screen and (max-width: 480px) {
+        .adm-filtro {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
     .comunicado {
-        border-radius: 5px;
+        border-radius: 10px;
         flex-direction: column;
         margin-left: 3rem;
         box-shadow: -1px 2px 7px 0px rgba(0, 0, 0, 0.493);
@@ -613,6 +627,8 @@ body .alert .bi-x-lg {
 
     .horizontal .comunicado-image img {
         padding-left: 0px;
+        max-width: 100%;
+        border-radius: 10px;
     }
 
     .comunicado-element {
@@ -633,6 +649,7 @@ body .alert .bi-x-lg {
 
     .horizontal .comunicado-image {
         padding: .5rem 0;
+        max-width: 100%;
     }
 
     .comunicado-header h2 {
