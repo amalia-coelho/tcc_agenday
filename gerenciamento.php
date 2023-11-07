@@ -109,12 +109,6 @@
 				</a>
 			</li>
 			<li class="item-menu">
-				<a href="painel.php">
-				<span class="icon"><i class="bi bi-heart-fill"></i></span>
-				<span class="txt-link">Saúde</span>
-				</a>
-			</li>
-			<li class="item-menu">
 				<a href="gestao.php">
 				<span class="icon"><i class="bi bi-person-workspace"></i></span>
 				<span class="txt-link">Gestão</span>
@@ -191,28 +185,41 @@
         <div class="filtro-btn sindrome">
           <div class="col">
                   <div class="select-btn">
-                    <span class="btn-text">Selecionar Síndrome</span>
+                    <span class="btn-text">Selecionar Cargo</span>
                     <i class="bi bi-chevron-down"></i>
                   </div>
                   <ul class="list-itens">
                     <li class="a" id="all-select" style="cursor:pointer;">
                       <label class="form-check-label" for="selectAllOptions" style="cursor:pointer;">Todos</label>
                     </li>
-                    <?php
-                      //exibir o select
-                      $sql = "SELECT * FROM tb_saude";
-
-                      foreach ($conn->query($sql) as $item){?>
                         <li class="item">
                           <!-- Checkbox oculto -->
-                          <input type="checkbox" class="checkbox" name="sindromesAlterar[]" value="<?php echo $item['cd_sindrome'];?>" id="<?php echo $item['nm_sindrome'];?>">
-                          <label class="checkbox-label" for="<?php echo $item['nm_sindrome'];?>"></label>
+                          <input type="checkbox" class="checkbox" name="prof" value="prof" id="prof">
+                          <label class="checkbox-label" for="prof"></label>
                           </span>
-                          <span class="item-text"><?php echo $item['nm_sindrome'];?></span>
+                          <span class="item-text">Professor</span>
                         </li>
-                      <?php
-                      }
-                    ?>
+                        <li class="item">
+                          <!-- Checkbox oculto -->
+                          <input type="checkbox" class="checkbox" name="prof" value="prof" id="prof">
+                          <label class="checkbox-label" for="prof"></label>
+                          </span>
+                          <span class="item-text">Gestão</span>
+                        </li>
+                        <li class="item">
+                          <!-- Checkbox oculto -->
+                          <input type="checkbox" class="checkbox" name="prof" value="prof" id="prof">
+                          <label class="checkbox-label" for="prof"></label>
+                          </span>
+                          <span class="item-text">Representante</span>
+                        </li>
+                        <li class="item">
+                          <!-- Checkbox oculto -->
+                          <input type="checkbox" class="checkbox" name="prof" value="prof" id="prof">
+                          <label class="checkbox-label" for="prof"></label>
+                          </span>
+                          <span class="item-text">Aluno</span>
+                        </li>
                   </ul>
                 </div>
         </div>

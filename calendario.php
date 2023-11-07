@@ -69,12 +69,6 @@
 				</a>
 			</li>
 			<li class="item-menu">
-				<a href="painel.php">
-				<span class="icon"><i class="bi bi-heart-fill"></i></span>
-				<span class="txt-link">Saúde</span>
-				</a>
-			</li>
-			<li class="item-menu">
 				<a href="gestao.php">
 				<span class="icon"><i class="bi bi-person-workspace"></i></span>
 				<span class="txt-link">Gestão</span>
