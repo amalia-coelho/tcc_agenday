@@ -31,7 +31,7 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--roxo );
+  background-color: var(--roxo);
 }
 
 ::-webkit-scrollbar {
@@ -46,6 +46,7 @@
   bottom: 5%;
   border-radius: 35% !important;
   PADDING: 10px 20px !important;
+  z-index: 999 !important;
 }
 
 .add i {

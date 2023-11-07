@@ -45,14 +45,14 @@ main {
   width: 30%;
   height: 4px;
   background-image: linear-gradient(to right, var(--roxo) 0%, var(--azul) 51%, var(--roxo) 100%);
-  background-size: 200% auto;  
+  background-size: 200% auto;
   transform: translateX(-50%);
   transition: width 0.3s;
 }
 
 .comuni h1:hover::after {
   width: 80%;
-  background-position: right center !important;  
+  background-position: right center !important;
 }
 
 .gestao-container {
@@ -161,7 +161,16 @@ main {
   cursor: pointer;
   display: none;
   z-index: 1;
+  transition: .2s;
 }
+
+.delete-icon:hover {
+  background: red;
+  border-radius: 5px;
+  padding: 5px 12px;
+  color: var(--branco);
+}
+
 
 .gestao-container .gestao-users:hover .delete-icon {
   display: block;
@@ -169,13 +178,14 @@ main {
 }
 
 @media screen and (max-width: 480px) {
-.gestao{
-  width: 100%;
-}
-.comuni h1 {
-  font-size: 3em;
-  margin-left: 2rem;
-}
+  .gestao {
+    width: 100%;
+  }
+
+  .comuni h1 {
+    font-size: 3em;
+    margin-left: 2rem;
+  }
 
 }
 

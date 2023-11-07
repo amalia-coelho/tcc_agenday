@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (checkedItems && checkedItems.length > 0) {
       const itemCount = checkedItems.length;
-      btnText.innerText = itemCount > 1 ? `${itemCount} Recente` : `${itemCount} Antigo`;
+      btnText.innerText = itemCount > 1 ? `${itemCount} Cargos` : `${itemCount} Cargo`;
     } else {
       btnText.innerText = "Selecionar Sindrome";
     }
