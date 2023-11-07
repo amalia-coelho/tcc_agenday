@@ -163,7 +163,7 @@ nav.menu-lateral {
 }
 
 .user .campos:hover {
-  bottom: 10px;
+  transform: translateY(-10px);
 }
 
 .mb-3 input {
@@ -347,6 +347,11 @@ body .alert .bi-x-lg {
 
 
 @media screen and (max-width: 480px) {
+  .user-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
   .user {
     font-family: var(--pop);
     font-size: 18px;
@@ -374,7 +379,8 @@ body .alert .bi-x-lg {
   }
 
   .perfil {
-    margin-left: 50px;
+    text-align: start;
+    margin-left: 60px;
   }
 
   #health {
