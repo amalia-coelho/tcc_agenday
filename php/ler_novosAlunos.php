@@ -1,33 +1,43 @@
 <?php
     session_start();
+    include("conexao.php");
 
-    // Validar a extensão do arquivo 
-if ($_FILES['registro_alunos']['type'] == "text/csv") {
-    // Ler os dados do arquivo
-    $dados_arquivo = fopen($_FILES['registro_alunos']['tmp_name'], "r");
+    // Validar a extensão do arquivo
+    if(!isset($_FILES['registro_alunos'])){
+        echo "VAZIO";
+    }else{
+        if ($_FILES['registro_alunos']['type'] == "text/csv") {
+            //select tipoUsuario
+                $sql_selectTipo = "SELECT * FROM tb_nivel";
+                $selectTipo = "<select class='select hidden-select'>";
+                foreach ($conn->query($sql_selectTipo) as $option) {
+                    $selectTipo .= "<option value='".$option['cd_nivel']."'>".$option['nm_nivel']."</option>";
+                }
+                $selectTipo .= "</select>";
+            //fim select TipoUsuario
 
-    $tabela = "<table id='tabelaUsuarios'>";
-    // Percorrer o array de dados do arquivo
-    $primeiraLinha = True;
-    $primeiroRegistro = True;
-    while($linha = fgetcsv($dados_arquivo, 1000, ",")){
-        // Usar array_walk_recursive para criar função recursiva com PHP
-        array_walk_recursive($linha, 'converter');
-        if($primeiraLinha == true){
-            $tabela .= "<thead><tr><th>".$linha[0]."</th><th>".$linha[1]."</th><th>".$linha[2]."</th></tr></thead>";
-            $primeiraLinha = false;
-        }elseif ($primeiroRegistro == true) {
-            $tabela .= "<tbody><tr><td class='rm'>".$linha[0]."</td><td class='nome'>".$linha[1]."</td><td class='email'>".$linha[2]."</td></tr>";
-            $primeiroRegistro = false;
-        }else{
-            $tabela .= "<tr><td class='rm'>".$linha[0]."</td><td class='nome'>".$linha[1]."</td><td class='email'>".$linha[2]."</td></tr>";
+            //select turma
+                $sql_turma = "SELECT * FROM tb_turma";
+                $selectTurma = "<select class='select hidden-select'>";
+                foreach ($conn->query($sql_turma) as $option) {
+                    $selectTurma .= "<option value='".$option['cd_turma']."'>".$option['nm_turma']."</option>";
+                }
+                $selectTurma .= "</select>";
+            //fim select Turma
+
+            // Ler os dados do arquivo
+            $dados_arquivo = fopen($_FILES['registro_alunos']['tmp_name'], "r");
+
+            $tabela = "<table class='table table-hover' id='tabelaUsuarios'>";
+            //THEAD
+            $tabela .= "<thead class='thead'><tr><th scope='col'>Código</th><th scope='col'>Nome</th><th scope='col'>Tipo de usuário</th><th scope='col'>Turma</th><th scope='col'>Email</th><th scope='col'>Ações</th></tr></thead><tbody>";
+            while($linha = fgetcsv($dados_arquivo, 1000, ",")){
+                $tabela .= "<tr><td class='codigo' onclick='habilitarEdicao(this)'>".$linha[0]."</td><td class='nome' onclick='habilitarEdicao(this)'>".$linha[1]."</td><td class='tipoUsuario' onclick='abrirSelect(this)'>".$selectTipo."</td><td class='turma' onclick='abrirSelect(this)'>".$selectTurma."</td><td class='email' onclick='habilitarEdicao(this)'>".$linha[2]."</td><td class='edit' style='width: 100px;'><a onclick='apagarLinha(event.target)'><i class='bi bi-trash'></i></a></td></tr>";
+            }
+            $tabela .= "</tbody></table>";
+            echo $tabela;
         }
     }
-    $tabela .= "</tbody></table>";
-    echo $tabela;
-} else {
-    echo "Necessário enviar arquivo csv!";
-}
 
 // Criar função valor por referência, isto é, quando alter o valor dentro da função, vale para a variável fora da função.
 function converter(&$dados_arquivo){
