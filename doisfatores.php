@@ -22,7 +22,7 @@
 
   </script>
   <!-- /js -->
-  <title>Authenticação de Dois Fatores</title>
+  <title>Atualizar Senha</title>
 </head>
 
 <body>
@@ -35,8 +35,8 @@
       <div class="login-container">
         <div class="login-content">
           <div class="titulo">
-            <h1 class="h1"><label class="log-success">Verificação </label> em <br>
-              <span class="resp">Duas Etapas</span>
+            <h1 class="h1"><label class="log-success">Atualize </label> a<br>
+              <span class="resp">Sua Senha</span>
             </h1>
             <small><a href="#">Verifique seu e-mail e abaixo digite o código de verificação que foi enviado no
                 mesmo</a></small>

@@ -169,10 +169,11 @@
             </div>
           </div>
 		  <div class="suggestion-wrap">
-            <span>Informática</span>
+            <span>Camisa</span>
             <span>Meio Ambiente</span>
             <span>Administração</span>
             <span>Armários</span>
+            <span style="background:red" id="clearSearch">Limpar <i class="bi bi-x-circle-fill"></i></span>
           </div>
 
 			<!-- fim da search bar-->
@@ -338,9 +339,19 @@
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
   			<script src="js/jQuery-Mask-Plugin-master/src/jquery.mask.js"></script>
 			<SCRIpt>
-				$(document).ready(function(){
-    $("#search").on('keyup', function(){
-      var searchTerm = $(this).val().toLowerCase();
+				  $(document).ready(function(){
+    // Evento de clique para spans dentro de suggestion-wrap
+    $(".suggestion-wrap span").click(function(){
+      // Atualiza o valor do campo de pesquisa com o texto do span clicado
+      $("#search").val($(this).text());
+
+      // Executa a função de filtro
+      filterCards();
+    });
+
+    // Função de filtro
+    function filterCards() {
+      var searchTerm = $("#search").val().toLowerCase();
 
       $(".apm-card").each(function(){
         var cardTitle = $(this).find(".card-title").text().toLowerCase();
@@ -352,6 +363,23 @@
           $(this).hide();
         }
       });
+    }
+    // Evento de clique para o span "Limpar"
+    $("#clearSearch").click(function(){
+      // Limpa o valor do campo de pesquisa
+      $("#search").val('');
+
+      // Executa a função de filtro
+      filterCards();
+    });
+    // Evento de clique para o botão de pesquisa
+    $(".btn-search").click(function(){
+      filterCards();
+    });
+
+    // Evento de tecla para pesquisa em tempo real
+    $("#search").on('keyup', function(){
+      filterCards();
     });
   });
 				const input = document.getElementById("search-input");
