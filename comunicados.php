@@ -539,9 +539,4 @@ const expand = () => {
 
 searchBtn.addEventListener("click", expand);
 			</SCRIpt>
-</body>
-
-</html>
-<?php
-    }
-?>
+ck.js"></script>

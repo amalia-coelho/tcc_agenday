@@ -181,8 +181,11 @@
 				<div class="apm-card-container">
 					<?php 
 					$sql = 'SELECT * FROM tb_apm';
-					foreach ($conn->query($sql) as $row) {
-				?>
+					$rows = $conn->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+					
+					if (count($rows) > 0) {
+						foreach ($rows as $row) {
+					?>
 					<div class="apm-group">
 						<!-- inicio card -->
 						<div class="apm-card">
@@ -229,6 +232,8 @@
 					</div>
 					<!-- fim do Modal De Exclusao -->
 				<?php    		
+					}} else{
+						echo "<p class='mt-5' style='font-size:18px;'>Desculpe, não temos produtos disponíveis no momento. Confira novamente mais tarde!</p>";
 					}
 				?>
 			</div>
