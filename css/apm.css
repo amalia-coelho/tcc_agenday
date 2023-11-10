@@ -180,6 +180,15 @@ body {
     border-radius: 16px;
     margin-right: 10px;
     margin-bottom: 10px;
+    transition: 0.2s;
+}
+
+.suggestion-wrap span:hover {
+    transform: translateY(-5px);
+}
+
+#clearSearch:hover>.input-field input {
+    border: 1px solid #ff0000;
 }
 
 /* FIM DA SEARCH BAR */
