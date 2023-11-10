@@ -155,8 +155,30 @@
 					<h1>APM</h1>
 					<p>Olá, aqui é a APM (Associação de Pais e Mestres)! Nessa área é possível somente visualizar todos os itens que são vendidos na nossa escola, caso você queira adquirir alguma coisa, terá que se redirecionar para a secretária da Etec de Itanhaém.</p>
 				</div>
+				
+			<!-- search bar-->
+
+			<div class="inner-form">
+            <div class="input-field">
+              <button class="btn-search" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+              </button>
+              <input id="search" type="text" placeholder="Pesquise aqui"/>
+            </div>
+          </div>
+		  <div class="suggestion-wrap">
+            <span>Informática</span>
+            <span>Meio Ambiente</span>
+            <span>Administração</span>
+            <span>Armários</span>
+          </div>
+
+			<!-- fim da search bar-->
+
 				<div class="apm-card-container">
-				<?php 
+					<?php 
 					$sql = 'SELECT * FROM tb_apm';
 					foreach ($conn->query($sql) as $row) {
 				?>
@@ -315,6 +337,33 @@
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
   			<script src="js/jQuery-Mask-Plugin-master/src/jquery.mask.js"></script>
+			<SCRIpt>
+				$(document).ready(function(){
+    $("#search").on('keyup', function(){
+      var searchTerm = $(this).val().toLowerCase();
+
+      $(".apm-card").each(function(){
+        var cardTitle = $(this).find(".card-title").text().toLowerCase();
+        var cardSub = $(this).find(".card-sub").text().toLowerCase();
+
+        if(cardTitle.includes(searchTerm) || cardSub.includes(searchTerm)){
+          $(this).show();
+        } else {
+          $(this).hide();
+        }
+      });
+    });
+  });
+				const input = document.getElementById("search-input");
+const searchBtn = document.getElementById("search-btn");
+
+const expand = () => {
+  searchBtn.classList.toggle("close");
+  input.classList.toggle("square");
+};
+
+searchBtn.addEventListener("click", expand);
+			</SCRIpt>
 		<!-- /js -->
 	</body>
 </html>
