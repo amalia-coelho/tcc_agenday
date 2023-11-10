@@ -121,6 +121,126 @@ body {
 
 }
 
+/* SEARCH BAR */
+
+.centro-search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on macOS.
+ */
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+.inner-form {
+    width: 100%;
+    margin-bottom: 17px;
+
+}
+
+.inner-form .input-field {
+    height: 70px;
+    width: 100%;
+    position: relative;
+}
+
+.inner-form .input-field input {
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    border: 1px solid #6d26f861;
+    background: #fff;
+    display: block;
+    width: 100%;
+    padding: 10px 32px 10px 70px;
+    font-size: 18px;
+    color: #666;
+    border-radius: 34px;
+}
+
+.inner-form .input-field input.placeholder {
+    color: #ccc;
+    font-size: 18px;
+}
+
+.inner-form .input-field input:-moz-placeholder {
+    color: #ccc;
+    font-size: 18px;
+}
+
+.inner-form .input-field input::-webkit-input-placeholder {
+    color: #ccc;
+    font-size: 18px;
+}
+
+.inner-form .input-field input:hover,
+.inner-form .input-field input:focus {
+    box-shadow: none;
+    outline: 0;
+}
+
+.inner-form .input-field .btn-search {
+    width: 70px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner-form .input-field .btn-search svg {
+    fill: #ccc;
+    width: 30px;
+    height: 30px;
+    transition: all .2s ease-out, color .2s ease-out;
+}
+
+.inner-form .input-field .btn-search:hover,
+.inner-form .input-field .btn-search:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+.inner-form .input-field .btn-search:hover svg,
+.inner-form .input-field .btn-search:focus svg {
+    fill: #666;
+}
+
+.suggestion-wrap {
+    padding: 0 15px;
+}
+
+.suggestion-wrap span {
+    cursor: pointer;
+    font-size: 14px;
+    font-family: var(--pop);
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0 15px;
+    line-height: 32px;
+    color: #fff;
+    border-radius: 16px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+/* FIM DA SEARCH BAR */
 .comunicado {
     display: flex;
     background-color: #fff;
@@ -239,7 +359,7 @@ body {
     transition: .2s;
 }
 
-.delete-icon:hover{
+.delete-icon:hover {
     background: red;
     border-radius: 5px;
     padding: 5px 12px;
@@ -323,7 +443,7 @@ body {
 
 .comuni h1:hover::after {
     width: 40%;
-    background-position: right center !important;    
+    background-position: right center !important;
 }
 
 .comunicado-img {
@@ -600,8 +720,8 @@ body .alert .bi-x-lg {
 
 
 /* responsividade */
-    @media screen and (max-width: 480px) {
-        .adm-filtro {
+@media screen and (max-width: 480px) {
+    .adm-filtro {
         display: flex;
         justify-content: center;
         align-items: center;
