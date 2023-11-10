@@ -80,11 +80,11 @@
             </div>
             <div class="modal-body">
               <form>
-                <div class="mb-3">
+                <div class="mb-3 mod-senha" >
                   <label for="novasenha" class="form-label">Nova Senha</label>
-                  <input type="password" class="form-control" id="novasenha">
+                  <input type="password" class="form-control" placeholder="Insira Sua Nova Senha" id="novasenha">
                 </div>
-                <div class="input-group">
+                <div class="input-group mod-senha">
                   <input type="password" id="password" class="form-control" placeholder="Confirme Sua Senha">
                   <button type="button" id="togglePassword" class="btn">
                     <i class="bi bi-eye" id="eyeIcon"></i>

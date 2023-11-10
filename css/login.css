@@ -10,7 +10,7 @@
     width: 100%;
     background-image: url('../img/login.png');
     background-size: cover;
-    background-position: center;
+    background-position: initial;
     padding-left: 5%;
     padding-right: 5%;
     position: relative;
