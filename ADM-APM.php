@@ -190,6 +190,8 @@
 						<!-- inicio card -->
 						<div class="apm-card">
 							<img src="<?php echo $row['ds_imagem'];?>" alt="" class="card-img">
+							<button data-bs-toggle="modal" data-bs-target="#editModal" class="alterar" cod="<?php echo $row['cd_apm'];?>" nome="<?php echo $row['nm_produto'];?>" valor="<?php echo $row['nr_valor']?>" descricao="<?php echo $row['ds_descricao'];?>" imagem="<?php echo $row['ds_imagem'];?>"><i class="bi bi-pencil-square edit-icon"></i></button>
+							<a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i class="bi bi-trash-fill delete-icon"></i></a>
 							<div class="card-info">
 								<div class="card-text">
 									<p class="card-title"><?php echo $row['nm_produto']; ?></p>
@@ -207,12 +209,132 @@
 						</div>
 						<!-- fim card -->
 					</div>
+					
+					<!-- Modal De Exclusao -->
+					<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered" role="document">
+							<div class="modal-content custom-modal">
+								<div class="modal-circle">
+									<i class="bi bi-x-circle mt-5" style="color: #ff0000; font-size:5em;display: flex; align-items: center; justify-content: center;"></i>
+								</div>
+								<div class="modal-header" style="background-color: #fff; border: none; text-align: center; justify-content: center;">
+									<h5 class="modal-title" style="color:#000; font-size:1.5em ">Você tem certeza?</h5>
+								</div>
+								<div class="modal-body" style="text-align: center;">
+									<p>Você realmente deseja excluir esses registros? Este processo não pode ser desfeito.</p>
+								</div>
+								<div class="modal-footer" style="border: none; justify-content: center;">
+									<a href="php/delete_apm.php?cod=<?php echo $row['cd_apm'];?>"><button type="button" class="btn btn-danger">Sim, Excluir</button></a>
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- fim do Modal De Exclusao -->
 				<?php    		
 					}} else{
 						echo "<p class='mt-5' style='font-size:18px;'>Desculpe, não temos produtos disponíveis no momento. Confira novamente mais tarde!</p>";
 					}
 				?>
 			</div>
+
+			<!-- Modal de Alteração -->
+			<div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<form id="alterarProduto" enctype="multipart/form-data">
+							<div class="modal-header">
+								<h1 class="modal-title fs-5" id="editModalLabel">Editar Produto</h1>
+								<button type="button" class="btn-close  btn-close-white close-button" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<!-- Inputs para a alteração -->
+								<div class="mb-3">
+									<label for="ds_imagem" class="form-label">Alterar imagem</label>
+									<div class="input-group">
+										<input type="file" name="alterarImagem" class="form-control" id="ds_imagem" accept="image/*">
+										<button class="btn btn-outline-secondary" type="button" id="editButton">
+											<i class="bi bi-pencil"></i> <!-- Ícone de editar -->
+										</button>
+									</div>
+								</div>
+								<div class="row mb-3">
+									<div class="col">
+										<label for="alterar_nm_produto" class="form-label">Novo Nome do Produto</label>
+										<input type="text" name="titulo" class="form-control" id="alterar_nm_produto">
+									</div>
+									<div class="col">
+										<label for="alterar_vl_produto" class="form-label preco">Novo Valor do Produto</label>
+										<input type="text" name="valor" class="form-control" id="alterar_vl_produto">
+									</div>
+								</div>
+								<div class="mb-3">
+									<label for="alterar_ds_produto" class="form-label">Nova Descrição do Produto</label>
+									<textarea name="descricao" class="form-control" id="alterar_ds_produto" rows="4"></textarea>
+								</div>
+								<p id="exibir_cod" style="display:none;"></p>
+								<p id="exibir_path" style="display: none;"></p>
+								<div id="exibe2"></div>
+								<div class="modal-footer">
+									<button type="submit" class="btn btn-roxo" id="salvar_alt">Salvar Alterações</button>
+									<button type="button" class="btn btn-azul" data-bs-dismiss="modal">Cancelar</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- Fim do modal de Alteração -->
+
+			<!-- incio do modal E BOTAO QUE ABRE ELE -->
+			<button type="button" class="btn btn-primary add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+				<i class="bi bi-plus-circle-fill"></i> <!-- Ícone de adição -->
+			</button>
+
+			<!-- Modal de ADICIONAR APM -->
+			<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<form id="addProduto" enctype="multipart/form-data">
+							<div class="modal-header">
+								<h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar Produto</h1>
+								<button type="button" class="btn-close  btn-close-white close-button" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<div class="mb-3">
+									<label for="ds_imagem" class="form-label">Imagem do Produto</label>
+									<div class="input-group">
+										<input type="file" name="ds_imagem" class="form-control" id="ds_imagem" accept="image/*">
+										<button class="btn btn-outline-secondary" type="button" id="editButton">
+											<i class="bi bi-pencil"></i> <!-- Ícone de editar -->
+										</button>
+									</div>
+								</div>
+								<div class="row mb-3">
+									<div class="col">
+										<label for="nm_produto" class="form-label">Nome do Produto</label>
+										<input type="text" name="nm_produto" class="form-control" id="nm_produto" maxlength="10">
+									</div>
+									<div class="col">
+										<label for="nr_valor" class="form-label preco">Valor do Produto</label>
+										<input type="text" name="nr_valor" class="form-control preco" id="nr_valor">
+									</div>
+								</div>
+								<div class="mb-3">
+									<label for="ds_descricao" class="form-label">Descrição do Produto</label>
+									<textarea name="ds_descricao" class="form-control" id="ds_descricao" rows="4" maxlength="15"></textarea>
+								</div>
+							</div>
+							<div id="exibe"></div>
+							<div class="modal-footer">
+								<button type="submit" id="salvar_novo" class="btn btn-roxo">Salvar</button>
+								<button type="button" class="btn btn-azul" data-bs-dismiss="modal">Fechar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- fim do modal -->
 		</section>
 		<!-- FIM DA APM!! -->
 

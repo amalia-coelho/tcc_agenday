@@ -273,15 +273,194 @@
 							<p class="date"><?php echo $postagem;?></p>
 						</div>
 						<p class="comunicado-text"><?php echo $item['ds_descricao'];?></p>
+						<button class="alterar" data-bs-toggle="modal" data-bs-target="#editModal" style="border:none;" cod="<?php echo $item['cd_comunicado'];?>" titulo="<?php echo $item['nm_titulo'];?>" descricao="<?php echo $item['ds_descricao']?>" dt_comunicado="<?php echo $item['dt_comunicado']?>" turmas="<?php echo $turmasString;?>" imagem="<?php echo $item['ds_imagem'];?>">
+							<i class="bi bi-pencil-square edit-icon"></i>
+						</button>
+						<a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i class="bi bi-trash-fill delete-icon"></i></a>  
 					</div>
-			</section>
+				</section>
+				<!-- Modal De Exclusao -->
+	<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content custom-modal">
+			  <div class="modal-circle">
+				  <i class="bi bi-x-circle mt-5" style="color: #ff0000; font-size:5em;display: flex; align-items: center; justify-content: center;"></i>
+			  </div>
+				<div class="modal-header" style="background-color: #fff; border: none; text-align: center; justify-content: center;">
+					<h5 class="modal-title" style="color:#000; font-size:1.5em ">Você tem certeza?</h5>
+				</div>
+				<div class="modal-body" style="text-align: center;">
+					<p>Você realmente deseja excluir esses registros? Este processo não pode ser desfeito.</p>
+				</div>
+				<div class="modal-footer" style="border: none; justify-content: center;">
+				  <a href="php/delete_comunicado.php?cod=<?php echo $item['cd_comunicado'];?>"><button type="button" class="btn btn-danger">Sim, Excluir</button></a>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- fim do Modal De Exclusao -->
 				<?php
 			}
 			?>	
 
 
 
+    	<!-- Modal de Alteração -->
+    	<div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+      		<div class="modal-dialog modal-dialog-centered">
+				<form  id="alterarComunicado" enctype="multipart/form-data">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="editModalLabel">Editar Comunicado</h1>
+							<button type="button" class="btn-close btn-close-white close-button" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+							<div class="mb-3">
+								<label for="alterarImagem" class="form-label">Alterar Imagem do Comunicado</label>
+								<div class="input-group">
+									<input type="file" name="alterarImagem" class="form-control" id="alterarImagem" accept="image/*">
+									<button class="btn btn-outline-secondary" type="button" id="editButton">
+										<i class="bi bi-pencil"></i> <!-- Ícone de editar -->
+									</button>
+								</div>
+							</div>
+							<div class="mb-3">
+								<label for="alterarTitulo" class="form-label">Alterar Título do Comunicado</label>
+								<input type="text" name="titulo" class="form-control" id="alterarTitulo">
+							</div>
+							<div class="row mb-3 altura-curso">
+								<div class="col">
+									<label for="alterarData" class="form-label">Data</label>
+									<input type="date" name="data_comunicado" class="form-control" id="alterarData">
+								</div>
+							<div class="col">
+									<div class="select-btn">
+										<span class="btn-text">Selecionar Curso</span>
+										<i class="bi bi-chevron-down"></i>
+									</div>
+									<ul class="list-itens">
+										<li class="a" id="all-select3" style="cursor:pointer;">
+											<label class="form-check-label" for="selectAllOptions" style="cursor:pointer;">Todos</label>
+										</li>
+										<?php
+											//exibir o select
+											$sql = "SELECT * FROM tb_turma";
 
+											foreach ($conn->query($sql) as $item){?>
+												<li class="item">
+													<!-- Checkbox oculto -->
+													<input type="checkbox" class="checkbox" name="turmasAlterar[]" value="<?php echo $item['cd_turma'];?>" id="<?php echo $item['nm_turma'];?>">
+													<label class="checkbox-label" for="<?php echo $item['nm_turma'];?>"></label>
+													</span>
+													<span class="item-text"><?php echo $item['nm_turma'];?></span>
+												</li>
+											<?php
+											}
+										?>
+									</ul>
+								</div>
+							</div>
+							<br>
+							<div class="mb-3">
+								<label for="alterarDescricao" class="form-label">Alterar Descrição</label>
+								<textarea name="descricao" class="form-control" id="alterarDescricao" rows="4"></textarea>
+							</div>
+							<p id="exibir_cod" style="display: none;"></p>
+							<p id="exibir_path" style="display: none;"></p>
+						</div>
+							<div id="exibe2"></div>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-roxo" id="salvarAlterar">Salvar Alterações</button>
+							<button type="button" class="btn btn-azul" data-bs-dismiss="modal" id="fecharAlterar">Cancelar</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+    	<!-- Fim do modal de Alteração -->
+
+
+		<!-- inIcio do modal ADD -->
+		<button type="button" class="btn btn-primary add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+			<i class="bi bi-plus-circle-fill"></i> <!-- Ícone de adição -->
+		</button>
+
+		<!-- Modal ADD -->
+		<div class="modal fade adcomuni" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+		aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered">
+				<form  id="addComunicado" enctype="multipart/form-data">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar Comunicado</h1>
+						<button type="button" class="btn-close btn-close-white close-button" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+						<div class="modal-body">
+							<div class="mb-3">
+								<label for="imageInput" class="form-label">Imagem do Comunicado</label>
+								<div class="input-group">
+									<input type="file" name="ds_imagem" class="form-control">
+									<button class="btn btn-outline-secondary" type="button" id="editButton">
+										<i class="bi bi-pencil"></i> <!-- Ícone de editar -->
+									</button>
+								</div>
+							</div>
+							<div class="mb-3">
+								<label for="nm_titulo" class="form-label">Título do Comunicado</label>
+								<input type="text" name="titulo" class="form-control" id="nm_titulo">
+							</div>
+							<div class="row mb-3 altura curso">
+								<div class="col">
+									<label for="dt_comunicado" class="form-label">Data</label>
+									<input type="date" name="data_comunicado" class="form-control" id="dt_comunicado">
+								</div>
+								<div class="col">
+									<div class="select-btn">
+										<span class="btn-text">Selecionar Curso</span>
+										<i class="bi bi-chevron-down"></i>
+									</div>
+									<ul class="list-itens" style="position: absolute !important;
+    width: 190px !important;">
+										<li class="a" id="all-select4" style="cursor:pointer;">
+											<label class="form-check-label" for="selectAllOptions"
+												style="cursor:pointer;">Todos</label>
+										</li>
+										<?php
+											$sql = "SELECT * FROM tb_turma";
+
+											foreach ($conn->query($sql) as $item){?>
+												<li class="item">
+													<!-- Checkbox oculto -->
+													<input type="checkbox" class="checkbox" name="turmas[]" value="<?php echo $item['cd_turma'];?>" id="<?php echo $item['nm_turma'];?>">
+													<label class="checkbox-label" for="<?php echo $item['nm_turma'];?>"></label>
+													</span>
+													<span class="item-text"><?php echo $item['nm_turma'];?></span>
+												</li>
+											<?php
+											}
+										?>
+									</ul>
+								</div>
+							</div>
+							<div class="mb-3">
+								<label for="ds_descricao" class="form-label">Descrição</label>
+								<textarea class="form-control" name="descricao" id="ds_descricao" rows="4"></textarea>
+							</div>
+						</div>
+							<div id="exibe">
+			
+							</div>
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-roxo" id="salvar">Salvar</button>
+							<button type="button" class="btn btn-azul" id="fechar" data-bs-dismiss="modal">Fechar</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!-- fim do modal ADD-->
 										</section>
 	</main>
 	
