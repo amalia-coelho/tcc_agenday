@@ -1,14 +1,27 @@
 <?php
-  session_start();
-  include('php/conexao.php');
-  if (!isset($_SESSION['email'])) {
+session_start();
+include('php/conexao.php');
+
+// Verifica se o usuário está autenticado
+if (!isset($_SESSION['email'])) {
     header('Location: index.php');
-  } else {
-?>
+    exit(); // Certifique-se de sair do script após redirecionar
+} else {
+    // Obtém informações do usuário logado (presumindo que 'id_nivel' seja um campo na tabela de usuários)
+    $email = $_SESSION['email'];
+    $stmt = $conn->prepare("SELECT id_nivel FROM tb_usuario WHERE ds:email = :email");
+    $stmt->execute(array(':email' => $email));
+    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // Verifica se o 'id_nivel' do usuário é igual a 1
+    if ($_SESSION['id_nivel'] == 2) {
+        header('Location: index.php');
+        exit(); // Certifique-se de sair do script após redirecionar
+    }?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
+  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- css -->
@@ -91,25 +104,25 @@
 				</a>
 			</li>
       <li class="item-menu">
-				<a href="calendario.php">
+				<a href="ADM-CALENDARIO.php">
 					<span class="icon"><i class="bi bi-house-door-fill"></i></span>
 					<span class="txt-link">Calendário</span>
 				</a>
 			</li>
         <li class="item-menu">
-				<a href="comunicados.php">
+				<a href="ADM-COMUNICADOS.php">
 				<span class="icon"><i class="bi bi-megaphone-fill"></i></span>
 				<span class="txt-link">Comunicados</span>
 				</a>
 			</li>
 			<li class="item-menu ">
-				<a href="apm.php">
+				<a href="ADM-APM.php">
 				<span class="icon"><i class="bi bi-cart4"></i></span>
 				<span class="txt-link">APM</span>
 				</a>
 			</li>
 			<li class="item-menu">
-				<a href="gestao.php">
+				<a href="ADM-GESTAO.php">
 				<span class="icon"><i class="bi bi-person-workspace"></i></span>
 				<span class="txt-link">Gestão</span>
 				</a>
@@ -121,7 +134,7 @@
 				</a>
 			</li>
 			<li class="item-menu ativo">
-				<a href="gerenciamento.php">
+				<a href="ADM-GERENCIAMENTO.php">
 				<span class="icon"><i class="bi bi-gear-fill"></i></span>
 				<span class="txt-link">Gerenciamento</span>
 				</a>
@@ -465,5 +478,5 @@
 
 </html>
 <?php
-    }
+}
 ?>

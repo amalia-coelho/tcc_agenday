@@ -232,6 +232,6 @@ include('footer.php');
 </html>
 <?php 
     }else{
-        header('Location: comunicados.php');
+        header('Location: calendario.php');
     }
 ?>

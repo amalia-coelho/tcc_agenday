@@ -1,10 +1,23 @@
 <?php
-	include("php/conexao.php");
-    session_start();
-    if (!isset($_SESSION['email'])){
+session_start();
+include('php/conexao.php');
+
+// Verifica se o usuário está autenticado
+if (!isset($_SESSION['email'])) {
+    header('Location: index.php');
+    exit(); // Certifique-se de sair do script após redirecionar
+} else {
+    // Obtém informações do usuário logado (presumindo que 'id_nivel' seja um campo na tabela de usuários)
+    $email = $_SESSION['email'];
+    $stmt = $conn->prepare("SELECT id_nivel FROM tb_usuario WHERE ds:email = :email");
+    $stmt->execute(array(':email' => $email));
+    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // Verifica se o 'id_nivel' do usuário é igual a 1
+    if ($_SESSION['id_nivel'] == 2) {
         header('Location: index.php');
-    }else{
-?>
+        exit(); // Certifique-se de sair do script após redirecionar
+    }?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -57,19 +70,19 @@
 				</a>
 			</li>
 			<li class="item-menu">
-				<a href="comunicados.php">
+				<a href="adm-comunicados.php">
 				<span class="icon"><i class="bi bi-megaphone-fill"></i></span>
 				<span class="txt-link">Comunicados</span>
 				</a>
 			</li>
 			<li class="item-menu ">
-				<a href="apm.php">
+				<a href="adm-apm.php">
 				<span class="icon"><i class="bi bi-cart4"></i></span>
 				<span class="txt-link">APM</span>
 				</a>
 			</li>
 			<li class="item-menu">
-				<a href="gestao.php">
+				<a href="adm-gestao.php">
 				<span class="icon"><i class="bi bi-person-workspace"></i></span>
 				<span class="txt-link">Gestão</span>
 				</a>
@@ -81,7 +94,7 @@
 				</a>
 			</li>
 			<li class="item-menu">
-				<a href="gerenciamento.php">
+				<a href="adm-gerenciamento.php">
 				<span class="icon"><i class="bi bi-gear-fill"></i></span>
 				<span class="txt-link">Gerenciamento</span>
 				</a>
