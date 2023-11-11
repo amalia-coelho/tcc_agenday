@@ -326,6 +326,7 @@ $.ajax({
 			</div>
 		</div>
 	</div>
+	</div>
 	
 	<!-- fim do Modal De Exclusao -->
 				<?php
