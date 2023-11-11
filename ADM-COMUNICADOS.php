@@ -44,68 +44,92 @@ if (!isset($_SESSION['email'])) {
 	<script src="js/jquery.maskMoney.min.js"></script>
 
 	<script>
-		$(document).ready(function(){
+	$(document).ready(function(){
 
-			//ADD COMUNICADO
-			$('#addComunicado').submit(function (e) {
-				e.preventDefault();
+//ADD COMUNICADO
+$('#addComunicado').submit(function (e) {
+	e.preventDefault();
 
-				var formulario = new FormData(this); // Crie um objeto FormData com os dados do formulário
-				$.ajax({
-					type: 'POST',
-					url: 'php/add_comunicado.php',
-					data: formulario,
-					contentType: false,
-					processData: false,
-				}).done(function(resposta){
-					//Recarregar página
-					$("#exibe").html(resposta);
-				}).fail(function(jqXHR, textStatus ) {
-					console.log("Request failed: " + textStatus);
-				});
-			});
+	var formulario = new FormData(this); // Crie um objeto FormData com os dados do formulário
+	$.ajax({
+		type: 'POST',
+		url: 'php/add_comunicado.php',
+		data: formulario,
+		contentType: false,
+		processData: false,
+	}).done(function(resposta){
+		//Recarregar página
+		$("#exibe").html(resposta);
+	}).fail(function(jqXHR, textStatus ) {
+		console.log("Request failed: " + textStatus);
+	});
+});
 
-			//UPDATE COMUNICADO
+//UPDATE COMUNICADO
 
-			//Pegar os valores dos inputs
-			$(".alterar").on("click", function(){
-				$("#exibir_cod").text($(this).attr('cod'));
-				$("#exibir_path").text($(this).attr('imagem'));
-				$("#alterarTitulo").val($(this).attr('titulo'));
-				$("#alterarData").val($(this).attr('dt_comunicado'));
-				$("#alterarDescricao").val($(this).attr('descricao'));
-			
-				//SELECT TURMAS
-				var turmasString = $(this).attr('turmas');
-				var turmasArray = turmasString.split('-');
+//Pegar os valores dos inputs
+$(".alterar").on("click", function(){
+	$("#exibir_cod").text($(this).attr('cod'));
+	$("#exibir_path").text($(this).attr('imagem'));
+	$("#alterarTitulo").val($(this).attr('titulo'));
+	$("#alterarData").val($(this).attr('dt_comunicado'));
+	$("#alterarDescricao").val($(this).attr('descricao'));
 
-				for (var i = 0; i < turmasArray.length; i++) {
-					$("input[name='turmasAlterar[]'][value='" + turmasArray[i] + "']").prop('checked', true);
-				}
-			});
+	//SELECT TURMAS
+	var turmasString = $(this).attr('turmas');
+	var turmasArray = turmasString.split('-');
 
-			//Atualizar valores
-			$('#alterarComunicado').submit(function (e) {
-				e.preventDefault();
+	for (var i = 0; i < turmasArray.length; i++) {
+		$("input[name='turmasAlterar[]'][value='" + turmasArray[i] + "']").prop('checked', true);
+	}
+});
 
-				var formulario = new FormData(this);
-				formulario.append('codigo', $("#exibir_cod").text());
-				formulario.append('imagemAntiga', $("#exibir_path").text());
-				
-				$.ajax({
-					type: 'POST',
-					url: 'php/alterar_comunicado.php',
-					data: formulario,
-					contentType: false,
-					processData: false,
-				}).done(function(resposta){
-					$("#exibe2").html(resposta);
-				}).fail(function(jqXHR, textStatus ) {
-					console.log("Request failed: " + textStatus);
-				});
-			});
-		});
-		</script>
+//Atualizar valores
+$('#alterarComunicado').submit(function (e) {
+	e.preventDefault();
+
+	var formulario = new FormData(this);
+	formulario.append('codigo', $("#exibir_cod").text());
+	formulario.append('imagemAntiga', $("#exibir_path").text());
+	
+	$.ajax({
+		type: 'POST',
+		url: 'php/alterar_comunicado.php',
+		data: formulario,
+		contentType: false,
+		processData: false,
+	}).done(function(resposta){
+		$("#exibe2").html(resposta);
+	}).fail(function(jqXHR, textStatus ) {
+		console.log("Request failed: " + textStatus);
+	});
+});
+$('#turma').change(function() {
+var opcao = $(this).val();
+$('.comunicado').hide(); // Oculta 
+if (opcao === 'Todos') {
+$('.comunicado').show(); // Mostra todos os registros quando "todos" for selecionado
+} else {
+$('.comunicado-turma-' + opcao).show(); // Mostra apenas a opção selecionada
+}
+});
+$('#ordem').change(function(){
+var ordem = $(this).val();
+
+$.ajax({
+	url: "comunicados.php",
+	type: "GET",
+	data:"ordem=" + ordem,
+	dataType: "html"
+	}).done(function(resposta){
+		$(".tempo").html(resposta);
+	}).fail(function(jqXHR, textStatus ) {
+		console.log("Request failed: " + textStatus);
+	
+});
+});
+});
+</script>
 	<!-- /js -->
 	</head>
 <body>
@@ -179,64 +203,32 @@ if (!isset($_SESSION['email'])) {
     	<div class="comuni">
 			<h1>Comunicados</h1>
     	</div>
-    <div class="adm-filtro mt-5 mb-5">
         <div class="espaco filtro-title">
           <p>Filtrar por:</p>
         </div>
-        <div class="espaco filtro-btn sindrome">
-          <div class="col">
-                  <div class="select-btn">
-                    <span class="btn-text" id="seltet">Selecionar Data</span>
-                    <i class="bi bi-chevron-down"></i>
-                  </div>
-                  <ul class="list-itens">
-                        <li class="item check-all" onclick="recente()">
-                          <!-- Checkbox oculto -->
-                          <input type="radio" class="checkbox dateee" name="Date" value="Recente" id="recente">
-                          <label class="checkbox-label" for="recente"></label>
-                          </span>
-                          <span class="item-text" >Recente</span>
-                        </li>
-                        <li class="item check-all" onclick="antigo()">
-                          <!-- Checkbox oculto -->
-                          <input type="radio" class="checkbox dateee" name="Date" value="Antigo" id="antigo">
-                          <label class="checkbox-label" for="antigo"></label>
-                          </span>
-                          <span class="item-text" >Antigo</span>
-                        </li>
-                  </ul>
-                </div>
+        <select id="ordem"> 
+          <option value="Todos">Todos</option>
+         	<option value="Antigo">Antigo</option>
+         	<option value="Recente">Recente</option>
+        </select>
+                  
+       <select id="turma"> 
+              <option value="Todos">Todos</option>
+              <?php
+              $sql = "SELECT * FROM tb_turma";
+              foreach ($conn->query($sql) as $item){
+              $codig = $item['cd_turma'];
+              $nome = $item['nm_turma'];
+                ?>
+              <option value="<?php echo $codig;?>"><?php echo $nome;?></option>
+              <?php
+            };
+          ?>
+            </select>
+                
         </div>
-                <div class="espaco filtro-btn turma">
-          <div class="col">
-                  <div class="select-btn">
-                    <span class="btn-text">Selecionar Curso</span>
-                    <i class="bi bi-chevron-down"></i>
-                  </div>
-                  <ul class="list-itens" style="z-index: 3;">
-                    <li class="a" id="all-select1" style="cursor:pointer;">
-                      <label class="form-check-label" for="selectAllOptions" style="cursor:pointer;">Todos</label>
-                    </li>
-                    <?php
-                      //exibir o select
-                      $sql = "SELECT * FROM tb_turma";
-
-                      foreach ($conn->query($sql) as $item){?>
-                        <li class="item">
-                          <!-- Checkbox oculto -->
-                          <input type="checkbox" class="checkbox" name="turmasAlterar[]" value="<?php echo $item['cd_turma'];?>" id="<?php echo $item['nm_turma'];?>">
-                          <label class="checkbox-label" for="<?php echo $item['nm_turma'];?>"></label>
-                          </span>
-                          <span class="item-text"><?php echo $item['nm_turma'];?></span>
-                        </li>
-                      <?php
-                      }
-                    ?>
-                  </ul>
-                </div>
-        </div>
-	</div>
-</div>
+      </div>
+    </div>
 <!-- search bar-->
 <div class="centro-search">
 
@@ -260,8 +252,27 @@ if (!isset($_SESSION['email'])) {
 </div>
 
 <!-- fim da search bar-->
+<div class="tempo">
 		<?php
-			$sql = "SELECT * FROM tb_comunicado";
+
+		$OrdemPadrao = isset($_GET['ordem']) ? $_GET['ordem']: 'todos';
+
+		switch ($OrdemPadrao) {
+			case 'Recente':
+				$sql = "SELECT * FROM tb_comunicado ORDER BY cd_comunicado DESC ";
+				break;
+			
+			case 'Antigo':
+				$sql = "SELECT * FROM tb_comunicado ORDER BY cd_comunicado ASC ";
+				break;
+
+			default:
+				$sql = "SELECT * FROM tb_comunicado ORDER BY cd_comunicado DESC ";
+				break;
+		}
+			
+
+			
 
 			foreach ($conn->query($sql) as $item){
 				//pegar a array de turmas selecionadas no comunicado

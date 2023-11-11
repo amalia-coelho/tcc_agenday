@@ -1,0 +1,221 @@
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.entrar {
+    height: 100vh;
+    width: 100%;
+    background-image: url('../img/forgot.png');
+    background-size: cover;
+    background-position: center;
+    padding-left: 5%;
+    padding-right: 5%;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: reverse;
+}
+
+.login-content h1 {
+    font-size: 80px;
+    font-weight: bold;
+    color: #000;
+    line-height: 1;
+    transition: .5s ease-in-out;
+    font-family: var(--quatro);
+
+}
+
+.fog-success {
+    color: var(--roxo);
+    transition: .5s ease-in-out;
+}
+
+h1:hover .fog-success {
+    color: #000;
+    font-weight: bold;
+}
+
+h1:hover {
+    color: var(--roxo);
+    font-weight: bold;
+}
+
+
+
+.login-content span {
+    font-size: 30px;
+
+}
+
+.login-content p {
+    font-size: 20px;
+    width: 20rem;
+    position: relative;
+}
+
+/* .login-content {
+    margin-left: 10%;
+    margin-top: 10%;
+} */
+
+.login-content .ent {
+    display: inline-block;
+    background-color: var(--roxo);
+    border-radius: 20px;
+    padding: 10px 40px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #fbfbff;
+    box-shadow: 3px 8px 22px var(--roxo);
+    transition: .5s;
+}
+
+.login-content .ent:hover {
+    scale: 1.04;
+    background-color: #fbfbff;
+    color: var(--roxo);
+    box-shadow: 3px 8px 22px #2525257b;
+    border: 1px solid var(--roxo);
+
+}
+
+
+.login-element {
+    width: 40rem;
+    transition: 1s;
+    margin-right: 5rem;
+}
+
+
+.titulo .log-success {
+    color: var(--roxo);
+    transition: .5s ease-in-out;
+}
+
+.login-element:hover {
+    scale: 1.05;
+    cursor: pointer;
+}
+
+/* inputs */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    margin-bottom: 1rem;
+    font-size: 20px;
+}
+
+.form-control {
+    border-radius: 0 !important;
+    BORDER: none !important;
+    border-bottom: 2px solid #252525 !important;
+    background: none !important;
+}
+
+.form-control:focus {
+    box-shadow: none !important;
+    border-color: var(--roxo) !important;
+    /* Adicione a cor desejada para a borda ao remover o foco */
+    outline: none !important;
+    /* Remova também o contorno do teclado para melhorar a acessibilidade */
+}
+
+
+.input-group {
+    position: relative;
+}
+
+#togglePassword {
+    border: none;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.login-container i {
+    color: var(--roxo);
+}
+
+small a {
+    color: var(--roxo);
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.titulo h1 {
+    margin-bottom: 3rem;
+}
+
+.form-group {
+    margin-top: 3rem;
+    width: 80%;
+}
+
+.revealbtn {
+    width: 70%;
+    margin-top: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.revealbtn .create {
+    color: var(--roxo);
+    text-decoration: none;
+    margin-top: 2rem;
+    line-height: 5;
+}
+
+@media screen and (max-width: 480px) {
+
+    .entrar {
+        background-position: right;
+    }
+
+    .login-img {
+        display: none;
+    }
+
+    .form-group {
+        margin-top: 3rem;
+        width: 100%;
+    }
+
+    .revealbtn {
+        width: 100%;
+        margin-top: 4rem;
+    }
+
+    .resp {
+        display: none;
+    }
+}
+
+
+@media screen and (min-width: 1200px) {
+
+    .login-element {
+        width: 30rem;
+    }
+
+    .login-content h1 {
+        font-size: 60px;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1199px) {}
