@@ -61,6 +61,47 @@ body {
     background-position: right center !important;
 }
 
+/* select */
+
+select {
+    appearance: none;
+    -moz-appearance: none;
+    background-color: transparent;
+    border: 1px solid #ccc;
+    padding: 8px;
+    font-size: 14px;
+    width: 200px;
+    border-radius: 10px;
+    /* ajuste conforme necessário */
+}
+
+/* Ícone personalizado para indicar a seta para baixo */
+select::after {
+    content: '\2193';
+    /* código Unicode para a seta para baixo */
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* Estilo quando o select está focado */
+select:focus {
+    outline: none;
+    border-color: #66afe9;
+    /* cor de destaque ao focar */
+}
+
+/* Estilo para as opções do select */
+option {
+    background-color: #fff;
+    color: #333;
+}
+
+/* fim do select */
+
+
 /* botao */
 .adm-title .ent,
 .filtro-btn .ent {
@@ -91,14 +132,16 @@ body {
 
 .adm-filtro {
     display: flex;
-    align-items: flex-start;
-    align-content: center;
+    width: 40%;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
-.adm-filtro .select-btn, .adm-filtro .list-itens {
+.adm-filtro .select-btn,
+.adm-filtro .list-itens {
     width: 220px !important;
 }
 

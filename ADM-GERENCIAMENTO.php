@@ -192,7 +192,7 @@ if (!isset($_SESSION['email'])) {
           <p>Filtrar por:</p>
         </div>
     
-           <select id="turma"> 
+           <select class="select-custom" id="turma"> 
              <option value="Todos">Todos</option>
                <?php
                 $sql = "SELECT * FROM tb_turma";
@@ -204,9 +204,10 @@ if (!isset($_SESSION['email'])) {
                 <?php
                   };
                 ?>
-            </select>     
+            </select> 
+                
        
-            <select id="cargo"> 
+            <select class="select-custom" id="cargo"> 
              <option value="Todos">Todos</option>
                <?php
                   $sql = "SELECT * FROM tb_nivel";
