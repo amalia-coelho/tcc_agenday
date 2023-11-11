@@ -31,6 +31,8 @@
             $tabela = "<table class='table table-hover' id='tabelaUsuarios'>";
             //THEAD
             $tabela .= "<thead class='thead'><tr><th scope='col'>Código</th><th scope='col'>Nome</th><th scope='col'>Tipo de usuário</th><th scope='col'>Turma</th><th scope='col'>Email</th><th scope='col'>Ações</th></tr></thead><tbody>";
+            // Pular a primeira linha
+            fgetcsv($dados_arquivo, 1000, ",");
             while($linha = fgetcsv($dados_arquivo, 1000, ",")){
                 $tabela .= "<tr><td class='codigo' onclick='habilitarEdicao(this)'>".$linha[0]."</td><td class='nome' onclick='habilitarEdicao(this)'>".$linha[1]."</td><td class='tipoUsuario' onclick='abrirSelect(this)'>".$selectTipo."</td><td class='turma' onclick='abrirSelect(this)'>".$selectTurma."</td><td class='email' onclick='habilitarEdicao(this)'>".$linha[2]."</td><td class='edit' style='width: 100px;'><a onclick='apagarLinha(event.target)'><i class='bi bi-trash'></i></a></td></tr>";
             }

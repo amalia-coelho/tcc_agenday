@@ -3,7 +3,7 @@
     include("conexao.php");
 
     function gerarCodigo($tamanho) {
-        $caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        $caracteres = '0123456789';
         $codigo_verificacao = '';
     
         for ($i = 0; $i < $tamanho; $i++) {
@@ -18,13 +18,14 @@
         $usuariosCadastrados = 0;
         $usuariosErros = 0;
         foreach($_POST['usuarios'] as $user){
-            $cadastrar_usuario = $conn->prepare("INSERT INTO tb_usuario (nm_usuario, ds_email, ds_senha, nr_rm, id_turma, id_nivel) VALUES (:nome, :email, :senha, :rm, :turma, :nivel)");
+            $cadastrar_usuario = $conn->prepare("INSERT INTO tb_usuario (nm_usuario, ds_email, ds_senha, nr_rm, nr_verificacao, id_turma, id_nivel) VALUES (:nome, :email, :senha, :rm, :verificacao, :turma, :nivel)");
             $cadastrar_usuario->bindValue(':nome', $user['nome']);
             $cadastrar_usuario->bindValue(':email', $user['email']);
-            $cadastrar_usuario->bindValue(':senha', gerarCodigo(5));
-            $cadastrar_usuario->bindValue(':rm', $user['rm']);
-            $cadastrar_usuario->bindValue(':turma', 1);
-            $cadastrar_usuario->bindValue(':nivel', 2);
+            $cadastrar_usuario->bindValue(':senha', 12354);
+            $cadastrar_usuario->bindValue(':rm', $user['cod']);
+            $cadastrar_usuario->bindValue(':verificacao', gerarCodigo(5));
+            $cadastrar_usuario->bindValue(':turma', $user['turma']);
+            $cadastrar_usuario->bindValue(':nivel', $user['tipo']);
             if($cadastrar_usuario->execute()){
                 $usuariosCadastrados += 1;
             }else{
@@ -32,8 +33,11 @@
             }
         }
         echo $usuariosCadastrados." usuários cadastrados com sucesso";
+        if($usuariosErros != 0){
+            echo $usuariosErros." usuários não foram cadastrados!";
+        }
     }else{
-        echo "erro no envio dos usuários";
+        echo "Erro no envio dos usuários";
     }
     
     ?>

@@ -31,7 +31,7 @@
 
 			ul li.ativo::before {
 				margin-left: 34px !important;
-			}
+			}''
 
 			@media screen and (max-width: 480px) {
 				ul li.item-menu a {
@@ -192,9 +192,9 @@
 		<div class="adm-img">
 			<img src="img/spreadsheets-animate.svg" alt="Figura Inicial" class="adm-element">
 		</div>
-		<div class="row mt-5">
+		<div class="col mt-5">
 			<!-- upload -->
-			<form id="add_usuarios" class="form-container" enctype='multipart/form-data'>
+			<form id="add_usuarios" class="row form-container" enctype='multipart/form-data'>
         		<button type="submit">Enviar</button>
 				<div class="input-group mb-3">
 					<input type="file" name="registro_alunos" class="form-control" id="registro_alunos">
@@ -203,13 +203,13 @@
 			<!-- fim do upload -->
 			
 			<!-- table -->
-			<div class="exibe tabela-gera mt-4">
+			<div class="row exibe tabela-gera mt-4">
 				
 			</div>
 			<!-- fim da table -->
 
-			<div class="revealbtn mt-1" id="exibeBotao" style="display: flex;">
-				<button class="ent" id="enviarUsuarios">Salvar Alterações</button>
+			<div class="row" id="exibeBotao">
+				<button id="enviarUsuarios">Salvar Alterações</button>
 			</div>
 			<div id="resposta">
 				
