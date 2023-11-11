@@ -182,7 +182,8 @@ if (!isset($_SESSION['email'])) {
             </div>
           </div>
 		  <div class="suggestion-wrap">
-            <span>Camisa</span>
+            <span>Camiseta</span>
+            <span>Informática</span>
             <span>Meio Ambiente</span>
             <span>Administração</span>
             <span>Armários</span>

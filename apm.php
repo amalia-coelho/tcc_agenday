@@ -169,8 +169,8 @@
             </div>
           </div>
 		  <div class="suggestion-wrap">
-            <span>Camisa</span>
-            <span>Meio Ambiente</span>
+		  <span>Camiseta</span>
+            <span>Informática</span>
             <span>Administração</span>
             <span>Armários</span>
             <span style="background:red" id="clearSearch">Limpar <i class="bi bi-x-circle-fill"></i></span>

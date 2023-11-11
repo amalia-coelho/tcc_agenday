@@ -78,13 +78,37 @@ if (!isset($_SESSION['email'])) {
     }
   </style>
   <!-- /css -->
-
-  <!-- js -->
+<!-- js -->
+<script src="https://unpkg.com/scrollreveal"></script>
   <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"></script>
+  <script src="js/jquery.maskMoney.min.js"></script>
   <script>
+     $(document).ready(function(){
+      $('#turma, #cargo').change(function () {
+    var turmaSelecionada = $('#turma').val();
+    var cargoSelecionado = $('#cargo').val();
 
-  </script>
+    $('.colunas').hide(); // Oculta todos os registros
+
+    if (turmaSelecionada === 'Todos' && cargoSelecionado === 'Todos') {
+        $('.colunas').show(); // Mostra todos os registros quando "todos" for selecionado em ambas as opções
+    } else {
+        // Mostra registros que correspondem à opção de turma e à opção de cargo
+        if (turmaSelecionada !== 'Todos' && cargoSelecionado !== 'Todos') {
+            $('.colunas-turma-' + turmaSelecionada + '.colunas-nivel-' + cargoSelecionado).show();
+        } else if (turmaSelecionada !== 'Todos') {
+            $('.colunas-turma-' + turmaSelecionada).show();
+        } else if (cargoSelecionado !== 'Todos') {
+            $('.colunas-nivel-' + cargoSelecionado).show();
+        }
+    }
+});
+
+    });
+</script>
   <!-- /js -->
+
   <title>Gerenciamento</title>
 </head>
 
@@ -167,77 +191,37 @@ if (!isset($_SESSION['email'])) {
         <div class="filtro-title">
           <p>Filtrar por:</p>
         </div>
-        <div class="filtro-btn turma">
-          <div class="col">
-                  <div class="select-btn">
-                    <span class="btn-text">Selecionar Curso</span>
-                    <i class="bi bi-chevron-down"></i>
-                  </div>
-                  <ul class="list-itens">
-                    <li class="a" id="all-select" style="cursor:pointer;">
-                      <label class="form-check-label" for="selectAllOptions" style="cursor:pointer;">Todos</label>
-                    </li>
-                    <?php
-                      //exibir o select
-                      $sql = "SELECT * FROM tb_turma";
-
-                      foreach ($conn->query($sql) as $item){?>
-                        <li class="item">
-                          <!-- Checkbox oculto -->
-                          <input type="checkbox" class="checkbox" name="turmasAlterar[]" value="<?php echo $item['cd_turma'];?>" id="<?php echo $item['nm_turma'];?>">
-                          <label class="checkbox-label" for="<?php echo $item['nm_turma'];?>"></label>
-                          </span>
-                          <span class="item-text"><?php echo $item['nm_turma'];?></span>
-                        </li>
-                      <?php
-                      }
-                    ?>
-                  </ul>
-                </div>
-        </div>
-        <div class="filtro-btn sindrome">
-          <div class="col">
-                  <div class="select-btn">
-                    <span class="btn-text">Selecionar Cargo</span>
-                    <i class="bi bi-chevron-down"></i>
-                  </div>
-                  <ul class="list-itens">
-                    <li class="a" id="all-select" style="cursor:pointer;">
-                      <label class="form-check-label" for="selectAllOptions" style="cursor:pointer;">Todos</label>
-                    </li>
-                        <li class="item">
-                          <!-- Checkbox oculto -->
-                          <input type="checkbox" class="checkbox" name="prof" value="prof" id="prof">
-                          <label class="checkbox-label" for="prof"></label>
-                          </span>
-                          <span class="item-text">Professor</span>
-                        </li>
-                        <li class="item">
-                          <!-- Checkbox oculto -->
-                          <input type="checkbox" class="checkbox" name="prof" value="prof" id="prof">
-                          <label class="checkbox-label" for="prof"></label>
-                          </span>
-                          <span class="item-text">Gestão</span>
-                        </li>
-                        <li class="item">
-                          <!-- Checkbox oculto -->
-                          <input type="checkbox" class="checkbox" name="prof" value="prof" id="prof">
-                          <label class="checkbox-label" for="prof"></label>
-                          </span>
-                          <span class="item-text">Representante</span>
-                        </li>
-                        <li class="item">
-                          <!-- Checkbox oculto -->
-                          <input type="checkbox" class="checkbox" name="prof" value="prof" id="prof">
-                          <label class="checkbox-label" for="prof"></label>
-                          </span>
-                          <span class="item-text">Aluno</span>
-                        </li>
-                  </ul>
+    
+           <select id="turma"> 
+             <option value="Todos">Todos</option>
+               <?php
+                $sql = "SELECT * FROM tb_turma";
+                 foreach ($conn->query($sql) as $item){
+                  $cod = $item['cd_turma'];
+                  $nome = $item['nm_turma'];
+                ?>
+            <option value="<?php echo $cod;?>"><?php echo $nome;?></option>
+                <?php
+                  };
+                ?>
+            </select>     
+       
+            <select id="cargo"> 
+             <option value="Todos">Todos</option>
+               <?php
+                  $sql = "SELECT * FROM tb_nivel";
+                    foreach ($conn->query($sql) as $item){
+                    $codigo = $item['cd_nivel'];
+                    $nivel = $item['nm_nivel'];
+                ?>
+             <option value="<?php echo $codigo;?>"><?php echo $nivel;?></option>
+               <?php
+                  };
+              ?>
+           </select>
                 </div>
         </div>
       </div>
-    </div>
     <div class="adm-img" style="z-index: -1">
       <img src="img/spreadsheets-animate.svg" alt="Figura Inicial" class="adm-element">
     </div>
@@ -268,156 +252,46 @@ if (!isset($_SESSION['email'])) {
           </thead>
           <tbody class="table-bordered" id="table">
             <tr>
-              <td>Eric Junokas Oliveira</td>
-              <td>3MIN</td>
-              <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
-                    class="bi bi-trash" ></i></a>
+              <?php 
+              require('php/conexao.php');
+              $sql = 'SELECT tb_usuario.cd_usuario,
+                tb_usuario.nm_usuario ,
+                tb_usuario.ds_email ,
+                tb_usuario.ds_senha,
+                tb_usuario.nr_rm ,
+                tb_usuario.nr_verificacao,
+                tb_usuario.id_nivel,
+                tb_usuario.id_turma,
+                tb_turma.cd_turma,
+                tb_turma.nm_turma, 
+                tb_nivel.cd_nivel,
+                tb_nivel.nm_nivel
+                FROM tb_usuario 
+                JOIN tb_turma ON tb_usuario.id_turma = tb_turma.cd_turma
+                JOIN tb_nivel ON tb_usuario.id_nivel = tb_nivel.cd_nivel';
+                foreach ($conn->query($sql) as $row) {
+                $turma_id = $row['cd_turma'];
+                $nivel_id = $row['cd_nivel'];
+                $classeTurma = 'colunas-turma-' . $turma_id . ' ' ;
+                $classeNivel = 'colunas-nivel-' . $nivel_id;
+            ?>
+              <tr class="colunas <?php echo $classeTurma  .  $classeNivel; ?>" >
+              
+
+              <td class="tabela"><?php echo $row['nm_usuario'];?></td>
+              <td class="tabela"><?php echo $row['nm_turma']; ?></td>
+              <td class="tabela"><?php echo $row['nm_nivel'];?></td>
+
+              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
+                    class="bi bi-trash"></i></a>
               </td>
             </tr>
-            <tr>
-              <td>Maytê Bronzatto Palomo</td>
-              <td>3MAM</td>
-              <td>Gostosa</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
-                    class="bi bi-trash" ></i></a>
+            
               </td>
             </tr>
-            <tr>
-              <td>Iago Marques Pinto</td>
-              <td>3MIN</td>
-              <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
-                    class="bi bi-trash" ></i></a></td>
-            </tr>
-            <tr>
-              <td>Laura Aparecida Meirinho</td>
-              <td>3MAM</td>
-              <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
-                    class="bi bi-trash" ></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td>Laura Ongaro Camargo</td>
-              <td>3MAM</td>
-              <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
-                    class="bi bi-trash" ></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td>Amauri Matematico Silva</td>
-              <td>Professor</td>
-              <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
-                    class="bi bi-trash" ></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td>Carla Modernismo Pereira</td>
-              <td>Professor</td>
-              <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
-                    class="bi bi-trash" ></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td>Giancarros Marques Ceolin</td>
-              <td>3MIN</td>
-              <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
-                    class="bi bi-trash" ></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td>Xavinho Lucido Amongus</td>
-              <td>3MIN</td>
-              <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
-                    class="bi bi-trash" ></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td>Minicius Yasuo Pequeno</td>
-              <td>3MIN</td>
-              <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
-                    class="bi bi-trash" ></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td>Miguerle Padeiro Cacetinho</td>
-              <td>3MIN</td>
-              <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
-                    class="bi bi-trash" ></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td>Wesley Casteldelli Gartic</td>
-              <td>3MIN</td>
-              <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
-                    class="bi bi-trash" ></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td>Gabriel Aisten</td>
-              <td>3MIN</td>
-              <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
-                    class="bi bi-trash" ></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td>Guti Guti</td>
-              <td>3MIN</td>
-              <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
-                    class="bi bi-trash" ></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td>Pitheozinho Durante</td>
-              <td>3MIN</td>
-              <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
-                    class="bi bi-trash" ></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td>Gordao Magrao Mediano</td>
-              <td>3MIN</td>
-              <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
-                    class="bi bi-trash" ></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td>Raphael Cabeça de Nós Todos</td>
-              <td>3MIN</td>
-              <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
-                    class="bi bi-trash" ></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td>Fakeyell Do Grau</td>
-              <td>3MIN</td>
-              <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
-                    class="bi bi-trash" ></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td>Richard dos Efeitos Sonoros</td>
-              <td>3MIN</td>
-              <td>Não</td>
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i
-                    class="bi bi-trash" ></i></a>
-              </td>
-            </tr>
+            <?php
+              };
+            ?>
           </tbody>
         </table>
       </div>
