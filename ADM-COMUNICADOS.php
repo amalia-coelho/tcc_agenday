@@ -203,6 +203,7 @@ $.ajax({
     	<div class="comuni">
 			<h1>Comunicados</h1>
     	</div>
+		<div class="adm-filtro mt-5 mb-5">
         <div class="espaco filtro-title">
           <p>Filtrar por:</p>
         </div>
@@ -211,6 +212,8 @@ $.ajax({
          	<option value="Antigo">Antigo</option>
          	<option value="Recente">Recente</option>
         </select>
+          <div class="espaco filtro-btn turma">
+          <div class="col">
                   
        <select id="turma"> 
               <option value="Todos">Todos</option>
