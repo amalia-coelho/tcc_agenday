@@ -183,8 +183,7 @@ if (!isset($_SESSION['email'])) {
           <h1>Gerenciamento</h1>
         </div>
         <div class="revealbtn" style="margin-left: 15rem;">
-          <a class="ent" href="#">Cadastrar</a>
-          <a class="ent" href="#">Salvar Alterações</a>
+          <a class="ent" href="#">Cadastrar Lote</a>
         </div>
       </div>
       <div class="adm-filtro mt-5 mb-5">
@@ -246,6 +245,7 @@ if (!isset($_SESSION['email'])) {
           <thead class="thead">
             <tr>
               <th scope="col">Nome</th>
+              <th scope="col">E-mail</th>
               <th scope="col">Turma</th>
               <th scope="col">Síndrome</th>
               <th scope="col">Ações</th>
@@ -280,6 +280,7 @@ if (!isset($_SESSION['email'])) {
               
 
               <td class="tabela"><?php echo $row['nm_usuario'];?></td>
+              <td class="tabela"><?php echo $row['ds_email'];?></td>
               <td class="tabela"><?php echo $row['nm_turma']; ?></td>
               <td class="tabela"><?php echo $row['nm_nivel'];?></td>
 
