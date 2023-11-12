@@ -275,7 +275,7 @@ if (!isset($_SESSION['email'])) {
 								<div class="row mb-3">
 									<div class="col">
 										<label for="alterar_nm_produto" class="form-label">Novo Nome do Produto</label>
-										<input type="text" name="titulo" class="form-control" id="alterar_nm_produto">
+										<input type="text" name="titulo" class="form-control" maxlength="25" id="alterar_nm_produto">
 									</div>
 									<div class="col">
 										<label for="alterar_vl_produto" class="form-label preco">Novo Valor do Produto</label>
@@ -284,7 +284,7 @@ if (!isset($_SESSION['email'])) {
 								</div>
 								<div class="mb-3">
 									<label for="alterar_ds_produto" class="form-label">Nova Descrição do Produto</label>
-									<textarea name="descricao" class="form-control" id="alterar_ds_produto" rows="4"></textarea>
+									<textarea name="descricao" class="form-control" id="alterar_ds_produto" maxlength="33" rows="4"></textarea>
 								</div>
 								<p id="exibir_cod" style="display:none;"></p>
 								<p id="exibir_path" style="display: none;"></p>
@@ -327,7 +327,7 @@ if (!isset($_SESSION['email'])) {
 								<div class="row mb-3">
 									<div class="col">
 										<label for="nm_produto" class="form-label">Nome do Produto</label>
-										<input type="text" name="nm_produto" class="form-control" id="nm_produto" maxlength="10">
+										<input type="text" name="nm_produto" class="form-control" id="nm_produto" maxlength="25">
 									</div>
 									<div class="col">
 										<label for="nr_valor" class="form-label preco">Valor do Produto</label>
@@ -336,7 +336,7 @@ if (!isset($_SESSION['email'])) {
 								</div>
 								<div class="mb-3">
 									<label for="ds_descricao" class="form-label">Descrição do Produto</label>
-									<textarea name="ds_descricao" class="form-control" id="ds_descricao" rows="4" maxlength="15"></textarea>
+									<textarea name="ds_descricao" class="form-control" id="ds_descricao" rows="4" maxlength="33"></textarea>
 								</div>
 							</div>
 							<div id="exibe"></div>
