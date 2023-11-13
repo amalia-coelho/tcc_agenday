@@ -182,7 +182,7 @@
         <div><a class="env" href="#">Enviar</a></div>
       </div>
       <!-- fim do upload -->
-      <div class="voltar mt-4"><a href="gerenciamento.html" style="color: var(--roxo);">Voltar</a></div>
+      <div class="voltar mt-4"><a href="ADM-GERENCIAMENTO.php" style="color: var(--roxo);">Voltar</a></div>
       <div class="revealbtn mt-1" style="display: flex;">
         <div><a class="ent" href="#">Salvar Alterações</a></div>
       </div>
