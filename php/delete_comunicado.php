@@ -37,10 +37,10 @@
                     }
                 }
             }
-            header("Location: ../comunicados.php");
+            header("Location: ../adm-comunicados.php");
         } catch (Exception $erro) {
            echo "<p>Erro!</p>";
-           header('Location: ../comunicados.php');
+           header('Location: ../adm-comunicados.php');
         }
     }
 ?>
