@@ -146,7 +146,7 @@
           <h1>Gerenciamento</h1>
         </div>
         <div class="revealbtn" style="margin-left: 15rem;">
-          <a class="ent" href="#">Cadastrar</a>
+          <a class="ent" href="lote.html">Cadastrar</a>
           <a class="ent" href="#">Salvar Alterações</a>
         </div>
       </div>
