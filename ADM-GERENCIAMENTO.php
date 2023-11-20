@@ -122,7 +122,7 @@ if (!isset($_SESSION['email'])) {
       </div>
       <ul>
       <li class="item-menu">
-				<a href="perfil.php">
+				<a href="adm-perfil.php">
 				<span class="icon"><i class="bi bi-person-fill"></i></span>
 				<span class="txt-link">Usuário</span>
 				</a>
@@ -152,7 +152,7 @@ if (!isset($_SESSION['email'])) {
 				</a>
 			</li>
         <li class="item-menu">
-				<a href="duvidas.php">
+				<a href="adm-duvidas.php">
 				<span class="icon"><i class="bi bi-question-lg"></i></span>
 				<span class="txt-link">Dúvidas</span>
 				</a>
@@ -183,7 +183,7 @@ if (!isset($_SESSION['email'])) {
           <h1>Gerenciamento</h1>
         </div>
         <div class="revealbtn" style="margin-left: 15rem;">
-          <a class="ent" href="#">Cadastrar Lote</a>
+          <a class="ent" href="cadastroLote.php">Cadastrar Lote</a>
         </div>
       </div>
       <div class="adm-filtro mt-5 mb-5">
@@ -237,7 +237,7 @@ if (!isset($_SESSION['email'])) {
       <!-- final search bar -->
 
 
-      <!-- table -->
+     <!-- table -->
 
       <div class="tabela-gera mt-4">
 
@@ -247,7 +247,7 @@ if (!isset($_SESSION['email'])) {
               <th scope="col">Nome</th>
               <th scope="col">E-mail</th>
               <th scope="col">Turma</th>
-              <th scope="col">Síndrome</th>
+              <th scope="col">Nível</th>
               <th scope="col">Ações</th>
             </tr>
           </thead>
@@ -284,7 +284,7 @@ if (!isset($_SESSION['email'])) {
               <td class="tabela"><?php echo $row['nm_turma']; ?></td>
               <td class="tabela"><?php echo $row['nm_nivel'];?></td>
 
-              <td class="edit" style="width: 100px;"><a href="#"><i class="bi bi-pencil"></i></a> <a href="#"><i
+              <td class="edit" style="width: 100px;"></a> <a href="#"><i
                     class="bi bi-trash"></i></a>
               </td>
             </tr>

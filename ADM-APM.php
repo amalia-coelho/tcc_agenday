@@ -9,12 +9,12 @@ if (!isset($_SESSION['email'])) {
 } else {
     // Obtém informações do usuário logado (presumindo que 'id_nivel' seja um campo na tabela de usuários)
     $email = $_SESSION['email'];
-    $stmt = $conn->prepare("SELECT id_nivel FROM tb_usuario WHERE ds:email = :email");
+    $stmt = $conn->prepare("SELECT id_nivel FROM tb_usuario WHERE ds_email = :email");
     $stmt->execute(array(':email' => $email));
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // Verifica se o 'id_nivel' do usuário é igual a 1
-    if ($_SESSION['id_nivel'] == 2) {
+    if ($_SESSION['id_nivel'] != 1) {
         header('Location: index.php');
         exit(); // Certifique-se de sair do script após redirecionar
     }?>
@@ -112,7 +112,7 @@ if (!isset($_SESSION['email'])) {
       			</div>
       			<ul>
 					<li class="item-menu">
-						<a href="perfil.php">
+						<a href="adm-perfil.php">
 							<span class="icon"><i class="bi bi-person-fill"></i></span>
 							<span class="txt-link">Usuário</span>
 						</a>
@@ -142,7 +142,7 @@ if (!isset($_SESSION['email'])) {
 						</a>
 					</li>
 					<li class="item-menu">
-						<a href="duvidas.php">
+						<a href="adm-duvidas.php">
 							<span class="icon"><i class="bi bi-question-lg"></i></span>
 							<span class="txt-link">Dúvidas</span>
 						</a>
@@ -168,27 +168,6 @@ if (!isset($_SESSION['email'])) {
 					<h1>APM</h1>
 					<p>Olá, aqui é a APM (Associação de Pais e Mestres)! Nessa área é possível somente visualizar todos os itens que são vendidos na nossa escola, caso você queira adquirir alguma coisa, terá que se redirecionar para a secretária da Etec de Itanhaém.</p>
 				</div>
-				
-			<!-- search bar-->
-
-			<div class="inner-form">
-            <div class="input-field">
-              <button class="btn-search" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                  <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-                </svg>
-              </button>
-              <input id="search" type="text" placeholder="Pesquise aqui"/>
-            </div>
-          </div>
-		  <div class="suggestion-wrap">
-            <span>Camiseta</span>
-            <span>Informática</span>
-            <span>Meio Ambiente</span>
-            <span>Administração</span>
-            <span>Armários</span>
-            <span style="background:red" id="clearSearch">Limpar <i class="bi bi-x-circle-fill"></i></span>
-          </div>
 
 			<!-- fim da search bar-->
 
@@ -199,13 +178,13 @@ if (!isset($_SESSION['email'])) {
 					
 					if (count($rows) > 0) {
 						foreach ($rows as $row) {
-					?>
-					<div class="apm-group">
+							?>
+						<div class="apm-group">
 						<!-- inicio card -->
 						<div class="apm-card">
 							<img src="<?php echo $row['ds_imagem'];?>" alt="" class="card-img">
 							<button data-bs-toggle="modal" data-bs-target="#editModal" class="alterar" cod="<?php echo $row['cd_apm'];?>" nome="<?php echo $row['nm_produto'];?>" valor="<?php echo $row['nr_valor']?>" descricao="<?php echo $row['ds_descricao'];?>" imagem="<?php echo $row['ds_imagem'];?>"><i class="bi bi-pencil-square edit-icon"></i></button>
-							<a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i class="bi bi-trash-fill delete-icon"></i></a>
+							<a href="#"  data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i class="bi bi-trash-fill delete-icon"></i></a>
 							<div class="card-info">
 								<div class="card-text">
 									<p class="card-title"><?php echo $row['nm_produto']; ?></p>
@@ -222,16 +201,15 @@ if (!isset($_SESSION['email'])) {
 							</div>
 						</div>
 						<!-- fim card -->
-					</div>
-					
-					<!-- Modal De Exclusao -->
-					<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-						<div class="modal-dialog modal-dialog-centered" role="document">
-							<div class="modal-content custom-modal">
-								<div class="modal-circle">
-									<i class="bi bi-x-circle mt-5" style="color: #ff0000; font-size:5em;display: flex; align-items: center; justify-content: center;"></i>
-								</div>
-								<div class="modal-header" style="background-color: #fff; border: none; text-align: center; justify-content: center;">
+						
+						<!-- Modal De Exclusao -->
+						<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered" role="document">
+								<div class="modal-content custom-modal">
+									<div class="modal-circle">
+										<i class="bi bi-x-circle mt-5" style="color: #ff0000; font-size:5em;display: flex; align-items: center; justify-content: center;"></i>
+									</div>
+									<div class="modal-header" style="background-color: #fff; border: none; text-align: center; justify-content: center;">
 									<h5 class="modal-title" style="color:#000; font-size:1.5em ">Você tem certeza?</h5>
 								</div>
 								<div class="modal-body" style="text-align: center;">
@@ -243,14 +221,16 @@ if (!isset($_SESSION['email'])) {
 								</div>
 							</div>
 						</div>
+						<!-- fim do Modal De Exclusao -->
 					</div>
-					<!-- fim do Modal De Exclusao -->
-				<?php    		
-					}} else{
+					</div>
+						<?php 
+						}   		
+					} else{
 						echo "<p class='mt-5' style='font-size:18px;'>Desculpe, não temos produtos disponíveis no momento. Confira novamente mais tarde!</p>";
 					}
-				?>
-			</div>
+					?>
+				</div>
 
 			<!-- Modal de Alteração -->
 			<div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">

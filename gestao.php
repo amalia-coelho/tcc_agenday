@@ -21,61 +21,7 @@
 	<!-- /css -->
 
 	<!-- js -->
-	<script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
-	<script src="https://unpkg.com/scrollreveal"></script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			//ADD GESTAO
-			$('#addGestao').submit(function (e) {
-				e.preventDefault();
-
-				var formulario = new FormData(this); // Crie um objeto FormData com os dados do formulário
-				$.ajax({
-					type: 'POST',
-					url: 'php/add_gestao.php',
-					data: formulario,
-					contentType: false,
-					processData: false,
-				}).done(function(resposta){
-					//Recarregar página
-					$("#exibe").html(resposta);
-				}).fail(function(jqXHR, textStatus ) {
-					console.log("Request failed: " + textStatus);
-				});
-			});
-
-			//UPDATE Gestão
-			//Pegar os valores dos inputs
-			$(".alterar").on("click", function(){
-				$("#exibir_cod").text($(this).attr('cod'));
-				$("#exibir_path").text($(this).attr('imagem'));
-				$("#alterar_nm").val($(this).attr('nome'));
-				$("#alterar_cargo").val($(this).attr('cargo'));
-			});
-
-			//Atualizar valores
-			$('#alterarGestao').submit(function (e) {
-				e.preventDefault();
-
-				var formulario = new FormData(this);
-				formulario.append('codigo', $("#exibir_cod").text());
-				formulario.append('imagemAntiga', $("#exibir_path").text());
-				
-				$.ajax({
-					type: 'POST',
-					url: 'php/alterar_gestao.php',
-					data: formulario,
-					contentType: false,
-					processData: false,
-				}).done(function(resposta){
-					$("#exibe2").html(resposta);
-				}).fail(function(jqXHR, textStatus ) {
-					console.log("Request failed: " + textStatus);
-				});
-			});
-		});	
-	</script>
-	<!-- /js -->
+	
   	<title>Gestão</title>
 </head>
 
@@ -156,158 +102,32 @@
 				<button class="btn-search" type="button">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
 				<path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-			  </svg>
-			</button>
-			<input id="search" type="text" placeholder="Pesquise aqui"/>
+				</svg>
+				</button>
+				<input id="search" type="text" placeholder="Pesquise aqui"/>
 		  </div>
 		</div>
-<div class="suggestion-wrap">
-	<span>Camiseta</span>
-	<span>Informática</span>
-	<span>Administração</span>
-	<span>Armários</span>
-	<span style="background:red" id="clearSearch">Limpar <i class="bi bi-x-circle-fill"></i></span>
-</div>
 
-<!-- fim da search bar-->
+				<!-- fim da search bar-->
 		<section class="gestao">
-			<div class="gestao-container">
-				
-				<?php
-		$sql = "SELECT * FROM tb_gestao";
-		foreach ($conn->query($sql) as $row) {?>
-			<div class="gestao-users">
-				<img src="<?php echo $row['ds_imagem'];?>" alt="Foto do Usuário">
-				<button class="alterar" data-bs-toggle="modal" data-bs-target="#editModal" cod="<?php echo $row['cd_membro'];?>" nome="<?php echo $row['nm_membro'];?>" cargo="<?php echo $row['ds_cargo'];?>" imagem="<?php echo $row['ds_imagem'];?>"><i class="bi bi-pencil-square edit-icon"></i></button>
-				<i data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" class="bi bi-trash-fill delete-icon"></i>
-				<p><?php echo $row['nm_membro'];?></p>
-				<p><?php echo $row['ds_cargo'];?></p>
-			</div>
-
-			<!-- Modal De Exclusao -->
-			<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered" role="document">
-					<div class="modal-content custom-modal">
-						<div class="modal-circle">
-							<i class="bi bi-x-circle mt-5" style="color: #ff0000; font-size:5em;display: flex; align-items: center; justify-content: center;"></i>
-						</div>
-						<div class="modal-header" style="background-color: #fff; border: none; text-align: center; justify-content: center;">
-							<h5 class="modal-title" style="color:#000; font-size:1.5em ">Você tem certeza?</h5>
-						</div>
-						<div class="modal-body" style="text-align: center;">
-							<p>Você realmente deseja excluir esses registros? Este processo não pode ser desfeito.</p>
-						</div>
-						<div class="modal-footer" style="border: none; justify-content: center;">
-							<a href="php/delete_gestao.php?cod=<?php echo $row['cd_membro'];?>"><button type="button" class="btn btn-danger">Sim, Excluir</button></a>
-							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-						</div>
+			<?php
+					$sql = "SELECT * FROM tb_gestao";
+					foreach ($conn->query($sql) as $row) {?>
+						<div class="gestao-container">
+					<div class="gestao-users">
+						<img src="<?php echo $row['ds_imagem'];?>" alt="Foto do Usuário">
+						<button class="alterar" data-bs-toggle="modal" data-bs-target="#editModal" cod="<?php echo $row['cd_membro'];?>" nome="<?php echo $row['nm_membro'];?>" cargo="<?php echo $row['ds_cargo'];?>" imagem="<?php echo $row['ds_imagem'];?>"><i class="bi bi-pencil-square edit-icon"></i></button>
+						<i data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" class="bi bi-trash-fill delete-icon"></i>
+						<p><?php echo $row['nm_membro'];?></p>
+						<p><?php echo $row['ds_cargo'];?></p>
 					</div>
-				</div>
+
 			</div>
-		</div>
-		<?php
-		}
-		?>
-	</section>
-</main>
-
-<!-- fim do Modal De Exclusao -->
-
-<!-- Modal de Alteração -->
-<div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-	aria-labelledby="editModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-dialog-centered">
-		<div class="modal-content">
-			<form id="alterarGestao" enctype="multipart/form-data">
-				<div class="modal-header">
-					<h1 class="modal-title fs-5" id="editModalLabel">Editar Membro</h1>
-					<button type="button" class="btn-close btn-close-white close-button" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<form>
-						<!-- Inputs para a alteração -->
-						<div class="mb-3">
-							<label for="imageInput" class="form-label">Editar Imagem do Membro</label>
-							<div class="input-group">
-								<input type="file" class="form-control" name="alterarImagem" id="imageInput" accept="image/*">
-								<button class="btn btn-outline-secondary" type="button" id="editButton">
-									<i class="bi bi-pencil"></i> <!-- Ícone de editar -->
-								</button>
-							</div>
-						</div>
-						<div class="row mb-3">
-							<div class="col">
-								<label for="alterar_nm" class="form-label">Editar Nome do Membro</label>
-								<input type="text" class="form-control" name="nome" id="alterar_nm">
-							</div>
-							<div class="col">
-								<label for="alterar_cargo" class="form-label">Editar Cargo do Membro</label>
-								<input type="text" class="form-control" name="cargo" id="alterar_cargo">
-							</div>
-						</div>
-					</form>
-					<p id="exibir_cod" style="display: none;"></p>
-					<p id="exibir_path" style="display: none;"></p>
-				</div>
-				<div id="exibe2"></div>
-				<div class="modal-footer">
-					<button type="submit" class="btn btn-roxo">Salvar Alterações</button>
-					<button type="button" class="btn btn-azul" data-bs-dismiss="modal">Cancelar</button>
-				</div>
-			</div>
-		</form>
-	</div>
-</div>
-</div>
-</div>
-<!-- Fim do modal de Alteração -->
-
-  <!-- incio do modal E BOTAO QUE ABRE ELE -->
-  <button type="button" class="btn btn-primary add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    <i class="bi bi-plus-circle-fill"></i> <!-- Ícone de adição -->
-  </button>
-
-  <!-- Modal de ADICIONAR APM -->
-  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar Membro</h1>
-          <button type="button" class="btn-close btn-close-white close-button" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-		    <form id="addGestao" enctype="multipart/form-data">
-        <div class="modal-body">
-            <div class="mb-3">
-              <label for="ds_imagem" class="form-label">Imagem do Membro</label>
-              <div class="input-group">
-                <input type="file" class="form-control" name="ds_imagem" id="ds_imagem" accept="image/*">
-                <button class="btn btn-outline-secondary" type="button" id="editButton">
-                  <i class="bi bi-pencil"></i> <!-- Ícone de editar -->
-                </button>
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col">
-                <label for="nm_membro" class="form-label">Nome do Membro</label>
-                <input type="text" name="nm_membro" class="form-control" id="nm_membro">
-              </div>
-              <div class="col">
-                <label for="membroCargo" class="form-label">Cargo do Membro</label>
-                <input type="text" name="ds_cargo" class="form-control" id="membroCargo">
-              </div>
-            </div>
-        </div>
-		<div id="exibe"></div>
-        <div class="modal-footer">
-			<button type="submit" class="btn btn-roxo">Salvar</button>
-			<button type="button" class="btn btn-azul" data-bs-dismiss="modal">Fechar</button>
-        </div>
-	</form>
-	</div>
-    </div>
-  </div>
-  <!-- fim do modal -->
+				<?php
+				}
+				?>
+		</section>
+	</main>
   <!-- js -->
   <script src="js/duvidas.js"></script>
   <script src="js/menu.js"></script>

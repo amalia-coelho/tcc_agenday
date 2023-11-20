@@ -31,7 +31,7 @@
             ":codigo" => $_POST['codigo'],
             ":nome" => $_POST['nome'],
             ":cargo" => $_POST['cargo'],
-            ":ds_imagem" => $arquivo,
+            ":imagem" => $arquivo,
         ));
 
         echo "<meta http-equiv='refresh' content='1'>";

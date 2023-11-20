@@ -141,7 +141,7 @@ $.ajax({
 			</div>
 			<ul>
 			<li class="item-menu">
-					  <a href="perfil.php">
+					  <a href="adm-perfil.php">
 					  <span class="icon"><i class="bi bi-person-fill"></i></span>
 					  <span class="txt-link">Usuário</span>
 					  </a>
@@ -171,7 +171,7 @@ $.ajax({
 					  </a>
 				  </li>
 			  <li class="item-menu">
-					  <a href="duvidas.php">
+					  <a href="adm-duvidas.php">
 					  <span class="icon"><i class="bi bi-question-lg"></i></span>
 					  <span class="txt-link">Dúvidas</span>
 					  </a>
@@ -207,27 +207,10 @@ $.ajax({
         <div class="espaco filtro-title">
           <p>Filtrar por:</p>
         </div>
-        <select id="ordem"> 
-          <option value="Todos">Todos</option>
-         	<option value="Antigo">Antigo</option>
-         	<option value="Recente">Recente</option>
-        </select>
           <div class="espaco filtro-btn turma">
           <div class="col">
                   
-       <select id="turma"> 
-              <option value="Todos">Todos</option>
-              <?php
-              $sql = "SELECT * FROM tb_turma";
-              foreach ($conn->query($sql) as $item){
-              $codig = $item['cd_turma'];
-              $nome = $item['nm_turma'];
-                ?>
-              <option value="<?php echo $codig;?>"><?php echo $nome;?></option>
-              <?php
-            };
-          ?>
-            </select>
+      
                 
         </div>
       </div>

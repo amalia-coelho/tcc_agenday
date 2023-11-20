@@ -39,7 +39,7 @@
                         ':img' => "uploads/apm/".$arquivo['name'],
                     ));
                     
-                    echo '<div class="alert" style="background-color: #DCEED7; border-left: 8px solid #9EB0A0; animation: none;"><i class="bi bi-check-lg "style="color: #9EB0A0";"></i><span class="msg" style="color: #9EB0A0; font-size:18px;">Membro adicionado!</span></div>';
+                    echo '<div class="alert" style="background-color: #DCEED7; border-left: 8px solid #9EB0A0; animation: none;"><i class="bi bi-check-lg "style="color: #9EB0A0";"></i><span class="msg" style="color: #9EB0A0; font-size:18px;">Produto adicionado!</span></div>';
                     echo "<meta http-equiv='refresh' content='1'>";
                 } else {
                     echo '<div class="alert"><i class="bi bi-exclamation-circle"></i><span class="msg" style="font-size: 17px">Erro no envio da imagem!.</span></div>';        

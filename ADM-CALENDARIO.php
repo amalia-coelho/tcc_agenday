@@ -58,13 +58,13 @@ if (!isset($_SESSION['email'])) {
 			</div>
 			<ul>
 			<li class="item-menu">
-				<a href="perfil.php">
+				<a href="adm-perfil.php">
 				<span class="icon"><i class="bi bi-person-fill"></i></span>
 				<span class="txt-link">Usuário</span>
 				</a>
 			</li>
 			<li class="item-menu ativo">
-				<a href="#">
+				<a href="adm-calendario.php">
                 <span class="icon"><i class="bi bi-house-door-fill"></i></span>
 				<span class="txt-link">Calendário</span>
 				</a>
@@ -88,7 +88,7 @@ if (!isset($_SESSION['email'])) {
 				</a>
 			</li>
 			<li class="item-menu">
-				<a href="duvidas.php">
+				<a href="adm-duvidas.php">
 				<span class="icon"><i class="bi bi-question-lg"></i></span>
 				<span class="txt-link">Dúvidas</span>
 				</a>
