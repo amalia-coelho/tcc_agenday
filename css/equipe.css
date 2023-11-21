@@ -105,6 +105,10 @@
     justify-content: space-between;
 }
 
+.icons a {
+    transition: 0.2s;
+}
+
 .card a {
     text-decoration: none;
     color: inherit;
@@ -146,6 +150,10 @@
 #equipe h1:hover .card:hover .icons a i {
     color: var(--branco);
 
+}
+
+.icons a:hover {
+    transform: scale(1.5);
 }
 
 #equipe h1:hover {

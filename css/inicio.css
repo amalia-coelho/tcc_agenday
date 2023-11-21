@@ -13,10 +13,12 @@
 
 .home:after {
     content: "";
-    background: -webkit-linear-gradient(left, rgba(92, 7, 52, 1) 0%, rgba(134, 29, 84, 1) 12%, rgba(255, 93, 177, 1) 47%, rgba(83, 0, 30, 1) 100%);
+    background-image: linear-gradient(to right, var(--azul) 0%, var(--roxo) 51%, var(--azul) 100%);
+    background-size: 200% auto;
     display: block;
     height: 10px;
-    width: 500px;
+    width: 100%;
+    margin-left: -5%;
     position: absolute;
     bottom: 0;
 }

@@ -81,7 +81,7 @@
       </div>
       <p>Aqui você visualiza eventos, tarefas, comunicados e muito mais!</p>
       <div class="revealimg">
-        <a class="btnn" href="#">Como Funciona?</a>
+        <a class="btnn" href="#entrar2">Conheça a Equipe!</a>
       </div>
     </div>
     <div class="home-img">
@@ -89,6 +89,8 @@
     </div>
   </section>
   <!-- FIM DA HOME!! -->
+
+
 
   <!-- PARTE DO LOGIN!! -->
 
@@ -137,16 +139,15 @@
     </div>
   </section>
   <!-- FIM DO LOGIN!! -->
+   <!-- PARTE DA EQUIPE!! -->
 
-  <!-- PARTE DA EQUIPE!! -->
-
-  <section class="equipe1" id="entrar">
+   <section class="equipe1" id="entrar2">
     <div class="row" id="equipe">
-        <h1>Conheça Nossa Equipe</h1>
+        <h1 class="equipe-title">Conheça Nossa Equipe</h1>
       </div>
     <div class="equipe-container">
        <!-- Column 1-->
-       <div class="column">
+       <div class="column" id="card-equipe1">
           <div class="card">
             <div class="img-container">
               <img src="img/equipe-eric.jpg" />
@@ -170,7 +171,7 @@
           </div>
         </div>
         <!-- Column 2-->
-        <div class="column">
+        <div class="column" id="card-equipe2">
           <div class="card">
             <div class="img-container">
               <img src="img/equipe-eric.jpg" />
@@ -194,7 +195,7 @@
           </div>
         </div>
         <!-- Column 3-->
-        <div class="column">
+        <div class="column" id="card-equipe3">
           <div class="card">
             <div class="img-container">
               <img src="img/equipe-eric.jpg" />
@@ -205,20 +206,20 @@
               <a href="#">
                 <i class="bi bi-twitter"></i>
               </a>
-              <a href="#">
+              <a href="https://www.linkedin.com/in/eric-junokas-393080228/" >
                 <i class="bi bi-linkedin"></i>
               </a>
-              <a href="#">
+              <a href="https://github.com/ericofff">
                 <i class="bi bi-github"></i>
               </a>
-              <a href="#">
+              <a href="https://www.instagram.com/ericjunokas/">
                 <i class="bi bi-instagram"></i>
               </a>
             </div>
           </div>
         </div>
         <!-- Column 4-->
-        <div class="column">
+        <div class="column" id="card-equipe4">
           <div class="card">
             <div class="img-container">
               <img src="img/equipe-eric.jpg" />
@@ -242,7 +243,7 @@
           </div>
         </div>
         <!-- Column 5-->
-        <div class="column">
+        <div class="column" id="card-equipe5">
           <div class="card">
             <div class="img-container">
               <img src="img/equipe-eric.jpg" />
@@ -268,6 +269,7 @@
     </div>
   </section>
   <!-- FIM DA EQUIPE!! -->
+ 
 <!-- footer -->
 <?php
 
@@ -284,6 +286,14 @@ include('footer.php');
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
   <script>
+
+document.addEventListener('DOMContentLoaded', function () {
+            var links = document.querySelectorAll('a');
+
+            links.forEach(function (link) {
+                link.setAttribute('target', '_blank');
+            });
+        });  
     const passwordInput = document.getElementById('password');
     const togglePasswordButton = document.getElementById('togglePassword');
     const eyeIcon = document.getElementById('eyeIcon');
@@ -299,8 +309,7 @@ include('footer.php');
         eyeIcon.classList.add('bi-eye-slash');
       }
     });
-  </script>
-  <script>
+
     ScrollReveal({
       reset: true,
       distance: '60px',
@@ -359,6 +368,61 @@ include('footer.php');
       delay: 500,
       origin: 'top'
     });
+
+    // EQUIPE
+    ScrollReveal().reveal('.equipe1 .equipe-title', {
+      delay: 300,
+      origin: 'right'
+    });
+    ScrollReveal().reveal('#card-equipe1', {
+      delay: 700,
+      origin: 'bottom'
+    });
+    ScrollReveal().reveal('#card-equipe2', {
+      delay: 850,
+      origin: 'bottom'
+    });
+    ScrollReveal().reveal('#card-equipe3', {
+      delay: 1000,
+      origin: 'bottom'
+    });
+    ScrollReveal().reveal('#card-equipe4', {
+      delay: 1150,
+      origin: 'bottom'
+    });
+    ScrollReveal().reveal('#card-equipe5', {
+      delay: 1300,
+      origin: 'bottom'
+    });
+
+    ScrollReveal().reveal('#card-equipe1 .img-container', {
+      delay: 1300,
+      origin: 'top'
+    });
+    ScrollReveal().reveal('#card-equipe2 .img-container', {
+      delay: 1400,
+      origin: 'top'
+    });
+    ScrollReveal().reveal('#card-equipe3 .img-container', {
+      delay: 1500,
+      origin: 'top'
+    });
+    ScrollReveal().reveal('#card-equipe4 .img-container', {
+      delay: 1600,
+      origin: 'top'
+    });
+    ScrollReveal().reveal('#card-equipe5 .img-container', {
+      delay: 1700,
+      origin: 'top'
+    });
+
+
+    
+    ScrollReveal().reveal('.pass', {
+      delay: 900,
+      origin: 'right'
+    });
+   
   </script>
 </body>
 </html>
