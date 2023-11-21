@@ -11,17 +11,6 @@
 
 }
 
-.home:after {
-    content: "";
-    background-image: linear-gradient(to right, var(--azul) 0%, var(--roxo) 51%, var(--azul) 100%);
-    background-size: 200% auto;
-    display: block;
-    height: 10px;
-    width: 100%;
-    margin-left: -5%;
-    position: absolute;
-    bottom: 0;
-}
 
 .navbar {
     width: 100%;
