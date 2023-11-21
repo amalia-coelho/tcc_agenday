@@ -12,6 +12,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/inicio.css">
 	<link rel="stylesheet" href="css/login.css">
+	<link rel="stylesheet" href="css/equipe.css">
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
 	integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -136,6 +137,137 @@
     </div>
   </section>
   <!-- FIM DO LOGIN!! -->
+
+  <!-- PARTE DA EQUIPE!! -->
+
+  <section class="entrar" id="entrar">
+    <div class="row" id="equipe">
+        <h1>Conheça Nossa Equipe</h1>
+      </div>
+    <div class="equipe-container">
+       <!-- Column 1-->
+       <div class="column">
+          <div class="card">
+            <div class="img-container">
+              <img src="img/equipe-eric.jpg" />
+            </div>
+            <h3 style="font-size: 1.70rem">Mikaella Macedo</h3>
+            <p>Analista</p>
+            <div class="icons">
+              <a href="#">
+                <i class="bi bi-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="bi bi-linkedin"></i>
+              </a>
+              <a href="#">
+                <i class="bi bi-github"></i>
+              </a>
+              <a href="#">
+                <i class="bi bi-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Column 2-->
+        <div class="column">
+          <div class="card">
+            <div class="img-container">
+              <img src="img/equipe-eric.jpg" />
+            </div>
+            <h3>Amália Coelho</h3>
+            <p>Back-End</p>
+            <div class="icons">
+              <a href="#">
+                <i class="bi bi-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="bi bi-linkedin"></i>
+              </a>
+              <a href="#">
+                <i class="bi bi-github"></i>
+              </a>
+              <a href="#">
+                <i class="bi bi-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Column 3-->
+        <div class="column">
+          <div class="card">
+            <div class="img-container">
+              <img src="img/equipe-eric.jpg" />
+            </div>
+            <h3>Eric Junokas</h3>
+            <p>Front-End</p>
+            <div class="icons">
+              <a href="#">
+                <i class="bi bi-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="bi bi-linkedin"></i>
+              </a>
+              <a href="#">
+                <i class="bi bi-github"></i>
+              </a>
+              <a href="#">
+                <i class="bi bi-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Column 4-->
+        <div class="column">
+          <div class="card">
+            <div class="img-container">
+              <img src="img/equipe-eric.jpg" />
+            </div>
+            <h3>Iago Marques</h3>
+            <p>Front-End</p>
+            <div class="icons">
+              <a href="#">
+                <i class="bi bi-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="bi bi-linkedin"></i>
+              </a>
+              <a href="#">
+                <i class="bi bi-github"></i>
+              </a>
+              <a href="#">
+                <i class="bi bi-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Column 5-->
+        <div class="column">
+          <div class="card">
+            <div class="img-container">
+              <img src="img/equipe-eric.jpg" />
+            </div>
+            <h3>Raissa Berto</h3>
+            <p>Back-End</p>
+            <div class="icons">
+              <a href="#">
+                <i class="bi bi-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="bi bi-linkedin"></i>
+              </a>
+              <a href="#">
+                <i class="bi bi-github"></i>
+              </a>
+              <a href="#">
+                <i class="bi bi-instagram"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+  <!-- FIM DA EQUIPE!! -->
 <!-- footer -->
 <?php
 
