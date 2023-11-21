@@ -222,7 +222,7 @@
         <div class="column" id="card-equipe4">
           <div class="card">
             <div class="img-container">
-              <img src="img/equipe-eric.jpg" />
+              <img src="img/equipe-iago.jpeg" />
             </div>
             <h3>Iago Marques</h3>
             <p>Front-End</p>
