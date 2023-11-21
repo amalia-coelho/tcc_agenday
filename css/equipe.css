@@ -4,13 +4,14 @@
     transition: opacity 0.5s, transform 0.5s;
 }
 
-.entrar {
+.equipe1 {
     margin-top: 0;
     height: 100vh;
     width: 100%;
-    background-image: var(--branco);
-    background-size: cover;
-    background-position: initial;
+    background-image: url(../img/wave.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
     padding-left: 5%;
     padding-right: 5%;
     position: relative;
@@ -44,7 +45,7 @@
     padding: 0.5em 0;
 }
 
-h1 {
+#equipe h1 {
     width: 100%;
     text-align: center;
     font-size: 3.5em;
@@ -147,6 +148,10 @@ h1 {
 
 }
 
+#equipe h1:hover {
+    color: var(--roxo);
+    font-weight: bold;
+}
 
 @media screen and (min-width: 768px) {
     section {

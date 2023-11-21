@@ -140,7 +140,7 @@
 
   <!-- PARTE DA EQUIPE!! -->
 
-  <section class="entrar" id="entrar">
+  <section class="equipe1" id="entrar">
     <div class="row" id="equipe">
         <h1>Conheça Nossa Equipe</h1>
       </div>
