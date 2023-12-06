@@ -155,13 +155,6 @@ if (!isset($_SESSION['email'])) {
                         <div class="info-custom info-date">
                             <h4><?php echo $row['start']; ?>5</h4>
                         </div>
-                        <div class="info-custom info-buttons">
-                            <button data-bs-toggle="modal" data-bs-target="#alterarModal" style="border: none;background: none !important;">
-                                <i class="bi bi-pencil-square edit-icon"></i>
-                            </button>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#deleteModal"><i class="bi bi-trash-fill delete-icon"></i></a>  
-                            
-                        </div>
                     </div>
 					
                     <!-- Modal De Exclusao EMBAIXO -->
