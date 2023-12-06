@@ -164,21 +164,22 @@ body {
 }
 
 .info-evento {
+    box-shadow: 0 0 2.4em rgba(25, 0, 58, 0.1);
     display: flex;
-    background: #b6b6fc;
-    align-items: center;
-    justify-content: space-between;
+    background: #fbfbff;
+    justify-content: center;
     flex-direction: column;
     width: 50%;
     padding: 10px;
+    border: 1px solid var(--roxo);
     border-radius: 25px;
     text-transform: capitalize;
     z-index: 999;
     align-content: center;
-    color: var(--branco);
+    color: var(--preto);
     cursor: pointer;
-    text-shadow: 1px 1px 1px #000;
     transition: 0.2s ease-in-out;
+    align-items: center;
 }
 
 .info-evento:hover {

@@ -66,7 +66,7 @@
       <nav>
         <ul>
           <li><a href="#">Início</a></li>
-          <li><a href="#titulo">Sobre nós</a></li>
+          <li><a href="#entrar2">Sobre nós</a></li>
            <li><a href="#entrar">Entrar</a></li>
           <li><a href="cadastro.php">Cadastro</a></li>
         </ul>
@@ -284,11 +284,12 @@ include('footer.php');
   <script>
 
 document.addEventListener('DOMContentLoaded', function () {
-            var links = document.querySelectorAll('a');
+  var entrar2Section = document.getElementById('entrar2');
+var links = entrar2Section.querySelectorAll('a');
 
-            links.forEach(function (link) {
-                link.setAttribute('target', '_blank');
-            });
+links.forEach(function (link) {
+    link.setAttribute('target', '_blank');
+});
         });  
     const passwordInput = document.getElementById('password');
     const togglePasswordButton = document.getElementById('togglePassword');
