@@ -9,7 +9,7 @@ if (!isset($_SESSION['email'])) {
 } else {
     // Obtém informações do usuário logado (presumindo que 'id_nivel' seja um campo na tabela de usuários)
     $email = $_SESSION['email'];
-    $stmt = $conn->prepare("SELECT id_nivel FROM tb_usuario WHERE ds:email = :email");
+    $stmt = $conn->prepare("SELECT id_nivel FROM tb_usuario WHERE ds_email = :email");
     $stmt->execute(array(':email' => $email));
     $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
 

@@ -5,13 +5,13 @@ include('php/conexao.php');
 // Verifica se o usuário está autenticado
 if (!isset($_SESSION['email'])) {
     header('Location: index.php');
-    exit(); // Certifique-se de sair do script após redirecionar
-} else {
-    // Verifica se o 'id_nivel' do usuário é igual a 1
-    if ($_SESSION['id_nivel'] == 2) {
-        header('Location: index.php');
+    exit();
+} else if ($_SESSION['id_nivel'] == 2){
+        header('Location: gestao.php');
         exit(); // Certifique-se de sair do script após redirecionar
-    }?>
+} else{
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -103,19 +103,19 @@ if (!isset($_SESSION['email'])) {
 					</a>
 				</li>
 				<li class="item-menu">
-					<a href="adm-calendario.php">
+					<a href="adm_calendario.php">
 						<span class="icon"><i class="bi bi-house-door-fill"></i></span>
 						<span class="txt-link">Calendário</span>
 					</a>
 				</li>
 				<li class="item-menu">
-					<a href="adm-comunicados.php">
+					<a href="adm_comunicados.php">
 						<span class="icon"><i class="bi bi-megaphone-fill"></i></span>
 						<span class="txt-link">Comunicados</span>
 					</a>
 				</li>
 				<li class="item-menu">
-					<a href="adm-apm.php">
+					<a href="adm_apm.php">
 						<span class="icon"><i class="bi bi-cart4"></i></span>
 						<span class="txt-link">APM</span>
 					</a>
@@ -133,7 +133,7 @@ if (!isset($_SESSION['email'])) {
 					</a>
 				</li>
 				<li class="item-menu">
-					<a href="ADM-gerenciamento.php">
+					<a href="adm_gerenciamento.php">
 						<span class="icon"><i class="bi bi-gear-fill"></i></span>
 						<span class="txt-link">Gerenciamento</span>
 					</a>

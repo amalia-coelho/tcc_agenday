@@ -1,25 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- css -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/doisfatores.css">
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css"
-    integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css" integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <!-- /css -->
 
   <!-- js -->
   <script src="https://unpkg.com/scrollreveal"></script>
-  <script>
+  <script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $("#oculto").hide();
+      $("#verifica").click(function(){
+			// declaração de variáveis
+			var codigo = $("#cod1").val()+$("#cod2").val()+$("#cod3").val()+$("#cod4").val()+$("#cod5").val();
 
+			$.ajax({
+			url: "php/verifica_codigo.php",
+			type: "POST",
+			data: {codigo},
+			dataType: "html"
+
+			}).done(function(resposta){
+				$("#exibe").html(resposta);
+        $("#abrirModal").click();
+			}).fail(function(jqXHR, textStatus ) {
+				console.log("Request failed: " + textStatus);
+			});
+		});
+
+    $("#enviar").click(function(){
+      var novaSenha = $("#novasenha").val();
+      var confirmacao = $("#password").val();
+      $.ajax({
+			url: "php/alterar_senha.php",
+			type: "POST",
+      data: {senhaNova: novaSenha, confirmarSenha: confirmacao, permissaoAlterar: true},
+			dataType: "html"
+			}).done(function(resposta){
+				$("#exibe_cadastro").html(resposta);
+        $("#fechar").click();
+			}).fail(function(jqXHR, textStatus ) {
+				console.log("Request failed: " + textStatus);
+			});
+    });
+    });
   </script>
   <!-- /js -->
   <title>Atualizar Senha</title>
@@ -47,22 +77,24 @@
 
 
           <div class="form-group custom-spacing pass inputs-container">
-            <input type="number" class="form-control text-center" min="0" max="9" required autofocus>
-            <input type="number" class="form-control text-center" min="0" max="9" required>
-            <input type="number" class="form-control text-center" min="0" max="9" required>
-            <input type="number" class="form-control text-center" min="0" max="9" required>
-            <input type="number" class="form-control text-center" min="0" max="9" required>
-            <input type="number" class="form-control text-center" min="0" max="9" required>
+            <input type="number" class="form-control text-center" id="cod1" min="0" max="9" required autofocus>
+            <input type="number" class="form-control text-center" id="cod2" min="0" max="9" required>
+            <input type="number" class="form-control text-center" id="cod3" min="0" max="9" required>
+            <input type="number" class="form-control text-center" id="cod4" min="0" max="9" required>
+            <input type="number" class="form-control text-center" id="cod5" min="0" max="9" required>
           </div>
-          <small class="cod"><a href="#">Reenviar Código</a></small>
+          <small class="cod"><a href="forgot.php">Reenviar Código</a></small>
 
 
           <!-- fim dos input -->
           <div class="revealbtn">
-            <a class="ent" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Verificar</a>
+            <button class="ent" id="verifica">Verificar</button>
             <a class="create" href="forgot.php">Voltar</a>
           </div>
-
+          <div id="oculto">
+          <button id="abrirModal" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Abrir modal</button>
+          <div id="exibe"></div>
+          </div>
         </div>
         <div class="login-img">
           <img src="img/authentication-animate.svg" alt="Figura Inicial" class="login-element">
@@ -94,9 +126,10 @@
               </form>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-roxo">Salvar</button>
-              <button type="button" class="btn btn-azul" data-bs-dismiss="modal">Fechar</button>
+              <button type="button" class="btn btn-roxo" id="enviar">Salvar</button>
+              <button type="button" class="btn btn-azul" data-bs-dismiss="modal" id="fechar">Fechar</button>
             </div>
+            <div id="exibe_cadastro"></div>
           </div>
         </div>
       </div>
@@ -186,7 +219,4 @@ include('footer.php');
     </script>
     <script src="js/focus-input.js"></script>
 </body>
-
-</html>
-
 </html>

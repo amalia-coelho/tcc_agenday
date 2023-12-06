@@ -1,156 +1,186 @@
+<?php
+$_SESSION['permissaoALterar'] = "False";
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- css -->
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/forgot.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- css -->
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/forgot.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4fwY9ura4RM6CMMI5b0ZIXOrmeaGR6SgtF5g5kMgFqNrggNO9y6k4CxgUnQ9bV/5" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css" integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<!-- /css -->
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	<!-- js -->
+	<script src="https://unpkg.com/scrollreveal"></script>
+	<script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#erro").hide();
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css"
-    integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- /css -->
+			function sendEmail(codigo_verificacao) {
+				(function() {
+					emailjs.init("Wo685Rjk10cfDO-ho");
+				})();
+				var parametros = {
+					sendername: "valorun.tcc@gmail.com",
+					to: $("#email").val(),
+					subject: "Verificação de dois fatores",
+					replyto: "noreply@gmail.com",
+					message: codigo_verificacao,
+				};
 
-  <!-- js -->
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <script>
+				serviceID = "service_p60zjxn";
+				templateID = "template_ssc9dy8";
 
-  </script>
-  <!-- /js -->
-  <title>Esqueceu a Senha</title>
+				emailjs.send(serviceID, templateID, parametros)
+					.then(function(res) {
+						window.location.href = "http://localhost:8081/tcc_agenday/doisfatores.php";
+					})
+					.catch((error) => {
+						console.log("Erro ao enviar email:", error);
+					});
+			}
+
+			$("#enviar").click(function() {
+				// Pegar os valores dos inputs
+				var email = $("#email").val();
+				$.ajax({
+						url: "php/capturar_codigo.php",
+						type: "POST",
+						data: {
+							email: email
+						},
+						dataType: "html",
+					})
+					.done(function(resposta) {
+						$("#cod").html(resposta);
+						var codigo_verificacao = $("#cod").text();
+						if (codigo_verificacao == 'erro') {
+							$("#erro").show();
+						} else {
+							sendEmail(codigo_verificacao); // Chama a função sendEmail aqui
+						}
+					}).fail(function(jqXHR, textStatus) {
+						console.log("Request failed: " + textStatus);
+					});
+			});
+		});
+	</script>
+	<!-- /js -->
+	<title>Esqueceu a Senha</title>
 </head>
 
 <body>
-  <!-- PARTE DO LOGIN!! -->
+	<!-- PARTE DO LOGIN!! -->
 
-  <section class="entrar">
-    <div class="login-container">
-      <div class="login-content">
-        <div class="titulo">
-          <h1 class="h1"><label class="fog-success">Esqueceu</label> sua <br>
-            Senha?
-          </h1>
-          <small><a href="#">Para redefinir sua senha, digite seu endereço de <br class="resp"> E-mail</a></small>
-        </div>
-        <!-- fim do titulo -->
-        <!-- começa os input -->
+	<section class="entrar">
+		<div class="login-container">
+			<div class="login-content">
+				<div class="titulo">
+					<h1 class="h1"><label class="fog-success">Esqueceu</label>sua<br>Senha?</h1>
+					<small><a href="#">Para redefinir sua senha, digite seu endereço de <br class="resp"> E-mail</a></small>
+				</div>
+				<!-- fim do titulo -->
 
-        <div class="form-group custom-spacing name">
-          <input type="text" id="username" class="form-control" placeholder="ex: valorun@etec.sp.gov.br">
-        </div>
-        <!-- fim dos input -->
-        <div class="revealbtn">
-          <div>
-            <a class="ent" href="doisfatores.php">Redefinir Senha</a>
-          </div>
-          <div>
-            <a class="create" href="index.php">Voltar</a>
-          </div>
-        </div>
+				<!-- começa os input -->
+				<div class="form-group custom-spacing name">
+					<input type="text" id="email" class="form-control" placeholder="ex: valorun@etec.sp.gov.br">
+				</div>
+				<div id="erro">
+					<div class="alert" style="height: 35px;background-color: #EB9B91; border-left: 8px solid #ED351F; animation: none;"><i class="bi bi-check-lg" style="color: #FFF" ;></i><span class="msg" style="color: #FFF;font-size: 20px">Credencias Corretas!</span></div>
+				</div>
+				<!-- fim dos input -->
+				<div class="revealbtn">
+					<div>
+						<button class="ent" id="enviar">Redefinir Senha</button>
+					</div>
+					<div>
+						<a class="create" href="index.php">Voltar</a>
+					</div>
+					<div id="cod" style="display:none;"></div>
+				</div>
 
-      </div>
-      <div class="login-img">
-        <img src="img/forgot-password-animate.svg" alt="Figura Inicial" class="login-element">
-      </div>
-    </div>
-  </section>
-  <!-- FIM DO LOGIN!! -->
-<!-- footer -->
-<?php
+			</div>
+			<div class="login-img">
+				<img src="img/forgot-password-animate.svg" alt="Figura Inicial" class="login-element">
+			</div>
+		</div>
+	</section>
+	<!-- FIM DO LOGIN!! -->
+	<!-- footer -->
+	<?php
+	include('footer.php');
+	?>
 
-include('footer.php');
-?>
+	<!-- fim do footer -->
+	<!-- js -->
+	<script src="js/home.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+	<script>
+		ScrollReveal({
+			reset: true,
+			distance: '60px',
+			duration: 1500,
+			delay: 400
+		});
 
-<!-- fim do footer -->
-  <!-- js -->
-  <script src="js/home.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
-    </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-  <script>
-    const passwordInput = document.getElementById('password');
-    const togglePasswordButton = document.getElementById('togglePassword');
-    const eyeIcon = document.getElementById('eyeIcon');
-
-    togglePasswordButton.addEventListener('click', () => {
-      if (passwordInput.type === 'password') {
-        passwordInput.type = 'text';
-        eyeIcon.classList.remove('bi-eye-slash');
-        eyeIcon.classList.add('bi-eye');
-      } else {
-        passwordInput.type = 'password';
-        eyeIcon.classList.remove('bi-eye');
-        eyeIcon.classList.add('bi-eye-slash');
-      }
-    });
-  </script>
-  <script>
-    ScrollReveal({
-      reset: true,
-      distance: '60px',
-      duration: 1500,
-      delay: 400
-    });
-
-    ScrollReveal().reveal('nav', {
-      delay: 500,
-      origin: 'top'
-    });
-    ScrollReveal().reveal('.logo', {
-      delay: 500,
-      origin: 'bottom'
-    });
-    ScrollReveal().reveal('.content .titulo', {
-      delay: 500,
-      origin: 'left'
-    });
-    ScrollReveal().reveal('.content p', {
-      delay: 700,
-      origin: 'left'
-    });
-    ScrollReveal().reveal('.revealimg, .btnn', {
-      delay: 900,
-      origin: 'left'
-    });
-    ScrollReveal().reveal('.home .inicial-element', {
-      delay: 500,
-      origin: 'right'
-    });
+		ScrollReveal().reveal('nav', {
+			delay: 500,
+			origin: 'top'
+		});
+		ScrollReveal().reveal('.logo', {
+			delay: 500,
+			origin: 'bottom'
+		});
+		ScrollReveal().reveal('.content .titulo', {
+			delay: 500,
+			origin: 'left'
+		});
+		ScrollReveal().reveal('.content p', {
+			delay: 700,
+			origin: 'left'
+		});
+		ScrollReveal().reveal('.revealimg, .btnn', {
+			delay: 900,
+			origin: 'left'
+		});
+		ScrollReveal().reveal('.home .inicial-element', {
+			delay: 500,
+			origin: 'right'
+		});
 
 
 
-    ScrollReveal().reveal('.login-content .titulo', {
-      delay: 300,
-      origin: 'right'
-    });
-    ScrollReveal().reveal('.name', {
-      delay: 700,
-      origin: 'left'
-    });
-    ScrollReveal().reveal('.pass', {
-      delay: 900,
-      origin: 'right'
-    });
-    ScrollReveal().reveal('.revealbtn .ent', {
-      delay: 500,
-      origin: 'left'
-    });
-    ScrollReveal().reveal('.revealbtn .create', {
-      delay: 900,
-      origin: 'bottom'
-    });
-    ScrollReveal().reveal('.login-element', {
-      delay: 500,
-      origin: 'top'
-    });
-  </script>
+		ScrollReveal().reveal('.login-content .titulo', {
+			delay: 300,
+			origin: 'right'
+		});
+		ScrollReveal().reveal('.name', {
+			delay: 700,
+			origin: 'left'
+		});
+		ScrollReveal().reveal('.pass', {
+			delay: 900,
+			origin: 'right'
+		});
+		ScrollReveal().reveal('.revealbtn .ent', {
+			delay: 500,
+			origin: 'left'
+		});
+		ScrollReveal().reveal('.revealbtn .create', {
+			delay: 900,
+			origin: 'bottom'
+		});
+		ScrollReveal().reveal('.login-element', {
+			delay: 500,
+			origin: 'top'
+		});
+	</script>
 </body>
 
 </html>

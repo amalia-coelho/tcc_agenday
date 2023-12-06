@@ -6,18 +6,10 @@ include('php/conexao.php');
 if (!isset($_SESSION['email'])) {
     header('Location: index.php');
     exit(); // Certifique-se de sair do script após redirecionar
-} else {
-    // Obtém informações do usuário logado (presumindo que 'id_nivel' seja um campo na tabela de usuários)
-    $email = $_SESSION['email'];
-    $stmt = $conn->prepare("SELECT id_nivel FROM tb_usuario WHERE ds:email = :email");
-    $stmt->execute(array(':email' => $email));
-    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    // Verifica se o 'id_nivel' do usuário é igual a 1
-    if ($_SESSION['id_nivel'] == 2) {
-        header('Location: index.php');
-        exit(); // Certifique-se de sair do script após redirecionar
-    }?>
+} else if ($_SESSION['id_nivel'] == 2){
+    header('Location: comunicados.php');
+    exit();
+}else{ ?>	
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -29,12 +21,8 @@ if (!isset($_SESSION['email'])) {
 	<link rel="stylesheet" href="css/comunicado.css">
 	<link rel="stylesheet" href="css/menu.css">
 	<link rel="stylesheet" href="css/selectcheck.css">
-	    <link rel="stylesheet" href="css/selectcheck.css">
-
-
-
+	<link rel="stylesheet" href="css/selectcheck.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css" integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<!-- /css -->
 
@@ -129,19 +117,19 @@ if (!isset($_SESSION['email'])) {
 				</a>
 			</li>
 			  <li class="item-menu ativo">
-					  <a href="adm-comunicados.php">
+					  <a href="adm_comunicados.php">
 					  <span class="icon"><i class="bi bi-megaphone-fill"></i></span>
 					  <span class="txt-link">Comunicados</span>
 					  </a>
 				  </li>
 				  <li class="item-menu">
-					  <a href="adm-apm.php">
+					  <a href="adm_apm.php">
 					  <span class="icon"><i class="bi bi-cart4"></i></span>
 					  <span class="txt-link">APM</span>
 					  </a>
 				  </li>
 				  <li class="item-menu">
-					  <a href="adm-gestao.php">
+					  <a href="adm_gestao.php">
 					  <span class="icon"><i class="bi bi-person-workspace"></i></span>
 					  <span class="txt-link">Gestão</span>
 					  </a>
@@ -153,7 +141,7 @@ if (!isset($_SESSION['email'])) {
 					  </a>
 				  </li>
 				  <li class="item-menu">
-					  <a href="adm-gerenciamento.php">
+					  <a href="adm_gerenciamento.php">
 					  <span class="icon"><i class="bi bi-gear-fill"></i></span>
 					  <span class="txt-link">Gerenciamento</span>
 					  </a>
@@ -498,7 +486,7 @@ if (!isset($_SESSION['email'])) {
 		selecttexto.innerHTML = "Mais Antigo";
    }
 	</script>
-				<SCRIpt>
+				<script>
 				  $(document).ready(function(){
     // Evento de clique para spans dentro de suggestion-wrap
     $(".suggestion-wrap span").click(function(){
@@ -551,7 +539,7 @@ const expand = () => {
 };
 
 searchBtn.addEventListener("click", expand);
-</SCRIpt>
+</script>
 </body>
 
 </html>
