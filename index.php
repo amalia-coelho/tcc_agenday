@@ -150,7 +150,7 @@
        <div class="column" id="card-equipe1">
           <div class="card">
             <div class="img-container">
-              <img src="img/equipe-eric.jpg" />
+              <img src="img/mikaella.png" />
             </div>
             <h3 style="font-size: 1.70rem">Mikaella Macedo</h3>
             <p>Analista</p>
@@ -174,7 +174,7 @@
         <div class="column" id="card-equipe2">
           <div class="card">
             <div class="img-container">
-              <img src="img/equipe-eric.jpg" />
+              <img src="img/amalia.png" />
             </div>
             <h3>Amália Coelho</h3>
             <p>Back-End</p>
@@ -182,13 +182,13 @@
               <a href="#">
                 <i class="bi bi-twitter"></i>
               </a>
-              <a href="#">
+              <a href="https://www.linkedin.com/in/amalia-coelho">
                 <i class="bi bi-linkedin"></i>
               </a>
-              <a href="#">
+              <a href="https://github.com/amalia-coelho">
                 <i class="bi bi-github"></i>
               </a>
-              <a href="#">
+              <a href="https://www.instagram.com/coelho_yaq/">
                 <i class="bi bi-instagram"></i>
               </a>
             </div>
@@ -230,13 +230,13 @@
               <a href="#">
                 <i class="bi bi-twitter"></i>
               </a>
-              <a href="#">
+              <a href="https://www.linkedin.com/in/iago-marques-5140a2280/">
                 <i class="bi bi-linkedin"></i>
               </a>
-              <a href="#">
+              <a href="https://github.com/IagoXx12">
                 <i class="bi bi-github"></i>
               </a>
-              <a href="#">
+              <a href="https://www.instagram.com/iago_marques71/">
                 <i class="bi bi-instagram"></i>
               </a>
             </div>
@@ -246,7 +246,7 @@
         <div class="column" id="card-equipe5">
           <div class="card">
             <div class="img-container">
-              <img src="img/equipe-eric.jpg" />
+              <img src="img/raissa.png" />
             </div>
             <h3>Raissa Berto</h3>
             <p>Back-End</p>
@@ -260,7 +260,7 @@
               <a href="#">
                 <i class="bi bi-github"></i>
               </a>
-              <a href="#">
+              <a href="https://www.instagram.com/raissa_bertto/">
                 <i class="bi bi-instagram"></i>
               </a>
             </div>
