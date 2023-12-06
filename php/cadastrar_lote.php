@@ -47,12 +47,13 @@
                 $usuariosErros += 1;
             }
         }
-
-        echo $usuariosCadastrados." usuários cadastrados com sucesso";
+        if ($usuariosCadastrados != 0){
+            echo '<div class="alert" style="background-color: #DCEED7; border-left: 8px solid #9EB0A0; animation: none;"><i class="bi bi-check-lg "style="color: #9EB0A0";"></i><span class="msg" style="color: #9EB0A0;font-size: 17px">'.$usuariosCadastrados.' usuários cadastrados com sucesso!</span></div>';
+        }
         if($usuariosErros != 0){
-            echo $usuariosErros." usuários não foram cadastrados!";
+            echo '<div class="alert"><i class="bi bi-exclamation-circle"></i><span class="msg">'.$usuariosErros.' usuários deram erro ao cadastrar, tente novamente!</span></div>';
         }
     } else {
-        echo "Erro no envio dos usuários";
+        echo '<div class="alert"><i class="bi bi-exclamation-circle"></i><span class="msg">Erro no envio de usuários!</span></div>';
     }
 ?>
