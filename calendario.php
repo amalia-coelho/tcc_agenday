@@ -5,19 +5,12 @@ include('php/conexao.php');
 // Verifica se o usuário está autenticado
 if (!isset($_SESSION['email'])) {
     header('Location: index.php');
-    exit(); // Certifique-se de sair do script após redirecionar
-} else {
-    // Obtém informações do usuário logado (presumindo que 'id_nivel' seja um campo na tabela de usuários)
-    $email = $_SESSION['email'];
-    $stmt = $conn->prepare("SELECT id_nivel FROM tb_usuario WHERE ds:email = :email");
-    $stmt->execute(array(':email' => $email));
-    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    // Verifica se o 'id_nivel' do usuário é igual a 1
-    if ($_SESSION['id_nivel'] == 1) {
-        header('Location: ADM-CALENDARIO.php');
-        exit(); // Certifique-se de sair do script após redirecionar
-    }?>
+    exit();
+} else if ($_SESSION['id_nivel'] == 1) {
+    header('Location: ADM-CALENDARIO.php');
+    exit();
+}else{
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 

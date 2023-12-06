@@ -5,19 +5,12 @@ include('php/conexao.php');
 // Verifica se o usuário está autenticado
 if (!isset($_SESSION['email'])) {
     header('Location: index.php');
-    exit(); // Certifique-se de sair do script após redirecionar
-} else {
-    // Obtém informações do usuário logado (presumindo que 'id_nivel' seja um campo na tabela de usuários)
-    $email = $_SESSION['email'];
-    $stmt = $conn->prepare("SELECT id_nivel FROM tb_usuario WHERE ds_email = :email");
-    $stmt->execute(array(':email' => $email));
-    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    // Verifica se o 'id_nivel' do usuário é igual a 1
-    if ($_SESSION['id_nivel'] != 1) {
-        header('Location: index.php');
-        exit(); // Certifique-se de sair do script após redirecionar
-    }?>
+    exit();
+} else if ($_SESSION['id_nivel'] != 1) {
+	header('Location: gestao.php');
+	exit();
+}else{
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -87,7 +80,7 @@ if (!isset($_SESSION['email'])) {
 					}).done(function(resposta){
 						$("#exibe2").html(resposta);
 					}).fail(function(jqXHR, textStatus ) {
-						$("#exibe2").html("Request failed: " + textStatus);
+						console.log("Request failed: " + textStatus);
 					});
 				});
 			});	
@@ -107,7 +100,7 @@ if (!isset($_SESSION['email'])) {
       </div>
       <ul>
       <li class="item-menu">
-				<a href="adm-perfil.php">
+				<a href="perfil.php">
 				<span class="icon"><i class="bi bi-person-fill"></i></span>
 				<span class="txt-link">Usuário</span>
 				</a>
@@ -164,78 +157,87 @@ if (!isset($_SESSION['email'])) {
     </div>
 
 	<!-- search bar-->
-
 	<div class="inner-form mt-5">
-            <div class="input-field">
-              <button class="btn-search" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                  <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-                </svg>
-              </button>
-              <input id="search" type="text" placeholder="Pesquise aqui"/>
-            </div>
-          </div>
-		  <div class="suggestion-wrap">
-		  <span>Camiseta</span>
-            <span>Informática</span>
-            <span>Administração</span>
-            <span>Armários</span>
-            <span style="background:red" id="clearSearch">Limpar <i class="bi bi-x-circle-fill"></i></span>
-          </div>
-
-			<!-- fim da search bar-->
-    <section class="gestao">
-		<div class="gestao-container">
-      <?php
+		<div class="input-field">
+			<button class="btn-search" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></button>
+			<input id="search" type="text" placeholder="Pesquise aqui"/>
+		</div>
+	</div>
+	<!-- fim da search bar-->
+    	<section class="gestao">
+      <div class="gestao-container">
+        <?php
           $sql = "SELECT * FROM tb_gestao";
           foreach ($conn->query($sql) as $row) {?>
-				<div class="gestao-users">
-              		<img src="<?php echo $row['ds_imagem'];?>" alt="Foto do Usuário">
-              		<button class="alterar" data-bs-toggle="modal" data-bs-target="#editModal" cod="<?php echo $row['cd_membro'];?>" nome="<?php echo $row['nm_membro'];?>" cargo="<?php echo $row['ds_cargo'];?>" imagem="<?php echo $row['ds_imagem'];?>"><i class="bi bi-pencil-square edit-icon"></i></button>
-					<a href="php/delete_gestao.php?cod=<?php echo $row['cd_membro'];?>"><i class="bi bi-trash-fill delete-icon"></i></a>
-              		<p><?php echo $row['nm_membro'];?></p>
-              		<p><?php echo $row['ds_cargo'];?></p>
-            	</div>
-				<?php
-          }
-          ?>
-		</div>
-  </section>
-</main>
+            <div class="gestao-users">
+              <img src="<?php echo $row['ds_imagem'];?>" alt="Foto do Usuário">
+              <button class="alterar" data-bs-toggle="modal" data-bs-target="#editModal" cod="<?php echo $row['cd_membro'];?>" nome="<?php echo $row['nm_membro'];?>" cargo="<?php echo $row['ds_cargo'];?>" imagem="<?php echo $row['ds_imagem'];?>"><i class="bi bi-pencil-square edit-icon"></i></button>
+              <i data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" class="bi bi-trash-fill delete-icon"></i>
+              <p><?php echo $row['nm_membro'];?></p>
+              <p><?php echo $row['ds_cargo'];?></p>
+            </div>
+			
+			
+			<!-- Modal De Exclusao -->
+			<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content custom-modal">
+						<div class="modal-circle">
+							<i class="bi bi-x-circle mt-5" style="color: #ff0000; font-size:5em;display: flex; align-items: center; justify-content: center;"></i>
+						</div>
+						<div class="modal-header" style="background-color: #fff; border: none; text-align: center; justify-content: center;">
+							<h5 class="modal-title" style="color:#000; font-size:1.5em ">Você tem certeza?</h5>
+						</div>
+						<div class="modal-body" style="text-align: center;">
+							<p>Você realmente deseja excluir esses registros? Este processo não pode ser desfeito.</p>
+						</div>
+						<div class="modal-footer" style="border: none; justify-content: center;">
+							<a href="php/delete_gestao.php?cod=<?php echo $row['cd_membro'];?>"><button type="button" class="btn btn-danger">Sim, Excluir</button></a>
+							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		<?php
+		}
+		?>
+		<!-- fim do Modal De Exclusao -->
 
-  <!-- Modal de Alteração -->
-  <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-    aria-labelledby="editModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
+
+	<!-- Modal de Alteração -->
+	<div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+	aria-labelledby="editModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered">
+		<div class="modal-content">
 		<form id="alterarGestao" enctype="multipart/form-data">
 			<div class="modal-header">
 				<h1 class="modal-title fs-5" id="editModalLabel">Editar Membro</h1>
 				<button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-				<!-- Inputs para a alteração -->
-				<div class="mb-3">
-					<label for="imageInput" class="form-label">Editar Imagem do Membro</label>
-					<div class="input-group">
-						<input type="file" class="form-control" name="alterarImagem" id="imageInput" accept="image/*">
-						<button class="btn btn-outline-secondary" type="button" id="editButton">
-							<i class="bi bi-pencil"></i> <!-- Ícone de editar -->
-						</button>
+					<!-- Inputs para a alteração -->
+					<div class="mb-3">
+						<label for="imageInput" class="form-label">Editar Imagem do Membro</label>
+						<div class="input-group">
+							<input type="file" class="form-control" name="alterarImagem" id="imageInput" accept="image/*">
+							<button class="btn btn-outline-secondary" type="button" id="editButton">
+								<i class="bi bi-pencil"></i> <!-- Ícone de editar -->
+							</button>
+						</div>
 					</div>
-				</div>
-				<div class="row mb-3">
-					<div class="col">
-						<label for="alterar_nm" class="form-label">Editar Nome do Membro</label>
-						<input type="text" class="form-control" name="nome" id="alterar_nm">
+					<div class="row mb-3">
+						<div class="col">
+							<label for="alterar_nm" class="form-label">Editar Nome do Membro</label>
+							<input type="text" class="form-control" name="nome" id="alterar_nm">
+						</div>
+						<div class="col">
+							<label for="alterar_cargo" class="form-label">Editar Cargo do Membro</label>
+							<input type="text" class="form-control" name="cargo" id="alterar_cargo">
+						</div>
 					</div>
-					<div class="col">
-						<label for="alterar_cargo" class="form-label">Editar Cargo do Membro</label>
-						<input type="text" class="form-control" name="cargo" id="alterar_cargo">
-					</div>
-				</div>
 				<p id="exibir_cod" style="display: none;"></p>
-				<p id="exibir_path" style="display:none;"></p>
+				<p id="exibir_path" style="display: none;"></p>
 			</div>
 			<div id="exibe2"></div>
 			<div class="modal-footer">
@@ -244,9 +246,12 @@ if (!isset($_SESSION['email'])) {
 			</div>
 		</div>
 	</form>
-    </div>
-  </div>
-  <!-- Fim do modal de Alteração -->
+	</div>
+	</div>
+	<!-- Fim do modal de Alteração -->
+
+
+
 
   <!-- incio do modal E BOTAO QUE ABRE ELE -->
   <button type="button" class="btn btn-primary add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">

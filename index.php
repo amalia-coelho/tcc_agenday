@@ -98,9 +98,7 @@
     <div class="login-container">
       <div class="login-content">
         <div class="titulo">
-          <h1 class="h1"><label class="log-success">Entre</label> na sua
-            <span class="resp"> Conta</span>
-          </h1>
+          <h1 class="h1"><label class="log-success">Entre</label> na sua <span class="resp"> Conta</span></h1>
         </div>
         <!-- fim do titulo -->
         <!-- começa os input -->
@@ -126,17 +124,15 @@
 
         <!-- fim dos input -->
         <div class="revealbtn">
-          <a class="ent">ENTRAR
-            </a>
-            <div class="spinner-border mt-5" role="status">
+          <a class="ent">ENTRAR</a>
+            <div class="spinner-border mt-5" role="status"></div>
+              <a class="create" href="cadastro.php">Não tem uma conta? Criar</a>
             </div>
-          <a class="create" href="cadastro.php">Não tem uma conta? Criar</a>
+        </div>
+        <div class="login-img">
+          <img src="img/calendar-animate.svg" alt="Figura Inicial" class="login-element">
         </div>
       </div>
-      <div class="login-img">
-        <img src="img/calendar-animate.svg" alt="Figura Inicial" class="login-element">
-      </div>
-    </div>
   </section>
   <!-- FIM DO LOGIN!! -->
    <!-- PARTE DA EQUIPE!! -->

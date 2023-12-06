@@ -1,9 +1,11 @@
 <?php
-	include("php/conexao.php");
-    session_start();
-    if (!isset($_SESSION['email'])){
-        header('Location: index.php');
-    }else{
+	session_start();
+	include('php/conexao.php');
+	if (!isset($_SESSION['email'])) {
+		header('Location: index.php');
+	} else if ($_SESSION['id_nivel'] == 1){
+		header("Location: adm-duvidas.php");
+	}else{
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

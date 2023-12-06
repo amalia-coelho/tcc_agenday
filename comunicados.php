@@ -3,7 +3,9 @@
 	include('php/conexao.php');
 	if (!isset($_SESSION['email'])) {
 		header('Location: index.php');
-	} else {
+	} else if ($_SESSION['id_nivel'] == 1){
+		header("Location: adm-comunicados.php");
+	}else{
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
