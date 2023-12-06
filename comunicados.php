@@ -188,13 +188,6 @@
 <input id="search" type="text" placeholder="Pesquise aqui"/>
 </div>
 </div>
-<div class="suggestion-wrap">
-	<span>Etec</span>
-	<span>Evento</span>
-	<span>Escolar</span>
-	<span>Aviso</span>
-	<span style="background:red" id="clearSearch">Limpar <i class="bi bi-x-circle-fill"></i></span>
-</div>
 </div>
 
 <!-- fim da search bar-->

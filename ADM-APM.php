@@ -182,13 +182,6 @@ if (!isset($_SESSION['email'])) {
               <input id="search" type="text" placeholder="Pesquise aqui"/>
             </div>
           </div>
-		  <div class="suggestion-wrap">
-		  <span>Camiseta</span>
-            <span>Informática</span>
-            <span>Administração</span>
-            <span>Armários</span>
-            <span style="background:red" id="clearSearch">Limpar <i class="bi bi-x-circle-fill"></i></span>
-          </div>
 
 			<!-- fim da search bar-->
 

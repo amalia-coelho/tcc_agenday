@@ -5,19 +5,10 @@ include('php/conexao.php');
 // Verifica se o usuário está autenticado
 if (!isset($_SESSION['email'])) {
     header('Location: index.php');
-    exit(); // Certifique-se de sair do script após redirecionar
-} else {
-    // Obtém informações do usuário logado (presumindo que 'id_nivel' seja um campo na tabela de usuários)
-    $email = $_SESSION['email'];
-    $stmt = $conn->prepare("SELECT id_nivel FROM tb_usuario WHERE ds:email = :email");
-    $stmt->execute(array(':email' => $email));
-    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    // Verifica se o 'id_nivel' do usuário é igual a 1
-    if ($_SESSION['id_nivel'] == 2) {
-        header('Location: index.php');
-        exit(); // Certifique-se de sair do script após redirecionar
-    }?>
+} else if ($_SESSION['id_nivel'] == 2) {
+    header('Location: calendario.php');
+}else{
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -139,23 +130,20 @@ if (!isset($_SESSION['email'])) {
 		<h2>Eventos</h2>
 	</div>
     <?php 
-					$sql = 'SELECT * FROM events';
-					foreach ($conn->query($sql) as $row) {
-				?>
-                    <div class="info-evento mt-4 adm" style="z-index: 999;">
-                        <div class="info-custom info-title">
-                            <h3 style="color: var(--roxo)"><?php echo $row['title']; ?></h3>
-                        </div>
-                        <div class="info-custom info-date">
-                            <h4><?php echo $row['start']; ?>5</h4>
-                        </div>
-                    </div>
-
-	
-				<?php    		
-					}
-				?>
-
+        $sql = 'SELECT * FROM events';
+        foreach ($conn->query($sql) as $row) {
+    ?>
+    <div class="info-evento mt-4 adm" style="z-index: 999;">
+        <div class="info-custom info-title">
+            <h3 style="color: var(--roxo)"><?php echo $row['title']; ?></h3>
+        </div>
+        <div class="info-custom info-date">
+            <h4><?php echo $row['start']; ?>5</h4>
+        </div>
+    </div>
+    <?php    		
+        }
+    ?>
 </div>
 <br>
 

@@ -3,7 +3,9 @@
     session_start();
     if (!isset($_SESSION['email'])){
         header('Location: index.php');
-    }else{
+    }else if ($_SESSION['id_nivel'] == 1){
+		header("Location: adm-apm.php");
+	}else{
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -184,18 +186,6 @@
 							<span class="txt-link">Dúvidas</span>
 						</a>
 					</li>
-					<?php
-			// Verifica se o 'id_nivel' do usuário é igual a 1
-			if ($_SESSION['id_nivel'] == 1) {
-				?>
-				<li class="item-menu">
-					<a href="adm-gerenciamento.php">
-					<span class="icon"><i class="bi bi-gear-fill"></i></span>
-					<span class="txt-link">Gerenciamento</span>
-					</a>
-				</li>
-<?php
-}?>
 				<li class="item-menu">
 						<a href="php/logout.php">
 							<span class="icon"><i class="bi bi-box-arrow-right"></i></span>
@@ -224,13 +214,6 @@
               <input id="search" type="text" placeholder="Pesquise aqui"/>
             </div>
           </div>
-		  <div class="suggestion-wrap">
-		  <span>Camiseta</span>
-            <span>Informática</span>
-            <span>Administração</span>
-            <span>Armários</span>
-            <span style="background:red" id="clearSearch">Limpar <i class="bi bi-x-circle-fill"></i></span>
-          </div>
 
 			<!-- fim da search bar-->
 
@@ -250,11 +233,11 @@
 								<div class="card-text">
 									<p class="card-title"><?php echo $row['nm_produto']; ?></p>
 									<p class="card-sub"><?php echo $row['ds_descricao']; ?></p>
-									<i class="bi bi-star-fill" style="color: #FFA401;" ></i>
-									<i class="bi bi-star-fill" style="color: #FFA401;" ></i>
-									<i class="bi bi-star-fill" style="color: #FFA401;" ></i>
-									<i class="bi bi-star-fill" style="color: #FFA401;" ></i>
-									<i class="bi bi-star-fill" style="color: #FFA401;" ></i>
+									<i class="bi bi-star-fill" style="color: #FFA401;"></i>
+									<i class="bi bi-star-fill" style="color: #FFA401;"></i>
+									<i class="bi bi-star-fill" style="color: #FFA401;"></i>
+									<i class="bi bi-star-fill" style="color: #FFA401;"></i>
+									<i class="bi bi-star-fill" style="color: #FFA401;"></i>
 								</div>
 								<div class="price">
 									<a href="#" class="btn btn-secondary"><?php echo $row['nr_valor']; ?></a>
@@ -264,7 +247,8 @@
 						<!-- fim card -->
 					</div>
 				<?php    		
-					}} else{
+						}
+					} else{
 						echo "<p class='mt-5' style='font-size:18px;'>Desculpe, não temos produtos disponíveis no momento. Confira novamente mais tarde!</p>";
 					}
 				?>
@@ -279,57 +263,48 @@
   			<script src="js/jQuery-Mask-Plugin-master/src/jquery.mask.js"></script>
 			<SCRIpt>
 				  $(document).ready(function(){
-    // Evento de clique para spans dentro de suggestion-wrap
-    $(".suggestion-wrap span").click(function(){
-      // Atualiza o valor do campo de pesquisa com o texto do span clicado
-      $("#search").val($(this).text());
+					// Função de filtro
+					function filterCards() {
+					var searchTerm = $("#search").val().toLowerCase();
 
-      // Executa a função de filtro
-      filterCards();
-    });
+					$(".apm-card").each(function(){
+						var cardTitle = $(this).find(".card-title").text().toLowerCase();
+						var cardSub = $(this).find(".card-sub").text().toLowerCase();
 
-    // Função de filtro
-    function filterCards() {
-      var searchTerm = $("#search").val().toLowerCase();
+						if(cardTitle.includes(searchTerm) || cardSub.includes(searchTerm)){
+						$(this).show();
+						} else {
+						$(this).hide();
+						}
+					});
+					}
+					// Evento de clique para o span "Limpar"
+					$("#clearSearch").click(function(){
+					// Limpa o valor do campo de pesquisa
+					$("#search").val('');
 
-      $(".apm-card").each(function(){
-        var cardTitle = $(this).find(".card-title").text().toLowerCase();
-        var cardSub = $(this).find(".card-sub").text().toLowerCase();
+					// Executa a função de filtro
+					filterCards();
+					});
+					// Evento de clique para o botão de pesquisa
+					$(".btn-search").click(function(){
+					filterCards();
+					});
 
-        if(cardTitle.includes(searchTerm) || cardSub.includes(searchTerm)){
-          $(this).show();
-        } else {
-          $(this).hide();
-        }
-      });
-    }
-    // Evento de clique para o span "Limpar"
-    $("#clearSearch").click(function(){
-      // Limpa o valor do campo de pesquisa
-      $("#search").val('');
+					// Evento de tecla para pesquisa em tempo real
+					$("#search").on('keyup', function(){
+					filterCards();
+					});
+				});
+								const input = document.getElementById("search-input");
+				const searchBtn = document.getElementById("search-btn");
 
-      // Executa a função de filtro
-      filterCards();
-    });
-    // Evento de clique para o botão de pesquisa
-    $(".btn-search").click(function(){
-      filterCards();
-    });
+				const expand = () => {
+				searchBtn.classList.toggle("close");
+				input.classList.toggle("square");
+				};
 
-    // Evento de tecla para pesquisa em tempo real
-    $("#search").on('keyup', function(){
-      filterCards();
-    });
-  });
-				const input = document.getElementById("search-input");
-const searchBtn = document.getElementById("search-btn");
-
-const expand = () => {
-  searchBtn.classList.toggle("close");
-  input.classList.toggle("square");
-};
-
-searchBtn.addEventListener("click", expand);
+				searchBtn.addEventListener("click", expand);
 			</SCRIpt>
 		<!-- /js -->
 	</body>
