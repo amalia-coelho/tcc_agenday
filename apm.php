@@ -17,6 +17,56 @@
 			<link rel="stylesheet" href="css/menu.css">
 			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css" integrity="sha512-9YHSK59/rjvhtDcY/b+4rdnl0V4LPDWdkKceBl8ZLF5TB6745ml1AfluEU6dFWqwDw9lPvnauxFgpKvJqp7jiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+			<style>
+				body .alert {
+					background: #FFE1E3;
+					border-left: 8px solid #FF4356;
+					position: relative;
+				}
+
+				.alert .bi-exclamation-circle {
+					position: absolute;
+					left: 20px;
+					top: 50%;
+					transform: translateY(-50%);
+					color: #FF455A;
+					font-size: 30px;
+				}
+
+				body .alert .msg {
+					padding: 0 40px;
+					color: #DC7777;
+				}
+
+				body .alert .close-btn {
+					position: absolute;
+					right: 0;
+					top: 50%;
+					transform: translateY(-50%);
+					background-color: #FF99A4;
+					padding: 9px 16px;
+					cursor: pointer;
+				}
+
+				body .alert .close-btn:hover {
+					background-color: #FC4B55;
+				}
+
+
+				body .alert .bi-x-lg {
+					color: #FF455A;
+					font-size: 22px;
+					line-height: 40px;
+				}
+
+				.alert.hide {
+					display: none;
+				}
+
+				.alert.show {
+					animation: show_slide 1s ease forwards;
+				}
+			</style>
 		<!-- /css -->
 
 		<!-- js -->

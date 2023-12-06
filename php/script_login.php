@@ -20,30 +20,13 @@
 
                 echo "<meta http-equiv='refresh' content='1'>";
                 echo '<div class="alert" style="background-color: #DCEED7; border-left: 8px solid #9EB0A0; animation: none;">
-                <i class="bi bi-check-lg "style="color: #9EB0A0";
-                "></i>
-                 <span class="msg" style="color: #9EB0A0;font-size: 17px
-                 " >Credencias Corretas!</span>
-             </div>
-             <script>
-             $(".spinner-border").show();
-             </script>
-             ';
+                <i class="bi bi-check-lg "style="color: #9EB0A0";"></i><span class="msg" style="color: #9EB0A0;font-size: 17px">Credencias Corretas!</span></div>';
              
             }else{
-                echo '<div class="alert">
-                    <i class="bi bi-exclamation-circle"></i>
-                    <span class="msg">Senha Incorreta!</span>
-                </div>';
+                echo '<div class="alert"><i class="bi bi-exclamation-circle"></i><span class="msg">Senha Incorreta!</span></div>';
             }
         }else{
-            echo '<div class="alert">
-              <i class="bi bi-search"></i>
-                    <span class="msg">Usuário Não Encontrado!</span>
-                </div>';
-            
- 
-
+            echo '<div class="alert"><i class="bi bi-search"></i><span class="msg">Usuário Não Encontrado!</span></div>';
         }
     } catch(PDOException $e) {
         echo 'ERROR: ' . $e->getMessage();
