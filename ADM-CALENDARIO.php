@@ -53,7 +53,7 @@ if (!isset($_SESSION['email'])) {
 			</div>
 			<ul>
 			<li class="item-menu">
-				<a href="adm-perfil.php">
+				<a href="perfil.php">
 				<span class="icon"><i class="bi bi-person-fill"></i></span>
 				<span class="txt-link">Usuário</span>
 				</a>
