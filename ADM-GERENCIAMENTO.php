@@ -181,42 +181,6 @@ if (!isset($_SESSION['email'])) {
           <a class="ent" href="cadastroLote.php">Cadastrar Lote</a>
         </div>
       </div>
-      <div class="adm-filtro mt-5 mb-5">
-        <div class="filtro-title">
-          <p>Filtrar por:</p>
-        </div>
-    
-           <select class="select-custom" id="turma"> 
-             <option value="Todos">Todos</option>
-               <?php
-                $sql = "SELECT * FROM tb_turma";
-                 foreach ($conn->query($sql) as $item){
-                  $cod = $item['cd_turma'];
-                  $nome = $item['nm_turma'];
-                ?>
-            <option value="<?php echo $cod;?>"><?php echo $nome;?></option>
-                <?php
-                  };
-                ?>
-            </select> 
-                
-       
-            <select class="select-custom" id="cargo"> 
-             <option value="Todos">Todos</option>
-               <?php
-                  $sql = "SELECT * FROM tb_nivel";
-                    foreach ($conn->query($sql) as $item){
-                    $codigo = $item['cd_nivel'];
-                    $nivel = $item['nm_nivel'];
-                ?>
-             <option value="<?php echo $codigo;?>"><?php echo $nivel;?></option>
-               <?php
-                  };
-              ?>
-           </select>
-                </div>
-        </div>
-      </div>
     <div class="adm-img" style="z-index: -1">
       <img src="img/spreadsheets-animate.svg" alt="Figura Inicial" class="adm-element">
     </div>

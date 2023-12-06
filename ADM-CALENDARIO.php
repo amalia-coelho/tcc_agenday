@@ -137,7 +137,7 @@ if (!isset($_SESSION['email'])) {
             <h3 style="color: var(--roxo)"><?php echo $row['title']; ?></h3>
         </div>
         <div class="info-custom info-date">
-            <h4><?php echo $row['start']; ?>5</h4>
+            <h4><?php echo $row['start']; ?></h4>
         </div>
     </div>
     <?php    		
