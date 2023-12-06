@@ -165,10 +165,10 @@ if (!isset($_SESSION['email'])) {
 	</div>
 	<!-- fim da search bar-->
     	<section class="gestao">
-      <div class="gestao-container">
-        <?php
+			<?php
           $sql = "SELECT * FROM tb_gestao";
           foreach ($conn->query($sql) as $row) {?>
+			<div class="gestao-container">
             <div class="gestao-users">
               <img src="<?php echo $row['ds_imagem'];?>" alt="Foto do Usuário">
               <button class="alterar" data-bs-toggle="modal" data-bs-target="#editModal" cod="<?php echo $row['cd_membro'];?>" nome="<?php echo $row['nm_membro'];?>" cargo="<?php echo $row['ds_cargo'];?>" imagem="<?php echo $row['ds_imagem'];?>"><i class="bi bi-pencil-square edit-icon"></i></button>

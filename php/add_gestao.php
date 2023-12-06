@@ -27,7 +27,7 @@
                     ':nome' => $_POST['nm_membro'],
                     ':cargo' => $_POST['ds_cargo'],
                     ':imagem' => "uploads/gestao/".$arquivo['name'],
-                    ':nivel' => 3
+                    ':nivel' => 1
                 ));
                 
                 echo '<div class="alert" style="background-color: #DCEED7; border-left: 8px solid #9EB0A0; animation: none;"><i class="bi bi-check-lg "style="color: #9EB0A0";"></i><span class="msg" style="color: #9EB0A0; font-size:18px;">Membro adicionado!</span></div>';

@@ -6,9 +6,8 @@ include('php/conexao.php');
 if (!isset($_SESSION['email'])) {
     header('Location: index.php');
 } else if ($_SESSION['id_nivel'] == 2) {
-    header('Location: calendario.php');
-}else{
-?>
+        header('Location: calendario.php');
+}else{?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
