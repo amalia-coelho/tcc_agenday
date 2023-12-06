@@ -202,9 +202,6 @@
 		</div>
 	</div>
 	<!-- Fim do modal de Alteração -->
-  <div class="espelho-img">
-    <img src="img/espelho.png" alt="Figura Inicial" class="espelho-element">
-  </div>
   <script>
     const passwordInput = document.getElementById('senhaConfirmacao');
     const togglePasswordButton = document.getElementById('togglePassword');

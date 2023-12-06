@@ -150,35 +150,14 @@ if (!isset($_SESSION['email'])) {
                         </div>
                     </div>
 					
-                    <!-- Modal De Exclusao EMBAIXO -->
-                    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content custom-modal">
-                      <div class="modal-circle">
-                          <i class="bi bi-x-circle mt-5" style="color: #ff0000; font-size:5em;display: flex; align-items: center; justify-content: center;"></i>
-                      </div>
-                        <div class="modal-header" style="background-color: #fff; border: none; text-align: center; justify-content: center;">
-                            <h5 class="modal-title" style="color:#000; font-size:1.5em ">Você tem certeza?</h5>
-                        </div>
-                        <div class="modal-body" style="text-align: center;">
-                            <p>Você realddddmente deseja excluir esses registros? Este processo não pode ser desfeito.</p>
-                        </div>
-                        <div class="modal-footer" style="border: none; justify-content: center;">
-                          <a href="php/delete_events.php?cod=<?php echo $row['id'];?>"><button type="button" class="btn btn-danger">Sim, Excluir</button></a>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não, não tenho</button>
-                        </div>
-                    </div>
-                    </div>
-                    </div>
-                    
-                    <!-- fim do Modal De Exclusao EMBAIXO -->
+                   
 	
 				<?php    		
 					}
 				?>
 
 		</div>
-
+<br>
 
   <!-- Modal Visualizar -->
   <div class="modal fade" id="visualizarModal" tabindex="-1" aria-labelledby="visualizarModalLabel" aria-hidden="true">
