@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- css -->
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/forgot.css">
+  <link rel="stylesheet" href="css/reset.css">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -32,21 +32,24 @@
     <div class="login-container">
       <div class="login-content">
         <div class="titulo">
-          <h1 class="h1"><label class="fog-success">Esqueceu</label> sua <br>
-            Senha?
+          <h1 class="h1"><label class="fog-success">Insira</label> sua <br>
+            Nova Senha
           </h1>
-          <small><a href="#">Para redefinir sua senha, digite seu endereço de <br class="resp"> E-mail</a></small>
+          <small><a href="#">Para redefinir sua senha, digite ela no campo <br class="resp"> abaixo</a></small>
         </div>
         <!-- fim do titulo -->
         <!-- começa os input -->
 
         <div class="form-group custom-spacing name">
-          <input type="text" id="username" class="form-control" placeholder="ex: valorun@etec.sp.gov.br">
+          <input type="text" id="username" class="form-control" placeholder="Digite sua nova senha">
+        </div>
+        <div class="form-group custom-spacing name">
+          <input type="text" id="username" class="form-control" placeholder="Confirme sua senha">
         </div>
         <!-- fim dos input -->
         <div class="revealbtn">
           <div>
-            <a class="ent" href="doisfatores.php">Confirmar E-mail</a>
+            <a class="ent" href="doisfatores.php">Atualizar Senha</a>
           </div>
           <div>
             <a class="create" href="index.php">Voltar</a>
@@ -55,7 +58,7 @@
 
       </div>
       <div class="login-img">
-        <img src="img/forgot-password-animate.svg" alt="Figura Inicial" class="login-element">
+        <img src="img/reset-password-animate.svg" alt="Figura Inicial" class="login-element">
       </div>
     </div>
   </section>

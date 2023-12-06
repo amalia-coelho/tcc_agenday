@@ -32,10 +32,10 @@
                     }
                 }
             }
-            header("Location: ../apm.php");
+            header("Location: ../ADM-APM.php");
         } catch (Exception $erro) {
            echo "<p>Erro!</p>";
-           header('Location: ../apm.php');
+           header('Location: ../ADM-APM.php');
         }
     }
 ?>

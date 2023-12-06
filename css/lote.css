@@ -185,9 +185,6 @@ body {
     background-color: var(--roxo) !important;
 }
 
-/* CSS atualizado para o cabeçalho da tabela (tbody) */
-.adm-content .table tbody {}
-
 /* Opcional: Alterar a cor do texto no cabeçalho da tabela */
 .adm-content .table thead th {
     height: 10px !important;

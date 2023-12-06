@@ -1,10 +1,23 @@
 <?php
-	include("php/conexao.php");
-    session_start();
-    if (!isset($_SESSION['email'])){
-        header('Location: index.php');
-    }else{
-?>
+session_start();
+include('php/conexao.php');
+
+// Verifica se o usuário está autenticado
+if (!isset($_SESSION['email'])) {
+    header('Location: index.php');
+    exit(); // Certifique-se de sair do script após redirecionar
+} else {
+    // Obtém informações do usuário logado (presumindo que 'id_nivel' seja um campo na tabela de usuários)
+    $email = $_SESSION['email'];
+    $stmt = $conn->prepare("SELECT id_nivel FROM tb_usuario WHERE ds:email = :email");
+    $stmt->execute(array(':email' => $email));
+    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // Verifica se o 'id_nivel' do usuário é igual a 1
+    if ($_SESSION['id_nivel'] == 1) {
+        header('Location: ADM-CALENDARIO.php');
+        exit(); // Certifique-se de sair do script após redirecionar
+    }?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -80,12 +93,18 @@
 				<span class="txt-link">Dúvidas</span>
 				</a>
 			</li>
-			<li class="item-menu">
-				<a href="gerenciamento.php">
-				<span class="icon"><i class="bi bi-gear-fill"></i></span>
-				<span class="txt-link">Gerenciamento</span>
-				</a>
-			</li>
+            <?php
+			// Verifica se o 'id_nivel' do usuário é igual a 1
+			if ($_SESSION['id_nivel'] == 1) {
+				?>
+				<li class="item-menu">
+					<a href="adm-gerenciamento.php">
+					<span class="icon"><i class="bi bi-gear-fill"></i></span>
+					<span class="txt-link">Gerenciamento</span>
+					</a>
+				</li>
+<?php
+}?>
 			<li class="item-menu">
 				<a href="php/logout.php">
 				<span class="icon"><i class="bi bi-box-arrow-right"></i></span>

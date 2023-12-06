@@ -1,9 +1,23 @@
 <?php
-	include("php/conexao.php");
-    session_start();
-    if (!isset($_SESSION['email'])){
+	session_start();
+    include('php/conexao.php');
+    
+    // Verifica se o usuário está autenticado
+    if (!isset($_SESSION['email'])) {
         header('Location: index.php');
-    }else{
+        exit(); // Certifique-se de sair do script após redirecionar
+    } else {
+        // Obtém informações do usuário logado (presumindo que 'id_nivel' seja um campo na tabela de usuários)
+        $email = $_SESSION['email'];
+        $stmt = $conn->prepare("SELECT id_nivel FROM tb_usuario WHERE ds:email = :email");
+        $stmt->execute(array(':email' => $email));
+        $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        // Verifica se o 'id_nivel' do usuário é igual a 1
+        if ($_SESSION['id_nivel'] == 2) {
+            header('Location: index.php');
+            exit(); // Certifique-se de sair do script após redirecionar
+        }?>
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -45,37 +59,37 @@
       </div>
       <ul>
         <li class="item-menu">
-          <a href="perfil.php">
+          <a href="adm-perfil.php">
             <span class="icon"><i class="bi bi-person-fill"></i></span>
             <span class="txt-link">Usuário</span>
           </a>
         </li>
         <li class="item-menu">
-          <a href="calendario.php">
+          <a href="adm-calendario.php">
             <span class="icon"><i class="bi bi-house-door-fill"></i></span>
             <span class="txt-link">Calendário</span>
           </a>
         </li>
         <li class="item-menu">
-          <a href="comunicados.php">
+          <a href="adm-comunicados.php">
             <span class="icon"><i class="bi bi-megaphone-fill"></i></span>
             <span class="txt-link">Comunicados</span>
           </a>
         </li>
         <li class="item-menu">
-          <a href="apm.php">
+          <a href="adm-apm.php">
             <span class="icon"><i class="bi bi-cart4"></i></span>
             <span class="txt-link">APM</span>
           </a>
         </li>
         <li class="item-menu">
-          <a href="gestao.php">
+          <a href="adm-gestao.php">
             <span class="icon"><i class="bi bi-person-workspace"></i></span>
             <span class="txt-link">Gestão</span>
           </a>
         </li>
         <li class="item-menu ativo">
-          <a href="#">
+          <a href="adm-duvidas.php">
             <span class="icon"><i class="bi bi-question-lg"></i></span>
             <span class="txt-link">Dúvidas</span>
           </a>
@@ -111,35 +125,58 @@
   </div>
   <div class="faq">
     <button class="faq-toggle">
-      Como ver um evento do calendário?
+      Como adicionar um evento no calendário?
       <span class="arrow"></span>
     </button>
     <div class="faq-content">
-      <ol>Para ver um evento no calendário, siga esses passos simples:
+      <ol>Para adicionar um evento, siga esses passos simples:
 
-        <li>Clique no ícone de casa no menu lateral da tela;</li>
-        <li>Localize o dia do evento em que deseja visualizar;</li>
-        <li>Clique no eventro;</li>
+        <li>Clique no ícone de casa no menu lateral da tela.</li>
+        <li>Localize e clique na data desejada de adição</li>
+        <li>Escolha e descreva os dados correspondentes ao evento</li>
+        <li>Salve clicando no botão "Salvar" </li>
+        <li>Verifique se o evento aparece corretamente no calendário.</li>
 
-        Pronto! Agora você visualizar um evento com facilidade!
+        Pronto! Agora você adicionou um evento com facilidade!
       </ol>
     </div>
   </div>
   <div class="faq">
     <button class="faq-toggle">
-      Como ver valores dos produtos da apm?
+      Como adicionar um comunicado?
       <span class="arrow"></span>
     </button>
     <div class="faq-content">
-      <ol>Para ver os valores dos produtos da apm, siga esses passos simples:
+      <ol>Para adicionar um comunicado, siga esses passos simples:
 
-        <li>Clique no ícone de compra no menu lateral da tela.</li>
+        <li>Clique no ícone de mega fone no menu lateral da tela.</li>
+        <li>Localize e clique no ícone de "+" para poder habilitar a adição</li>
+        <li>Escolha uma foto e dados do comunicado.</li>
+        <li>Salve clicando no botão "Salvar" </li>
+        <li>Verifique se o novo comunicado aparece corretamente na página.</li>
 
-        Pronto! Agora [é só pesquisar ou identificar o item que procura!
+        Pronto! Agora você adicionou um comunicado com facilidade!
       </ol>
     </div>
   </div>
-  
+  <div class="faq">
+    <button class="faq-toggle">
+      Como fazer realizar cadastro por lote?
+      <span class="arrow"></span>
+    </button>
+    <div class="faq-content">
+      <ol>Para cadastrar novos alunos, siga esses passos simples:
+
+        <li>Clique no ícone de engrenagem no menu lateral da tela.</li>
+        <li>Localize e clique no botão "cadastro por lote" para poder adicionar</li>
+        <li>Escolha o arquivo desejado.</li>
+        <li>Salve clicando no botão "Salvar" </li>
+        <li>Verifique se os usuários aparecem corretamente na aba de gerenciamento.</li>
+
+        Pronto! Agora você realizou um cadastro por lote com facilidade!
+      </ol>
+    </div>
+  </div>
 
 
 

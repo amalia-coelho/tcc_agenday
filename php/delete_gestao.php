@@ -32,10 +32,10 @@
                     }
                 }
             }
-            header("Location: ../gestao.php");
+            header("Location: ../adm-gestao.php");
         } catch (Exception $erro) {
            echo "<p>Erro!</p>";
-           header('Location: ../gestao.php');
+           header('Location: ../adm-gestao.php');
         }
     }
 ?>

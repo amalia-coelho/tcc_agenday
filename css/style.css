@@ -13,7 +13,7 @@
 
 :root {
   --roxo: #6d26f8;
-  --azul: rgb(101, 126, 212);
+  --azul: #657ed4;
   --cinza: #252525;
   --branco: #fbfbff;
   --quatro: "Quattrocento", sans-serif;
@@ -105,6 +105,7 @@ footer {
   justify-content: space-around;
   align-items: center;
   flex-direction: row;
+  font-family: var(--pop);
 }
 
 .title-footer {
@@ -143,6 +144,7 @@ footer {
   color: var(--branco);
   padding: 3px 12px;
   font-size: 1.2em;
+  
 }
 
 .copy {

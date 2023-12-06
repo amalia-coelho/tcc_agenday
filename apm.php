@@ -134,13 +134,19 @@
 							<span class="txt-link">Dúvidas</span>
 						</a>
 					</li>
-					<li class="item-menu">
-						<a href="gerenciamento.php">
-							<span class="icon"><i class="bi bi-gear-fill"></i></span>
-							<span class="txt-link">Gerenciamento</span>
-						</a>
-					</li>
-					<li class="item-menu">
+					<?php
+			// Verifica se o 'id_nivel' do usuário é igual a 1
+			if ($_SESSION['id_nivel'] == 1) {
+				?>
+				<li class="item-menu">
+					<a href="adm-gerenciamento.php">
+					<span class="icon"><i class="bi bi-gear-fill"></i></span>
+					<span class="txt-link">Gerenciamento</span>
+					</a>
+				</li>
+<?php
+}?>
+				<li class="item-menu">
 						<a href="php/logout.php">
 							<span class="icon"><i class="bi bi-box-arrow-right"></i></span>
 							<span class="txt-link">Sair</span>
@@ -169,8 +175,8 @@
             </div>
           </div>
 		  <div class="suggestion-wrap">
-            <span>Camisa</span>
-            <span>Meio Ambiente</span>
+		  <span>Camiseta</span>
+            <span>Informática</span>
             <span>Administração</span>
             <span>Armários</span>
             <span style="background:red" id="clearSearch">Limpar <i class="bi bi-x-circle-fill"></i></span>

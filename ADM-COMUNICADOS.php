@@ -1,10 +1,23 @@
 <?php
-	session_start();
-	include('php/conexao.php');
-	if (!isset($_SESSION['email'])) {
-		header('Location: index.php');
-	} else {
-?>
+session_start();
+include('php/conexao.php');
+
+// Verifica se o usuário está autenticado
+if (!isset($_SESSION['email'])) {
+    header('Location: index.php');
+    exit(); // Certifique-se de sair do script após redirecionar
+} else {
+    // Obtém informações do usuário logado (presumindo que 'id_nivel' seja um campo na tabela de usuários)
+    $email = $_SESSION['email'];
+    $stmt = $conn->prepare("SELECT id_nivel FROM tb_usuario WHERE ds:email = :email");
+    $stmt->execute(array(':email' => $email));
+    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // Verifica se o 'id_nivel' do usuário é igual a 1
+    if ($_SESSION['id_nivel'] == 2) {
+        header('Location: index.php');
+        exit(); // Certifique-se de sair do script após redirecionar
+    }?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -31,68 +44,92 @@
 	<script src="js/jquery.maskMoney.min.js"></script>
 
 	<script>
-		$(document).ready(function(){
+	$(document).ready(function(){
 
-			//ADD COMUNICADO
-			$('#addComunicado').submit(function (e) {
-				e.preventDefault();
+//ADD COMUNICADO
+$('#addComunicado').submit(function (e) {
+	e.preventDefault();
 
-				var formulario = new FormData(this); // Crie um objeto FormData com os dados do formulário
-				$.ajax({
-					type: 'POST',
-					url: 'php/add_comunicado.php',
-					data: formulario,
-					contentType: false,
-					processData: false,
-				}).done(function(resposta){
-					//Recarregar página
-					$("#exibe").html(resposta);
-				}).fail(function(jqXHR, textStatus ) {
-					console.log("Request failed: " + textStatus);
-				});
-			});
+	var formulario = new FormData(this); // Crie um objeto FormData com os dados do formulário
+	$.ajax({
+		type: 'POST',
+		url: 'php/add_comunicado.php',
+		data: formulario,
+		contentType: false,
+		processData: false,
+	}).done(function(resposta){
+		//Recarregar página
+		$("#exibe").html(resposta);
+	}).fail(function(jqXHR, textStatus ) {
+		console.log("Request failed: " + textStatus);
+	});
+});
 
-			//UPDATE COMUNICADO
+//UPDATE COMUNICADO
 
-			//Pegar os valores dos inputs
-			$(".alterar").on("click", function(){
-				$("#exibir_cod").text($(this).attr('cod'));
-				$("#exibir_path").text($(this).attr('imagem'));
-				$("#alterarTitulo").val($(this).attr('titulo'));
-				$("#alterarData").val($(this).attr('dt_comunicado'));
-				$("#alterarDescricao").val($(this).attr('descricao'));
-			
-				//SELECT TURMAS
-				var turmasString = $(this).attr('turmas');
-				var turmasArray = turmasString.split('-');
+//Pegar os valores dos inputs
+$(".alterar").on("click", function(){
+	$("#exibir_cod").text($(this).attr('cod'));
+	$("#exibir_path").text($(this).attr('imagem'));
+	$("#alterarTitulo").val($(this).attr('titulo'));
+	$("#alterarData").val($(this).attr('dt_comunicado'));
+	$("#alterarDescricao").val($(this).attr('descricao'));
 
-				for (var i = 0; i < turmasArray.length; i++) {
-					$("input[name='turmasAlterar[]'][value='" + turmasArray[i] + "']").prop('checked', true);
-				}
-			});
+	//SELECT TURMAS
+	var turmasString = $(this).attr('turmas');
+	var turmasArray = turmasString.split('-');
 
-			//Atualizar valores
-			$('#alterarComunicado').submit(function (e) {
-				e.preventDefault();
+	for (var i = 0; i < turmasArray.length; i++) {
+		$("input[name='turmasAlterar[]'][value='" + turmasArray[i] + "']").prop('checked', true);
+	}
+});
 
-				var formulario = new FormData(this);
-				formulario.append('codigo', $("#exibir_cod").text());
-				formulario.append('imagemAntiga', $("#exibir_path").text());
-				
-				$.ajax({
-					type: 'POST',
-					url: 'php/alterar_comunicado.php',
-					data: formulario,
-					contentType: false,
-					processData: false,
-				}).done(function(resposta){
-					$("#exibe2").html(resposta);
-				}).fail(function(jqXHR, textStatus ) {
-					console.log("Request failed: " + textStatus);
-				});
-			});
-		});
-		</script>
+//Atualizar valores
+$('#alterarComunicado').submit(function (e) {
+	e.preventDefault();
+
+	var formulario = new FormData(this);
+	formulario.append('codigo', $("#exibir_cod").text());
+	formulario.append('imagemAntiga', $("#exibir_path").text());
+	
+	$.ajax({
+		type: 'POST',
+		url: 'php/alterar_comunicado.php',
+		data: formulario,
+		contentType: false,
+		processData: false,
+	}).done(function(resposta){
+		$("#exibe2").html(resposta);
+	}).fail(function(jqXHR, textStatus ) {
+		console.log("Request failed: " + textStatus);
+	});
+});
+$('#turma').change(function() {
+var opcao = $(this).val();
+$('.comunicado').hide(); // Oculta 
+if (opcao === 'Todos') {
+$('.comunicado').show(); // Mostra todos os registros quando "todos" for selecionado
+} else {
+$('.comunicado-turma-' + opcao).show(); // Mostra apenas a opção selecionada
+}
+});
+$('#ordem').change(function(){
+var ordem = $(this).val();
+
+$.ajax({
+	url: "comunicados.php",
+	type: "GET",
+	data:"ordem=" + ordem,
+	dataType: "html"
+	}).done(function(resposta){
+		$(".tempo").html(resposta);
+	}).fail(function(jqXHR, textStatus ) {
+		console.log("Request failed: " + textStatus);
+	
+});
+});
+});
+</script>
 	<!-- /js -->
 	</head>
 <body>
@@ -104,43 +141,43 @@
 			</div>
 			<ul>
 			<li class="item-menu">
-					  <a href="perfil.php">
+					  <a href="adm-perfil.php">
 					  <span class="icon"><i class="bi bi-person-fill"></i></span>
 					  <span class="txt-link">Usuário</span>
 					  </a>
 				  </li>
 				  <li class="item-menu">
-				<a href="calendario.php">
+				<a href="adm-calendario.php">
 					<span class="icon"><i class="bi bi-house-door-fill"></i></span>
 					<span class="txt-link">Calendário</span>
 				</a>
 			</li>
 			  <li class="item-menu ativo">
-					  <a href="comunicados.php">
+					  <a href="adm-comunicados.php">
 					  <span class="icon"><i class="bi bi-megaphone-fill"></i></span>
 					  <span class="txt-link">Comunicados</span>
 					  </a>
 				  </li>
 				  <li class="item-menu">
-					  <a href="apm.php">
+					  <a href="adm-apm.php">
 					  <span class="icon"><i class="bi bi-cart4"></i></span>
 					  <span class="txt-link">APM</span>
 					  </a>
 				  </li>
 				  <li class="item-menu">
-					  <a href="gestao.php">
+					  <a href="adm-gestao.php">
 					  <span class="icon"><i class="bi bi-person-workspace"></i></span>
 					  <span class="txt-link">Gestão</span>
 					  </a>
 				  </li>
 			  <li class="item-menu">
-					  <a href="duvidas.php">
+					  <a href="adm-duvidas.php">
 					  <span class="icon"><i class="bi bi-question-lg"></i></span>
 					  <span class="txt-link">Dúvidas</span>
 					  </a>
 				  </li>
 				  <li class="item-menu">
-					  <a href="gerenciamento.php">
+					  <a href="adm-gerenciamento.php">
 					  <span class="icon"><i class="bi bi-gear-fill"></i></span>
 					  <span class="txt-link">Gerenciamento</span>
 					  </a>
@@ -166,64 +203,18 @@
     	<div class="comuni">
 			<h1>Comunicados</h1>
     	</div>
-    <div class="adm-filtro mt-5 mb-5">
+		<div class="adm-filtro mt-5 mb-5">
         <div class="espaco filtro-title">
           <p>Filtrar por:</p>
         </div>
-        <div class="espaco filtro-btn sindrome">
+          <div class="espaco filtro-btn turma">
           <div class="col">
-                  <div class="select-btn">
-                    <span class="btn-text" id="seltet">Selecionar Data</span>
-                    <i class="bi bi-chevron-down"></i>
-                  </div>
-                  <ul class="list-itens">
-                        <li class="item check-all" onclick="recente()">
-                          <!-- Checkbox oculto -->
-                          <input type="radio" class="checkbox dateee" name="Date" value="Recente" id="recente">
-                          <label class="checkbox-label" for="recente"></label>
-                          </span>
-                          <span class="item-text" >Recente</span>
-                        </li>
-                        <li class="item check-all" onclick="antigo()">
-                          <!-- Checkbox oculto -->
-                          <input type="radio" class="checkbox dateee" name="Date" value="Antigo" id="antigo">
-                          <label class="checkbox-label" for="antigo"></label>
-                          </span>
-                          <span class="item-text" >Antigo</span>
-                        </li>
-                  </ul>
-                </div>
+                  
+      
+                
         </div>
-                <div class="espaco filtro-btn turma">
-          <div class="col">
-                  <div class="select-btn">
-                    <span class="btn-text">Selecionar Curso</span>
-                    <i class="bi bi-chevron-down"></i>
-                  </div>
-                  <ul class="list-itens" style="z-index: 3;">
-                    <li class="a" id="all-select1" style="cursor:pointer;">
-                      <label class="form-check-label" for="selectAllOptions" style="cursor:pointer;">Todos</label>
-                    </li>
-                    <?php
-                      //exibir o select
-                      $sql = "SELECT * FROM tb_turma";
-
-                      foreach ($conn->query($sql) as $item){?>
-                        <li class="item">
-                          <!-- Checkbox oculto -->
-                          <input type="checkbox" class="checkbox" name="turmasAlterar[]" value="<?php echo $item['cd_turma'];?>" id="<?php echo $item['nm_turma'];?>">
-                          <label class="checkbox-label" for="<?php echo $item['nm_turma'];?>"></label>
-                          </span>
-                          <span class="item-text"><?php echo $item['nm_turma'];?></span>
-                        </li>
-                      <?php
-                      }
-                    ?>
-                  </ul>
-                </div>
-        </div>
-	</div>
-</div>
+      </div>
+    </div>
 <!-- search bar-->
 <div class="centro-search">
 
@@ -247,8 +238,27 @@
 </div>
 
 <!-- fim da search bar-->
+<div class="tempo">
 		<?php
-			$sql = "SELECT * FROM tb_comunicado";
+
+		$OrdemPadrao = isset($_GET['ordem']) ? $_GET['ordem']: 'todos';
+
+		switch ($OrdemPadrao) {
+			case 'Recente':
+				$sql = "SELECT * FROM tb_comunicado ORDER BY cd_comunicado DESC ";
+				break;
+			
+			case 'Antigo':
+				$sql = "SELECT * FROM tb_comunicado ORDER BY cd_comunicado ASC ";
+				break;
+
+			default:
+				$sql = "SELECT * FROM tb_comunicado ORDER BY cd_comunicado DESC ";
+				break;
+		}
+			
+
+			
 
 			foreach ($conn->query($sql) as $item){
 				//pegar a array de turmas selecionadas no comunicado
@@ -298,6 +308,7 @@
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 	
 	<!-- fim do Modal De Exclusao -->

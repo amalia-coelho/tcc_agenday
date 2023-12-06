@@ -70,68 +70,62 @@
         <i class="bi bi-list" id="btn-exp"></i>
       </div>
       <ul>
+      <li class="item-menu ativo">
+				<a href="adm-perfil.php">
+				<span class="icon"><i class="bi bi-person-fill"></i></span>
+				<span class="txt-link">Usuário</span>
+				</a>
+			</li>
+			<li class="item-menu">
+				<a href="adm-calendario.php">
+					<span class="icon"><i class="bi bi-house-door-fill"></i></span>
+					<span class="txt-link">Calendário</span>
+				</a>
+			</li>
         <li class="item-menu">
-          <a href="perfil.html">
-            <span class="icon"><i class="bi bi-person-fill"></i></span>
-            <span class="txt-link">Usuário</span>
-          </a>
-        </li>
+				<a href="adm-comunicados.php">
+				<span class="icon"><i class="bi bi-megaphone-fill"></i></span>
+				<span class="txt-link">Comunicados</span>
+				</a>
+			</li>
+			<li class="item-menu ">
+				<a href="adm-apm.php">
+				<span class="icon"><i class="bi bi-cart4"></i></span>
+				<span class="txt-link">APM</span>
+				</a>
+			</li>
+			<li class="item-menu">
+				<a href="adm-gestao.php">
+				<span class="icon"><i class="bi bi-person-workspace"></i></span>
+				<span class="txt-link">Gestão</span>
+				</a>
+			</li>
         <li class="item-menu">
-          <a href="index.html">
-            <span class="icon"><i class="bi bi-house-door-fill"></i></span>
-            <span class="txt-link">Home</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="#">
-            <span class="icon"><i class="bi bi-calendar2-week-fill"></i></span>
-            <span class="txt-link">Calendário</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="comunicados.html">
-            <span class="icon"><i class="bi bi-megaphone-fill"></i></span>
-            <span class="txt-link">Comunicados</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="apm.html">
-            <span class="icon"><i class="bi bi-cart4"></i></span>
-            <span class="txt-link">APM</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="painel.html">
-            <span class="icon"><i class="bi bi-heart-fill"></i></span>
-            <span class="txt-link">Saúde</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="#">
-            <span class="icon"><i class="bi bi-person-workspace"></i></span>
-            <span class="txt-link">Gestão</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="duvidas.html">
-            <span class="icon"><i class="bi bi-question-lg"></i></span>
-            <span class="txt-link">Dúvidas</span>
-          </a>
-        </li>
-        <li class="item-menu ativo">
-          <a href="gerenciamento.html">
-            <span class="icon"><i class="bi bi-gear-fill"></i></span>
-            <span class="txt-link">Gerenciamento</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="logout.php">
-            <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
-            <span class="txt-link">Sair</span>
-          </a>
-        </li>
-      </ul>
-    </nav>
+				<a href="adm-duvidas.php">
+				<span class="icon"><i class="bi bi-question-lg"></i></span>
+				<span class="txt-link">Dúvidas</span>
+				</a>
+			</li>
+			<?php
+			// Verifica se o 'id_nivel' do usuário é igual a 1
+			if ($_SESSION['id_nivel'] == 1) {
+				?>
+				<li class="item-menu">
+					<a href="adm-gerenciamento.php">
+					<span class="icon"><i class="bi bi-gear-fill"></i></span>
+					<span class="txt-link">Gerenciamento</span>
+					</a>
+				</li>
+<?php
+}?>
+			<li class="item-menu">
+				<a href="php/logout.php">
+				<span class="icon"><i class="bi bi-box-arrow-right"></i></span>
+				<span class="txt-link">Sair</span>
+				</a>
+			</li>
+			</ul>
+    </nav> 
     <!-- FIM DO MENU -->
   </section>
 
@@ -332,5 +326,4 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
-
 </html>

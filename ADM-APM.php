@@ -1,10 +1,23 @@
 <?php
-	include("php/conexao.php");
-    session_start();
-    if (!isset($_SESSION['email'])){
+session_start();
+include('php/conexao.php');
+
+// Verifica se o usuário está autenticado
+if (!isset($_SESSION['email'])) {
+    header('Location: index.php');
+    exit(); // Certifique-se de sair do script após redirecionar
+} else {
+    // Obtém informações do usuário logado (presumindo que 'id_nivel' seja um campo na tabela de usuários)
+    $email = $_SESSION['email'];
+    $stmt = $conn->prepare("SELECT id_nivel FROM tb_usuario WHERE ds_email = :email");
+    $stmt->execute(array(':email' => $email));
+    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // Verifica se o 'id_nivel' do usuário é igual a 1
+    if ($_SESSION['id_nivel'] != 1) {
         header('Location: index.php');
-    }else{
-?>
+        exit(); // Certifique-se de sair do script após redirecionar
+    }?>
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
@@ -99,43 +112,43 @@
       			</div>
       			<ul>
 					<li class="item-menu">
-						<a href="perfil.php">
+						<a href="adm-perfil.php">
 							<span class="icon"><i class="bi bi-person-fill"></i></span>
 							<span class="txt-link">Usuário</span>
 						</a>
 					</li>
 					<li class="item-menu">
-						<a href="calendario.php">
+						<a href="adm-calendario.php">
 							<span class="icon"><i class="bi bi-house-door-fill"></i></span>
 							<span class="txt-link">Home</span>
 						</a>
 					</li>
         			<li class="item-menu">
-						<a href="comunicados.php">
+						<a href="adm-comunicados.php">
 							<span class="icon"><i class="bi bi-megaphone-fill"></i></span>
 							<span class="txt-link">Comunicados</span>
 						</a>
 					</li>
 					<li class="item-menu ativo">
-						<a href="apm.php">
+						<a href="adm-apm.php">
 							<span class="icon"><i class="bi bi-cart4"></i></span>
 							<span class="txt-link">APM</span>
 						</a>
 					</li>
 					<li class="item-menu">
-						<a href="gestao.php">
+						<a href="adm-gestao.php">
 							<span class="icon"><i class="bi bi-person-workspace"></i></span>
 							<span class="txt-link">Gestão</span>
 						</a>
 					</li>
 					<li class="item-menu">
-						<a href="duvidas.php">
+						<a href="adm-duvidas.php">
 							<span class="icon"><i class="bi bi-question-lg"></i></span>
 							<span class="txt-link">Dúvidas</span>
 						</a>
 					</li>
 					<li class="item-menu">
-						<a href="gerenciamento.php">
+						<a href="adm-gerenciamento.php">
 							<span class="icon"><i class="bi bi-gear-fill"></i></span>
 							<span class="txt-link">Gerenciamento</span>
 						</a>
@@ -155,26 +168,6 @@
 					<h1>APM</h1>
 					<p>Olá, aqui é a APM (Associação de Pais e Mestres)! Nessa área é possível somente visualizar todos os itens que são vendidos na nossa escola, caso você queira adquirir alguma coisa, terá que se redirecionar para a secretária da Etec de Itanhaém.</p>
 				</div>
-				
-			<!-- search bar-->
-
-			<div class="inner-form">
-            <div class="input-field">
-              <button class="btn-search" type="button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                  <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-                </svg>
-              </button>
-              <input id="search" type="text" placeholder="Pesquise aqui"/>
-            </div>
-          </div>
-		  <div class="suggestion-wrap">
-            <span>Camisa</span>
-            <span>Meio Ambiente</span>
-            <span>Administração</span>
-            <span>Armários</span>
-            <span style="background:red" id="clearSearch">Limpar <i class="bi bi-x-circle-fill"></i></span>
-          </div>
 
 			<!-- fim da search bar-->
 
@@ -185,13 +178,13 @@
 					
 					if (count($rows) > 0) {
 						foreach ($rows as $row) {
-					?>
-					<div class="apm-group">
+							?>
+						<div class="apm-group">
 						<!-- inicio card -->
 						<div class="apm-card">
 							<img src="<?php echo $row['ds_imagem'];?>" alt="" class="card-img">
 							<button data-bs-toggle="modal" data-bs-target="#editModal" class="alterar" cod="<?php echo $row['cd_apm'];?>" nome="<?php echo $row['nm_produto'];?>" valor="<?php echo $row['nr_valor']?>" descricao="<?php echo $row['ds_descricao'];?>" imagem="<?php echo $row['ds_imagem'];?>"><i class="bi bi-pencil-square edit-icon"></i></button>
-							<a href="#" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i class="bi bi-trash-fill delete-icon"></i></a>
+							<a href="#"  data-bs-toggle="modal" data-bs-target="#confirmDeleteModal"><i class="bi bi-trash-fill delete-icon"></i></a>
 							<div class="card-info">
 								<div class="card-text">
 									<p class="card-title"><?php echo $row['nm_produto']; ?></p>
@@ -208,16 +201,15 @@
 							</div>
 						</div>
 						<!-- fim card -->
-					</div>
-					
-					<!-- Modal De Exclusao -->
-					<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-						<div class="modal-dialog modal-dialog-centered" role="document">
-							<div class="modal-content custom-modal">
-								<div class="modal-circle">
-									<i class="bi bi-x-circle mt-5" style="color: #ff0000; font-size:5em;display: flex; align-items: center; justify-content: center;"></i>
-								</div>
-								<div class="modal-header" style="background-color: #fff; border: none; text-align: center; justify-content: center;">
+						
+						<!-- Modal De Exclusao -->
+						<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-dialog-centered" role="document">
+								<div class="modal-content custom-modal">
+									<div class="modal-circle">
+										<i class="bi bi-x-circle mt-5" style="color: #ff0000; font-size:5em;display: flex; align-items: center; justify-content: center;"></i>
+									</div>
+									<div class="modal-header" style="background-color: #fff; border: none; text-align: center; justify-content: center;">
 									<h5 class="modal-title" style="color:#000; font-size:1.5em ">Você tem certeza?</h5>
 								</div>
 								<div class="modal-body" style="text-align: center;">
@@ -229,14 +221,16 @@
 								</div>
 							</div>
 						</div>
+						<!-- fim do Modal De Exclusao -->
 					</div>
-					<!-- fim do Modal De Exclusao -->
-				<?php    		
-					}} else{
+					</div>
+						<?php 
+						}   		
+					} else{
 						echo "<p class='mt-5' style='font-size:18px;'>Desculpe, não temos produtos disponíveis no momento. Confira novamente mais tarde!</p>";
 					}
-				?>
-			</div>
+					?>
+				</div>
 
 			<!-- Modal de Alteração -->
 			<div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
@@ -261,7 +255,7 @@
 								<div class="row mb-3">
 									<div class="col">
 										<label for="alterar_nm_produto" class="form-label">Novo Nome do Produto</label>
-										<input type="text" name="titulo" class="form-control" id="alterar_nm_produto">
+										<input type="text" name="titulo" class="form-control" maxlength="25" id="alterar_nm_produto">
 									</div>
 									<div class="col">
 										<label for="alterar_vl_produto" class="form-label preco">Novo Valor do Produto</label>
@@ -270,7 +264,7 @@
 								</div>
 								<div class="mb-3">
 									<label for="alterar_ds_produto" class="form-label">Nova Descrição do Produto</label>
-									<textarea name="descricao" class="form-control" id="alterar_ds_produto" rows="4"></textarea>
+									<textarea name="descricao" class="form-control" id="alterar_ds_produto" maxlength="33" rows="4"></textarea>
 								</div>
 								<p id="exibir_cod" style="display:none;"></p>
 								<p id="exibir_path" style="display: none;"></p>
@@ -313,7 +307,7 @@
 								<div class="row mb-3">
 									<div class="col">
 										<label for="nm_produto" class="form-label">Nome do Produto</label>
-										<input type="text" name="nm_produto" class="form-control" id="nm_produto" maxlength="10">
+										<input type="text" name="nm_produto" class="form-control" id="nm_produto" maxlength="25">
 									</div>
 									<div class="col">
 										<label for="nr_valor" class="form-label preco">Valor do Produto</label>
@@ -322,7 +316,7 @@
 								</div>
 								<div class="mb-3">
 									<label for="ds_descricao" class="form-label">Descrição do Produto</label>
-									<textarea name="ds_descricao" class="form-control" id="ds_descricao" rows="4" maxlength="15"></textarea>
+									<textarea name="ds_descricao" class="form-control" id="ds_descricao" rows="4" maxlength="33"></textarea>
 								</div>
 							</div>
 							<div id="exibe"></div>

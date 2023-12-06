@@ -1,10 +1,23 @@
 <?php
-	session_start();
-	include('php/conexao.php');
-	if (!isset($_SESSION['email'])) {
-		header('Location: index.php');
-	} else {
-?>
+session_start();
+include('php/conexao.php');
+
+// Verifica se o usuário está autenticado
+if (!isset($_SESSION['email'])) {
+    header('Location: index.php');
+    exit(); // Certifique-se de sair do script após redirecionar
+} else {
+    // Obtém informações do usuário logado (presumindo que 'id_nivel' seja um campo na tabela de usuários)
+    $email = $_SESSION['email'];
+    $stmt = $conn->prepare("SELECT id_nivel FROM tb_usuario WHERE ds_email = :email");
+    $stmt->execute(array(':email' => $email));
+    $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // Verifica se o 'id_nivel' do usuário é igual a 1
+    if ($_SESSION['id_nivel'] != 1) {
+        header('Location: index.php');
+        exit(); // Certifique-se de sair do script após redirecionar
+    }?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -74,7 +87,7 @@
 					}).done(function(resposta){
 						$("#exibe2").html(resposta);
 					}).fail(function(jqXHR, textStatus ) {
-						console.log("Request failed: " + textStatus);
+						$("#exibe2").html("Request failed: " + textStatus);
 					});
 				});
 			});	
@@ -93,55 +106,55 @@
         <i class="bi bi-list" id="btn-exp"></i>
       </div>
       <ul>
+      <li class="item-menu">
+				<a href="adm-perfil.php">
+				<span class="icon"><i class="bi bi-person-fill"></i></span>
+				<span class="txt-link">Usuário</span>
+				</a>
+			</li>
+      <li class="item-menu">
+				<a href="ADM-CALENDARIO.php">
+					<span class="icon"><i class="bi bi-house-door-fill"></i></span>
+					<span class="txt-link">Calendário</span>
+				</a>
+			</li>
         <li class="item-menu">
-          <a href="perfil.php">
-            <span class="icon"><i class="bi bi-person-fill"></i></span>
-            <span class="txt-link">Usuário</span>
-          </a>
-        </li>
+				<a href="ADM-COMUNICADOS.php">
+				<span class="icon"><i class="bi bi-megaphone-fill"></i></span>
+				<span class="txt-link">Comunicados</span>
+				</a>
+			</li>
+			<li class="item-menu ">
+				<a href="ADM-APM.php">
+				<span class="icon"><i class="bi bi-cart4"></i></span>
+				<span class="txt-link">APM</span>
+				</a>
+			</li>
+			<li class="item-menu ativo">
+				<a href="ADM-GESTAO.php">
+				<span class="icon"><i class="bi bi-person-workspace"></i></span>
+				<span class="txt-link">Gestão</span>
+				</a>
+			</li>
         <li class="item-menu">
-          <a href="calendario.php">
-            <span class="icon"><i class="bi bi-house-door-fill"></i></span>
-            <span class="txt-link">Calendário</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="comunicados.php">
-            <span class="icon"><i class="bi bi-megaphone-fill"></i></span>
-            <span class="txt-link">Comunicados</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="apm.php">
-            <span class="icon"><i class="bi bi-cart4"></i></span>
-            <span class="txt-link">APM</span>
-          </a>
-        </li>
-        <li class="item-menu ativo">
-          <a href="#">
-            <span class="icon"><i class="bi bi-person-workspace"></i></span>
-            <span class="txt-link">Gestão</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="duvidas.php">
-            <span class="icon"><i class="bi bi-question-lg"></i></span>
-            <span class="txt-link">Dúvidas</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="gerenciamento.php">
-            <span class="icon"><i class="bi bi-gear-fill"></i></span>
-            <span class="txt-link">Gerenciamento</span>
-          </a>
-        </li>
-        <li class="item-menu">
-          <a href="php/logout.php">
-            <span class="icon"><i class="bi bi-box-arrow-right"></i></span>
-            <span class="txt-link">Sair</span>
-          </a>
-        </li>
-      </ul>
+				<a href="adm-duvidas.php">
+				<span class="icon"><i class="bi bi-question-lg"></i></span>
+				<span class="txt-link">Dúvidas</span>
+				</a>
+			</li>
+			<li class="item-menu">
+				<a href="ADM-GERENCIAMENTO.php">
+				<span class="icon"><i class="bi bi-gear-fill"></i></span>
+				<span class="txt-link">Gerenciamento</span>
+				</a>
+			</li>
+			<li class="item-menu">
+				<a href="php/logout.php">
+				<span class="icon"><i class="bi bi-box-arrow-right"></i></span>
+				<span class="txt-link">Sair</span>
+				</a>
+			</li>
+			</ul>
     </nav>
     <!-- FIM DO MENU -->
   </section>
@@ -150,46 +163,23 @@
       <h1>Gestão Pedagógica</h1>
     </div>
     <section class="gestao">
-      <div class="gestao-container">
-        <?php
+		<div class="gestao-container">
+      <?php
           $sql = "SELECT * FROM tb_gestao";
           foreach ($conn->query($sql) as $row) {?>
-            <div class="gestao-users">
-              <img src="<?php echo $row['ds_imagem'];?>" alt="Foto do Usuário">
-              <button class="alterar" data-bs-toggle="modal" data-bs-target="#editModal" cod="<?php echo $row['cd_membro'];?>" nome="<?php echo $row['nm_membro'];?>" cargo="<?php echo $row['ds_cargo'];?>" imagem="<?php echo $row['ds_imagem'];?>"><i class="bi bi-pencil-square edit-icon"></i></button>
-              <i data-bs-toggle="modal" data-bs-target="#confirmDeleteModal" class="bi bi-trash-fill delete-icon"></i>
-              <p><?php echo $row['nm_membro'];?></p>
-              <p><?php echo $row['ds_cargo'];?></p>
-            </div>
-			
-			
-			<!-- Modal De Exclusao -->
-			<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-dialog-centered" role="document">
-					<div class="modal-content custom-modal">
-						<div class="modal-circle">
-							<i class="bi bi-x-circle mt-5" style="color: #ff0000; font-size:5em;display: flex; align-items: center; justify-content: center;"></i>
-						</div>
-						<div class="modal-header" style="background-color: #fff; border: none; text-align: center; justify-content: center;">
-							<h5 class="modal-title" style="color:#000; font-size:1.5em ">Você tem certeza?</h5>
-						</div>
-						<div class="modal-body" style="text-align: center;">
-							<p>Você realmente deseja excluir esses registros? Este processo não pode ser desfeito.</p>
-						</div>
-						<div class="modal-footer" style="border: none; justify-content: center;">
-							<a href="php/delete_gestao.php?cod=<?php echo $row['cd_membro'];?>"><button type="button" class="btn btn-danger">Sim, Excluir</button></a>
-							<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-						</div>
-					</div>
-				</div>
-			</div>
-	</div>
-			<?php
+				<div class="gestao-users">
+              		<img src="<?php echo $row['ds_imagem'];?>" alt="Foto do Usuário">
+              		<button class="alterar" data-bs-toggle="modal" data-bs-target="#editModal" cod="<?php echo $row['cd_membro'];?>" nome="<?php echo $row['nm_membro'];?>" cargo="<?php echo $row['ds_cargo'];?>" imagem="<?php echo $row['ds_imagem'];?>"><i class="bi bi-pencil-square edit-icon"></i></button>
+					<a href="php/delete_gestao.php?cod=<?php echo $row['cd_membro'];?>"><i class="bi bi-trash-fill delete-icon"></i></a>
+              		<p><?php echo $row['nm_membro'];?></p>
+              		<p><?php echo $row['ds_cargo'];?></p>
+            	</div>
+				<?php
           }
-		  ?>
+          ?>
+		</div>
+  </section>
 </main>
-<!-- fim do Modal De Exclusao -->
-
 
   <!-- Modal de Alteração -->
   <div class="modal fade" id="editModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -199,33 +189,31 @@
 		<form id="alterarGestao" enctype="multipart/form-data">
 			<div class="modal-header">
 				<h1 class="modal-title fs-5" id="editModalLabel">Editar Membro</h1>
-				<button type="button" class="btn-close btn-close-white close-button" data-bs-dismiss="modal" aria-label="Close"></button>
+				<button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 			<div class="modal-body">
-				<form>
-					<!-- Inputs para a alteração -->
-					<div class="mb-3">
-						<label for="imageInput" class="form-label">Editar Imagem do Membro</label>
-						<div class="input-group">
-							<input type="file" class="form-control" name="alterarImagem" id="imageInput" accept="image/*">
-							<button class="btn btn-outline-secondary" type="button" id="editButton">
-								<i class="bi bi-pencil"></i> <!-- Ícone de editar -->
-							</button>
-						</div>
+				<!-- Inputs para a alteração -->
+				<div class="mb-3">
+					<label for="imageInput" class="form-label">Editar Imagem do Membro</label>
+					<div class="input-group">
+						<input type="file" class="form-control" name="alterarImagem" id="imageInput" accept="image/*">
+						<button class="btn btn-outline-secondary" type="button" id="editButton">
+							<i class="bi bi-pencil"></i> <!-- Ícone de editar -->
+						</button>
 					</div>
-					<div class="row mb-3">
-						<div class="col">
-							<label for="alterar_nm" class="form-label">Editar Nome do Membro</label>
-							<input type="text" class="form-control" name="nome" id="alterar_nm">
-						</div>
-						<div class="col">
-							<label for="alterar_cargo" class="form-label">Editar Cargo do Membro</label>
-							<input type="text" class="form-control" name="cargo" id="alterar_cargo">
-						</div>
+				</div>
+				<div class="row mb-3">
+					<div class="col">
+						<label for="alterar_nm" class="form-label">Editar Nome do Membro</label>
+						<input type="text" class="form-control" name="nome" id="alterar_nm">
 					</div>
-				</form>
+					<div class="col">
+						<label for="alterar_cargo" class="form-label">Editar Cargo do Membro</label>
+						<input type="text" class="form-control" name="cargo" id="alterar_cargo">
+					</div>
+				</div>
 				<p id="exibir_cod" style="display: none;"></p>
-				<p id="exibir_path" style="display: none;"></p>
+				<p id="exibir_path" style="display:none;"></p>
 			</div>
 			<div id="exibe2"></div>
 			<div class="modal-footer">
@@ -237,9 +225,6 @@
     </div>
   </div>
   <!-- Fim do modal de Alteração -->
-
-
-
 
   <!-- incio do modal E BOTAO QUE ABRE ELE -->
   <button type="button" class="btn btn-primary add" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -253,7 +238,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="staticBackdropLabel">Adicionar Membro</h1>
-          <button type="button" class="btn-close btn-close-white close-button" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close close-button" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 		    <form id="addGestao" enctype="multipart/form-data">
         <div class="modal-body">
